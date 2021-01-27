@@ -14,7 +14,7 @@ ITCC 42 Service-Learning Program
 
 ---
 
-### Objectives
+## Objectives
 
 - [ ] Implement Bookkeeping.
 
