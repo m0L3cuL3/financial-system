@@ -13,5 +13,9 @@ ITCC 42 Service-Learning Program
 - Gian Paredes :philippines:
 
 ---
-**Objectives**
-[] Implement Bookkeeping.
+
+### Objectives
+
+- [ ] Implement Bookkeeping.
+
+---
