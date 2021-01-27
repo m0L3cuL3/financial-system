@@ -1,4 +1,4 @@
-# Financial System for Pangantucan High School
+# Financial System for Pangantucan Community High School (PCHS)
 
 ---
 ITCC 42 Service-Learning Program
