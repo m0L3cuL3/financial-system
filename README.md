@@ -10,5 +10,6 @@ ITCC 42 Service-Learning Program
 - Alexis Galaura :philippines:
 - Gecel Rodriguez :philippines:
 - Joseph Rosales :philippines:
+- Gian Paredes :philippines:
 
 ---
