@@ -11,3 +11,16 @@ C:\Users\user\Desktop\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANC
 C:\Users\user\Desktop\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.exe
 C:\Users\user\Desktop\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.pdb
 C:\Users\user\Desktop\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.btnDisplayDrives.resources
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\bin\Debug\PCHS_FINANCE_SYSTEM.exe.config
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\bin\Debug\PCHS_FINANCE_SYSTEM.exe
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\bin\Debug\PCHS_FINANCE_SYSTEM.pdb
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\bin\Debug\IronXL.dll
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\bin\Debug\IronXL.xml
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.csprojAssemblyReference.cache
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.btnDisplayDrives.resources
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.Properties.Resources.resources
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.csproj.GenerateResource.cache
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.csproj.CoreCompileInputs.cache
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.csproj.CopyComplete
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.exe
+X:\cs\financial-system\PCHS_FINANCE_SYSTEM\obj\Debug\PCHS_FINANCE_SYSTEM.pdb

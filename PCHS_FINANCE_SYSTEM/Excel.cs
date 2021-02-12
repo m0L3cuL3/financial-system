@@ -105,18 +105,19 @@ namespace PCHS_FINANCE_SYSTEM
 
             #endregion
 
-            if (Directory.Exists(@"F:\Workbooks"))
+            if (Directory.Exists(@".\Workbooks"))
             {
-                wb.SaveAs($@"F:\Workbooks\{filename}.xlsx");
+                wb.SaveAs($@".\Workbooks\{filename}.xlsx");
                 MessageBox.Show("File Created!");
             }
             else
             {
-                DialogResult dr = MessageBox.Show(@"F:\Workbooks directory does not exists! \n\nDo you want me to create a directory?", "Directory Does Not Exist!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                string path = Directory.GetCurrentDirectory();
+                DialogResult dr = MessageBox.Show($@"{path} directory does not exists! \n\nDo you want me to create a directory?", "Directory Does Not Exist!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    Directory.CreateDirectory(@"F:\Workbooks");
-                    wb.SaveAs($@"F:\Workbooks\{filename}.xlsx");
+                    Directory.CreateDirectory(@".\Workbooks");
+                    wb.SaveAs($@".\Workbooks\{filename}.xlsx");
                     MessageBox.Show($@"Directory and {filename}.xlsx Created!");
                 }
                 else
