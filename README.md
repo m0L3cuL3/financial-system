@@ -6,7 +6,7 @@
 
 ITCC 42 Service-Learning Program
 
-**Members** :family_man_man_boy_boy:
+**Contributors** :family_man_man_boy_boy:
 
 - Sean Baang :philippines:
 - Michael Pagaran :philippines:
@@ -23,11 +23,5 @@ ITCC 42 Service-Learning Program
 - MaterialSkin 2.0
 - CsvHelper
 - SQLite
-
-## Contributors
-
-[<img alt="m0L3cuL3" src="https://avatars.githubusercontent.com/u/32866088?v=4 width=50 height=50">](https://github.com/m0L3cuL3) |[<img alt="alexislyndon" src="https://avatars.githubusercontent.com/u/48051317?v=4 width=50 height=50">](https://github.com/alexislyndon) |
-:---:|:---:|
-[m0L3cuL3](https://github.com/m0L3cuL3)|[alexislyndon](https://github.com/alexislyndon)|
 
 ---
