@@ -6,7 +6,7 @@
 
 ITCC 42 Service-Learning Program
 
-**Contributors** :family_man_man_boy_boy:
+## Contributors
 
 - Sean Baang :philippines:
 - Michael Pagaran :philippines:
@@ -14,6 +14,12 @@ ITCC 42 Service-Learning Program
 - Gecel Rodriguez :philippines:
 - Joseph Rosales :philippines:
 - Gian Paredes :philippines:
+
+---
+
+## Features
+- [ ] Journal Entry
+- [ ] Generate Reports
 
 ---
 
