@@ -24,4 +24,10 @@ ITCC 42 Service-Learning Program
 - CsvHelper
 - SQLite
 
+## Contributors
+
+[<img alt="m0L3cuL3" src="https://avatars.githubusercontent.com/u/32866088?v=4&s=117 width=117">](https://github.com/m0L3cuL3) |[<img alt="alexislyndon" src="https://avatars.githubusercontent.com/u/48051317?v=4&s=117 width=117">](https://github.com/alexislyndon) |
+:---:|:---:|
+[m0L3cuL3](https://github.com/m0L3cuL3)|[alexislyndon](https://github.com/alexislyndon)|
+
 ---
