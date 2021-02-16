@@ -22,5 +22,6 @@ ITCC 42 Service-Learning Program
 - C# (.NET Framework 4.7.2)
 - MaterialSkin 2.0
 - CsvHelper
+- SQLite
 
 ---
