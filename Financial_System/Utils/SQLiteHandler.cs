@@ -38,11 +38,25 @@ namespace Financial_System.Utils
 
         public void CreateTable(SQLiteConnection conn)
         {
-            /*SQLiteCommand sqlite_cmd;
-            string Createsql = "CREATE TABLE SampleTable(Col1 VARCHAR(20), Col2 INT)";
+            SQLiteCommand sqlite_cmd;
+
+            // GENERAL LEDGER //
+            string GeneralLedger = "CREATE TABLE GeneralLedger(Date VARCHAR(20), Account VARCHAR(20), RefType VARCHAR(20), Debit INT, Credit INT, Balance INT)";
             sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = Createsql;
-            sqlite_cmd.ExecuteNonQuery();*/
+            sqlite_cmd.CommandText = GeneralLedger;
+            sqlite_cmd.ExecuteNonQuery();
+
+            // ACCOUNTS //
+            string Accounts = "CREATE TABLE Accounts(AccountName VARCHAR(20), RootType VARCHAR(20), AccountType VARCHAR(20))";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = Accounts;
+            sqlite_cmd.ExecuteNonQuery();
+
+            // JOURNAL ENTRIES //
+            string JournalEntries = "CREATE TABLE JournalEntries()"; // -> create table for journal entries.
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = JournalEntries;
+            sqlite_cmd.ExecuteNonQuery();
         }
     }
 }
