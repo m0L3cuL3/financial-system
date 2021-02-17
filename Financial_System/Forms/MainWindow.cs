@@ -10,24 +10,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_System.Utils;
+using Financial_System.Features;
 using System.Data.SQLite;
 
 namespace Financial_System
 {
+
     public partial class mainWindow : MaterialForm
     {
         // Handlers
         SQLiteHandler sqlh = new SQLiteHandler();
+        JournalEntry jeEntry = new JournalEntry();
+        private string[] DC_LIST = { "DEBIT", "CREDIT" };
+
+
         public mainWindow()
         {
             InitializeComponent();
 
-            //statusTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //statusTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
 
-            /*SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true); 
-            SetStyle(ControlStyles.SupportsTransparentBackColor, false); 
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);*/ // Assign our buffer context. backbufferContext = BufferedGraphicsManager. Current; 
+            LoadList();
             var msm = MaterialSkinManager.Instance;
             msm.AddFormToManage(this);
             msm.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -37,13 +39,15 @@ namespace Financial_System
 
         private void mainWindow_Load(object sender, EventArgs e)
         {
-            LoadData();
+            
         }
 
-        private void LoadData()
+        private void LoadList()
         {
-            statusTable.Rows.Add(12341, "Sample Student 0", "Section A", 3, 1, "pending");
-            statusTable.Rows.Add(12341, "Sample Student 0", null, 3, 1, "pending");
+            for(int i = 0; i < DC_LIST.Length; i++)
+            {
+                debCredComboBox.Items.Add(DC_LIST[i]);
+            }
         }
 
         private void TestBtn_Click(object sender, EventArgs e)
@@ -51,6 +55,50 @@ namespace Financial_System
             SQLiteConnection conn;
             conn = sqlh.CreateConnection();
             sqlh.CreateTable(conn);
+        }
+
+        private void InsertBtn_Click(object sender, EventArgs e)
+        {
+            Insert();
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            Delete();
+        }
+
+        private void Insert()
+        {
+
+            switch (debCredComboBox.SelectedItem)
+            {
+                case "DEBIT":
+                    JETable.Rows.Add(dateTextBox.Text, accountsComboBox.SelectedItem.ToString(), descTextbox.Text, refTypeComboBox.SelectedItem.ToString(), valueTextBox.Text, null);
+                    break;
+                case "CREDIT":
+                    JETable.Rows.Add(dateTextBox.Text, accountsComboBox.SelectedItem.ToString(), descTextbox.Text, refTypeComboBox.SelectedItem.ToString(), null, valueTextBox.Text);
+                    break;
+                default:
+                    break;
+            }
+            RefreshData();
+        }
+
+        private void Delete()
+        {
+            foreach (DataGridViewRow row in JETable.SelectedRows)
+            {
+                JETable.Rows.RemoveAt(row.Index);
+            }
+
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            jeEntry.GetDebitTotal(JETable, totalLbl);
+            jeEntry.GetCreditTotal(JETable, creditLbl);
+            jeEntry.BalanceTotal(JETable, balanceLbl);
         }
     }
 }
