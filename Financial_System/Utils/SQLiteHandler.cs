@@ -31,7 +31,7 @@ namespace Financial_System.Utils
             }
             catch (Exception ex)
             {
-
+                Console.Write(ex);
             }
             return sqlite_conn;
         }

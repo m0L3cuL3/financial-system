@@ -18,6 +18,7 @@ ITCC 42 Service-Learning Program
 ---
 
 ## Features
+
 - [ ] Journal Entry
 - [ ] Generate Reports
 
