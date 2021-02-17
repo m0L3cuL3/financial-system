@@ -93,6 +93,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\JournalEntry.cs" />
     <Compile Include="Utils\SQLiteHandler.cs" />
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
@@ -135,9 +136,7 @@
   <ItemGroup>
     <None Include="Resources\18064451721543238917-128.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
