@@ -38,11 +38,11 @@ namespace Financial_System.Utils
 
         public void CreateTable(SQLiteConnection conn)
         {
-            SQLiteCommand sqlite_cmd;
+            /*SQLiteCommand sqlite_cmd;
             string Createsql = "CREATE TABLE SampleTable(Col1 VARCHAR(20), Col2 INT)";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = Createsql;
-            sqlite_cmd.ExecuteNonQuery();
+            sqlite_cmd.ExecuteNonQuery();*/
         }
     }
 }
