@@ -94,6 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\JournalEntry.cs" />
+    <Compile Include="Utils\AutoCompleteHandler.cs" />
+    <Compile Include="Utils\DataHandler.cs" />
     <Compile Include="Utils\SQLiteHandler.cs" />
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
