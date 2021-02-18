@@ -20,6 +20,7 @@ ITCC 42 Service-Learning Program
 ## Features
 
 - [ ] Journal Entry
+- [ ] General Ledger
 - [ ] Generate Reports
 
 ---
@@ -27,7 +28,7 @@ ITCC 42 Service-Learning Program
 ## Technologies Used
 
 - C# (.NET Framework 4.7.2)
-- MaterialSkin 2.0
+- MaterialSkin 2.0 (Will change in the future)
 - CsvHelper
 - SQLite
 
