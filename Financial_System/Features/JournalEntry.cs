@@ -18,7 +18,7 @@ namespace Financial_System.Features
     class JournalEntry : IJournalEntry
     {
         double debitTotal = 0;
-        double creditTotal = 0;
+        double creditTotal = 0; 
         public void GetDebitTotal(DataGridView dgv, Label lbl)
         {
             debitTotal = 0;
