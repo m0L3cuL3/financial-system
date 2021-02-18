@@ -20,16 +20,14 @@ namespace Financial_System
     {
         // Handlers
         SQLiteHandler sqlh = new SQLiteHandler();
-        JournalEntry jeEntry = new JournalEntry();
-        private string[] DC_LIST = { "DEBIT", "CREDIT" };
-
+        AutoCompleteHandler ach = new AutoCompleteHandler();
+        DataHandler dh = new DataHandler();
+        SQLiteConnection conn;
 
         public mainWindow()
         {
             InitializeComponent();
 
-
-            LoadList();
             var msm = MaterialSkinManager.Instance;
             msm.AddFormToManage(this);
             msm.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -39,66 +37,72 @@ namespace Financial_System
 
         private void mainWindow_Load(object sender, EventArgs e)
         {
-            
+            LedgerDgv.Rows.Add(100, 1, 422, "Test User");
+            LedgerDgv.Rows.Add(101, 11, 112, "Test User");
+            LedgerDgv.Rows.Add(104, 12, 21, "Test User");
+            LedgerDgv.Rows.Add(105, 13, 23, "Test User");
+            LedgerDgv.Rows.Add(106, 14, 12, "Test User");
+
+            ach.AutoCompleteFunction(LIDTxtBox, TIDTxtBox, SIDTxtBox, FullnameTxtBox, LedgerDgv);
         }
 
-        private void LoadList()
+        private void LedgerDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for(int i = 0; i < DC_LIST.Length; i++)
+            var senderGrid = (DataGridView)sender;
+            
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                debCredComboBox.Items.Add(DC_LIST[i]);
+                //
+                //TODO - OnClick Show Student Transactions.
+                //
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dh.FilterLedgerID(LIDTxtBox, LedgerDgv); // fix this shit.
         }
 
         private void TestBtn_Click(object sender, EventArgs e)
         {
-            SQLiteConnection conn;
+            CheckTable();
+        }
+
+
+        private void LoadStudentData()
+        {
+            StudentDgv.Rows.Clear();
+            StudentDgv.Refresh();
             conn = sqlh.CreateConnection();
-            sqlh.CreateTable(conn);
+            sqlh.ReadStudentData(conn, StudentDgv);
         }
 
-        private void InsertBtn_Click(object sender, EventArgs e)
+        private void CheckTable()
         {
-            Insert();
-        }
-
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-            Delete();
-        }
-
-        private void Insert()
-        {
-
-            switch (debCredComboBox.SelectedItem)
+            try
             {
-                case "DEBIT":
-                    JETable.Rows.Add(dateTextBox.Text, accountsComboBox.SelectedItem.ToString(), descTextbox.Text, refTypeComboBox.SelectedItem.ToString(), valueTextBox.Text, null);
-                    break;
-                case "CREDIT":
-                    JETable.Rows.Add(dateTextBox.Text, accountsComboBox.SelectedItem.ToString(), descTextbox.Text, refTypeComboBox.SelectedItem.ToString(), null, valueTextBox.Text);
-                    break;
-                default:
-                    break;
-            }
-            RefreshData();
-        }
+                conn = sqlh.CreateConnection();
+                sqlh.CreateTable(conn);
 
-        private void Delete()
-        {
-            foreach (DataGridViewRow row in JETable.SelectedRows)
+                MessageBox.Show("Database and Tables Created!");
+            }
+            catch(Exception ex)
             {
-                JETable.Rows.RemoveAt(row.Index);
+                MessageBox.Show("Database File Already Exists!");
             }
-
-            RefreshData();
+            
         }
 
-        private void RefreshData()
+        private void LoadStudentBtn_Click(object sender, EventArgs e)
         {
-            jeEntry.GetDebitTotal(JETable, totalLbl);
-            jeEntry.GetCreditTotal(JETable, creditLbl);
-            jeEntry.BalanceTotal(JETable, balanceLbl);
+            LoadStudentData();
+        }
+
+        private void InsertStudentBtn_Click(object sender, EventArgs e)
+        {
+            conn = sqlh.CreateConnection();
+            sqlh.InsertStudentData(conn);
+            LoadStudentData();
         }
     }
 }
