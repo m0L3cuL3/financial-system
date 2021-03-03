@@ -1,108 +1,42 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_System.Utils;
-using Financial_System.Features;
-using System.Data.SQLite;
 
-namespace Financial_System
+namespace Financial_System.Forms
 {
-
-    public partial class mainWindow : MaterialForm
+    public partial class MainWindow : Form
     {
-        // Handlers
-        SQLiteHandler sqlh = new SQLiteHandler();
-        AutoCompleteHandler ach = new AutoCompleteHandler();
-        DataHandler dh = new DataHandler();
-        SQLiteConnection conn;
+        UIHandler ui = new UIHandler();
 
-        public mainWindow()
+        public MainWindow()
         {
             InitializeComponent();
 
-            var msm = MaterialSkinManager.Instance;
-            msm.AddFormToManage(this);
-            msm.Theme = MaterialSkinManager.Themes.LIGHT;
-            msm.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            // UIHandler
+            ui.RoundWindow(this); // makes the window round.
+
+            // DropDown (min-height only!)
+            CollectionPanel.Height = 27; // min-height of collection panel
         }
 
-
-        private void mainWindow_Load(object sender, EventArgs e)
+        // MOVING BORDERLESS WINDOW
+        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            LedgerDgv.Rows.Add(100, 1, 422, "Test User");
-            LedgerDgv.Rows.Add(101, 11, 112, "Test User");
-            LedgerDgv.Rows.Add(104, 12, 21, "Test User");
-            LedgerDgv.Rows.Add(105, 13, 23, "Test User");
-            LedgerDgv.Rows.Add(106, 14, 12, "Test User");
-
-            ach.AutoCompleteFunction(LIDTxtBox, TIDTxtBox, SIDTxtBox, FullnameTxtBox, LedgerDgv);
+            ui.DragWindow(Handle, e);
         }
 
-        private void LedgerDgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // DROP DOWN
+        private void CollectionsBtn_Click(object sender, EventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
-            
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            {
-                //
-                //TODO - OnClick Show Student Transactions.
-                //
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dh.FilterLedgerID(LIDTxtBox, LedgerDgv); // fix this shit.
-        }
-
-        private void TestBtn_Click(object sender, EventArgs e)
-        {
-            CheckTable();
-        }
-
-
-        private void LoadStudentData()
-        {
-            StudentDgv.Rows.Clear();
-            StudentDgv.Refresh();
-            conn = sqlh.CreateConnection();
-            sqlh.ReadStudentData(conn, StudentDgv);
-        }
-
-        private void CheckTable()
-        {
-            try
-            {
-                conn = sqlh.CreateConnection();
-                sqlh.CreateTable(conn);
-
-                MessageBox.Show("Database and Tables Created!");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Database File Already Exists!");
-            }
-            
-        }
-
-        private void LoadStudentBtn_Click(object sender, EventArgs e)
-        {
-            LoadStudentData();
-        }
-
-        private void InsertStudentBtn_Click(object sender, EventArgs e)
-        {
-            conn = sqlh.CreateConnection();
-            sqlh.InsertStudentData(conn);
-            LoadStudentData();
+            ui.DropDown(CollectionPanel, 27, 169);
         }
     }
 }
