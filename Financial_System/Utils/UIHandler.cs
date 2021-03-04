@@ -31,6 +31,11 @@ namespace Financial_System.Utils
             window.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, window.Width, window.Height, 20, 20));
         }
 
+        public void RoundButton(Button button)
+        {
+            button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width, button.Height, 30, 30));
+        }
+
         public void DragWindow(IntPtr windowHandle, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
