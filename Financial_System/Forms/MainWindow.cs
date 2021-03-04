@@ -15,7 +15,7 @@ namespace Financial_System.Forms
     public partial class MainWindow : Form
     {
         UIHandler ui = new UIHandler();
-
+        UCHandler uc = new UCHandler();
         public MainWindow()
         {
             InitializeComponent();
@@ -37,6 +37,18 @@ namespace Financial_System.Forms
         private void CollectionsBtn_Click(object sender, EventArgs e)
         {
             ui.DropDown(CollectionPanel, 27, 169);
+        }
+
+        private void GetStartedButton_Click(object sender, EventArgs e)
+        {
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.GsControl);
+        }
+
+        private void DashboardButton_Click(object sender, EventArgs e)
+        {
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.DashControl);
         }
     }
 }
