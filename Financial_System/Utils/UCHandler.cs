@@ -12,6 +12,7 @@ namespace Financial_System.Utils
     {
         public GetStartedControl GsControl = new GetStartedControl();
         public DashboardControl DashControl = new DashboardControl();
+        public StudentLedgerControl StudLedgerControl = new StudentLedgerControl();
 
         public void UnloadControls(Panel panel)
         {
@@ -22,6 +23,5 @@ namespace Financial_System.Utils
         {
             panel.Controls.Add(userControl);
         }
-
     }
 }
