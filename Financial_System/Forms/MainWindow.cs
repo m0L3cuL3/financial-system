@@ -36,7 +36,13 @@ namespace Financial_System.Forms
         // DROP DOWN
         private void CollectionsBtn_Click(object sender, EventArgs e)
         {
-            ui.DropDown(CollectionPanel, 27, 169);
+            ui.DropDown(CollectionPanel, 27, 86);
+        }
+
+        // CLOSE
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void GetStartedButton_Click(object sender, EventArgs e)
@@ -49,6 +55,13 @@ namespace Financial_System.Forms
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
+        }
+
+        private void StudentLedgerButton_Click(object sender, EventArgs e)
+        {
+            
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
         }
     }
 }
