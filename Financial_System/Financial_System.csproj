@@ -117,6 +117,18 @@
     <Compile Include="UserControls\GetStartedControl.Designer.cs">
       <DependentUpon>GetStartedControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StudentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentControl.Designer.cs">
+      <DependentUpon>StudentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StudentLedgerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentLedgerControl.Designer.cs">
+      <DependentUpon>StudentLedgerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\AutoCompleteHandler.cs" />
     <Compile Include="Utils\DataHandler.cs" />
     <Compile Include="Utils\SQLiteHandler.cs" />
@@ -142,6 +154,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\GetStartedControl.resx">
       <DependentUpon>GetStartedControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentControl.resx">
+      <DependentUpon>StudentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentLedgerControl.resx">
+      <DependentUpon>StudentLedgerControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
