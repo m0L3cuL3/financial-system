@@ -4,24 +4,16 @@
 
 ---
 
-ITCC 42 Service-Learning Program
-
-## Contributors
-
-- Sean Baang :philippines:
-- Michael Pagaran :philippines:
-- Alexis Galaura :philippines:
-- Gecel Rodriguez :philippines:
-- Joseph Rosales :philippines:
-- Gian Paredes :philippines:
+## ITCC 42 Service-Learning Program
 
 ---
 
 ## Features
 
-- [ ] Journal Entry
-- [ ] General Ledger
-- [ ] Generate Reports
+- [ ] Collections
+- [ ] Student Ledger
+- [ ] Transactions
+- [ ] Generate Reports (Daily/Monthly)
 
 ---
 
@@ -32,3 +24,12 @@ ITCC 42 Service-Learning Program
 - SQLite
 
 ---
+
+## Contributors
+
+- Sean Baang :philippines:
+- Michael Pagaran :philippines:
+- Alexis Galaura :philippines:
+- Gecel Rodriguez :philippines:
+- Joseph Rosales :philippines:
+- Gian Paredes :philippines:
