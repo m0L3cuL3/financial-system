@@ -41,21 +41,21 @@ namespace Financial_System.Utils
             SQLiteCommand sqlite_cmd;
 
             // STUDENT //
-            string GeneralLedger = "CREATE TABLE Student(sid INTEGER PRIMARY KEY AUTOINCREMENT, FirstName VARCHAR NOT NULL, MiddleName VARCHAR NOT NULL, Surname VARCHAR NOT NULL, Section VARCHAR NOT NULL, YearLevel INT NOT NULL);";
+            string StudentTable = "CREATE TABLE Student(student_id INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = GeneralLedger;
+            sqlite_cmd.CommandText = StudentTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // STUDENT_TRANSACTION //
-            string Accounts = "CREATE TABLE Student_Transaction(tid INTEGER PRIMARY KEY AUTOINCREMENT, Term VARCHAR NOT NULL, Type VARCHAR NOT NULL, Amount INT NOT NULL, sid INT NOT NULL, FOREIGN KEY (sid) REFERENCES Student(sid));";
+            string TransactionTable = "CREATE TABLE Student_Transaction(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount VARCHAR NOT NULL, date DATE NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, FOREIGN KEY (student_id) REFERENCES Student(student_id));";
             sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = Accounts;
+            sqlite_cmd.CommandText = TransactionTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // TRANSACTION_LEDGER //
-            string JournalEntries = "CREATE TABLE Transaction_Ledger(lid INTEGER PRIMARY KEY AUTOINCREMENT, Fullname VARCHAR NOT NULL, sid INT NOT NULL, FOREIGN KEY(sid) REFERENCES Student(sid));";
+            string StudentLedgerTable = "CREATE TABLE Student_Ledger(ledger_id INTEGER PRIMARY KEY AUTOINCREMENT, transaction_id INT NOT NULL, student_id INT NOT NULL, FOREIGN KEY(transaction_id) REFERENCES Student_Transaction(transaction_id), FOREIGN KEY(student_id) REFERENCES Student(student_id));";
             sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = JournalEntries;
+            sqlite_cmd.CommandText = StudentLedgerTable;
             sqlite_cmd.ExecuteNonQuery();
         }
 
@@ -63,39 +63,18 @@ namespace Financial_System.Utils
         {
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Student(FirstName, MiddleName, Surname, Section, YearLevel) VALUES (@fname, @midname, @surname, @section, @yearLevel);";
+            string insertData = "INSERT INTO Student(first_name, middle_name, surname, section, level) VALUES (@fname, @midname, @surname, @section, @level);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@fname", "John");
-            sqlite_cmd.Parameters.AddWithValue("@midname", "Richard");
+            sqlite_cmd.Parameters.AddWithValue("@fname", "Jane");
+            sqlite_cmd.Parameters.AddWithValue("@midname", "Rachele");
             sqlite_cmd.Parameters.AddWithValue("@surname", "Doe");
             sqlite_cmd.Parameters.AddWithValue("@section", "Section X");
-            sqlite_cmd.Parameters.AddWithValue("@yearLevel", 1);
+            sqlite_cmd.Parameters.AddWithValue("@level", 1);
 
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        public void ReadStudentData(SQLiteConnection conn, DataGridView dgv)
-        {
-            SQLiteCommand sqlite_cmd;
-
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student", conn);
-
-            using(SQLiteDataReader read = sqlite_cmd.ExecuteReader())
-            {
-                while (read.Read())
-                {
-                    dgv.Rows.Add(new object[] {
-                        read.GetValue(read.GetOrdinal("sid")),
-                        read.GetValue(read.GetOrdinal("FirstName")),  // Or column name like this
-                        read.GetValue(read.GetOrdinal("MiddleName")),
-                        read.GetValue(read.GetOrdinal("Surname")),
-                        read.GetValue(read.GetOrdinal("Section")),
-                        read.GetValue(read.GetOrdinal("YearLevel"))
-                    });
-                }
-            }
-        }
     }
 }

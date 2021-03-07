@@ -10,7 +10,7 @@ namespace Financial_System.Utils
 {
     class DataHandler
     {
-        
+
         // FILTERS //
         public void FilterLedgerID(TextBox tb, DataGridView dgv)
         {
@@ -31,6 +31,8 @@ namespace Financial_System.Utils
         {
 
         }
+
+
 
     }
 }
