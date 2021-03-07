@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Financial_System.Utils;
 
@@ -16,6 +8,8 @@ namespace Financial_System.Forms
     {
         UIHandler ui = new UIHandler();
         UCHandler uc = new UCHandler();
+        SQLiteHandler sql = new SQLiteHandler();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -25,6 +19,8 @@ namespace Financial_System.Forms
 
             // DropDown (min-height only!)
             CollectionPanel.Height = 27; // min-height of collection panel
+
+            uc.StudLedgerControl.ReadStudentData(sql.CreateConnection());
         }
 
         // MOVING BORDERLESS WINDOW
@@ -62,6 +58,17 @@ namespace Financial_System.Forms
             
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
+        }
+
+        private void TestButton_Click(object sender, EventArgs e)
+        {
+            sql.CreateTable(sql.CreateConnection());
+            MessageBox.Show("Table Created!");    
+        }
+        private void TestButton2_Click(object sender, EventArgs e)
+        {
+            sql.InsertStudentData(sql.CreateConnection());
+            MessageBox.Show("Student Inserted!");
         }
     }
 }
