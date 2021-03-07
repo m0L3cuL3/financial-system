@@ -32,47 +32,88 @@ namespace Financial_System.UserControls
             this.NameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new System.Windows.Forms.Panel();
             this.SectionLabel = new System.Windows.Forms.Label();
+            this.ViewLedgerButton = new System.Windows.Forms.Button();
+            this.StudentIDLabel = new System.Windows.Forms.Label();
+            this.StudentLevelLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLabel.Location = new System.Drawing.Point(65, 3);
+            this.NameLabel.Location = new System.Drawing.Point(115, 3);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(138, 25);
+            this.NameLabel.Size = new System.Drawing.Size(127, 25);
             this.NameLabel.TabIndex = 7;
-            this.NameLabel.Text = "Juan Dela Cruz";
+            this.NameLabel.Text = "StudentName";
             // 
             // ProfilePanel
             // 
             this.ProfilePanel.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ProfilePanel.Location = new System.Drawing.Point(8, 7);
+            this.ProfilePanel.Location = new System.Drawing.Point(13, 9);
             this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(46, 39);
+            this.ProfilePanel.Size = new System.Drawing.Size(91, 78);
             this.ProfilePanel.TabIndex = 8;
             // 
             // SectionLabel
             // 
             this.SectionLabel.AutoSize = true;
             this.SectionLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionLabel.Location = new System.Drawing.Point(67, 28);
+            this.SectionLabel.Location = new System.Drawing.Point(117, 45);
             this.SectionLabel.Name = "SectionLabel";
-            this.SectionLabel.Size = new System.Drawing.Size(62, 17);
+            this.SectionLabel.Size = new System.Drawing.Size(94, 17);
             this.SectionLabel.TabIndex = 9;
-            this.SectionLabel.Text = "Section A";
+            this.SectionLabel.Text = "StudentSection";
+            // 
+            // ViewLedgerButton
+            // 
+            this.ViewLedgerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.ViewLedgerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ViewLedgerButton.FlatAppearance.BorderSize = 0;
+            this.ViewLedgerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewLedgerButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewLedgerButton.Location = new System.Drawing.Point(626, 48);
+            this.ViewLedgerButton.Name = "ViewLedgerButton";
+            this.ViewLedgerButton.Size = new System.Drawing.Size(119, 39);
+            this.ViewLedgerButton.TabIndex = 10;
+            this.ViewLedgerButton.Text = "View Ledger";
+            this.ViewLedgerButton.UseVisualStyleBackColor = false;
+            this.ViewLedgerButton.Click += new System.EventHandler(this.ViewLedgerButton_Click);
+            // 
+            // StudentIDLabel
+            // 
+            this.StudentIDLabel.AutoSize = true;
+            this.StudentIDLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentIDLabel.Location = new System.Drawing.Point(117, 70);
+            this.StudentIDLabel.Name = "StudentIDLabel";
+            this.StudentIDLabel.Size = new System.Drawing.Size(63, 17);
+            this.StudentIDLabel.TabIndex = 11;
+            this.StudentIDLabel.Text = "StudentId";
+            // 
+            // StudentLevelLabel
+            // 
+            this.StudentLevelLabel.AutoSize = true;
+            this.StudentLevelLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentLevelLabel.Location = new System.Drawing.Point(117, 28);
+            this.StudentLevelLabel.Name = "StudentLevelLabel";
+            this.StudentLevelLabel.Size = new System.Drawing.Size(81, 17);
+            this.StudentLevelLabel.TabIndex = 12;
+            this.StudentLevelLabel.Text = "StudentLevel";
             // 
             // StudentControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.StudentLevelLabel);
+            this.Controls.Add(this.StudentIDLabel);
+            this.Controls.Add(this.ViewLedgerButton);
             this.Controls.Add(this.SectionLabel);
             this.Controls.Add(this.ProfilePanel);
             this.Controls.Add(this.NameLabel);
             this.Margin = new System.Windows.Forms.Padding(15, 10, 0, 3);
             this.Name = "StudentControl";
-            this.Size = new System.Drawing.Size(764, 54);
+            this.Size = new System.Drawing.Size(764, 98);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,5 +124,8 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Panel ProfilePanel;
         private System.Windows.Forms.Label SectionLabel;
+        private System.Windows.Forms.Button ViewLedgerButton;
+        private System.Windows.Forms.Label StudentIDLabel;
+        private System.Windows.Forms.Label StudentLevelLabel;
     }
 }
