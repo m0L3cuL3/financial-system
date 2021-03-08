@@ -2,6 +2,9 @@
 using System.Windows.Forms;
 using Financial_System.Utils;
 using Financial_System.Forms;
+using Financial_System.UserControls;
+using System.Data.SQLite;
+
 
 namespace Financial_System.UserControls
 {
@@ -9,29 +12,34 @@ namespace Financial_System.UserControls
     {
         // Handlers
         UIHandler ui = new UIHandler();
+        DataHandler dh = new DataHandler();
+        SQLiteHandler sql = new SQLiteHandler();
+        StudentLedgerWindow slw;
 
-        // Getters & Setters.
-        public string StudentName 
+        public string _StudentName;
+        public string _StudentSection;
+        public string _StudentLevel;
+        public string _StudentId;
+
+        public string StudentName
         {
-            get { return NameLabel.Text; }
-            set { NameLabel.Text = value; }
+            get { return _StudentName; }
+            set { _StudentName = value; }
         }
         public string StudentSection
         {
-            get { return SectionLabel.Text; }
-            set { SectionLabel.Text = value; }
+            get { return _StudentSection; }
+            set { _StudentSection = value; }
         }
-
-        public string StudentId
-        {
-            get { return StudentIDLabel.Text; }
-            set { StudentIDLabel.Text = value; }
-        }
-
         public string StudentLevel
         {
-            get { return StudentLevelLabel.Text; }
-            set { StudentLevelLabel.Text = value; }
+            get { return _StudentLevel; }
+            set { _StudentLevel = value; }
+        }
+        public string StudentId
+        {
+            get { return _StudentId; }
+            set { _StudentId = value; }
         }
 
         public StudentControl()
@@ -39,22 +47,27 @@ namespace Financial_System.UserControls
             InitializeComponent();
             ui.RoundUserControl(this);
             ui.RoundButton(ViewLedgerButton);
+
+            StudentNameLabel.Text = StudentName;
+            StudentSectionLabel.Text = StudentSection;
+            StudentLevelLabel.Text = StudentLevel;
+            StudentIDLabel.Text = StudentId;
         }
 
 
         private void ViewLedgerButton_Click(object sender, EventArgs e)
         {
+            // Once clicked, the data should show on StudentLedgerWindow
+            slw = new StudentLedgerWindow();
 
-            StudentLedgerWindow form = new StudentLedgerWindow();
-
-            form.StudentNameLabel.Text = StudentName;
-            form.StudentSectionLabel.Text = StudentSection;
-            form.StudentLevelLabel.Text = StudentLevel;
-            form.StudentIDLabel.Text = StudentId;
-
-            form.Show();
+            slw.StudentNameLabel.Text = StudentName;
+            slw.StudentSectionLabel.Text = StudentSection;
+            slw.StudentLevelLabel.Text = StudentLevel;
+            slw.StudentIDLabel.Text = StudentId;
+       
+            slw.Show();
         }
 
-        
+
     }
 }

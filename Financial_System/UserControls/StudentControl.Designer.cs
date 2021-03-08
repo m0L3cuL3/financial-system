@@ -29,23 +29,23 @@ namespace Financial_System.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.NameLabel = new System.Windows.Forms.Label();
+            this.StudentNameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new System.Windows.Forms.Panel();
-            this.SectionLabel = new System.Windows.Forms.Label();
+            this.StudentSectionLabel = new System.Windows.Forms.Label();
             this.ViewLedgerButton = new System.Windows.Forms.Button();
             this.StudentIDLabel = new System.Windows.Forms.Label();
             this.StudentLevelLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // NameLabel
+            // StudentNameLabel
             // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLabel.Location = new System.Drawing.Point(115, 3);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(127, 25);
-            this.NameLabel.TabIndex = 7;
-            this.NameLabel.Text = "StudentName";
+            this.StudentNameLabel.AutoSize = true;
+            this.StudentNameLabel.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentNameLabel.Location = new System.Drawing.Point(115, 3);
+            this.StudentNameLabel.Name = "StudentNameLabel";
+            this.StudentNameLabel.Size = new System.Drawing.Size(127, 25);
+            this.StudentNameLabel.TabIndex = 7;
+            this.StudentNameLabel.Text = "StudentName";
             // 
             // ProfilePanel
             // 
@@ -55,15 +55,15 @@ namespace Financial_System.UserControls
             this.ProfilePanel.Size = new System.Drawing.Size(91, 78);
             this.ProfilePanel.TabIndex = 8;
             // 
-            // SectionLabel
+            // StudentSectionLabel
             // 
-            this.SectionLabel.AutoSize = true;
-            this.SectionLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionLabel.Location = new System.Drawing.Point(117, 45);
-            this.SectionLabel.Name = "SectionLabel";
-            this.SectionLabel.Size = new System.Drawing.Size(94, 17);
-            this.SectionLabel.TabIndex = 9;
-            this.SectionLabel.Text = "StudentSection";
+            this.StudentSectionLabel.AutoSize = true;
+            this.StudentSectionLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentSectionLabel.Location = new System.Drawing.Point(117, 45);
+            this.StudentSectionLabel.Name = "StudentSectionLabel";
+            this.StudentSectionLabel.Size = new System.Drawing.Size(94, 17);
+            this.StudentSectionLabel.TabIndex = 9;
+            this.StudentSectionLabel.Text = "StudentSection";
             // 
             // ViewLedgerButton
             // 
@@ -108,9 +108,9 @@ namespace Financial_System.UserControls
             this.Controls.Add(this.StudentLevelLabel);
             this.Controls.Add(this.StudentIDLabel);
             this.Controls.Add(this.ViewLedgerButton);
-            this.Controls.Add(this.SectionLabel);
+            this.Controls.Add(this.StudentSectionLabel);
             this.Controls.Add(this.ProfilePanel);
-            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.StudentNameLabel);
             this.Margin = new System.Windows.Forms.Padding(15, 10, 0, 3);
             this.Name = "StudentControl";
             this.Size = new System.Drawing.Size(764, 98);
@@ -120,12 +120,11 @@ namespace Financial_System.UserControls
         }
 
         #endregion
-
-        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Panel ProfilePanel;
-        private System.Windows.Forms.Label SectionLabel;
         private System.Windows.Forms.Button ViewLedgerButton;
-        private System.Windows.Forms.Label StudentIDLabel;
-        private System.Windows.Forms.Label StudentLevelLabel;
+        public System.Windows.Forms.Label StudentNameLabel;
+        public System.Windows.Forms.Label StudentSectionLabel;
+        public System.Windows.Forms.Label StudentIDLabel;
+        public System.Windows.Forms.Label StudentLevelLabel;
     }
 }
