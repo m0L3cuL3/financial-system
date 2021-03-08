@@ -31,8 +31,5 @@ namespace Financial_System.Utils
         {
 
         }
-
-
-
     }
 }
