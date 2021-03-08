@@ -1,7 +1,7 @@
 ﻿
 namespace Financial_System.UserControls
 {
-    partial class StudentControl
+    partial class StudentItemControl
     {
         /// <summary> 
         /// Required designer variable.

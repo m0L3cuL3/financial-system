@@ -13,7 +13,10 @@ namespace Financial_System.Utils
         public GetStartedControl GsControl = new GetStartedControl();
         public DashboardControl DashControl = new DashboardControl();
         public StudentLedgerControl StudLedgerControl = new StudentLedgerControl();
-        public StudentControl StudControl = new StudentControl();
+        public StudentItemControl StudControl = new StudentItemControl();
+        public InsertTestTransactionControl TransControl = new InsertTestTransactionControl();
+        public ReportsControl ReportsControl = new ReportsControl();
+
 
         public void UnloadControls(Panel panel)
         {

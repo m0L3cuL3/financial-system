@@ -136,6 +136,7 @@ namespace Financial_System.Forms
             this.ReportButton.Text = "Reports";
             this.ReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ReportButton.UseVisualStyleBackColor = true;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
             // CollectionPanel
             // 

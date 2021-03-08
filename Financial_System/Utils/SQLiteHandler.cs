@@ -47,7 +47,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
 
             // STUDENT_TRANSACTION //
-            string TransactionTable = "CREATE TABLE Student_Transaction(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount VARCHAR NOT NULL, date DATE NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NULL, date_recorded DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (student_id) REFERENCES Student(student_id));";
+            string TransactionTable = "CREATE TABLE Student_Transaction(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount VARCHAR NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NULL, date_recorded DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (student_id) REFERENCES Student(student_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TransactionTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -88,16 +88,15 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        public void InsertTransaction (SQLiteConnection conn, int amount, DateTime date, string type, int sid, string receipt)
+        public void InsertTransaction (SQLiteConnection conn, string amount, string type, string sid, string receipt)
         {
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Student_Transaction(amount, date, type, student_id, receipt_number) VALUES (@amount, @date, @type, @sid, @receipt);";
+            string insertData = "INSERT INTO Student_Transaction(amount, type, student_id, receipt_number) VALUES (@amount, @type, @sid, @receipt);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
             sqlite_cmd.Parameters.AddWithValue("@amount", amount);
-            sqlite_cmd.Parameters.AddWithValue("@date", date);
             sqlite_cmd.Parameters.AddWithValue("@type", type);
             sqlite_cmd.Parameters.AddWithValue("@sid", sid);
             sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
