@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "InsertTestStudentControl";
-            this.Size = new System.Drawing.Size(553, 277);
+            this.Size = new System.Drawing.Size(800, 440);
             this.ResumeLayout(false);
 
         }

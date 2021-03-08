@@ -28,7 +28,7 @@ namespace Financial_System.UserControls
 
             if (confirmResult == DialogResult.Yes)
             {
-                sql.InsertTransaction(sql.CreateConnection(),amount.Text,type.Text,sid.Text,receipt.Text);
+                sql.InsertTransaction(sql.CreateConnection(),AmountTextBox.Text,TypeTextBox.Text,StudentIDTextBox.Text,ReceiptNumTextBox.Text);
                 // If 'Yes', do something here.
             }
             else

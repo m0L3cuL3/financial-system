@@ -40,7 +40,7 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(61, 54);
+            this.listView1.Location = new System.Drawing.Point(19, 21);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(296, 188);
             this.listView1.TabIndex = 0;
@@ -54,9 +54,9 @@
             this.sid,
             this.type,
             this.amount});
-            this.dataGridView1.Location = new System.Drawing.Point(404, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(330, 21);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(455, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(455, 188);
             this.dataGridView1.TabIndex = 1;
             // 
             // tid
@@ -86,7 +86,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listView1);
             this.Name = "ReportsControl";
-            this.Size = new System.Drawing.Size(897, 325);
+            this.Size = new System.Drawing.Size(800, 440);
             this.Load += new System.EventHandler(this.ReportsControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -27,7 +27,7 @@ namespace Financial_System.UserControls
             sqlite_cmd = new SQLiteCommand("SELECT * FROM Student", conn);
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
-            //StudentFlowPanel.SuspendLayout();
+            StudentFlowPanel.SuspendLayout();
             StudentFlowPanel.Controls.Clear();
 
             while (read.Read())
@@ -46,7 +46,7 @@ namespace Financial_System.UserControls
                 StudentFlowPanel.Controls.Add(sc);
             }
 
-            //StudentFlowPanel.ResumeLayout();
+            StudentFlowPanel.ResumeLayout();
         }
 
     }
