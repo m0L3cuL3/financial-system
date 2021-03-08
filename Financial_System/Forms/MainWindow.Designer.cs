@@ -47,8 +47,8 @@ namespace Financial_System.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
-            this.TestButton = new System.Windows.Forms.Button();
             this.TestButton2 = new System.Windows.Forms.Button();
+            this.TestButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -282,21 +282,6 @@ namespace Financial_System.Forms
             this.DisplayControlPanel.Size = new System.Drawing.Size(800, 440);
             this.DisplayControlPanel.TabIndex = 3;
             // 
-            // TestButton
-            // 
-            this.TestButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TestButton.FlatAppearance.BorderSize = 0;
-            this.TestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestButton.ForeColor = System.Drawing.Color.Black;
-            this.TestButton.Location = new System.Drawing.Point(18, 20);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(171, 27);
-            this.TestButton.TabIndex = 11;
-            this.TestButton.Text = "Create SQLite Table";
-            this.TestButton.UseVisualStyleBackColor = false;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
-            // 
             // TestButton2
             // 
             this.TestButton2.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -311,6 +296,21 @@ namespace Financial_System.Forms
             this.TestButton2.Text = "Insert Student";
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
+            // 
+            // TestButton
+            // 
+            this.TestButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TestButton.FlatAppearance.BorderSize = 0;
+            this.TestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestButton.ForeColor = System.Drawing.Color.Black;
+            this.TestButton.Location = new System.Drawing.Point(18, 20);
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(171, 27);
+            this.TestButton.TabIndex = 11;
+            this.TestButton.Text = "Create SQLite Table";
+            this.TestButton.UseVisualStyleBackColor = false;
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
             // 
             // MainWindow
             // 
@@ -357,8 +357,8 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button GetStartedButton;
         private System.Windows.Forms.Panel SpacePanel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel DisplayControlPanel;
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button TestButton2;
+        public System.Windows.Forms.Panel DisplayControlPanel;
     }
 }

@@ -1,39 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Financial_System.Utils;
+using System;
 using System.Windows.Forms;
-using Financial_System.Utils;
-using Financial_System.UserControls;
-
 
 namespace Financial_System.Forms
 {
     public partial class StudentLedgerWindow : Form
     {
         UIHandler ui = new UIHandler();
-
+        DataHandler dh = new DataHandler();
 
         public StudentLedgerWindow()
         {
             InitializeComponent();
-            ui.RoundWindow(this);
+
+            // UIHandler
+            ui.RoundWindow(this); // makes the window round.
         }
 
-        // DRAG WINDOW
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
         {
             ui.DragWindow(Handle, e);
         }
 
-        // CLOSE WINDOW
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
-            Close();
+            //MessageBox.Show("Student Name is " + StudentNameLabel.Text); // -> testing purposes only
         }
     }
 }
