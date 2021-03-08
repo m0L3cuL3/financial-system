@@ -123,17 +123,35 @@
     <Compile Include="UserControls\GetStartedControl.Designer.cs">
       <DependentUpon>GetStartedControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StudentControl.cs">
+    <Compile Include="UserControls\StudentItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\StudentControl.Designer.cs">
-      <DependentUpon>StudentControl.cs</DependentUpon>
+    <Compile Include="UserControls\StudentItemControl.Designer.cs">
+      <DependentUpon>StudentItemControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\StudentLedgerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\StudentLedgerControl.Designer.cs">
       <DependentUpon>StudentLedgerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReportsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ReportsControl.Designer.cs">
+      <DependentUpon>ReportsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InsertTestStudentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InsertTestStudentControl.Designer.cs">
+      <DependentUpon>InsertTestStudentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InsertTestTransactionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InsertTestTransactionControl.Designer.cs">
+      <DependentUpon>InsertTestTransactionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\AutoCompleteHandler.cs" />
     <Compile Include="Utils\DataHandler.cs" />
@@ -164,8 +182,17 @@
     <EmbeddedResource Include="UserControls\GetStartedControl.resx">
       <DependentUpon>GetStartedControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\StudentControl.resx">
-      <DependentUpon>StudentControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\InsertTestStudentControl.resx">
+      <DependentUpon>InsertTestStudentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InsertTestTransactionControl.resx">
+      <DependentUpon>InsertTestTransactionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ReportsControl.resx">
+      <DependentUpon>ReportsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentItemControl.resx">
+      <DependentUpon>StudentItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentLedgerControl.resx">
       <DependentUpon>StudentLedgerControl.cs</DependentUpon>

@@ -10,7 +10,7 @@ namespace Financial_System.UserControls
     {
         UIHandler ui = new UIHandler();
         DataHandler dh = new DataHandler();
-        StudentControl sc;
+        StudentItemControl sc;
 
         public StudentLedgerControl()
         {
@@ -32,7 +32,7 @@ namespace Financial_System.UserControls
 
             while (read.Read())
             {
-                sc = new StudentControl();
+                sc = new StudentItemControl();
                 sc.StudentId = "Student ID: " + read.GetInt32(0).ToString(); // id
                 sc.StudentName = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
                 sc.StudentSection = "Section: " + read.GetString(4); // section  

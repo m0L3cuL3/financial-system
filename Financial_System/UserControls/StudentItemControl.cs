@@ -8,7 +8,7 @@ using System.Data.SQLite;
 
 namespace Financial_System.UserControls
 {
-    public partial class StudentControl : UserControl
+    public partial class StudentItemControl : UserControl
     {
         // Handlers
         UIHandler ui = new UIHandler();
@@ -42,7 +42,7 @@ namespace Financial_System.UserControls
             set { _StudentId = value; }
         }
 
-        public StudentControl()
+        public StudentItemControl()
         {
             InitializeComponent();
             ui.RoundUserControl(this);
