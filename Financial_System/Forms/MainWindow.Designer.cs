@@ -42,9 +42,9 @@ namespace Financial_System.Forms
             this.DashboardButton = new System.Windows.Forms.Button();
             this.GetStartedButton = new System.Windows.Forms.Button();
             this.SpacePanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.MenuLabel = new System.Windows.Forms.Label();
             this.TitlePanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.TestButton2 = new System.Windows.Forms.Button();
@@ -112,7 +112,7 @@ namespace Financial_System.Forms
             this.SetupButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.SetupButton.FlatAppearance.BorderSize = 0;
             this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetupButton.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetupButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetupButton.ForeColor = System.Drawing.Color.White;
             this.SetupButton.Location = new System.Drawing.Point(0, 167);
             this.SetupButton.Name = "SetupButton";
@@ -127,7 +127,7 @@ namespace Financial_System.Forms
             this.ReportButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReportButton.FlatAppearance.BorderSize = 0;
             this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportButton.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportButton.ForeColor = System.Drawing.Color.White;
             this.ReportButton.Location = new System.Drawing.Point(0, 140);
             this.ReportButton.Name = "ReportButton";
@@ -184,7 +184,7 @@ namespace Financial_System.Forms
             this.CollectionsButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.CollectionsButton.FlatAppearance.BorderSize = 0;
             this.CollectionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CollectionsButton.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CollectionsButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CollectionsButton.ForeColor = System.Drawing.Color.White;
             this.CollectionsButton.Location = new System.Drawing.Point(0, 0);
             this.CollectionsButton.Name = "CollectionsButton";
@@ -200,7 +200,7 @@ namespace Financial_System.Forms
             this.DashboardButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.DashboardButton.FlatAppearance.BorderSize = 0;
             this.DashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DashboardButton.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashboardButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DashboardButton.ForeColor = System.Drawing.Color.White;
             this.DashboardButton.Location = new System.Drawing.Point(0, 27);
             this.DashboardButton.Name = "DashboardButton";
@@ -216,7 +216,7 @@ namespace Financial_System.Forms
             this.GetStartedButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.GetStartedButton.FlatAppearance.BorderSize = 0;
             this.GetStartedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GetStartedButton.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GetStartedButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GetStartedButton.ForeColor = System.Drawing.Color.White;
             this.GetStartedButton.Location = new System.Drawing.Point(0, 0);
             this.GetStartedButton.Name = "GetStartedButton";
@@ -230,45 +230,44 @@ namespace Financial_System.Forms
             // SpacePanel
             // 
             this.SpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
-            this.SpacePanel.Controls.Add(this.label4);
+            this.SpacePanel.Controls.Add(this.MenuLabel);
             this.SpacePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SpacePanel.Location = new System.Drawing.Point(0, 48);
             this.SpacePanel.Name = "SpacePanel";
             this.SpacePanel.Size = new System.Drawing.Size(171, 89);
             this.SpacePanel.TabIndex = 7;
             // 
-            // label4
+            // MenuLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Menu";
+            this.MenuLabel.AutoSize = true;
+            this.MenuLabel.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuLabel.ForeColor = System.Drawing.Color.White;
+            this.MenuLabel.Location = new System.Drawing.Point(12, 53);
+            this.MenuLabel.Name = "MenuLabel";
+            this.MenuLabel.Size = new System.Drawing.Size(46, 20);
+            this.MenuLabel.TabIndex = 5;
+            this.MenuLabel.Text = "Menu";
             // 
             // TitlePanel
             // 
             this.TitlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
-            this.TitlePanel.Controls.Add(this.label2);
+            this.TitlePanel.Controls.Add(this.TitleLabel);
             this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
             this.TitlePanel.Size = new System.Drawing.Size(171, 48);
             this.TitlePanel.TabIndex = 5;
             // 
-            // label2
+            // TitleLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 32);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "PCHS";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.ForeColor = System.Drawing.Color.White;
+            this.TitleLabel.Location = new System.Drawing.Point(12, 8);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(73, 32);
+            this.TitleLabel.TabIndex = 3;
+            this.TitleLabel.Text = "PCHS";
             // 
             // HeadPanel
             // 
@@ -351,7 +350,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Panel SideMenuPanel;
         private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Panel HeadPanel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button DashboardButton;
         private System.Windows.Forms.Panel TitlePanel;
         private System.Windows.Forms.Panel CollectionPanel;
@@ -363,7 +362,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button CollectionsButton;
         private System.Windows.Forms.Button GetStartedButton;
         private System.Windows.Forms.Panel SpacePanel;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label MenuLabel;
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;

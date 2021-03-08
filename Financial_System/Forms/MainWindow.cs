@@ -73,7 +73,7 @@ namespace Financial_System.Forms
             MessageBox.Show("Student Inserted!");
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        /*private void label2_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
             //uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
@@ -81,7 +81,7 @@ namespace Financial_System.Forms
             DisplayControlPanel.Controls.Add(TestButton);
 
             //DisplayControlPanel.Refresh();
-        }
+        }*/
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
