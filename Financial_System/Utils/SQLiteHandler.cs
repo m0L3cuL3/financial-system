@@ -139,5 +139,25 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        public string GetStudentName(SQLiteConnection conn, int id)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT first_name, middle_name, surname FROM Student WHERE student_id = @id", conn);
+
+            sqlite_cmd.Parameters.AddWithValue("@id", id);
+
+            SQLiteDataReader read = sqlite_cmd.ExecuteReader();
+
+            if (read.Read())
+            {
+                return read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // student fullname.
+            }
+            else
+            {
+                return "Student Does Not Exist!";
+            }
+        }
+
     }
 }
