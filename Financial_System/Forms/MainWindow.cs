@@ -70,5 +70,15 @@ namespace Financial_System.Forms
             sql.InsertStudentData(sql.CreateConnection());
             MessageBox.Show("Student Inserted!");
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            uc.UnloadControls(DisplayControlPanel);
+            //uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
+            DisplayControlPanel.Controls.Add(TestButton2);
+            DisplayControlPanel.Controls.Add(TestButton);
+
+            //DisplayControlPanel.Refresh();
+        }
     }
 }
