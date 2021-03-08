@@ -52,7 +52,7 @@ namespace Financial_System.Utils
             sqlite_cmd.CommandText = TransactionTable;
             sqlite_cmd.ExecuteNonQuery();
 
-            // TRANSACTION_LEDGER //
+            // STUDENT_LEDGER //
             string StudentLedgerTable = "CREATE TABLE Student_Ledger(ledger_id INTEGER PRIMARY KEY AUTOINCREMENT, transaction_id INT NOT NULL, term INT NOT NULL, isClosed BOOLEAN NOT NULL , FOREIGN KEY(transaction_id) REFERENCES Student_Transaction(transaction_id), FOREIGN KEY(term) REFERENCES Term(term_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = StudentLedgerTable;
@@ -64,7 +64,7 @@ namespace Financial_System.Utils
             sqlite_cmd.CommandText = TermTable;
             sqlite_cmd.ExecuteNonQuery();
 
-            // TERM //
+            // User //
             string UserTable = "CREATE TABLE User(user_id INTEGER PRIMARY KEY, createdate DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, enddate DATE NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = UserTable;
