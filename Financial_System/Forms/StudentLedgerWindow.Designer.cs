@@ -31,14 +31,12 @@ namespace Financial_System.Forms
         {
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.StudentNameLabel = new System.Windows.Forms.Label();
-            this.StudentSectionLabel = new System.Windows.Forms.Label();
-            this.StudentIDLabel = new System.Windows.Forms.Label();
+            this.ProfilePicPanel = new System.Windows.Forms.Panel();
             this.StudentLevelLabel = new System.Windows.Forms.Label();
-            this.StudentInfoPanel = new System.Windows.Forms.Panel();
+            this.StudentIDLabel = new System.Windows.Forms.Label();
+            this.StudentSectionLabel = new System.Windows.Forms.Label();
+            this.StudentNameLabel = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
-            this.StudentInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -48,7 +46,7 @@ namespace Financial_System.Forms
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
             this.TopBarPanel.Name = "TopBarPanel";
-            this.TopBarPanel.Size = new System.Drawing.Size(705, 30);
+            this.TopBarPanel.Size = new System.Drawing.Size(827, 30);
             this.TopBarPanel.TabIndex = 0;
             this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
             // 
@@ -58,89 +56,80 @@ namespace Financial_System.Forms
             this.CloseButton.AutoSize = true;
             this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.CloseButton.Location = new System.Drawing.Point(682, 6);
+            this.CloseButton.Location = new System.Drawing.Point(803, 6);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(17, 18);
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "X";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // panel1
+            // ProfilePicPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Location = new System.Drawing.Point(12, 15);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(116, 106);
-            this.panel1.TabIndex = 1;
-            // 
-            // StudentNameLabel
-            // 
-            this.StudentNameLabel.AutoSize = true;
-            this.StudentNameLabel.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentNameLabel.Location = new System.Drawing.Point(134, 15);
-            this.StudentNameLabel.Name = "StudentNameLabel";
-            this.StudentNameLabel.Size = new System.Drawing.Size(106, 21);
-            this.StudentNameLabel.TabIndex = 2;
-            this.StudentNameLabel.Text = "StudentName";
-            // 
-            // StudentSectionLabel
-            // 
-            this.StudentSectionLabel.AutoSize = true;
-            this.StudentSectionLabel.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentSectionLabel.Location = new System.Drawing.Point(134, 100);
-            this.StudentSectionLabel.Name = "StudentSectionLabel";
-            this.StudentSectionLabel.Size = new System.Drawing.Size(115, 21);
-            this.StudentSectionLabel.TabIndex = 3;
-            this.StudentSectionLabel.Text = "StudentSection";
-            // 
-            // StudentIDLabel
-            // 
-            this.StudentIDLabel.AutoSize = true;
-            this.StudentIDLabel.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentIDLabel.Location = new System.Drawing.Point(134, 36);
-            this.StudentIDLabel.Name = "StudentIDLabel";
-            this.StudentIDLabel.Size = new System.Drawing.Size(79, 21);
-            this.StudentIDLabel.TabIndex = 4;
-            this.StudentIDLabel.Text = "StudentID";
+            this.ProfilePicPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ProfilePicPanel.Location = new System.Drawing.Point(26, 54);
+            this.ProfilePicPanel.Name = "ProfilePicPanel";
+            this.ProfilePicPanel.Size = new System.Drawing.Size(122, 116);
+            this.ProfilePicPanel.TabIndex = 1;
             // 
             // StudentLevelLabel
             // 
             this.StudentLevelLabel.AutoSize = true;
-            this.StudentLevelLabel.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentLevelLabel.Location = new System.Drawing.Point(134, 79);
+            this.StudentLevelLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentLevelLabel.Location = new System.Drawing.Point(156, 79);
             this.StudentLevelLabel.Name = "StudentLevelLabel";
-            this.StudentLevelLabel.Size = new System.Drawing.Size(100, 21);
-            this.StudentLevelLabel.TabIndex = 5;
+            this.StudentLevelLabel.Size = new System.Drawing.Size(81, 17);
+            this.StudentLevelLabel.TabIndex = 16;
             this.StudentLevelLabel.Text = "StudentLevel";
             // 
-            // StudentInfoPanel
+            // StudentIDLabel
             // 
-            this.StudentInfoPanel.Controls.Add(this.panel1);
-            this.StudentInfoPanel.Controls.Add(this.StudentLevelLabel);
-            this.StudentInfoPanel.Controls.Add(this.StudentNameLabel);
-            this.StudentInfoPanel.Controls.Add(this.StudentSectionLabel);
-            this.StudentInfoPanel.Controls.Add(this.StudentIDLabel);
-            this.StudentInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.StudentInfoPanel.Location = new System.Drawing.Point(0, 30);
-            this.StudentInfoPanel.Name = "StudentInfoPanel";
-            this.StudentInfoPanel.Size = new System.Drawing.Size(705, 137);
-            this.StudentInfoPanel.TabIndex = 6;
+            this.StudentIDLabel.AutoSize = true;
+            this.StudentIDLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentIDLabel.Location = new System.Drawing.Point(156, 153);
+            this.StudentIDLabel.Name = "StudentIDLabel";
+            this.StudentIDLabel.Size = new System.Drawing.Size(63, 17);
+            this.StudentIDLabel.TabIndex = 15;
+            this.StudentIDLabel.Text = "StudentId";
+            // 
+            // StudentSectionLabel
+            // 
+            this.StudentSectionLabel.AutoSize = true;
+            this.StudentSectionLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentSectionLabel.Location = new System.Drawing.Point(156, 136);
+            this.StudentSectionLabel.Name = "StudentSectionLabel";
+            this.StudentSectionLabel.Size = new System.Drawing.Size(94, 17);
+            this.StudentSectionLabel.TabIndex = 14;
+            this.StudentSectionLabel.Text = "StudentSection";
+            // 
+            // StudentNameLabel
+            // 
+            this.StudentNameLabel.AutoSize = true;
+            this.StudentNameLabel.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentNameLabel.Location = new System.Drawing.Point(154, 54);
+            this.StudentNameLabel.Name = "StudentNameLabel";
+            this.StudentNameLabel.Size = new System.Drawing.Size(127, 25);
+            this.StudentNameLabel.TabIndex = 13;
+            this.StudentNameLabel.Text = "StudentName";
             // 
             // StudentLedgerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 534);
-            this.Controls.Add(this.StudentInfoPanel);
+            this.ClientSize = new System.Drawing.Size(827, 466);
+            this.Controls.Add(this.StudentLevelLabel);
+            this.Controls.Add(this.StudentIDLabel);
+            this.Controls.Add(this.StudentSectionLabel);
+            this.Controls.Add(this.StudentNameLabel);
+            this.Controls.Add(this.ProfilePicPanel);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentLedgerWindow";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "StudentLedgerWindow";
+            this.Load += new System.EventHandler(this.StudentLedgerWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
-            this.StudentInfoPanel.ResumeLayout(false);
-            this.StudentInfoPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -148,11 +137,10 @@ namespace Financial_System.Forms
 
         private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.Label CloseButton;
-        private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Label StudentNameLabel;
-        public System.Windows.Forms.Label StudentSectionLabel;
-        public System.Windows.Forms.Label StudentIDLabel;
+        private System.Windows.Forms.Panel ProfilePicPanel;
         public System.Windows.Forms.Label StudentLevelLabel;
-        private System.Windows.Forms.Panel StudentInfoPanel;
+        public System.Windows.Forms.Label StudentIDLabel;
+        public System.Windows.Forms.Label StudentSectionLabel;
+        public System.Windows.Forms.Label StudentNameLabel;
     }
 }

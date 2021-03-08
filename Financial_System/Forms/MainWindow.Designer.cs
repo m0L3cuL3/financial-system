@@ -363,8 +363,8 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button GetStartedButton;
         private System.Windows.Forms.Panel SpacePanel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel DisplayControlPanel;
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button TestButton2;
+        public System.Windows.Forms.Panel DisplayControlPanel;
     }
 }
