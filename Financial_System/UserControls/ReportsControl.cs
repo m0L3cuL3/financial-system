@@ -34,9 +34,6 @@ namespace Financial_System.UserControls
             sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_Transaction", conn);
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
-            //StudentFlowPanel.SuspendLayout();
-            //StudentFlowPanel.Controls.Clear();
-
             while (read.Read())
             {
                 dataGridView1.Rows.Add(new object[]
@@ -48,7 +45,6 @@ namespace Financial_System.UserControls
                 });
             }
 
-            //StudentFlowPanel.ResumeLayout();
         }
     }
 }

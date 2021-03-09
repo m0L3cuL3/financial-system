@@ -30,10 +30,10 @@
         {
             this.listView1 = new System.Windows.Forms.ListView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,36 +48,50 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tid,
-            this.sid,
-            this.type,
-            this.amount});
+            this.TransIdColumn,
+            this.StudentIdColumn,
+            this.TypeColumn,
+            this.AmountColumn});
             this.dataGridView1.Location = new System.Drawing.Point(330, 21);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(455, 188);
             this.dataGridView1.TabIndex = 1;
             // 
-            // tid
+            // TransIdColumn
             // 
-            this.tid.HeaderText = "Transaction ID";
-            this.tid.Name = "tid";
+            this.TransIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TransIdColumn.HeaderText = "Transaction ID";
+            this.TransIdColumn.Name = "TransIdColumn";
+            this.TransIdColumn.ReadOnly = true;
+            this.TransIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // sid
+            // StudentIdColumn
             // 
-            this.sid.HeaderText = "Student ID";
-            this.sid.Name = "sid";
+            this.StudentIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.StudentIdColumn.HeaderText = "Student ID";
+            this.StudentIdColumn.Name = "StudentIdColumn";
+            this.StudentIdColumn.ReadOnly = true;
+            this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // type
+            // TypeColumn
             // 
-            this.type.HeaderText = "Type";
-            this.type.Name = "type";
+            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // amount
+            // AmountColumn
             // 
-            this.amount.HeaderText = "Amount";
-            this.amount.Name = "amount";
+            this.AmountColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AmountColumn.HeaderText = "Amount";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.ReadOnly = true;
+            this.AmountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // ReportsControl
             // 
@@ -97,9 +111,9 @@
 
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
     }
 }
