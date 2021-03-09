@@ -18,7 +18,6 @@ namespace Financial_System.UserControls
         public DashboardControl()
         {
             InitializeComponent();
-            ui.RoundButton(FilterButton);
         }
     }
 }

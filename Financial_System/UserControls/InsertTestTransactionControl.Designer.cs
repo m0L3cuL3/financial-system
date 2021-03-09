@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.postpaymentbtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ClearFieldButton = new System.Windows.Forms.Button();
             this.AmountTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.TypeTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.StudentIDTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
@@ -50,14 +50,14 @@
             this.postpaymentbtn.UseVisualStyleBackColor = true;
             this.postpaymentbtn.Click += new System.EventHandler(this.postpaymentbtn_Click);
             // 
-            // button2
+            // ClearFieldButton
             // 
-            this.button2.Location = new System.Drawing.Point(460, 392);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 25);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Post Payment";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ClearFieldButton.Location = new System.Drawing.Point(27, 306);
+            this.ClearFieldButton.Name = "ClearFieldButton";
+            this.ClearFieldButton.Size = new System.Drawing.Size(135, 25);
+            this.ClearFieldButton.TabIndex = 1;
+            this.ClearFieldButton.Text = "Clear Fields";
+            this.ClearFieldButton.UseVisualStyleBackColor = true;
             // 
             // AmountTextBox
             // 
@@ -171,7 +171,7 @@
             this.Controls.Add(this.StudentIDTextBox);
             this.Controls.Add(this.TypeTextBox);
             this.Controls.Add(this.AmountTextBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ClearFieldButton);
             this.Controls.Add(this.postpaymentbtn);
             this.Name = "InsertTestTransactionControl";
             this.Size = new System.Drawing.Size(800, 440);
@@ -183,7 +183,7 @@
         #endregion
 
         private System.Windows.Forms.Button postpaymentbtn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ClearFieldButton;
         private CustomUI.Textbox.RoundTextBox AmountTextBox;
         private CustomUI.Textbox.RoundTextBox TypeTextBox;
         private CustomUI.Textbox.RoundTextBox StudentIDTextBox;
