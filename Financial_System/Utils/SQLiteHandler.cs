@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
@@ -113,9 +109,9 @@ namespace Financial_System.Utils
             sqlite_cmd.CommandText = insertData;
 
             sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@date", sid);
-            sqlite_cmd.Parameters.AddWithValue("@type", tid);
-            sqlite_cmd.Parameters.AddWithValue("@sid", isClosed);
+            sqlite_cmd.Parameters.AddWithValue("@sid", sid);
+            sqlite_cmd.Parameters.AddWithValue("@tid", tid);
+            sqlite_cmd.Parameters.AddWithValue("@isClosed", isClosed);
             //sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
 
             sqlite_cmd.ExecuteNonQuery();
@@ -131,14 +127,14 @@ namespace Financial_System.Utils
 
             sqlite_cmd.Parameters.AddWithValue("@lid", lid);
             sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@date", sid);
-            sqlite_cmd.Parameters.AddWithValue("@type", tid);
-            sqlite_cmd.Parameters.AddWithValue("@sid", isClosed);
+            sqlite_cmd.Parameters.AddWithValue("@sid", sid);
+            sqlite_cmd.Parameters.AddWithValue("@tid", tid);
+            sqlite_cmd.Parameters.AddWithValue("@isClosed", isClosed);
 
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        public string GetStudentName(SQLiteConnection conn, int id)
+        /*public string GetStudentName(SQLiteConnection conn, int id)
         {
             SQLiteCommand sqlite_cmd;
 
@@ -156,7 +152,7 @@ namespace Financial_System.Utils
             {
                 return "Student Does Not Exist!";
             }
-        }
+        }*/
 
     }
 }
