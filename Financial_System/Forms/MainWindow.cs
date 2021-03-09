@@ -33,8 +33,6 @@ namespace Financial_System.Forms
         private void CollectionsBtn_Click(object sender, EventArgs e)
         {
             ui.DropDown(CollectionPanel, 27, 86);
-            uc.UnloadControls(DisplayControlPanel);
-            uc.LoadControl(DisplayControlPanel, uc.TransControl);
         }
 
         // CLOSE
@@ -73,20 +71,16 @@ namespace Financial_System.Forms
             MessageBox.Show("Student Inserted!");
         }
 
-        /*private void label2_Click(object sender, EventArgs e)
-        {
-            uc.UnloadControls(DisplayControlPanel);
-            //uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
-            DisplayControlPanel.Controls.Add(TestButton2);
-            DisplayControlPanel.Controls.Add(TestButton);
-
-            //DisplayControlPanel.Refresh();
-        }*/
-
         private void ReportButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.ReportsControl);
+        }
+
+        private void TransactionButton_Click(object sender, EventArgs e)
+        {
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.TransControl);
         }
     }
 }

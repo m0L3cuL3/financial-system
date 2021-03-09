@@ -36,7 +36,7 @@ namespace Financial_System.Forms
             this.SetupButton = new System.Windows.Forms.Button();
             this.ReportButton = new System.Windows.Forms.Button();
             this.CollectionPanel = new System.Windows.Forms.Panel();
-            this.ItemButton = new System.Windows.Forms.Button();
+            this.TransactionButton = new System.Windows.Forms.Button();
             this.StudentLedgerButton = new System.Windows.Forms.Button();
             this.CollectionsButton = new System.Windows.Forms.Button();
             this.DashboardButton = new System.Windows.Forms.Button();
@@ -73,6 +73,7 @@ namespace Financial_System.Forms
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.AutoSize = true;
+            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CloseButton.Location = new System.Drawing.Point(948, 6);
             this.CloseButton.Name = "CloseButton";
@@ -141,7 +142,7 @@ namespace Financial_System.Forms
             // CollectionPanel
             // 
             this.CollectionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
-            this.CollectionPanel.Controls.Add(this.ItemButton);
+            this.CollectionPanel.Controls.Add(this.TransactionButton);
             this.CollectionPanel.Controls.Add(this.StudentLedgerButton);
             this.CollectionPanel.Controls.Add(this.CollectionsButton);
             this.CollectionPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -150,19 +151,20 @@ namespace Financial_System.Forms
             this.CollectionPanel.Size = new System.Drawing.Size(171, 86);
             this.CollectionPanel.TabIndex = 6;
             // 
-            // ItemButton
+            // TransactionButton
             // 
-            this.ItemButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ItemButton.FlatAppearance.BorderSize = 0;
-            this.ItemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ItemButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemButton.ForeColor = System.Drawing.Color.White;
-            this.ItemButton.Location = new System.Drawing.Point(0, 54);
-            this.ItemButton.Name = "ItemButton";
-            this.ItemButton.Size = new System.Drawing.Size(171, 27);
-            this.ItemButton.TabIndex = 12;
-            this.ItemButton.Text = "Items";
-            this.ItemButton.UseVisualStyleBackColor = true;
+            this.TransactionButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TransactionButton.FlatAppearance.BorderSize = 0;
+            this.TransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TransactionButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransactionButton.ForeColor = System.Drawing.Color.White;
+            this.TransactionButton.Location = new System.Drawing.Point(0, 54);
+            this.TransactionButton.Name = "TransactionButton";
+            this.TransactionButton.Size = new System.Drawing.Size(171, 27);
+            this.TransactionButton.TabIndex = 11;
+            this.TransactionButton.Text = "Create Transaction";
+            this.TransactionButton.UseVisualStyleBackColor = true;
+            this.TransactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
             // 
             // StudentLedgerButton
             // 
@@ -174,7 +176,7 @@ namespace Financial_System.Forms
             this.StudentLedgerButton.Location = new System.Drawing.Point(0, 27);
             this.StudentLedgerButton.Name = "StudentLedgerButton";
             this.StudentLedgerButton.Size = new System.Drawing.Size(171, 27);
-            this.StudentLedgerButton.TabIndex = 11;
+            this.StudentLedgerButton.TabIndex = 12;
             this.StudentLedgerButton.Text = "Student Ledgers";
             this.StudentLedgerButton.UseVisualStyleBackColor = true;
             this.StudentLedgerButton.Click += new System.EventHandler(this.StudentLedgerButton_Click);
@@ -357,7 +359,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Panel ButtonPanel;
         private System.Windows.Forms.Button SetupButton;
         private System.Windows.Forms.Button ReportButton;
-        private System.Windows.Forms.Button ItemButton;
+        private System.Windows.Forms.Button TransactionButton;
         private System.Windows.Forms.Button StudentLedgerButton;
         private System.Windows.Forms.Button CollectionsButton;
         private System.Windows.Forms.Button GetStartedButton;
