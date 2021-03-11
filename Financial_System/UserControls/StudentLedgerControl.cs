@@ -10,12 +10,14 @@ namespace Financial_System.UserControls
     {
         UIHandler ui = new UIHandler();
         DataHandler dh = new DataHandler();
+        SQLiteHandler sql = new SQLiteHandler();
         StudentItemControl sc;
 
         public StudentLedgerControl()
         {
             InitializeComponent();
             ui.RoundButton(FilterButton);
+            LoadStudentLedger(sql.CreateConnection()); // fix for SQL Table not found bug. (Sean Baang)
             StudentFlowPanel.Controls.IndexOf(sc);
         }
 
