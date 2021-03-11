@@ -20,7 +20,7 @@ namespace Financial_System.Forms
             // DropDown (min-height only!)
             CollectionPanel.Height = 27; // min-height of collection panel
 
-            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
+            //uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection()); -> REMAINDER: dont do this shit next time hahhahahaa (Sean Baang)
         }
 
         // MOVING BORDERLESS WINDOW
