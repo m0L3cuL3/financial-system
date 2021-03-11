@@ -36,6 +36,11 @@ namespace Financial_System.Utils
             userControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, userControl.Width, userControl.Height, 20, 20));
         }
 
+        public void RoundPanel(Panel panel)
+        {
+            panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width, panel.Height, 20, 20));
+        }
+
         public void RoundButton(Button button)
         {
             button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width, button.Height, 30, 30));
