@@ -51,10 +51,11 @@ namespace Financial_System.UserControls
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.TitleLabel.Location = new System.Drawing.Point(18, 16);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(148, 25);
+            this.TitleLabel.Size = new System.Drawing.Size(108, 17);
             this.TitleLabel.TabIndex = 6;
             this.TitleLabel.Text = "Student Ledgers";
             // 

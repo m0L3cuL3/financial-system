@@ -17,7 +17,6 @@ namespace Financial_System.Utils
         public InsertTestTransactionControl TransControl = new InsertTestTransactionControl();
         public ReportsControl ReportsControl = new ReportsControl();
 
-
         public void UnloadControls(Panel panel)
         {
             panel.Controls.Clear();

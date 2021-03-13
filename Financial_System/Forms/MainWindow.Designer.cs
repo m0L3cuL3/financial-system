@@ -30,7 +30,6 @@ namespace Financial_System.Forms
         private void InitializeComponent()
         {
             this.TopBarPanel = new System.Windows.Forms.Panel();
-            this.CloseButton = new System.Windows.Forms.Label();
             this.SideMenuPanel = new System.Windows.Forms.Panel();
             this.ButtonPanel = new System.Windows.Forms.Panel();
             this.SetupButton = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@ namespace Financial_System.Forms
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.TestButton2 = new System.Windows.Forms.Button();
             this.TestButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -61,7 +61,7 @@ namespace Financial_System.Forms
             // TopBarPanel
             // 
             this.TopBarPanel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TopBarPanel.Controls.Add(this.CloseButton);
+            this.TopBarPanel.Controls.Add(this.closeButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
             this.TopBarPanel.Name = "TopBarPanel";
@@ -69,22 +69,9 @@ namespace Financial_System.Forms
             this.TopBarPanel.TabIndex = 0;
             this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
             // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.AutoSize = true;
-            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseButton.Location = new System.Drawing.Point(948, 6);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(17, 18);
-            this.CloseButton.TabIndex = 0;
-            this.CloseButton.Text = "X";
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
             // SideMenuPanel
             // 
-            this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
+            this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.SideMenuPanel.Controls.Add(this.ButtonPanel);
             this.SideMenuPanel.Controls.Add(this.SpacePanel);
             this.SideMenuPanel.Controls.Add(this.TitlePanel);
@@ -96,7 +83,7 @@ namespace Financial_System.Forms
             // 
             // ButtonPanel
             // 
-            this.ButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
+            this.ButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.ButtonPanel.Controls.Add(this.SetupButton);
             this.ButtonPanel.Controls.Add(this.ReportButton);
             this.ButtonPanel.Controls.Add(this.CollectionPanel);
@@ -110,6 +97,7 @@ namespace Financial_System.Forms
             // 
             // SetupButton
             // 
+            this.SetupButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SetupButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.SetupButton.FlatAppearance.BorderSize = 0;
             this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -125,6 +113,8 @@ namespace Financial_System.Forms
             // 
             // ReportButton
             // 
+            this.ReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.ReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReportButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReportButton.FlatAppearance.BorderSize = 0;
             this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -136,12 +126,12 @@ namespace Financial_System.Forms
             this.ReportButton.TabIndex = 9;
             this.ReportButton.Text = "Reports";
             this.ReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReportButton.UseVisualStyleBackColor = true;
+            this.ReportButton.UseVisualStyleBackColor = false;
             this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
             // CollectionPanel
             // 
-            this.CollectionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
+            this.CollectionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.CollectionPanel.Controls.Add(this.TransactionButton);
             this.CollectionPanel.Controls.Add(this.StudentLedgerButton);
             this.CollectionPanel.Controls.Add(this.CollectionsButton);
@@ -153,6 +143,8 @@ namespace Financial_System.Forms
             // 
             // TransactionButton
             // 
+            this.TransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.TransactionButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TransactionButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.TransactionButton.FlatAppearance.BorderSize = 0;
             this.TransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -163,11 +155,13 @@ namespace Financial_System.Forms
             this.TransactionButton.Size = new System.Drawing.Size(171, 27);
             this.TransactionButton.TabIndex = 11;
             this.TransactionButton.Text = "Create Transaction";
-            this.TransactionButton.UseVisualStyleBackColor = true;
+            this.TransactionButton.UseVisualStyleBackColor = false;
             this.TransactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
             // 
             // StudentLedgerButton
             // 
+            this.StudentLedgerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.StudentLedgerButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StudentLedgerButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.StudentLedgerButton.FlatAppearance.BorderSize = 0;
             this.StudentLedgerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -178,11 +172,13 @@ namespace Financial_System.Forms
             this.StudentLedgerButton.Size = new System.Drawing.Size(171, 27);
             this.StudentLedgerButton.TabIndex = 12;
             this.StudentLedgerButton.Text = "Student Ledgers";
-            this.StudentLedgerButton.UseVisualStyleBackColor = true;
+            this.StudentLedgerButton.UseVisualStyleBackColor = false;
             this.StudentLedgerButton.Click += new System.EventHandler(this.StudentLedgerButton_Click);
             // 
             // CollectionsButton
             // 
+            this.CollectionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.CollectionsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CollectionsButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.CollectionsButton.FlatAppearance.BorderSize = 0;
             this.CollectionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -194,11 +190,13 @@ namespace Financial_System.Forms
             this.CollectionsButton.TabIndex = 9;
             this.CollectionsButton.Text = "Collections";
             this.CollectionsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CollectionsButton.UseVisualStyleBackColor = true;
+            this.CollectionsButton.UseVisualStyleBackColor = false;
             this.CollectionsButton.Click += new System.EventHandler(this.CollectionsBtn_Click);
             // 
             // DashboardButton
             // 
+            this.DashboardButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.DashboardButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DashboardButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.DashboardButton.FlatAppearance.BorderSize = 0;
             this.DashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -210,11 +208,13 @@ namespace Financial_System.Forms
             this.DashboardButton.TabIndex = 7;
             this.DashboardButton.Text = "Dashboard";
             this.DashboardButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DashboardButton.UseVisualStyleBackColor = true;
+            this.DashboardButton.UseVisualStyleBackColor = false;
             this.DashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
             // 
             // GetStartedButton
             // 
+            this.GetStartedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.GetStartedButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GetStartedButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.GetStartedButton.FlatAppearance.BorderSize = 0;
             this.GetStartedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -226,12 +226,12 @@ namespace Financial_System.Forms
             this.GetStartedButton.TabIndex = 8;
             this.GetStartedButton.Text = "Get Started";
             this.GetStartedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GetStartedButton.UseVisualStyleBackColor = true;
+            this.GetStartedButton.UseVisualStyleBackColor = false;
             this.GetStartedButton.Click += new System.EventHandler(this.GetStartedButton_Click);
             // 
             // SpacePanel
             // 
-            this.SpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
+            this.SpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.SpacePanel.Controls.Add(this.MenuLabel);
             this.SpacePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SpacePanel.Location = new System.Drawing.Point(0, 48);
@@ -252,7 +252,7 @@ namespace Financial_System.Forms
             // 
             // TitlePanel
             // 
-            this.TitlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
+            this.TitlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.TitlePanel.Controls.Add(this.TitleLabel);
             this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
@@ -292,11 +292,12 @@ namespace Financial_System.Forms
             // 
             // TestButton2
             // 
-            this.TestButton2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TestButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.TestButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TestButton2.FlatAppearance.BorderSize = 0;
             this.TestButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestButton2.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestButton2.ForeColor = System.Drawing.Color.Black;
+            this.TestButton2.ForeColor = System.Drawing.Color.White;
             this.TestButton2.Location = new System.Drawing.Point(18, 53);
             this.TestButton2.Name = "TestButton2";
             this.TestButton2.Size = new System.Drawing.Size(171, 27);
@@ -307,11 +308,12 @@ namespace Financial_System.Forms
             // 
             // TestButton
             // 
-            this.TestButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.TestButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TestButton.FlatAppearance.BorderSize = 0;
             this.TestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestButton.ForeColor = System.Drawing.Color.Black;
+            this.TestButton.ForeColor = System.Drawing.Color.White;
             this.TestButton.Location = new System.Drawing.Point(18, 20);
             this.TestButton.Name = "TestButton";
             this.TestButton.Size = new System.Drawing.Size(171, 27);
@@ -319,6 +321,21 @@ namespace Financial_System.Forms
             this.TestButton.Text = "Create SQLite Table";
             this.TestButton.UseVisualStyleBackColor = false;
             this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(916, 4);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(43, 23);
+            this.closeButton.TabIndex = 0;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // MainWindow
             // 
@@ -333,7 +350,6 @@ namespace Financial_System.Forms
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopBarPanel.ResumeLayout(false);
-            this.TopBarPanel.PerformLayout();
             this.SideMenuPanel.ResumeLayout(false);
             this.ButtonPanel.ResumeLayout(false);
             this.CollectionPanel.ResumeLayout(false);
@@ -350,7 +366,6 @@ namespace Financial_System.Forms
 
         private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.Panel SideMenuPanel;
-        private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Panel HeadPanel;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button DashboardButton;
@@ -368,5 +383,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;
+        private System.Windows.Forms.Button closeButton;
     }
 }

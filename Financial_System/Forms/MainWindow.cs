@@ -36,8 +36,7 @@ namespace Financial_System.Forms
         }
 
         // CLOSE
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
+        private void closeButton_Click(object sender, EventArgs e) {
             Close();
         }
 
@@ -82,5 +81,7 @@ namespace Financial_System.Forms
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.TransControl);
         }
+
+        
     }
 }
