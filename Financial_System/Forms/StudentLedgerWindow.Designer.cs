@@ -49,7 +49,7 @@ namespace Financial_System.Forms
             // 
             // TopBarPanel
             // 
-            this.TopBarPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TopBarPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TopBarPanel.Controls.Add(this.CloseButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
@@ -63,11 +63,11 @@ namespace Financial_System.Forms
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseButton.AutoSize = true;
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.CloseButton.ForeColor = System.Drawing.Color.Red;
             this.CloseButton.Location = new System.Drawing.Point(803, 6);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(17, 18);
+            this.CloseButton.Size = new System.Drawing.Size(18, 18);
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "X";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -75,71 +75,72 @@ namespace Financial_System.Forms
             // ProfilePicPanel
             // 
             this.ProfilePicPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ProfilePicPanel.Location = new System.Drawing.Point(27, 31);
+            this.ProfilePicPanel.Location = new System.Drawing.Point(12, 11);
             this.ProfilePicPanel.Name = "ProfilePicPanel";
-            this.ProfilePicPanel.Size = new System.Drawing.Size(102, 88);
+            this.ProfilePicPanel.Size = new System.Drawing.Size(69, 59);
             this.ProfilePicPanel.TabIndex = 1;
             // 
             // StudentLevelLabel
             // 
             this.StudentLevelLabel.AutoSize = true;
-            this.StudentLevelLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentLevelLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentLevelLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentLevelLabel.Location = new System.Drawing.Point(14, 147);
+            this.StudentLevelLabel.Location = new System.Drawing.Point(87, 32);
             this.StudentLevelLabel.Name = "StudentLevelLabel";
-            this.StudentLevelLabel.Size = new System.Drawing.Size(81, 17);
+            this.StudentLevelLabel.Size = new System.Drawing.Size(90, 17);
             this.StudentLevelLabel.TabIndex = 16;
             this.StudentLevelLabel.Text = "StudentLevel";
             // 
             // StudentIDLabel
             // 
             this.StudentIDLabel.AutoSize = true;
-            this.StudentIDLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentIDLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentIDLabel.Location = new System.Drawing.Point(14, 181);
+            this.StudentIDLabel.Location = new System.Drawing.Point(9, 73);
             this.StudentIDLabel.Name = "StudentIDLabel";
-            this.StudentIDLabel.Size = new System.Drawing.Size(63, 17);
+            this.StudentIDLabel.Size = new System.Drawing.Size(69, 17);
             this.StudentIDLabel.TabIndex = 15;
             this.StudentIDLabel.Text = "StudentId";
             // 
             // StudentSectionLabel
             // 
             this.StudentSectionLabel.AutoSize = true;
-            this.StudentSectionLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentSectionLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentSectionLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentSectionLabel.Location = new System.Drawing.Point(14, 164);
+            this.StudentSectionLabel.Location = new System.Drawing.Point(87, 53);
             this.StudentSectionLabel.Name = "StudentSectionLabel";
-            this.StudentSectionLabel.Size = new System.Drawing.Size(94, 17);
+            this.StudentSectionLabel.Size = new System.Drawing.Size(104, 17);
             this.StudentSectionLabel.TabIndex = 14;
             this.StudentSectionLabel.Text = "StudentSection";
             // 
             // StudentNameLabel
             // 
             this.StudentNameLabel.AutoSize = true;
-            this.StudentNameLabel.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentNameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.StudentNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentNameLabel.Location = new System.Drawing.Point(12, 122);
+            this.StudentNameLabel.Location = new System.Drawing.Point(87, 11);
             this.StudentNameLabel.Name = "StudentNameLabel";
-            this.StudentNameLabel.Size = new System.Drawing.Size(106, 21);
+            this.StudentNameLabel.Size = new System.Drawing.Size(97, 17);
             this.StudentNameLabel.TabIndex = 13;
             this.StudentNameLabel.Text = "StudentName";
             // 
             // SideInfoPanel
             // 
-            this.SideInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
+            this.SideInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.SideInfoPanel.Controls.Add(this.ProfilePicPanel);
             this.SideInfoPanel.Controls.Add(this.StudentLevelLabel);
             this.SideInfoPanel.Controls.Add(this.StudentNameLabel);
             this.SideInfoPanel.Controls.Add(this.StudentIDLabel);
             this.SideInfoPanel.Controls.Add(this.StudentSectionLabel);
-            this.SideInfoPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SideInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SideInfoPanel.Location = new System.Drawing.Point(0, 30);
             this.SideInfoPanel.Name = "SideInfoPanel";
-            this.SideInfoPanel.Size = new System.Drawing.Size(158, 436);
+            this.SideInfoPanel.Size = new System.Drawing.Size(827, 97);
             this.SideInfoPanel.TabIndex = 17;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -147,10 +148,10 @@ namespace Financial_System.Forms
             this.AmountColumn,
             this.TypeColumn,
             this.ReceiptNumColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(164, 86);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 133);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(656, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(803, 198);
             this.dataGridView1.TabIndex = 18;
             // 
             // StudentIdColumn
