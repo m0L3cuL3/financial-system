@@ -36,14 +36,14 @@
             this.ReceiptColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.separator1 = new Financial_System.UserControls.Separator();
             this.dateDescLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
-            this.separator2 = new Financial_System.UserControls.Separator();
             this.totalDescLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.expToCSVButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.separator2 = new Financial_System.UserControls.Separator();
+            this.separator1 = new Financial_System.UserControls.Separator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,18 +123,6 @@
             this.titleLabel.TabIndex = 2;
             this.titleLabel.Text = "Daily Collection Report";
             // 
-            // separator1
-            // 
-            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.separator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.separator1.IsVertical = false;
-            this.separator1.Location = new System.Drawing.Point(18, 33);
-            this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(763, 23);
-            this.separator1.TabIndex = 3;
-            this.separator1.Text = "separator1";
-            this.separator1.Thickness = 5;
-            // 
             // dateDescLabel
             // 
             this.dateDescLabel.AutoSize = true;
@@ -156,18 +144,6 @@
             this.dateLabel.Size = new System.Drawing.Size(98, 17);
             this.dateLabel.TabIndex = 5;
             this.dateLabel.Text = "March 13, 2021";
-            // 
-            // separator2
-            // 
-            this.separator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.separator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.separator2.IsVertical = false;
-            this.separator2.Location = new System.Drawing.Point(18, 367);
-            this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(763, 23);
-            this.separator2.TabIndex = 6;
-            this.separator2.Text = "separator2";
-            this.separator2.Thickness = 5;
             // 
             // totalDescLabel
             // 
@@ -218,6 +194,30 @@
             this.printButton.TabIndex = 10;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = false;
+            // 
+            // separator2
+            // 
+            this.separator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.separator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.separator2.IsVertical = false;
+            this.separator2.Location = new System.Drawing.Point(18, 367);
+            this.separator2.Name = "separator2";
+            this.separator2.Size = new System.Drawing.Size(763, 23);
+            this.separator2.TabIndex = 6;
+            this.separator2.Text = "separator2";
+            this.separator2.Thickness = 5;
+            // 
+            // separator1
+            // 
+            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.separator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.separator1.IsVertical = false;
+            this.separator1.Location = new System.Drawing.Point(18, 33);
+            this.separator1.Name = "separator1";
+            this.separator1.Size = new System.Drawing.Size(763, 23);
+            this.separator1.TabIndex = 3;
+            this.separator1.Text = "separator1";
+            this.separator1.Thickness = 5;
             // 
             // ReportsControl
             // 
