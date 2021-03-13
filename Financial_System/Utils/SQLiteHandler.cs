@@ -75,11 +75,11 @@ namespace Financial_System.Utils
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@fname", "Jane");
-            sqlite_cmd.Parameters.AddWithValue("@midname", "Rachele");
-            sqlite_cmd.Parameters.AddWithValue("@surname", "Doe");
-            sqlite_cmd.Parameters.AddWithValue("@section", "St. Anselm");
-            sqlite_cmd.Parameters.AddWithValue("@level", 1);
+            sqlite_cmd.Parameters.AddWithValue("@fname", "Jonathan");
+            sqlite_cmd.Parameters.AddWithValue("@midname", "David");
+            sqlite_cmd.Parameters.AddWithValue("@surname", "Suarez");
+            sqlite_cmd.Parameters.AddWithValue("@section", "St. Thomas Aquinas");
+            sqlite_cmd.Parameters.AddWithValue("@level", 7);
 
             sqlite_cmd.ExecuteNonQuery();
         }
