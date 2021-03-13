@@ -37,31 +37,31 @@ namespace Financial_System.Utils
             SQLiteCommand sqlite_cmd;
 
             // STUDENT //
-            string StudentTable = "CREATE TABLE Student(student_id INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
+            string StudentTable = "CREATE TABLE IF NOT EXISTS Student(student_id INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = StudentTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // STUDENT_TRANSACTION //
-            string TransactionTable = "CREATE TABLE Student_Transaction(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount VARCHAR NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NULL, date_recorded DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (student_id) REFERENCES Student(student_id));";
+            string TransactionTable = "CREATE TABLE IF NOT EXISTS Student_Transaction(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, date_recorded DATE NOT NULL, FOREIGN KEY(student_id) REFERENCES Student(student_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TransactionTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // STUDENT_LEDGER //
-            string StudentLedgerTable = "CREATE TABLE Student_Ledger(ledger_id INTEGER PRIMARY KEY AUTOINCREMENT, transaction_id INT NOT NULL, term INT NOT NULL, isClosed BOOLEAN NOT NULL , FOREIGN KEY(transaction_id) REFERENCES Student_Transaction(transaction_id), FOREIGN KEY(term) REFERENCES Term(term_id));";
+            string StudentLedgerTable = "CREATE TABLE IF NOT EXISTS Student_Ledger(ledger_id INTEGER PRIMARY KEY AUTOINCREMENT, transaction_id INT NOT NULL, term INT NOT NULL, isClosed BOOLEAN NOT NULL , FOREIGN KEY(transaction_id) REFERENCES Student_Transaction(transaction_id), FOREIGN KEY(term) REFERENCES Term(term_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = StudentLedgerTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // TERM //
-            string TermTable = "CREATE TABLE Term(term_id INTEGER PRIMARY KEY, startdate DATE NOT NULL, enddate DATE NOT NULL);";
+            string TermTable = "CREATE TABLE IF NOT EXISTS Term(term_id INTEGER PRIMARY KEY, startdate DATE NOT NULL, enddate DATE NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TermTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // User //
-            string UserTable = "CREATE TABLE User(user_id INTEGER PRIMARY KEY, createdate DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, enddate DATE NOT NULL);";
+            string UserTable = "CREATE TABLE IF NOT EXISTS User(user_id INTEGER PRIMARY KEY, createdate DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, enddate DATE NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = UserTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -78,17 +78,17 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@fname", "Jane");
             sqlite_cmd.Parameters.AddWithValue("@midname", "Rachele");
             sqlite_cmd.Parameters.AddWithValue("@surname", "Doe");
-            sqlite_cmd.Parameters.AddWithValue("@section", "Section X");
+            sqlite_cmd.Parameters.AddWithValue("@section", "St. Anselm");
             sqlite_cmd.Parameters.AddWithValue("@level", 1);
 
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        public void InsertTransaction (SQLiteConnection conn, string amount, string type, string sid, string receipt)
+        public void InsertTransaction (SQLiteConnection conn, int amount, string type, string sid, string receipt)
         {
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Student_Transaction(amount, type, student_id, receipt_number) VALUES (@amount, @type, @sid, @receipt);";
+            string insertData = "INSERT INTO Student_Transaction(amount, type, student_id, receipt_number, date_recorded) VALUES (@amount, @type, @sid, @receipt, datetime('now', 'localtime'));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
@@ -96,6 +96,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@type", type);
             sqlite_cmd.Parameters.AddWithValue("@sid", sid);
             sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
+            //sqlite_cmd.Parameters.AddWithValue("@data_recorded", DateTime.Now);
 
             sqlite_cmd.ExecuteNonQuery();
         }
@@ -132,6 +133,26 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@isClosed", isClosed);
 
             sqlite_cmd.ExecuteNonQuery();
+        }
+
+        public void GetStudentData(SQLiteConnection conn, DataGridView dgv)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("Select * From Student", conn);
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),  // id
+                        read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3), // fullname
+                        read.GetString(4), // section
+                        read.GetInt32(5).ToString() // level
+                    });
+                }
+            }
+
+
         }
 
         /*public string GetStudentName(SQLiteConnection conn, int id)
