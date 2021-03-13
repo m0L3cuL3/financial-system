@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Financial_System.Utils;
@@ -41,7 +34,9 @@ namespace Financial_System.UserControls
                     read.GetValue(0),
                     read.GetValue(read.GetOrdinal("student_id")),
                     read.GetValue(read.GetOrdinal("type")),
-                    read.GetValue(read.GetOrdinal("amount"))
+                    read.GetValue(read.GetOrdinal("amount")),
+                    read.GetValue(read.GetOrdinal("receipt_number")),
+                    read.GetValue(read.GetOrdinal("date_recorded"))
                 });
             }
 

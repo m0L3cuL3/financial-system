@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TransIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(19, 21);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(296, 188);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // dataGridView1
             // 
@@ -54,11 +46,13 @@
             this.TransIdColumn,
             this.StudentIdColumn,
             this.TypeColumn,
-            this.AmountColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(330, 21);
+            this.AmountColumn,
+            this.ReceiptColumn,
+            this.DateRecordedColumn});
+            this.dataGridView1.Location = new System.Drawing.Point(17, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(455, 188);
+            this.dataGridView1.Size = new System.Drawing.Size(763, 188);
             this.dataGridView1.TabIndex = 1;
             // 
             // TransIdColumn
@@ -93,12 +87,27 @@
             this.AmountColumn.ReadOnly = true;
             this.AmountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // ReceiptColumn
+            // 
+            this.ReceiptColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReceiptColumn.HeaderText = "Receipt #";
+            this.ReceiptColumn.Name = "ReceiptColumn";
+            this.ReceiptColumn.ReadOnly = true;
+            this.ReceiptColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DateRecordedColumn
+            // 
+            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateRecordedColumn.HeaderText = "Date Recorded";
+            this.DateRecordedColumn.Name = "DateRecordedColumn";
+            this.DateRecordedColumn.ReadOnly = true;
+            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // ReportsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.listView1);
             this.Name = "ReportsControl";
             this.Size = new System.Drawing.Size(800, 440);
             this.Load += new System.EventHandler(this.ReportsControl_Load);
@@ -108,12 +117,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateRecordedColumn;
     }
 }

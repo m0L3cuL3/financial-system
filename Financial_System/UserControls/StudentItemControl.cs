@@ -47,6 +47,7 @@ namespace Financial_System.UserControls
             InitializeComponent();
             ui.RoundUserControl(this);
             ui.RoundButton(ViewLedgerButton);
+            ui.RoundPanel(ProfilePanel);
 
             StudentNameLabel.Text = StudentName;
             StudentSectionLabel.Text = StudentSection;

@@ -32,18 +32,15 @@ namespace Financial_System.UserControls
             this.TitleLabel = new System.Windows.Forms.Label();
             this.CollectablesPieChart = new LiveCharts.WinForms.PieChart();
             this.CollectablesPanel = new System.Windows.Forms.Panel();
-            this.CollectablesLabel = new System.Windows.Forms.Label();
-            this.FilterComboBox = new System.Windows.Forms.ComboBox();
+            this.FeeCollectionsLabel = new System.Windows.Forms.Label();
             this.NetworkInfoPanel = new System.Windows.Forms.Panel();
-            this.NetworkInfoLabel = new System.Windows.Forms.Label();
-            this.NetConLabel = new System.Windows.Forms.Label();
             this.NetConStatusLabel = new System.Windows.Forms.Label();
+            this.NetConLabel = new System.Windows.Forms.Label();
+            this.NetworkInfoLabel = new System.Windows.Forms.Label();
             this.DBInfoLabel = new System.Windows.Forms.Label();
             this.DBInfoPanel = new System.Windows.Forms.Panel();
             this.DBFileNameLabel = new System.Windows.Forms.Label();
             this.DBFileNameTitleLabel = new System.Windows.Forms.Label();
-            this.DBFileSizeTitleLabel = new System.Windows.Forms.Label();
-            this.DBFileSizeLabel = new System.Windows.Forms.Label();
             this.CollectablesPanel.SuspendLayout();
             this.NetworkInfoPanel.SuspendLayout();
             this.DBInfoPanel.SuspendLayout();
@@ -64,59 +61,50 @@ namespace Financial_System.UserControls
             this.CollectablesPieChart.BackColor = System.Drawing.SystemColors.Control;
             this.CollectablesPieChart.BackColorTransparent = true;
             this.CollectablesPieChart.ForeColor = System.Drawing.Color.Black;
-            this.CollectablesPieChart.Location = new System.Drawing.Point(7, 9);
+            this.CollectablesPieChart.Location = new System.Drawing.Point(12, 14);
             this.CollectablesPieChart.Name = "CollectablesPieChart";
-            this.CollectablesPieChart.Size = new System.Drawing.Size(280, 134);
+            this.CollectablesPieChart.Size = new System.Drawing.Size(395, 287);
             this.CollectablesPieChart.TabIndex = 0;
             // 
             // CollectablesPanel
             // 
             this.CollectablesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.CollectablesPanel.Controls.Add(this.CollectablesPieChart);
-            this.CollectablesPanel.Location = new System.Drawing.Point(463, 99);
+            this.CollectablesPanel.Location = new System.Drawing.Point(360, 99);
             this.CollectablesPanel.Name = "CollectablesPanel";
-            this.CollectablesPanel.Size = new System.Drawing.Size(294, 159);
+            this.CollectablesPanel.Size = new System.Drawing.Size(419, 319);
             this.CollectablesPanel.TabIndex = 2;
             // 
-            // CollectablesLabel
+            // FeeCollectionsLabel
             // 
-            this.CollectablesLabel.AutoSize = true;
-            this.CollectablesLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CollectablesLabel.Location = new System.Drawing.Point(459, 70);
-            this.CollectablesLabel.Name = "CollectablesLabel";
-            this.CollectablesLabel.Size = new System.Drawing.Size(170, 20);
-            this.CollectablesLabel.TabIndex = 3;
-            this.CollectablesLabel.Text = "Collectables (by term)";
-            // 
-            // FilterComboBox
-            // 
-            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(629, 72);
-            this.FilterComboBox.Name = "FilterComboBox";
-            this.FilterComboBox.Size = new System.Drawing.Size(128, 21);
-            this.FilterComboBox.TabIndex = 4;
-            this.FilterComboBox.SelectionChangeCommitted += new System.EventHandler(this.FilterComboBox_SelectionChangeCommitted);
+            this.FeeCollectionsLabel.AutoSize = true;
+            this.FeeCollectionsLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FeeCollectionsLabel.Location = new System.Drawing.Point(356, 73);
+            this.FeeCollectionsLabel.Name = "FeeCollectionsLabel";
+            this.FeeCollectionsLabel.Size = new System.Drawing.Size(190, 20);
+            this.FeeCollectionsLabel.TabIndex = 3;
+            this.FeeCollectionsLabel.Text = "Fee Collections (by Term)";
             // 
             // NetworkInfoPanel
             // 
             this.NetworkInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
             this.NetworkInfoPanel.Controls.Add(this.NetConStatusLabel);
             this.NetworkInfoPanel.Controls.Add(this.NetConLabel);
-            this.NetworkInfoPanel.Location = new System.Drawing.Point(23, 203);
+            this.NetworkInfoPanel.Location = new System.Drawing.Point(23, 190);
             this.NetworkInfoPanel.Name = "NetworkInfoPanel";
-            this.NetworkInfoPanel.Size = new System.Drawing.Size(294, 55);
+            this.NetworkInfoPanel.Size = new System.Drawing.Size(306, 55);
             this.NetworkInfoPanel.TabIndex = 3;
             // 
-            // NetworkInfoLabel
+            // NetConStatusLabel
             // 
-            this.NetworkInfoLabel.AutoSize = true;
-            this.NetworkInfoLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NetworkInfoLabel.Location = new System.Drawing.Point(19, 180);
-            this.NetworkInfoLabel.Name = "NetworkInfoLabel";
-            this.NetworkInfoLabel.Size = new System.Drawing.Size(160, 20);
-            this.NetworkInfoLabel.TabIndex = 5;
-            this.NetworkInfoLabel.Text = "Network Information";
+            this.NetConStatusLabel.AutoSize = true;
+            this.NetConStatusLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NetConStatusLabel.Location = new System.Drawing.Point(222, 19);
+            this.NetConStatusLabel.Name = "NetConStatusLabel";
+            this.NetConStatusLabel.Size = new System.Drawing.Size(67, 17);
+            this.NetConStatusLabel.TabIndex = 7;
+            this.NetConStatusLabel.Text = "netStatus";
+            this.NetConStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // NetConLabel
             // 
@@ -128,15 +116,15 @@ namespace Financial_System.UserControls
             this.NetConLabel.TabIndex = 6;
             this.NetConLabel.Text = "Network Connection:";
             // 
-            // NetConStatusLabel
+            // NetworkInfoLabel
             // 
-            this.NetConStatusLabel.AutoSize = true;
-            this.NetConStatusLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NetConStatusLabel.Location = new System.Drawing.Point(220, 19);
-            this.NetConStatusLabel.Name = "NetConStatusLabel";
-            this.NetConStatusLabel.Size = new System.Drawing.Size(67, 17);
-            this.NetConStatusLabel.TabIndex = 7;
-            this.NetConStatusLabel.Text = "netStatus";
+            this.NetworkInfoLabel.AutoSize = true;
+            this.NetworkInfoLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NetworkInfoLabel.Location = new System.Drawing.Point(19, 167);
+            this.NetworkInfoLabel.Name = "NetworkInfoLabel";
+            this.NetworkInfoLabel.Size = new System.Drawing.Size(160, 20);
+            this.NetworkInfoLabel.TabIndex = 5;
+            this.NetworkInfoLabel.Text = "Network Information";
             // 
             // DBInfoLabel
             // 
@@ -151,24 +139,23 @@ namespace Financial_System.UserControls
             // DBInfoPanel
             // 
             this.DBInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
-            this.DBInfoPanel.Controls.Add(this.DBFileSizeLabel);
-            this.DBInfoPanel.Controls.Add(this.DBFileSizeTitleLabel);
             this.DBInfoPanel.Controls.Add(this.DBFileNameLabel);
             this.DBInfoPanel.Controls.Add(this.DBFileNameTitleLabel);
             this.DBInfoPanel.Location = new System.Drawing.Point(23, 99);
             this.DBInfoPanel.Name = "DBInfoPanel";
-            this.DBInfoPanel.Size = new System.Drawing.Size(294, 73);
+            this.DBInfoPanel.Size = new System.Drawing.Size(306, 54);
             this.DBInfoPanel.TabIndex = 6;
             // 
             // DBFileNameLabel
             // 
             this.DBFileNameLabel.AutoSize = true;
             this.DBFileNameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DBFileNameLabel.Location = new System.Drawing.Point(201, 19);
+            this.DBFileNameLabel.Location = new System.Drawing.Point(203, 19);
             this.DBFileNameLabel.Name = "DBFileNameLabel";
             this.DBFileNameLabel.Size = new System.Drawing.Size(86, 17);
             this.DBFileNameLabel.TabIndex = 7;
             this.DBFileNameLabel.Text = "dbFileName";
+            this.DBFileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // DBFileNameTitleLabel
             // 
@@ -180,26 +167,6 @@ namespace Financial_System.UserControls
             this.DBFileNameTitleLabel.TabIndex = 6;
             this.DBFileNameTitleLabel.Text = "Database File Name: ";
             // 
-            // DBFileSizeTitleLabel
-            // 
-            this.DBFileSizeTitleLabel.AutoSize = true;
-            this.DBFileSizeTitleLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DBFileSizeTitleLabel.Location = new System.Drawing.Point(15, 36);
-            this.DBFileSizeTitleLabel.Name = "DBFileSizeTitleLabel";
-            this.DBFileSizeTitleLabel.Size = new System.Drawing.Size(131, 17);
-            this.DBFileSizeTitleLabel.TabIndex = 8;
-            this.DBFileSizeTitleLabel.Text = "Database File Size: ";
-            // 
-            // DBFileSizeLabel
-            // 
-            this.DBFileSizeLabel.AutoSize = true;
-            this.DBFileSizeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DBFileSizeLabel.Location = new System.Drawing.Point(218, 36);
-            this.DBFileSizeLabel.Name = "DBFileSizeLabel";
-            this.DBFileSizeLabel.Size = new System.Drawing.Size(69, 17);
-            this.DBFileSizeLabel.TabIndex = 9;
-            this.DBFileSizeLabel.Text = "dbFileSize";
-            // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,8 +176,7 @@ namespace Financial_System.UserControls
             this.Controls.Add(this.DBInfoPanel);
             this.Controls.Add(this.NetworkInfoLabel);
             this.Controls.Add(this.NetworkInfoPanel);
-            this.Controls.Add(this.FilterComboBox);
-            this.Controls.Add(this.CollectablesLabel);
+            this.Controls.Add(this.FeeCollectionsLabel);
             this.Controls.Add(this.CollectablesPanel);
             this.Controls.Add(this.TitleLabel);
             this.Name = "DashboardControl";
@@ -230,16 +196,13 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.Label TitleLabel;
         private LiveCharts.WinForms.PieChart CollectablesPieChart;
         private System.Windows.Forms.Panel CollectablesPanel;
-        private System.Windows.Forms.Label CollectablesLabel;
-        private System.Windows.Forms.ComboBox FilterComboBox;
+        private System.Windows.Forms.Label FeeCollectionsLabel;
         private System.Windows.Forms.Panel NetworkInfoPanel;
         private System.Windows.Forms.Label NetworkInfoLabel;
         private System.Windows.Forms.Label NetConStatusLabel;
         private System.Windows.Forms.Label NetConLabel;
         private System.Windows.Forms.Label DBInfoLabel;
         private System.Windows.Forms.Panel DBInfoPanel;
-        private System.Windows.Forms.Label DBFileSizeLabel;
-        private System.Windows.Forms.Label DBFileSizeTitleLabel;
         private System.Windows.Forms.Label DBFileNameLabel;
         private System.Windows.Forms.Label DBFileNameTitleLabel;
     }

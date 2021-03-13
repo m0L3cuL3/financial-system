@@ -40,16 +40,16 @@ namespace Financial_System.UserControls
             // StudentNameLabel
             // 
             this.StudentNameLabel.AutoSize = true;
-            this.StudentNameLabel.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentNameLabel.Location = new System.Drawing.Point(115, 3);
+            this.StudentNameLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentNameLabel.Location = new System.Drawing.Point(116, 9);
             this.StudentNameLabel.Name = "StudentNameLabel";
-            this.StudentNameLabel.Size = new System.Drawing.Size(127, 25);
+            this.StudentNameLabel.Size = new System.Drawing.Size(138, 22);
             this.StudentNameLabel.TabIndex = 7;
             this.StudentNameLabel.Text = "StudentName";
             // 
             // ProfilePanel
             // 
-            this.ProfilePanel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ProfilePanel.BackColor = System.Drawing.Color.SlateGray;
             this.ProfilePanel.Location = new System.Drawing.Point(13, 9);
             this.ProfilePanel.Name = "ProfilePanel";
             this.ProfilePanel.Size = new System.Drawing.Size(91, 78);
@@ -58,10 +58,10 @@ namespace Financial_System.UserControls
             // StudentSectionLabel
             // 
             this.StudentSectionLabel.AutoSize = true;
-            this.StudentSectionLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentSectionLabel.Location = new System.Drawing.Point(117, 45);
+            this.StudentSectionLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentSectionLabel.Location = new System.Drawing.Point(117, 48);
             this.StudentSectionLabel.Name = "StudentSectionLabel";
-            this.StudentSectionLabel.Size = new System.Drawing.Size(94, 17);
+            this.StudentSectionLabel.Size = new System.Drawing.Size(104, 17);
             this.StudentSectionLabel.TabIndex = 9;
             this.StudentSectionLabel.Text = "StudentSection";
             // 
@@ -83,36 +83,36 @@ namespace Financial_System.UserControls
             // StudentIDLabel
             // 
             this.StudentIDLabel.AutoSize = true;
-            this.StudentIDLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentIDLabel.Location = new System.Drawing.Point(117, 70);
             this.StudentIDLabel.Name = "StudentIDLabel";
-            this.StudentIDLabel.Size = new System.Drawing.Size(63, 17);
+            this.StudentIDLabel.Size = new System.Drawing.Size(69, 17);
             this.StudentIDLabel.TabIndex = 11;
             this.StudentIDLabel.Text = "StudentId";
             // 
             // StudentLevelLabel
             // 
             this.StudentLevelLabel.AutoSize = true;
-            this.StudentLevelLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentLevelLabel.Location = new System.Drawing.Point(117, 28);
+            this.StudentLevelLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentLevelLabel.Location = new System.Drawing.Point(117, 31);
             this.StudentLevelLabel.Name = "StudentLevelLabel";
-            this.StudentLevelLabel.Size = new System.Drawing.Size(81, 17);
+            this.StudentLevelLabel.Size = new System.Drawing.Size(90, 17);
             this.StudentLevelLabel.TabIndex = 12;
             this.StudentLevelLabel.Text = "StudentLevel";
             // 
-            // StudentControl
+            // StudentItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.Controls.Add(this.StudentLevelLabel);
             this.Controls.Add(this.StudentIDLabel);
             this.Controls.Add(this.ViewLedgerButton);
             this.Controls.Add(this.StudentSectionLabel);
             this.Controls.Add(this.ProfilePanel);
             this.Controls.Add(this.StudentNameLabel);
-            this.Margin = new System.Windows.Forms.Padding(15, 10, 0, 3);
-            this.Name = "StudentControl";
+            this.Margin = new System.Windows.Forms.Padding(10, 10, 0, 3);
+            this.Name = "StudentItemControl";
             this.Size = new System.Drawing.Size(764, 98);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -17,7 +17,6 @@ namespace Financial_System.UserControls
         {
             InitializeComponent();
             ui.RoundButton(FilterButton);
-            LoadStudentLedger(sql.CreateConnection()); // fix for SQL Table not found bug. (Sean Baang)
             StudentFlowPanel.Controls.IndexOf(sc);
         }
 

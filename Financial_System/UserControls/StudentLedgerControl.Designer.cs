@@ -61,6 +61,7 @@ namespace Financial_System.UserControls
             // StudentFlowPanel
             // 
             this.StudentFlowPanel.AutoScroll = true;
+            this.StudentFlowPanel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.StudentFlowPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.StudentFlowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.StudentFlowPanel.Location = new System.Drawing.Point(0, 61);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Windows.Forms;
 using Financial_System.Utils;
@@ -19,7 +20,7 @@ namespace Financial_System.UserControls
             ui.RoundPanel(NetworkInfoPanel);
             ui.RoundPanel(DBInfoPanel);
             CheckNetworkConnection();
-            //FilterList(); -> dont use this yet, quite confusing on development.
+            CheckDatabaseStatus();
             LoadSampleData();    
         }
 
@@ -46,63 +47,6 @@ namespace Financial_System.UserControls
             CollectablesPieChart.Show();
         }
 
-        // again, for testing purposes only!
-        private void LoadSampleDataByFilter(string title, int value)
-        {
-            SeriesCollection series = new SeriesCollection();
-            series.Add(new PieSeries() { Title = title, Values = new ChartValues<int> { value }, DataLabels = true, LabelPoint = labelPoint });
-            CollectablesPieChart.Series = series;
-
-            CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
-
-            // fix for Negative/Black PieChart (Sean Baang)
-            CollectablesPieChart.Hide();
-            CollectablesPieChart.Show();
-        }
-
-        // for testing purpose only -> find a way to create list efficiently!
-        private void FilterList() //FilterList(string start, string end) -> make it accept params.
-        {
-            // dont hardcode this shit! -> probably use SELECT start, end FROM TERM -> then concat start, end (ex. 2020 + "-" + 2021)(cont. start + "-" + end)
-            FilterComboBox.Items.Add("Show all");
-            FilterComboBox.Items.Add("2020-2021");
-            FilterComboBox.Items.Add("2021-2022");
-            FilterComboBox.Items.Add("2022-2023");
-            FilterComboBox.Items.Add("2023-2024");
-            FilterComboBox.Items.Add("2024-2025");
-            FilterComboBox.Items.Add("2025-2026");
-        }
-
-        // Bad way of filtering -> DO NOT USE THIS SHIT!
-        private void FilterComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            // note: using switch case is probably the best way to filter this shit. (probably use SQL queries)
-            switch (FilterComboBox.SelectedItem)
-            {
-                case "Show all":
-                    LoadSampleData();
-                    break;
-                case "2020-2021":
-                    LoadSampleDataByFilter("2020-2021", 100000);
-                    break;
-                case "2021-2022":
-                    LoadSampleDataByFilter("2021-2022", 125000);
-                    break;
-                case "2022-2023":
-                    LoadSampleDataByFilter("2022-2023", 95000);
-                    break;
-                case "2023-2024":
-                    LoadSampleDataByFilter("2023-2024", 100000);
-                    break;
-                case "2024-2025":
-                    LoadSampleDataByFilter("2024-2025", 125000);
-                    break;
-                case "2025-2026":
-                    LoadSampleDataByFilter("2025-2026", 95000);
-                    break;
-
-            }
-        }
 
         private void CheckNetworkConnection()
         {
@@ -118,6 +62,18 @@ namespace Financial_System.UserControls
                 NetConStatusLabel.ForeColor = Color.Red;
                 NetConStatusLabel.Text = "offline";
             }
+        }
+
+        private void CheckDatabaseStatus()
+        {
+            string dbName = "database.db";
+            DirectoryInfo path = new DirectoryInfo(@"\");
+            string filename = null;
+
+            filename = Path.GetFileName(path + dbName);
+
+            DBFileNameLabel.ForeColor = Color.DodgerBlue;
+            DBFileNameLabel.Text = filename;
         }
     }
 }
