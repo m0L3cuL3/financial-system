@@ -42,50 +42,64 @@ namespace Financial_System.UserControls
             }
 
         }
-
-        private void separator2_Click(object sender, EventArgs e) {
-
-        }
     }
 
-    class Separator : Control { //this is a custom control. It appears as a horizontal line just like <hr> tag in html. It does nothing
+    #region Custom Separator
+
+    class Separator : Control
+    { //this is a custom control. It appears as a horizontal line just like <hr> tag in html. It does nothing
         private int thickness = 1;
         private bool isVertical;
 
-        protected override void OnPaint(PaintEventArgs e) {
+        protected override void OnPaint(PaintEventArgs e)
+        {
             base.OnPaint(e);
             var size = isVertical ? Height / 2 : Width / 2;
             e.Graphics.TranslateTransform(Width / 2f, Height / 2f);
 
-            using (var pen = new Pen(ForeColor, thickness)) {
-                if (!isVertical) {
+            using (var pen = new Pen(ForeColor, thickness))
+            {
+                if (!isVertical)
+                {
                     e.Graphics.DrawLine(pen, -size + Padding.Left, 0, size - Padding.Right, 0);
-                } else {
+                }
+                else
+                {
                     e.Graphics.DrawLine(pen, 0, -size + Padding.Top, 0, size - Padding.Bottom);
                 }
             }
         }
-        protected override void OnPaddingChanged(EventArgs e) {
+        protected override void OnPaddingChanged(EventArgs e)
+        {
             base.OnPaddingChanged(e);
             Invalidate();
         }
-        public bool IsVertical {
+        public bool IsVertical
+        {
             get => isVertical;
-            set {
+            set
+            {
                 isVertical = value;
                 Invalidate();
             }
         }
-        public int Thickness {
+        public int Thickness
+        {
             get => thickness;
-            set {
+            set
+            {
                 thickness = value;
-                if(Height < thickness) {
+                if (Height < thickness)
+                {
                     Height = thickness;
-                } else {
+                }
+                else
+                {
                     Invalidate();
                 }
             }
         }
     }
+
+    #endregion
 }
