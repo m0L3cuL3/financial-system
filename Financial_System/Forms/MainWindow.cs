@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using Financial_System.Utils;
 
@@ -20,7 +21,8 @@ namespace Financial_System.Forms
             // DropDown (min-height only!)
             CollectionPanel.Height = 27; // min-height of collection panel
 
-            //uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection()); -> REMAINDER: dont do this shit next time hahhahahaa (Sean Baang)
+            sql.CreateTable(sql.CreateConnection());
+            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
         }
 
         // MOVING BORDERLESS WINDOW
@@ -60,14 +62,10 @@ namespace Financial_System.Forms
             uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
         }
 
-        private void TestButton_Click(object sender, EventArgs e)
-        {
-            sql.CreateTable(sql.CreateConnection());
-            MessageBox.Show("Table Created!");    
-        }
         private void TestButton2_Click(object sender, EventArgs e)
         {
             sql.InsertStudentData(sql.CreateConnection());
+            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
             MessageBox.Show("Student Inserted!");
         }
 

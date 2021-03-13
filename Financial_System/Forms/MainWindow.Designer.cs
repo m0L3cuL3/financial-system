@@ -29,6 +29,7 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.SideMenuPanel = new System.Windows.Forms.Panel();
@@ -42,20 +43,17 @@ namespace Financial_System.Forms
             this.DashboardButton = new System.Windows.Forms.Button();
             this.GetStartedButton = new System.Windows.Forms.Button();
             this.SpacePanel = new System.Windows.Forms.Panel();
-            this.MenuLabel = new System.Windows.Forms.Label();
-            this.TitlePanel = new System.Windows.Forms.Panel();
-            this.TitleLabel = new System.Windows.Forms.Label();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.TestButton2 = new System.Windows.Forms.Button();
-            this.TestButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.CollectionPanel.SuspendLayout();
             this.SpacePanel.SuspendLayout();
-            this.TitlePanel.SuspendLayout();
             this.DisplayControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -87,7 +85,6 @@ namespace Financial_System.Forms
             this.SideMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
             this.SideMenuPanel.Controls.Add(this.ButtonPanel);
             this.SideMenuPanel.Controls.Add(this.SpacePanel);
-            this.SideMenuPanel.Controls.Add(this.TitlePanel);
             this.SideMenuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SideMenuPanel.Location = new System.Drawing.Point(0, 30);
             this.SideMenuPanel.Name = "SideMenuPanel";
@@ -232,44 +229,12 @@ namespace Financial_System.Forms
             // SpacePanel
             // 
             this.SpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
-            this.SpacePanel.Controls.Add(this.MenuLabel);
+            this.SpacePanel.Controls.Add(this.pictureBox1);
             this.SpacePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SpacePanel.Location = new System.Drawing.Point(0, 48);
+            this.SpacePanel.Location = new System.Drawing.Point(0, 0);
             this.SpacePanel.Name = "SpacePanel";
-            this.SpacePanel.Size = new System.Drawing.Size(171, 89);
+            this.SpacePanel.Size = new System.Drawing.Size(171, 137);
             this.SpacePanel.TabIndex = 7;
-            // 
-            // MenuLabel
-            // 
-            this.MenuLabel.AutoSize = true;
-            this.MenuLabel.Font = new System.Drawing.Font("Ebrima", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuLabel.ForeColor = System.Drawing.Color.White;
-            this.MenuLabel.Location = new System.Drawing.Point(12, 53);
-            this.MenuLabel.Name = "MenuLabel";
-            this.MenuLabel.Size = new System.Drawing.Size(46, 20);
-            this.MenuLabel.TabIndex = 5;
-            this.MenuLabel.Text = "Menu";
-            // 
-            // TitlePanel
-            // 
-            this.TitlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(14)))), ((int)(((byte)(42)))));
-            this.TitlePanel.Controls.Add(this.TitleLabel);
-            this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitlePanel.Location = new System.Drawing.Point(0, 0);
-            this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(171, 48);
-            this.TitlePanel.TabIndex = 5;
-            // 
-            // TitleLabel
-            // 
-            this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.White;
-            this.TitleLabel.Location = new System.Drawing.Point(12, 8);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(73, 32);
-            this.TitleLabel.TabIndex = 3;
-            this.TitleLabel.Text = "PCHS";
             // 
             // HeadPanel
             // 
@@ -283,7 +248,6 @@ namespace Financial_System.Forms
             // 
             this.DisplayControlPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DisplayControlPanel.Controls.Add(this.TestButton2);
-            this.DisplayControlPanel.Controls.Add(this.TestButton);
             this.DisplayControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DisplayControlPanel.Location = new System.Drawing.Point(171, 78);
             this.DisplayControlPanel.Name = "DisplayControlPanel";
@@ -305,20 +269,15 @@ namespace Financial_System.Forms
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
             // 
-            // TestButton
+            // pictureBox1
             // 
-            this.TestButton.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TestButton.FlatAppearance.BorderSize = 0;
-            this.TestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestButton.ForeColor = System.Drawing.Color.Black;
-            this.TestButton.Location = new System.Drawing.Point(18, 20);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(171, 27);
-            this.TestButton.TabIndex = 11;
-            this.TestButton.Text = "Create SQLite Table";
-            this.TestButton.UseVisualStyleBackColor = false;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(10, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // MainWindow
             // 
@@ -338,10 +297,8 @@ namespace Financial_System.Forms
             this.ButtonPanel.ResumeLayout(false);
             this.CollectionPanel.ResumeLayout(false);
             this.SpacePanel.ResumeLayout(false);
-            this.SpacePanel.PerformLayout();
-            this.TitlePanel.ResumeLayout(false);
-            this.TitlePanel.PerformLayout();
             this.DisplayControlPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,9 +309,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Panel SideMenuPanel;
         private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Panel HeadPanel;
-        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Button DashboardButton;
-        private System.Windows.Forms.Panel TitlePanel;
         private System.Windows.Forms.Panel CollectionPanel;
         private System.Windows.Forms.Panel ButtonPanel;
         private System.Windows.Forms.Button SetupButton;
@@ -364,9 +319,8 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button CollectionsButton;
         private System.Windows.Forms.Button GetStartedButton;
         private System.Windows.Forms.Panel SpacePanel;
-        private System.Windows.Forms.Label MenuLabel;
-        private System.Windows.Forms.Button TestButton;
         private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
