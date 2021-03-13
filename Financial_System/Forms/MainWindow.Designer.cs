@@ -43,17 +43,17 @@ namespace Financial_System.Forms
             this.DashboardButton = new System.Windows.Forms.Button();
             this.GetStartedButton = new System.Windows.Forms.Button();
             this.SpacePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.TestButton2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.CollectionPanel.SuspendLayout();
             this.SpacePanel.SuspendLayout();
-            this.DisplayControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.DisplayControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -107,6 +107,7 @@ namespace Financial_System.Forms
             // 
             // SetupButton
             // 
+            this.SetupButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SetupButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.SetupButton.FlatAppearance.BorderSize = 0;
             this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,6 +123,7 @@ namespace Financial_System.Forms
             // 
             // ReportButton
             // 
+            this.ReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReportButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.ReportButton.FlatAppearance.BorderSize = 0;
             this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -150,6 +152,7 @@ namespace Financial_System.Forms
             // 
             // TransactionButton
             // 
+            this.TransactionButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TransactionButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.TransactionButton.FlatAppearance.BorderSize = 0;
             this.TransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -165,6 +168,7 @@ namespace Financial_System.Forms
             // 
             // StudentLedgerButton
             // 
+            this.StudentLedgerButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StudentLedgerButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.StudentLedgerButton.FlatAppearance.BorderSize = 0;
             this.StudentLedgerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -180,6 +184,7 @@ namespace Financial_System.Forms
             // 
             // CollectionsButton
             // 
+            this.CollectionsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CollectionsButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.CollectionsButton.FlatAppearance.BorderSize = 0;
             this.CollectionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -196,6 +201,7 @@ namespace Financial_System.Forms
             // 
             // DashboardButton
             // 
+            this.DashboardButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DashboardButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.DashboardButton.FlatAppearance.BorderSize = 0;
             this.DashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -212,6 +218,7 @@ namespace Financial_System.Forms
             // 
             // GetStartedButton
             // 
+            this.GetStartedButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GetStartedButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.GetStartedButton.FlatAppearance.BorderSize = 0;
             this.GetStartedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -236,6 +243,16 @@ namespace Financial_System.Forms
             this.SpacePanel.Size = new System.Drawing.Size(171, 137);
             this.SpacePanel.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(10, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // HeadPanel
             // 
             this.HeadPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -257,6 +274,7 @@ namespace Financial_System.Forms
             // TestButton2
             // 
             this.TestButton2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TestButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TestButton2.FlatAppearance.BorderSize = 0;
             this.TestButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestButton2.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,16 +286,6 @@ namespace Financial_System.Forms
             this.TestButton2.Text = "Insert Student";
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(153, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // MainWindow
             // 
@@ -297,8 +305,8 @@ namespace Financial_System.Forms
             this.ButtonPanel.ResumeLayout(false);
             this.CollectionPanel.ResumeLayout(false);
             this.SpacePanel.ResumeLayout(false);
-            this.DisplayControlPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.DisplayControlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
