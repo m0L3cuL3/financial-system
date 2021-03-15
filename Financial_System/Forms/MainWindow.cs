@@ -80,5 +80,17 @@ namespace Financial_System.Forms
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.TransControl);
         }
+
+        private void PCHS_logo_picbox_Click(object sender, EventArgs e)
+        {
+            //don't delete
+            uc.UnloadControls(DisplayControlPanel);
+            DisplayControlPanel.Controls.Add(TestButton2);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sql.TermInit(sql.CreateConnection());
+        }
     }
 }

@@ -153,11 +153,12 @@ namespace Financial_System.Forms
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(803, 198);
             this.dataGridView1.TabIndex = 18;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // StudentIdColumn
             // 
             this.StudentIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.StudentIdColumn.HeaderText = "Student ID";
+            this.StudentIdColumn.HeaderText = "Transaction ID";
             this.StudentIdColumn.Name = "StudentIdColumn";
             this.StudentIdColumn.ReadOnly = true;
             this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;

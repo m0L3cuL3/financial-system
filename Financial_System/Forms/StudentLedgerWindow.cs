@@ -8,13 +8,16 @@ namespace Financial_System.Forms
     {
         UIHandler ui = new UIHandler();
         DataHandler dh = new DataHandler();
+        SQLiteHandler sql = new SQLiteHandler();
+        string sid;
 
-        public StudentLedgerWindow()
+        public StudentLedgerWindow(string sid)
         {
             InitializeComponent();
-
+            this.sid = sid; 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
+            //sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, this.sid);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -29,7 +32,12 @@ namespace Financial_System.Forms
 
         private void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show("Student Name is " + StudentNameLabel.Text); // -> testing purposes only
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, this.sid);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

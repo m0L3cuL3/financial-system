@@ -42,6 +42,8 @@ namespace Financial_System.UserControls
             set { _StudentId = value; }
         }
 
+
+
         public StudentItemControl()
         {
             InitializeComponent();
@@ -59,7 +61,8 @@ namespace Financial_System.UserControls
         private void ViewLedgerButton_Click(object sender, EventArgs e)
         {
             // Once clicked, the data should show on StudentLedgerWindow
-            slw = new StudentLedgerWindow();
+            slw = new StudentLedgerWindow(this._StudentId);
+            Console.WriteLine(this._StudentId);
 
             slw.StudentNameLabel.Text = StudentName;
             slw.StudentSectionLabel.Text = StudentSection;
