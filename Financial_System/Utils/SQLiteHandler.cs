@@ -88,7 +88,7 @@ namespace Financial_System.Utils
         {
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Transaction_tbl(amount, type, student_id, receipt_number, date_recorded, term) VALUES (@amount, @type, @sid, @receipt, datetime('now', 'localtime'), @term);";
+            string insertData = "INSERT INTO Transaction_tbl(amount, type, student_id, receipt_number, term) VALUES (@amount, @type, @sid, @receipt, @term);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
@@ -99,7 +99,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@sid", sid);
             sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
             sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now); //this might be required
+            //sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now); 
 
             sqlite_cmd.ExecuteNonQuery();
         }
