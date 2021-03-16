@@ -34,24 +34,20 @@ namespace Financial_System.Forms
             this.CloseButton = new System.Windows.Forms.Label();
             this.SideMenuPanel = new System.Windows.Forms.Panel();
             this.ButtonPanel = new System.Windows.Forms.Panel();
-            this.SetupButton = new System.Windows.Forms.Button();
-            this.ReportButton = new System.Windows.Forms.Button();
-            this.CollectionPanel = new System.Windows.Forms.Panel();
-            this.TransactionButton = new System.Windows.Forms.Button();
-            this.StudentLedgerButton = new System.Windows.Forms.Button();
-            this.CollectionsButton = new System.Windows.Forms.Button();
             this.DashboardButton = new System.Windows.Forms.Button();
             this.GetStartedButton = new System.Windows.Forms.Button();
             this.SpacePanel = new System.Windows.Forms.Panel();
             this.PCHS_logo_picbox = new System.Windows.Forms.PictureBox();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
-            this.TestButton2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.TestButton2 = new System.Windows.Forms.Button();
+            this.CollectionsButton = new System.Windows.Forms.Button();
+            this.ReportButton = new System.Windows.Forms.Button();
+            this.SetupButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
-            this.CollectionPanel.SuspendLayout();
             this.SpacePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCHS_logo_picbox)).BeginInit();
             this.DisplayControlPanel.SuspendLayout();
@@ -98,7 +94,7 @@ namespace Financial_System.Forms
             this.ButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.ButtonPanel.Controls.Add(this.SetupButton);
             this.ButtonPanel.Controls.Add(this.ReportButton);
-            this.ButtonPanel.Controls.Add(this.CollectionPanel);
+            this.ButtonPanel.Controls.Add(this.CollectionsButton);
             this.ButtonPanel.Controls.Add(this.DashboardButton);
             this.ButtonPanel.Controls.Add(this.GetStartedButton);
             this.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -106,103 +102,6 @@ namespace Financial_System.Forms
             this.ButtonPanel.Name = "ButtonPanel";
             this.ButtonPanel.Size = new System.Drawing.Size(171, 333);
             this.ButtonPanel.TabIndex = 8;
-            // 
-            // SetupButton
-            // 
-            this.SetupButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SetupButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SetupButton.FlatAppearance.BorderSize = 0;
-            this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetupButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetupButton.ForeColor = System.Drawing.Color.White;
-            this.SetupButton.Location = new System.Drawing.Point(0, 167);
-            this.SetupButton.Name = "SetupButton";
-            this.SetupButton.Size = new System.Drawing.Size(171, 27);
-            this.SetupButton.TabIndex = 10;
-            this.SetupButton.Text = "Setup";
-            this.SetupButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SetupButton.UseVisualStyleBackColor = true;
-            // 
-            // ReportButton
-            // 
-            this.ReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ReportButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ReportButton.FlatAppearance.BorderSize = 0;
-            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportButton.ForeColor = System.Drawing.Color.White;
-            this.ReportButton.Location = new System.Drawing.Point(0, 140);
-            this.ReportButton.Name = "ReportButton";
-            this.ReportButton.Size = new System.Drawing.Size(171, 27);
-            this.ReportButton.TabIndex = 9;
-            this.ReportButton.Text = "Reports";
-            this.ReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ReportButton.UseVisualStyleBackColor = true;
-            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
-            // 
-            // CollectionPanel
-            // 
-            this.CollectionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.CollectionPanel.Controls.Add(this.TransactionButton);
-            this.CollectionPanel.Controls.Add(this.StudentLedgerButton);
-            this.CollectionPanel.Controls.Add(this.CollectionsButton);
-            this.CollectionPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CollectionPanel.Location = new System.Drawing.Point(0, 54);
-            this.CollectionPanel.Name = "CollectionPanel";
-            this.CollectionPanel.Size = new System.Drawing.Size(171, 86);
-            this.CollectionPanel.TabIndex = 6;
-            // 
-            // TransactionButton
-            // 
-            this.TransactionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.TransactionButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TransactionButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TransactionButton.FlatAppearance.BorderSize = 0;
-            this.TransactionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TransactionButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransactionButton.ForeColor = System.Drawing.Color.White;
-            this.TransactionButton.Location = new System.Drawing.Point(0, 54);
-            this.TransactionButton.Name = "TransactionButton";
-            this.TransactionButton.Size = new System.Drawing.Size(171, 27);
-            this.TransactionButton.TabIndex = 11;
-            this.TransactionButton.Text = "Create Transaction";
-            this.TransactionButton.UseVisualStyleBackColor = false;
-            this.TransactionButton.Click += new System.EventHandler(this.TransactionButton_Click);
-            // 
-            // StudentLedgerButton
-            // 
-            this.StudentLedgerButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.StudentLedgerButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StudentLedgerButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.StudentLedgerButton.FlatAppearance.BorderSize = 0;
-            this.StudentLedgerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StudentLedgerButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentLedgerButton.ForeColor = System.Drawing.Color.White;
-            this.StudentLedgerButton.Location = new System.Drawing.Point(0, 27);
-            this.StudentLedgerButton.Name = "StudentLedgerButton";
-            this.StudentLedgerButton.Size = new System.Drawing.Size(171, 27);
-            this.StudentLedgerButton.TabIndex = 12;
-            this.StudentLedgerButton.Text = "Student Ledgers";
-            this.StudentLedgerButton.UseVisualStyleBackColor = false;
-            this.StudentLedgerButton.Click += new System.EventHandler(this.StudentLedgerButton_Click);
-            // 
-            // CollectionsButton
-            // 
-            this.CollectionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.CollectionsButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CollectionsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CollectionsButton.FlatAppearance.BorderSize = 0;
-            this.CollectionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CollectionsButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CollectionsButton.ForeColor = System.Drawing.Color.White;
-            this.CollectionsButton.Location = new System.Drawing.Point(0, 0);
-            this.CollectionsButton.Name = "CollectionsButton";
-            this.CollectionsButton.Size = new System.Drawing.Size(171, 27);
-            this.CollectionsButton.TabIndex = 9;
-            this.CollectionsButton.Text = "Collections";
-            this.CollectionsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CollectionsButton.UseVisualStyleBackColor = false;
-            this.CollectionsButton.Click += new System.EventHandler(this.CollectionsBtn_Click);
             // 
             // DashboardButton
             // 
@@ -279,6 +178,16 @@ namespace Financial_System.Forms
             this.DisplayControlPanel.Size = new System.Drawing.Size(800, 440);
             this.DisplayControlPanel.TabIndex = 3;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TestButton2
             // 
             this.TestButton2.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -295,15 +204,56 @@ namespace Financial_System.Forms
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
             // 
-            // button1
+            // CollectionsButton
             // 
-            this.button1.Location = new System.Drawing.Point(18, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CollectionsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.CollectionsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CollectionsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CollectionsButton.FlatAppearance.BorderSize = 0;
+            this.CollectionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CollectionsButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CollectionsButton.ForeColor = System.Drawing.Color.White;
+            this.CollectionsButton.Location = new System.Drawing.Point(0, 54);
+            this.CollectionsButton.Name = "CollectionsButton";
+            this.CollectionsButton.Size = new System.Drawing.Size(171, 27);
+            this.CollectionsButton.TabIndex = 12;
+            this.CollectionsButton.Text = "Collections";
+            this.CollectionsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CollectionsButton.UseVisualStyleBackColor = false;
+            this.CollectionsButton.Click += new System.EventHandler(this.CollectionsButton_Click);
+            // 
+            // ReportButton
+            // 
+            this.ReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ReportButton.FlatAppearance.BorderSize = 0;
+            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportButton.ForeColor = System.Drawing.Color.White;
+            this.ReportButton.Location = new System.Drawing.Point(0, 81);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(171, 27);
+            this.ReportButton.TabIndex = 13;
+            this.ReportButton.Text = "Reports";
+            this.ReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReportButton.UseVisualStyleBackColor = true;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
+            // 
+            // SetupButton
+            // 
+            this.SetupButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SetupButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SetupButton.FlatAppearance.BorderSize = 0;
+            this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SetupButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetupButton.ForeColor = System.Drawing.Color.White;
+            this.SetupButton.Location = new System.Drawing.Point(0, 108);
+            this.SetupButton.Name = "SetupButton";
+            this.SetupButton.Size = new System.Drawing.Size(171, 27);
+            this.SetupButton.TabIndex = 14;
+            this.SetupButton.Text = "Setup";
+            this.SetupButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SetupButton.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -321,7 +271,6 @@ namespace Financial_System.Forms
             this.TopBarPanel.PerformLayout();
             this.SideMenuPanel.ResumeLayout(false);
             this.ButtonPanel.ResumeLayout(false);
-            this.CollectionPanel.ResumeLayout(false);
             this.SpacePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PCHS_logo_picbox)).EndInit();
             this.DisplayControlPanel.ResumeLayout(false);
@@ -336,18 +285,15 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Panel HeadPanel;
         private System.Windows.Forms.Button DashboardButton;
-        private System.Windows.Forms.Panel CollectionPanel;
         private System.Windows.Forms.Panel ButtonPanel;
-        private System.Windows.Forms.Button SetupButton;
-        private System.Windows.Forms.Button ReportButton;
-        private System.Windows.Forms.Button TransactionButton;
-        private System.Windows.Forms.Button StudentLedgerButton;
-        private System.Windows.Forms.Button CollectionsButton;
         private System.Windows.Forms.Button GetStartedButton;
         private System.Windows.Forms.Panel SpacePanel;
         private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;
         private System.Windows.Forms.PictureBox PCHS_logo_picbox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SetupButton;
+        private System.Windows.Forms.Button ReportButton;
+        private System.Windows.Forms.Button CollectionsButton;
     }
 }

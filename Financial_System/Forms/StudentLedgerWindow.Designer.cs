@@ -48,7 +48,7 @@ namespace Financial_System.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.ReceiptBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PostPaymentButton = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
@@ -247,15 +247,15 @@ namespace Financial_System.Forms
             this.label3.TabIndex = 24;
             this.label3.Text = "Receipt #";
             // 
-            // button1
+            // PostPaymentButton
             // 
-            this.button1.Location = new System.Drawing.Point(45, 412);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(364, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Post Payment";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.PostPaymentButton.Location = new System.Drawing.Point(45, 412);
+            this.PostPaymentButton.Name = "PostPaymentButton";
+            this.PostPaymentButton.Size = new System.Drawing.Size(364, 23);
+            this.PostPaymentButton.TabIndex = 25;
+            this.PostPaymentButton.Text = "Post Payment";
+            this.PostPaymentButton.UseVisualStyleBackColor = true;
+            this.PostPaymentButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // printBtn
             // 
@@ -283,7 +283,7 @@ namespace Financial_System.Forms
             this.ClientSize = new System.Drawing.Size(827, 466);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.printBtn);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PostPaymentButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ReceiptBox);
             this.Controls.Add(this.label2);
@@ -328,7 +328,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ReceiptBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PostPaymentButton;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button exportBtn;
     }
