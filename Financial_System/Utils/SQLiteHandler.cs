@@ -43,7 +43,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
 
             // TRANSACTION // renamed by alexislyndon
-            string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
+            string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TransactionTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -88,7 +88,7 @@ namespace Financial_System.Utils
         {
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Transaction_tbl(amount, type, student_id, receipt_number, term) VALUES (@amount, @type, @sid, @receipt, @term);";
+            string insertData = "INSERT INTO Transaction_tbl(amount, type, student_id, receipt_number, term, date_recorded) VALUES (@amount, @type, @sid, @receipt, @term, @date_recorded);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
@@ -99,7 +99,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@sid", sid);
             sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
             sqlite_cmd.Parameters.AddWithValue("@term", term);
-            //sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now); 
+            sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now); 
 
             sqlite_cmd.ExecuteNonQuery();
         }
@@ -179,19 +179,19 @@ namespace Financial_System.Utils
         public void GetStudentTransactions(SQLiteConnection conn, DataGridView dgv, string sid)
         {
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("Select * From Transaction_tbl WHERE student_id = @sid", conn);
+            sqlite_cmd = new SQLiteCommand("Select * From Transaction_tbl WHERE student_id = @sid", conn); //AND TERM = current term
             sqlite_cmd.Parameters.AddWithValue("@sid", sid);
-            Console.WriteLine();
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
+                dgv.Rows.Clear();
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
                         read.GetValue(0),  // tid
                         read.GetValue(1), // amount
                         read.GetValue(2), // type
-                        read.GetValue(3), // receipt
+                        read.GetValue(4) // receipt
                         //read.GetString(4), // receipt
                     });
                 }

@@ -34,7 +34,9 @@ namespace Financial_System.Forms
         // DROP DOWN
         private void CollectionsBtn_Click(object sender, EventArgs e)
         {
-            ui.DropDown(CollectionPanel, 27, 86);
+            //ui.DropDown(CollectionPanel, 27, 86);
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
         }
 
         // CLOSE
