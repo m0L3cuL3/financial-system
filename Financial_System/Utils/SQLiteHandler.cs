@@ -104,6 +104,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        // buggy
         public void TermInit(SQLiteConnection conn)
         {//make 1 term 2002
             SQLiteCommand sqlite_cmd;
@@ -112,14 +113,14 @@ namespace Financial_System.Utils
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
-            int term = 2002;
+            int term = 2002; // -> not id, (id, start, end, current)
             DateTime start = new DateTime(2021, 1, 1);
             DateTime end = new DateTime(2021, 5, 31);
 
-            sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@start", start);
-            sqlite_cmd.Parameters.AddWithValue("@end", end);
-            sqlite_cmd.Parameters.AddWithValue("@current", true);
+            sqlite_cmd.Parameters.AddWithValue("@term", term); // id = 1 - infinity (incremental)
+            sqlite_cmd.Parameters.AddWithValue("@start", start); // start date
+            sqlite_cmd.Parameters.AddWithValue("@end", end); // end data
+            sqlite_cmd.Parameters.AddWithValue("@current", true); // IsCurrent term
 
             sqlite_cmd.ExecuteNonQuery();
         }

@@ -14,7 +14,6 @@ namespace Financial_System.Utils
         public DashboardControl DashControl = new DashboardControl();
         public StudentLedgerControl StudLedgerControl = new StudentLedgerControl();
         public StudentItemControl StudControl = new StudentItemControl();
-        public InsertTestTransactionControl TransControl = new InsertTestTransactionControl();
         public ReportsControl ReportsControl = new ReportsControl();
 
 
