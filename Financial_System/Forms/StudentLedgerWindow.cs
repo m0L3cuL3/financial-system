@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Financial_System.UserControls;
 using Financial_System.Utils;
 using System;
 using System.Globalization;
@@ -15,6 +16,7 @@ namespace Financial_System.Forms
         UIHandler ui = new UIHandler();
         DataHandler dh = new DataHandler();
         SQLiteHandler sql = new SQLiteHandler();
+        ReportsControl reportsControl = new ReportsControl();
         string sid;
 
         public StudentLedgerWindow(string sid)
@@ -46,26 +48,40 @@ namespace Financial_System.Forms
             //todo double click on transaction to pull up transaction details
         }
 
+        // post payment
         private void button1_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Add this transaction?",
+            try
+            {
+                if (amountBox.Text == "" || TypeCmBox.SelectedItem == "" || ReceiptBox.Text == "")
+                {
+                    MessageBox.Show("Something went wrong. Make sure to fill all the requirements.");
+                }
+                else
+                {
+                    var confirmResult = MessageBox.Show("Add this transaction?",
                                      "Confirm Transaction Insertion",
                                      MessageBoxButtons.YesNo);
 
-            if (confirmResult == DialogResult.Yes)
-            {
-                sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text);
-                MessageBox.Show("Transaction Added");
-
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text);
+                        MessageBox.Show("Transaction Added");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing was added");// If 'No', do something here.
+                    }
+                }              
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Nothing was added");// If 'No', do something here.
+                MessageBox.Show("Exception Error!");// If 'No', do something here.
             }
-            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, this.sid);
+            
+            reportsControl.LoadTransactions(sql.CreateConnection()); // auto load in reports.
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
             dataGridView1.Refresh();
-
-
         }
 
         private void exportBtn_Click(object sender, EventArgs e)
