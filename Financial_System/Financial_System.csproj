@@ -155,18 +155,6 @@
     <Compile Include="UserControls\ReportsControl.Designer.cs">
       <DependentUpon>ReportsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\InsertTestStudentControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\InsertTestStudentControl.Designer.cs">
-      <DependentUpon>InsertTestStudentControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\InsertTestTransactionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\InsertTestTransactionControl.Designer.cs">
-      <DependentUpon>InsertTestTransactionControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\AutoCompleteHandler.cs" />
     <Compile Include="Utils\DataHandler.cs" />
     <Compile Include="Utils\SQLiteHandler.cs" />
@@ -195,12 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\GetStartedControl.resx">
       <DependentUpon>GetStartedControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\InsertTestStudentControl.resx">
-      <DependentUpon>InsertTestStudentControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\InsertTestTransactionControl.resx">
-      <DependentUpon>InsertTestTransactionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ReportsControl.resx">
       <DependentUpon>ReportsControl.cs</DependentUpon>
