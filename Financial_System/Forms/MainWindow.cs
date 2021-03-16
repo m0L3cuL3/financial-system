@@ -19,7 +19,7 @@ namespace Financial_System.Forms
             ui.RoundWindow(this); // makes the window round.
 
             // DropDown (min-height only!)
-            CollectionPanel.Height = 27; // min-height of collection panel
+            //CollectionPanel.Height = 27; // min-height of collection panel
 
             sql.CreateTable(sql.CreateConnection());
             uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
@@ -32,7 +32,7 @@ namespace Financial_System.Forms
         }
 
         // DROP DOWN
-        private void CollectionsBtn_Click(object sender, EventArgs e)
+        private void CollectionsButton_Click(object sender, EventArgs e)
         {
             //ui.DropDown(CollectionPanel, 27, 86);
             uc.UnloadControls(DisplayControlPanel);
@@ -57,13 +57,6 @@ namespace Financial_System.Forms
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
         }
 
-        private void StudentLedgerButton_Click(object sender, EventArgs e)
-        {
-            
-            uc.UnloadControls(DisplayControlPanel);
-            uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
-        }
-
         private void TestButton2_Click(object sender, EventArgs e)
         {
             sql.InsertStudentData(sql.CreateConnection());
@@ -77,12 +70,6 @@ namespace Financial_System.Forms
             uc.LoadControl(DisplayControlPanel, uc.ReportsControl);
         }
 
-        private void TransactionButton_Click(object sender, EventArgs e)
-        {
-            uc.UnloadControls(DisplayControlPanel);
-            uc.LoadControl(DisplayControlPanel, uc.TransControl);
-        }
-
         private void PCHS_logo_picbox_Click(object sender, EventArgs e)
         {
             //don't delete
@@ -94,5 +81,7 @@ namespace Financial_System.Forms
         {
             sql.TermInit(sql.CreateConnection());
         }
+
+        
     }
 }
