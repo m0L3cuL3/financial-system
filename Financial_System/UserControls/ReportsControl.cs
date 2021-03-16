@@ -25,7 +25,7 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_Transaction", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn);
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
             while (read.Read())

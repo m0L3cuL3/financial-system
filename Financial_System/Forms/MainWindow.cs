@@ -34,7 +34,9 @@ namespace Financial_System.Forms
         // DROP DOWN
         private void CollectionsBtn_Click(object sender, EventArgs e)
         {
-            ui.DropDown(CollectionPanel, 27, 86);
+            //ui.DropDown(CollectionPanel, 27, 86);
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
         }
 
         // CLOSE
@@ -79,6 +81,18 @@ namespace Financial_System.Forms
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.TransControl);
+        }
+
+        private void PCHS_logo_picbox_Click(object sender, EventArgs e)
+        {
+            //don't delete
+            uc.UnloadControls(DisplayControlPanel);
+            DisplayControlPanel.Controls.Add(TestButton2);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            sql.TermInit(sql.CreateConnection());
         }
     }
 }

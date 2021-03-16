@@ -43,16 +43,17 @@ namespace Financial_System.Forms
             this.DashboardButton = new System.Windows.Forms.Button();
             this.GetStartedButton = new System.Windows.Forms.Button();
             this.SpacePanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PCHS_logo_picbox = new System.Windows.Forms.PictureBox();
             this.HeadPanel = new System.Windows.Forms.Panel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.TestButton2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.CollectionPanel.SuspendLayout();
             this.SpacePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCHS_logo_picbox)).BeginInit();
             this.DisplayControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,23 +241,24 @@ namespace Financial_System.Forms
             // SpacePanel
             // 
             this.SpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.SpacePanel.Controls.Add(this.pictureBox1);
+            this.SpacePanel.Controls.Add(this.PCHS_logo_picbox);
             this.SpacePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SpacePanel.Location = new System.Drawing.Point(0, 0);
             this.SpacePanel.Name = "SpacePanel";
             this.SpacePanel.Size = new System.Drawing.Size(171, 137);
             this.SpacePanel.TabIndex = 7;
             // 
-            // pictureBox1
+            // PCHS_logo_picbox
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(21, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.PCHS_logo_picbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.PCHS_logo_picbox.Image = ((System.Drawing.Image)(resources.GetObject("PCHS_logo_picbox.Image")));
+            this.PCHS_logo_picbox.Location = new System.Drawing.Point(21, 6);
+            this.PCHS_logo_picbox.Name = "PCHS_logo_picbox";
+            this.PCHS_logo_picbox.Size = new System.Drawing.Size(126, 125);
+            this.PCHS_logo_picbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PCHS_logo_picbox.TabIndex = 0;
+            this.PCHS_logo_picbox.TabStop = false;
+            this.PCHS_logo_picbox.Click += new System.EventHandler(this.PCHS_logo_picbox_Click);
             // 
             // HeadPanel
             // 
@@ -269,6 +271,7 @@ namespace Financial_System.Forms
             // DisplayControlPanel
             // 
             this.DisplayControlPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DisplayControlPanel.Controls.Add(this.button1);
             this.DisplayControlPanel.Controls.Add(this.TestButton2);
             this.DisplayControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DisplayControlPanel.Location = new System.Drawing.Point(171, 78);
@@ -292,6 +295,16 @@ namespace Financial_System.Forms
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,7 +323,7 @@ namespace Financial_System.Forms
             this.ButtonPanel.ResumeLayout(false);
             this.CollectionPanel.ResumeLayout(false);
             this.SpacePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCHS_logo_picbox)).EndInit();
             this.DisplayControlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -334,6 +347,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Panel SpacePanel;
         private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PCHS_logo_picbox;
+        private System.Windows.Forms.Button button1;
     }
 }
