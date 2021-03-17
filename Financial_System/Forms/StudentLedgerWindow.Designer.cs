@@ -198,7 +198,7 @@ namespace Financial_System.Forms
             // 
             // amountBox
             // 
-            this.amountBox.Location = new System.Drawing.Point(45, 385);
+            this.amountBox.Location = new System.Drawing.Point(12, 401);
             this.amountBox.Name = "amountBox";
             this.amountBox.Size = new System.Drawing.Size(100, 20);
             this.amountBox.TabIndex = 19;
@@ -206,7 +206,7 @@ namespace Financial_System.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 366);
+            this.label1.Location = new System.Drawing.Point(12, 382);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 20;
@@ -217,7 +217,7 @@ namespace Financial_System.Forms
             this.TypeCmBox.FormattingEnabled = true;
             this.TypeCmBox.Items.AddRange(new object[] {
             "Tuition Payment"});
-            this.TypeCmBox.Location = new System.Drawing.Point(168, 385);
+            this.TypeCmBox.Location = new System.Drawing.Point(135, 401);
             this.TypeCmBox.Name = "TypeCmBox";
             this.TypeCmBox.Size = new System.Drawing.Size(121, 21);
             this.TypeCmBox.TabIndex = 21;
@@ -225,7 +225,7 @@ namespace Financial_System.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 366);
+            this.label2.Location = new System.Drawing.Point(135, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 22;
@@ -233,7 +233,7 @@ namespace Financial_System.Forms
             // 
             // ReceiptBox
             // 
-            this.ReceiptBox.Location = new System.Drawing.Point(309, 385);
+            this.ReceiptBox.Location = new System.Drawing.Point(276, 401);
             this.ReceiptBox.Name = "ReceiptBox";
             this.ReceiptBox.Size = new System.Drawing.Size(100, 20);
             this.ReceiptBox.TabIndex = 23;
@@ -241,7 +241,7 @@ namespace Financial_System.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(309, 366);
+            this.label3.Location = new System.Drawing.Point(276, 382);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 24;
@@ -249,7 +249,7 @@ namespace Financial_System.Forms
             // 
             // PostPaymentButton
             // 
-            this.PostPaymentButton.Location = new System.Drawing.Point(45, 412);
+            this.PostPaymentButton.Location = new System.Drawing.Point(12, 428);
             this.PostPaymentButton.Name = "PostPaymentButton";
             this.PostPaymentButton.Size = new System.Drawing.Size(364, 23);
             this.PostPaymentButton.TabIndex = 25;
@@ -259,7 +259,7 @@ namespace Financial_System.Forms
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(722, 412);
+            this.printBtn.Location = new System.Drawing.Point(722, 428);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(93, 23);
             this.printBtn.TabIndex = 26;
@@ -268,7 +268,7 @@ namespace Financial_System.Forms
             // 
             // exportBtn
             // 
-            this.exportBtn.Location = new System.Drawing.Point(609, 412);
+            this.exportBtn.Location = new System.Drawing.Point(609, 428);
             this.exportBtn.Name = "exportBtn";
             this.exportBtn.Size = new System.Drawing.Size(107, 23);
             this.exportBtn.TabIndex = 27;

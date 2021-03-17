@@ -1,12 +1,8 @@
-﻿using CsvHelper;
-using Financial_System.UserControls;
+﻿using Financial_System.UserControls;
 using Financial_System.Utils;
 using System;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -88,7 +84,7 @@ namespace Financial_System.Forms
         {
             //todo csv exporter
             string current = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string path = Path.Combine(current, "EXPORT.csv");
+            string path = Path.Combine(current, "LEDGER.csv");
            
             try
             {
