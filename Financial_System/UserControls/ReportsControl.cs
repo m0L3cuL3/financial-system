@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using Financial_System.Utils;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 
 namespace Financial_System.UserControls
 {
@@ -41,6 +43,53 @@ namespace Financial_System.UserControls
                 });
             }
 
+        }
+
+        private void expToCSVButton_Click(object sender, EventArgs e)
+        {
+            //todo csv exporter
+            string current = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string path = Path.Combine(current, "REPORTS.csv");
+
+            try
+            {
+                //Build the CSV file data as a Comma separated string.
+                string csv = string.Empty;
+
+                //Add the Header row for CSV file.
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    csv += column.HeaderText + ',';
+                }
+                //Add new line.
+                csv += "\r\n";
+
+                //Adding the Rows
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null)
+                        {
+                            //Add the Data rows.
+                            csv += cell.Value.ToString().TrimEnd(',').Replace(",", ";") + ',';
+                        }
+                        // break;
+                    }
+                    //Add new line.
+                    csv += "\r\n";
+                }
+
+                //Exporting to CSV.
+
+                File.WriteAllText(path, csv);
+                MessageBox.Show("Export saved to: \n" + path);
+            }
+            catch
+            {
+                MessageBox.Show("Something Happened...");
+            }
         }
     }
 

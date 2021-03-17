@@ -181,6 +181,7 @@
             this.expToCSVButton.TabIndex = 9;
             this.expToCSVButton.Text = "Export To CSV";
             this.expToCSVButton.UseVisualStyleBackColor = false;
+            this.expToCSVButton.Click += new System.EventHandler(this.expToCSVButton_Click);
             // 
             // printButton
             // 
