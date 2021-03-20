@@ -44,6 +44,7 @@
             this.printButton = new System.Windows.Forms.Button();
             this.separator2 = new Financial_System.UserControls.Separator();
             this.separator1 = new Financial_System.UserControls.Separator();
+            this.RefreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TransIdColumn,
@@ -59,10 +61,10 @@
             this.AmountColumn,
             this.ReceiptColumn,
             this.DateRecordedColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 81);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(763, 282);
+            this.dataGridView1.Size = new System.Drawing.Size(811, 290);
             this.dataGridView1.TabIndex = 1;
             // 
             // TransIdColumn
@@ -129,7 +131,7 @@
             this.dateDescLabel.AutoSize = true;
             this.dateDescLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateDescLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.dateDescLabel.Location = new System.Drawing.Point(632, 13);
+            this.dateDescLabel.Location = new System.Drawing.Point(680, 13);
             this.dateDescLabel.Name = "dateDescLabel";
             this.dateDescLabel.Size = new System.Drawing.Size(45, 17);
             this.dateDescLabel.TabIndex = 4;
@@ -140,18 +142,18 @@
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.ForeColor = System.Drawing.Color.Black;
-            this.dateLabel.Location = new System.Drawing.Point(683, 13);
+            this.dateLabel.Location = new System.Drawing.Point(731, 13);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(98, 17);
+            this.dateLabel.Size = new System.Drawing.Size(31, 17);
             this.dateLabel.TabIndex = 5;
-            this.dateLabel.Text = "March 13, 2021";
+            this.dateLabel.Text = "N/A";
             // 
             // totalDescLabel
             // 
             this.totalDescLabel.AutoSize = true;
             this.totalDescLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalDescLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.totalDescLabel.Location = new System.Drawing.Point(649, 347);
+            this.totalDescLabel.Location = new System.Drawing.Point(698, 386);
             this.totalDescLabel.Name = "totalDescLabel";
             this.totalDescLabel.Size = new System.Drawing.Size(48, 17);
             this.totalDescLabel.TabIndex = 7;
@@ -162,11 +164,11 @@
             this.totalLabel.AutoSize = true;
             this.totalLabel.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalLabel.ForeColor = System.Drawing.Color.Black;
-            this.totalLabel.Location = new System.Drawing.Point(703, 347);
+            this.totalLabel.Location = new System.Drawing.Point(752, 386);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(78, 17);
+            this.totalLabel.Size = new System.Drawing.Size(31, 17);
             this.totalLabel.TabIndex = 8;
-            this.totalLabel.Text = "12, 123, 123";
+            this.totalLabel.Text = "N/A";
             // 
             // expToCSVButton
             // 
@@ -175,9 +177,9 @@
             this.expToCSVButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.expToCSVButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expToCSVButton.ForeColor = System.Drawing.Color.White;
-            this.expToCSVButton.Location = new System.Drawing.Point(561, 396);
+            this.expToCSVButton.Location = new System.Drawing.Point(566, 431);
             this.expToCSVButton.Name = "expToCSVButton";
-            this.expToCSVButton.Size = new System.Drawing.Size(107, 29);
+            this.expToCSVButton.Size = new System.Drawing.Size(129, 37);
             this.expToCSVButton.TabIndex = 9;
             this.expToCSVButton.Text = "Export To CSV";
             this.expToCSVButton.UseVisualStyleBackColor = false;
@@ -190,9 +192,9 @@
             this.printButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.printButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printButton.ForeColor = System.Drawing.Color.White;
-            this.printButton.Location = new System.Drawing.Point(674, 396);
+            this.printButton.Location = new System.Drawing.Point(701, 431);
             this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(107, 29);
+            this.printButton.Size = new System.Drawing.Size(129, 37);
             this.printButton.TabIndex = 10;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = false;
@@ -202,9 +204,9 @@
             this.separator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.separator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.separator2.IsVertical = false;
-            this.separator2.Location = new System.Drawing.Point(18, 367);
+            this.separator2.Location = new System.Drawing.Point(18, 406);
             this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(763, 23);
+            this.separator2.Size = new System.Drawing.Size(811, 23);
             this.separator2.TabIndex = 6;
             this.separator2.Text = "separator2";
             this.separator2.Thickness = 5;
@@ -214,17 +216,33 @@
             this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.separator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.separator1.IsVertical = false;
-            this.separator1.Location = new System.Drawing.Point(18, 33);
+            this.separator1.Location = new System.Drawing.Point(18, 52);
             this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(763, 23);
+            this.separator1.Size = new System.Drawing.Size(811, 23);
             this.separator1.TabIndex = 3;
             this.separator1.Text = "separator1";
             this.separator1.Thickness = 5;
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshButton.Font = new System.Drawing.Font("Ebrima", 8F);
+            this.RefreshButton.ForeColor = System.Drawing.Color.White;
+            this.RefreshButton.Location = new System.Drawing.Point(18, 377);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(129, 26);
+            this.RefreshButton.TabIndex = 11;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // ReportsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.expToCSVButton);
             this.Controls.Add(this.totalLabel);
@@ -236,7 +254,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ReportsControl";
-            this.Size = new System.Drawing.Size(800, 440);
+            this.Size = new System.Drawing.Size(848, 478);
             this.Load += new System.EventHandler(this.ReportsControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -261,5 +279,6 @@
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Button expToCSVButton;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }

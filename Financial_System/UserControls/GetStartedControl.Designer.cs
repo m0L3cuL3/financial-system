@@ -98,7 +98,7 @@ namespace Financial_System.UserControls
             this.Controls.Add(this.WikiPanel);
             this.Controls.Add(this.TitleLabel);
             this.Name = "GetStartedControl";
-            this.Size = new System.Drawing.Size(800, 440);
+            this.Size = new System.Drawing.Size(848, 478);
             this.WikiPanel.ResumeLayout(false);
             this.WikiPanel.PerformLayout();
             this.ResumeLayout(false);

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using Financial_System.Utils;
 using System.Drawing;
 using System.IO;
@@ -11,38 +10,26 @@ namespace Financial_System.UserControls
     public partial class ReportsControl : UserControl
     {
         SQLiteHandler sql = new SQLiteHandler();
+        UIHandler ui = new UIHandler();
 
         public ReportsControl()
         {
             InitializeComponent();
-            
+            ui.RoundButton(expToCSVButton);
+            ui.RoundButton(printButton);
         }
 
         private void ReportsControl_Load(object sender, EventArgs e)
         {
-            LoadTransactions(sql.CreateConnection());
+            LoadTransactions();
+            dateLabel.Text = DateTime.Now.ToString("M/d/yyyy");
         }
 
-        public void LoadTransactions(SQLiteConnection conn)
+        public void LoadTransactions()
         {
-            SQLiteCommand sqlite_cmd;
-
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn);
-            SQLiteDataReader read = sqlite_cmd.ExecuteReader();
-
-            while (read.Read())
-            {
-                dataGridView1.Rows.Add(new object[]
-                {
-                    read.GetValue(0),
-                    read.GetValue(read.GetOrdinal("student_id")),
-                    read.GetValue(read.GetOrdinal("type")),
-                    read.GetValue(read.GetOrdinal("amount")),
-                    read.GetValue(read.GetOrdinal("receipt_number")),
-                    read.GetValue(read.GetOrdinal("date_recorded"))
-                });
-            }
-
+            dataGridView1.Rows.Clear();
+            sql.GetAllTransactions(sql.CreateConnection(), dataGridView1);
+            GetTotal();
         }
 
         private void expToCSVButton_Click(object sender, EventArgs e)
@@ -90,6 +77,23 @@ namespace Financial_System.UserControls
             {
                 MessageBox.Show("Something Happened...");
             }
+        }
+
+        private void GetTotal()
+        {
+            int i = 0;
+
+            foreach(DataGridViewRow r in dataGridView1.Rows)
+            {
+                i += Convert.ToInt32(r.Cells[3].Value);
+            }
+
+            totalLabel.Text = i.ToString();
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            LoadTransactions();
         }
     }
 

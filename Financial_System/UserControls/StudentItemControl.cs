@@ -2,9 +2,6 @@
 using System.Windows.Forms;
 using Financial_System.Utils;
 using Financial_System.Forms;
-using Financial_System.UserControls;
-using System.Data.SQLite;
-
 
 namespace Financial_System.UserControls
 {
@@ -12,8 +9,6 @@ namespace Financial_System.UserControls
     {
         // Handlers
         UIHandler ui = new UIHandler();
-        DataHandler dh = new DataHandler();
-        SQLiteHandler sql = new SQLiteHandler();
         StudentLedgerWindow slw;
 
         public string _StudentName;

@@ -17,8 +17,7 @@ namespace Financial_System.UserControls
         {
             InitializeComponent();
             ui.RoundPanel(CollectablesPanel);
-            ui.RoundPanel(NetworkInfoPanel);
-            ui.RoundPanel(DBInfoPanel);
+            ui.RoundPanel(InfoPanel);
             CheckNetworkConnection();
             CheckDatabaseStatus();
             LoadSampleData();    
@@ -40,7 +39,7 @@ namespace Financial_System.UserControls
             series.Add(new PieSeries() { Title = "2025-2026", Values = new ChartValues<int> { 95000 }, DataLabels = true, LabelPoint = labelPoint });
             CollectablesPieChart.Series = series;
 
-            CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
+            //CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
 
             // fix for Negative/Black PieChart (Sean Baang)
             CollectablesPieChart.Hide();

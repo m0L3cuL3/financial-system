@@ -9,14 +9,13 @@ namespace Financial_System.UserControls
     public partial class StudentLedgerControl : UserControl
     {
         UIHandler ui = new UIHandler();
-        DataHandler dh = new DataHandler();
-        SQLiteHandler sql = new SQLiteHandler();
         StudentItemControl sc;
 
         public StudentLedgerControl()
         {
             InitializeComponent();
             ui.RoundButton(FilterButton);
+            ui.RoundPanel(FilterPanel);
             StudentFlowPanel.Controls.IndexOf(sc);
         }
 
