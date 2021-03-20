@@ -193,31 +193,30 @@ namespace Financial_System.Utils
                         read.GetValue(1), // amount
                         read.GetValue(2), // type
                         read.GetValue(4) // receipt
-                        //read.GetString(4), // receipt
                     });
                 }
             }
         }
 
-        /*public string GetStudentName(SQLiteConnection conn, int id)
+        public void GetAllTransactions(SQLiteConnection conn, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT first_name, middle_name, surname FROM Student WHERE student_id = @id", conn);
-
-            sqlite_cmd.Parameters.AddWithValue("@id", id);
-
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn);
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
-            if (read.Read())
+            while (read.Read())
             {
-                return read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // student fullname.
+                dgv.Rows.Add(new object[]
+                {
+                    read.GetValue(0),
+                    read.GetValue(read.GetOrdinal("student_id")),
+                    read.GetValue(read.GetOrdinal("type")),
+                    read.GetValue(read.GetOrdinal("amount")),
+                    read.GetValue(read.GetOrdinal("receipt_number")),
+                    read.GetValue(read.GetOrdinal("date_recorded"))
+                });
             }
-            else
-            {
-                return "Student Does Not Exist!";
-            }
-        }*/
-
+        }
     }
 }
