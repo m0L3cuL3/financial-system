@@ -107,6 +107,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomUI\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomUI\Textbox\MyRectangle.cs" />
     <Compile Include="CustomUI\Textbox\RoundTextBox.cs">
       <SubType>Component</SubType>
@@ -155,7 +158,6 @@
     <Compile Include="UserControls\ReportsControl.Designer.cs">
       <DependentUpon>ReportsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\AutoCompleteHandler.cs" />
     <Compile Include="Utils\DataHandler.cs" />
     <Compile Include="Utils\SQLiteHandler.cs" />
     <Compile Include="Program.cs" />
