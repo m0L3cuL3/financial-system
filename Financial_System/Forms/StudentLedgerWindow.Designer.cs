@@ -31,7 +31,6 @@ namespace Financial_System.Forms
         {
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
-            this.ProfilePicPanel = new System.Windows.Forms.Panel();
             this.StudentLevelLabel = new System.Windows.Forms.Label();
             this.StudentIDLabel = new System.Windows.Forms.Label();
             this.StudentSectionLabel = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@ namespace Financial_System.Forms
             this.PostPaymentButton = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.TopBarPanel.SuspendLayout();
             this.SideInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,14 +81,6 @@ namespace Financial_System.Forms
             this.CloseButton.Text = "X";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // ProfilePicPanel
-            // 
-            this.ProfilePicPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ProfilePicPanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePicPanel.Name = "ProfilePicPanel";
-            this.ProfilePicPanel.Size = new System.Drawing.Size(69, 59);
-            this.ProfilePicPanel.TabIndex = 1;
-            // 
             // StudentLevelLabel
             // 
             this.StudentLevelLabel.AutoSize = true;
@@ -105,7 +97,7 @@ namespace Financial_System.Forms
             this.StudentIDLabel.AutoSize = true;
             this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentIDLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentIDLabel.Location = new System.Drawing.Point(9, 73);
+            this.StudentIDLabel.Location = new System.Drawing.Point(719, 53);
             this.StudentIDLabel.Name = "StudentIDLabel";
             this.StudentIDLabel.Size = new System.Drawing.Size(69, 17);
             this.StudentIDLabel.TabIndex = 15;
@@ -136,7 +128,7 @@ namespace Financial_System.Forms
             // SideInfoPanel
             // 
             this.SideInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.SideInfoPanel.Controls.Add(this.ProfilePicPanel);
+            this.SideInfoPanel.Controls.Add(this.ProfilePanel);
             this.SideInfoPanel.Controls.Add(this.StudentLevelLabel);
             this.SideInfoPanel.Controls.Add(this.StudentNameLabel);
             this.SideInfoPanel.Controls.Add(this.StudentIDLabel);
@@ -144,23 +136,24 @@ namespace Financial_System.Forms
             this.SideInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SideInfoPanel.Location = new System.Drawing.Point(0, 30);
             this.SideInfoPanel.Name = "SideInfoPanel";
-            this.SideInfoPanel.Size = new System.Drawing.Size(827, 97);
+            this.SideInfoPanel.Size = new System.Drawing.Size(827, 83);
             this.SideInfoPanel.TabIndex = 17;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StudentIdColumn,
             this.AmountColumn,
             this.TypeColumn,
             this.ReceiptNumColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(803, 248);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -227,9 +220,9 @@ namespace Financial_System.Forms
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(135, 382);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Type";
+            this.label2.Text = "Payment Type";
             // 
             // ReceiptBox
             // 
@@ -243,9 +236,9 @@ namespace Financial_System.Forms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(276, 382);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Receipt #";
+            this.label3.Text = "Receipt Number";
             // 
             // PostPaymentButton
             // 
@@ -255,7 +248,7 @@ namespace Financial_System.Forms
             this.PostPaymentButton.TabIndex = 25;
             this.PostPaymentButton.Text = "Post Payment";
             this.PostPaymentButton.UseVisualStyleBackColor = true;
-            this.PostPaymentButton.Click += new System.EventHandler(this.button1_Click);
+            this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
             // 
             // printBtn
             // 
@@ -275,6 +268,16 @@ namespace Financial_System.Forms
             this.exportBtn.Text = "Export to CSV";
             this.exportBtn.UseVisualStyleBackColor = true;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
+            // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 59);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             // 
             // StudentLedgerWindow
             // 
@@ -311,7 +314,6 @@ namespace Financial_System.Forms
 
         private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.Label CloseButton;
-        private System.Windows.Forms.Panel ProfilePicPanel;
         public System.Windows.Forms.Label StudentLevelLabel;
         public System.Windows.Forms.Label StudentIDLabel;
         public System.Windows.Forms.Label StudentSectionLabel;
@@ -331,5 +333,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button PostPaymentButton;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button exportBtn;
+        private CustomUI.GradientPanel ProfilePanel;
     }
 }

@@ -19,9 +19,9 @@ namespace Financial_System.Forms
         {
             InitializeComponent();
             this.sid = sid; 
+
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
-            //sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, this.sid);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Financial_System.Forms
 
         private void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
-            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, this.sid);
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -45,7 +45,7 @@ namespace Financial_System.Forms
         }
 
         // post payment
-        private void button1_Click(object sender, EventArgs e)
+        private void PostPaymentButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -68,14 +68,14 @@ namespace Financial_System.Forms
                     {
                         MessageBox.Show("Nothing was added");// If 'No', do something here.
                     }
-                }              
+                }   
             }
             catch (Exception)
             {
-                MessageBox.Show("Exception Error!");// If 'No', do something here.
+                MessageBox.Show("Exception Error!");
             }
-            
-            reportsControl.LoadTransactions(sql.CreateConnection()); // auto load in reports.
+
+            //reportsControl.RefreshDGV(); // auto load in reports.
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
             dataGridView1.Refresh();
         }
@@ -127,5 +127,7 @@ namespace Financial_System.Forms
             }
 
         }
+
+        
     }
 }

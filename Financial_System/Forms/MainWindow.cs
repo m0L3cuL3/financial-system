@@ -68,6 +68,7 @@ namespace Financial_System.Forms
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.ReportsControl);
+            uc.ReportsControl.LoadTransactions();
         }
 
         private void PCHS_logo_picbox_Click(object sender, EventArgs e)
