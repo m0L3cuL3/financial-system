@@ -1,3 +1,5 @@
+![pchs-logo](PCHS-Logo.png)
+
 # Financial System for Pangantucan Community High School (PCHS)
 
 ## :warning: Under Development
