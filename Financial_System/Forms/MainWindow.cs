@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows.Forms;
 using Financial_System.Utils;
 
@@ -17,9 +16,6 @@ namespace Financial_System.Forms
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
-
-            // DropDown (min-height only!)
-            //CollectionPanel.Height = 27; // min-height of collection panel
 
             sql.CreateTable(sql.CreateConnection());
             uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
@@ -45,18 +41,21 @@ namespace Financial_System.Forms
             Close();
         }
 
+        // Get Started Tab
         private void GetStartedButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.GsControl);
         }
 
+        // Dashboard Tab
         private void DashboardButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
         }
 
+        // Insert Student Test Button
         private void TestButton2_Click(object sender, EventArgs e)
         {
             sql.InsertStudentData(sql.CreateConnection());
@@ -64,6 +63,7 @@ namespace Financial_System.Forms
             MessageBox.Show("Student Inserted!");
         }
 
+        // Report Tab
         private void ReportButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
@@ -71,6 +71,7 @@ namespace Financial_System.Forms
             uc.ReportsControl.LoadTransactions();
         }
 
+        // idk what this is lmao.
         private void PCHS_logo_picbox_Click(object sender, EventArgs e)
         {
             //don't delete
@@ -78,6 +79,7 @@ namespace Financial_System.Forms
             DisplayControlPanel.Controls.Add(TestButton2);
         }
 
+        // idk what this is lmao.
         private void button1_Click(object sender, EventArgs e)
         {
             sql.TermInit(sql.CreateConnection());

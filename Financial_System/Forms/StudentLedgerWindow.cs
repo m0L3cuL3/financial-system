@@ -10,9 +10,7 @@ namespace Financial_System.Forms
     public partial class StudentLedgerWindow : Form
     {
         UIHandler ui = new UIHandler();
-        DataHandler dh = new DataHandler();
         SQLiteHandler sql = new SQLiteHandler();
-        ReportsControl reportsControl = new ReportsControl();
         string sid;
 
         public StudentLedgerWindow(string sid)
@@ -80,6 +78,7 @@ namespace Financial_System.Forms
             dataGridView1.Refresh();
         }
 
+        // export ledger
         private void exportBtn_Click(object sender, EventArgs e)
         {
             //todo csv exporter
@@ -128,6 +127,5 @@ namespace Financial_System.Forms
 
         }
 
-        
     }
 }

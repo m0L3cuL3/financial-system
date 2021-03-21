@@ -31,10 +31,11 @@ namespace Financial_System.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
+            this.gradientPanel1 = new Financial_System.CustomUI.GradientPanel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.SideMenuPanel = new System.Windows.Forms.Panel();
             this.ButtonPanel = new System.Windows.Forms.Panel();
-            this.SetupButton = new System.Windows.Forms.Button();
+            this.ToolsButton = new System.Windows.Forms.Button();
             this.ReportButton = new System.Windows.Forms.Button();
             this.CollectionsButton = new System.Windows.Forms.Button();
             this.DashboardButton = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace Financial_System.Forms
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.TestButton2 = new System.Windows.Forms.Button();
-            this.gradientPanel1 = new Financial_System.CustomUI.GradientPanel();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -68,6 +68,17 @@ namespace Financial_System.Forms
             this.TopBarPanel.Size = new System.Drawing.Size(1019, 30);
             this.TopBarPanel.TabIndex = 0;
             this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
+            // 
+            // gradientPanel1
+            // 
+            this.gradientPanel1.Angle = 0F;
+            this.gradientPanel1.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 25);
+            this.gradientPanel1.Name = "gradientPanel1";
+            this.gradientPanel1.Size = new System.Drawing.Size(1019, 5);
+            this.gradientPanel1.TabIndex = 1;
+            this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(94)))), ((int)(((byte)(164)))));
             // 
             // CloseButton
             // 
@@ -97,7 +108,7 @@ namespace Financial_System.Forms
             // ButtonPanel
             // 
             this.ButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.ButtonPanel.Controls.Add(this.SetupButton);
+            this.ButtonPanel.Controls.Add(this.ToolsButton);
             this.ButtonPanel.Controls.Add(this.ReportButton);
             this.ButtonPanel.Controls.Add(this.CollectionsButton);
             this.ButtonPanel.Controls.Add(this.DashboardButton);
@@ -108,21 +119,21 @@ namespace Financial_System.Forms
             this.ButtonPanel.Size = new System.Drawing.Size(171, 333);
             this.ButtonPanel.TabIndex = 8;
             // 
-            // SetupButton
+            // ToolsButton
             // 
-            this.SetupButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SetupButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SetupButton.FlatAppearance.BorderSize = 0;
-            this.SetupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetupButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetupButton.ForeColor = System.Drawing.Color.White;
-            this.SetupButton.Location = new System.Drawing.Point(0, 108);
-            this.SetupButton.Name = "SetupButton";
-            this.SetupButton.Size = new System.Drawing.Size(171, 27);
-            this.SetupButton.TabIndex = 14;
-            this.SetupButton.Text = "Setup";
-            this.SetupButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SetupButton.UseVisualStyleBackColor = true;
+            this.ToolsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ToolsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ToolsButton.FlatAppearance.BorderSize = 0;
+            this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToolsButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolsButton.ForeColor = System.Drawing.Color.White;
+            this.ToolsButton.Location = new System.Drawing.Point(0, 108);
+            this.ToolsButton.Name = "ToolsButton";
+            this.ToolsButton.Size = new System.Drawing.Size(171, 27);
+            this.ToolsButton.TabIndex = 14;
+            this.ToolsButton.Text = "Tools";
+            this.ToolsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToolsButton.UseVisualStyleBackColor = true;
             // 
             // ReportButton
             // 
@@ -283,17 +294,6 @@ namespace Financial_System.Forms
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
             // 
-            // gradientPanel1
-            // 
-            this.gradientPanel1.Angle = 0F;
-            this.gradientPanel1.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 25);
-            this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1019, 5);
-            this.gradientPanel1.TabIndex = 1;
-            this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(94)))), ((int)(((byte)(164)))));
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,7 +333,7 @@ namespace Financial_System.Forms
         public System.Windows.Forms.Panel DisplayControlPanel;
         private System.Windows.Forms.PictureBox PCHS_logo_picbox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button SetupButton;
+        private System.Windows.Forms.Button ToolsButton;
         private System.Windows.Forms.Button ReportButton;
         private System.Windows.Forms.Button CollectionsButton;
         private CustomUI.GradientPanel ProfilePanel;
