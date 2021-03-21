@@ -46,7 +46,7 @@ namespace Financial_System.UserControls
             CollectablesPieChart.Show();
         }
 
-
+        // checks network connection.
         private void CheckNetworkConnection()
         {
             try
@@ -63,6 +63,7 @@ namespace Financial_System.UserControls
             }
         }
 
+        // checks database status. (as of now, it displays only the file)
         private void CheckDatabaseStatus()
         {
             string dbName = "database.db";

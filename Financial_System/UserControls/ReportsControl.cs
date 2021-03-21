@@ -25,6 +25,7 @@ namespace Financial_System.UserControls
             dateLabel.Text = DateTime.Now.ToString("M/d/yyyy");
         }
 
+        // Loads Transactions
         public void LoadTransactions()
         {
             dataGridView1.Rows.Clear();
@@ -32,6 +33,7 @@ namespace Financial_System.UserControls
             GetTotal();
         }
 
+        // Exports Reports CSV file (as of now Daily Collections pa)
         private void expToCSVButton_Click(object sender, EventArgs e)
         {
             //todo csv exporter
@@ -79,6 +81,7 @@ namespace Financial_System.UserControls
             }
         }
 
+        // Get Total Sum of Reports (as of now Daily Collections pa)
         private void GetTotal()
         {
             int i = 0;
@@ -91,6 +94,7 @@ namespace Financial_System.UserControls
             totalLabel.Text = i.ToString();
         }
 
+        // Refreshes Transaction DataGridView
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             LoadTransactions();
