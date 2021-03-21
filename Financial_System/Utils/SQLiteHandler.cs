@@ -19,8 +19,7 @@ namespace Financial_System.Utils
             // Create a new database connection:
             sqlite_conn = new SQLiteConnection("Data Source=database.db; Version = 3; New = True; Compress = True; ");
              
-            // Open the connection:
-             
+            // Open the connection:          
             try 
             {
                  sqlite_conn.Open();
@@ -32,6 +31,7 @@ namespace Financial_System.Utils
             return sqlite_conn;
         }
 
+        // Create Tables
         public void CreateTable(SQLiteConnection conn)
         {
             SQLiteCommand sqlite_cmd;
@@ -67,6 +67,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        // Insert Student Data
         public void InsertStudentData(SQLiteConnection conn)
         {//For testing only. We don't insert students, enrolment team does. Maybe we could ask JB for an API
             SQLiteCommand sqlite_cmd;
@@ -84,6 +85,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        // Insert Transaction Data
         public void InsertTransaction (SQLiteConnection conn, int amount, string type, string sid, string receipt)
         {
             SQLiteCommand sqlite_cmd;
@@ -104,7 +106,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        // buggy
+        // idk what this is??
         public void TermInit(SQLiteConnection conn)
         {//make 1 term 2002
             SQLiteCommand sqlite_cmd;
@@ -125,6 +127,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        // no more ledger?
         public void InitializeStudentLedger(SQLiteConnection conn, int term, int sid, int tid, Boolean isClosed)
         { //first transaction of the of the term
             SQLiteCommand sqlite_cmd;
@@ -142,6 +145,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        // no more ledger?
         public void InsertTransactiontoLedger(SQLiteConnection conn,int lid , int term, int sid, int tid, bool isClosed)
         {//subsequent transactions of of a student
             SQLiteCommand sqlite_cmd;
@@ -159,6 +163,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        // dafuq is this?
         public void GetStudentData(SQLiteConnection conn, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
@@ -177,6 +182,7 @@ namespace Financial_System.Utils
             }
         }
 
+        // Get Specific Student Transactions
         public void GetStudentTransactions(SQLiteConnection conn, DataGridView dgv, string sid)
         {
             SQLiteCommand sqlite_cmd;
@@ -198,6 +204,7 @@ namespace Financial_System.Utils
             }
         }
 
+        // Get All Student Transactions
         public void GetAllTransactions(SQLiteConnection conn, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;

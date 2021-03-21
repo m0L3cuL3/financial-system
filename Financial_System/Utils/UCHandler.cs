@@ -16,12 +16,13 @@ namespace Financial_System.Utils
         public StudentItemControl StudControl = new StudentItemControl();
         public ReportsControl ReportsControl = new ReportsControl();
 
-
+        // Unloads Controls
         public void UnloadControls(Panel panel)
         {
             panel.Controls.Clear();
         }
 
+        // Loads Controls
         public void LoadControl(Panel panel, UserControl userControl)
         {
             panel.Controls.Add(userControl);

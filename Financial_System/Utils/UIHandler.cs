@@ -26,26 +26,31 @@ namespace Financial_System.Utils
             int nHeightEllipse
         );
 
+        // Makes the window round.
         public void RoundWindow(Form window)
         {
             window.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, window.Width, window.Height, 20, 20));
         }
 
+        // Makes a UserControl round.
         public void RoundUserControl(UserControl userControl)
         {
             userControl.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, userControl.Width, userControl.Height, 20, 20));
         }
 
+        // Makes a panel round.
         public void RoundPanel(Panel panel)
         {
             panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width, panel.Height, 20, 20));
         }
 
+        // Makes a button round.
         public void RoundButton(Button button)
         {
             button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width, button.Height, 30, 30));
         }
 
+        // Makes the window draggable.
         public void DragWindow(IntPtr windowHandle, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -55,6 +60,7 @@ namespace Financial_System.Utils
             }
         }
 
+        // Allows the panel to have a dropdown feature.
         public void DropDown(Panel panel, int min_height, int max_height)
         {
             // x, y
