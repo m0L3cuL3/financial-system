@@ -3,6 +3,7 @@ using Financial_System.Utils;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -59,7 +60,7 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text);
+                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text, Convert.ToInt32(TermBox.Text));
                         MessageBox.Show("Transaction Added");
                     }
                     else
@@ -126,6 +127,5 @@ namespace Financial_System.Forms
             }
 
         }
-
     }
 }

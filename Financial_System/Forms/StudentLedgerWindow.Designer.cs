@@ -36,11 +36,8 @@ namespace Financial_System.Forms
             this.StudentSectionLabel = new System.Windows.Forms.Label();
             this.StudentNameLabel = new System.Windows.Forms.Label();
             this.SideInfoPanel = new System.Windows.Forms.Panel();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeCmBox = new System.Windows.Forms.ComboBox();
@@ -50,7 +47,13 @@ namespace Financial_System.Forms
             this.PostPaymentButton = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
-            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TermBox = new System.Windows.Forms.TextBox();
+            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TermColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TopBarPanel.SuspendLayout();
             this.SideInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -139,6 +142,16 @@ namespace Financial_System.Forms
             this.SideInfoPanel.Size = new System.Drawing.Size(827, 83);
             this.SideInfoPanel.TabIndex = 17;
             // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 59);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -149,13 +162,110 @@ namespace Financial_System.Forms
             this.StudentIdColumn,
             this.AmountColumn,
             this.TypeColumn,
+            this.TermColumn,
             this.ReceiptNumColumn});
             this.dataGridView1.Location = new System.Drawing.Point(12, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(803, 214);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // amountBox
+            // 
+            this.amountBox.Location = new System.Drawing.Point(12, 402);
+            this.amountBox.Name = "amountBox";
+            this.amountBox.Size = new System.Drawing.Size(128, 20);
+            this.amountBox.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 386);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Amount";
+            // 
+            // TypeCmBox
+            // 
+            this.TypeCmBox.FormattingEnabled = true;
+            this.TypeCmBox.Items.AddRange(new object[] {
+            "Tuition Payment"});
+            this.TypeCmBox.Location = new System.Drawing.Point(12, 357);
+            this.TypeCmBox.Name = "TypeCmBox";
+            this.TypeCmBox.Size = new System.Drawing.Size(128, 21);
+            this.TypeCmBox.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 341);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Payment Type";
+            // 
+            // ReceiptBox
+            // 
+            this.ReceiptBox.Location = new System.Drawing.Point(156, 358);
+            this.ReceiptBox.Name = "ReceiptBox";
+            this.ReceiptBox.Size = new System.Drawing.Size(128, 20);
+            this.ReceiptBox.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(153, 342);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Receipt Number";
+            // 
+            // PostPaymentButton
+            // 
+            this.PostPaymentButton.Location = new System.Drawing.Point(12, 428);
+            this.PostPaymentButton.Name = "PostPaymentButton";
+            this.PostPaymentButton.Size = new System.Drawing.Size(272, 23);
+            this.PostPaymentButton.TabIndex = 25;
+            this.PostPaymentButton.Text = "Post Payment";
+            this.PostPaymentButton.UseVisualStyleBackColor = true;
+            this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
+            // 
+            // printBtn
+            // 
+            this.printBtn.Location = new System.Drawing.Point(722, 428);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(93, 23);
+            this.printBtn.TabIndex = 26;
+            this.printBtn.Text = "Print";
+            this.printBtn.UseVisualStyleBackColor = true;
+            // 
+            // exportBtn
+            // 
+            this.exportBtn.Location = new System.Drawing.Point(609, 428);
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.Size = new System.Drawing.Size(107, 23);
+            this.exportBtn.TabIndex = 27;
+            this.exportBtn.Text = "Export to CSV";
+            this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(153, 386);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Term";
+            // 
+            // TermBox
+            // 
+            this.TermBox.Location = new System.Drawing.Point(156, 402);
+            this.TermBox.Name = "TermBox";
+            this.TermBox.Size = new System.Drawing.Size(128, 20);
+            this.TermBox.TabIndex = 28;
             // 
             // StudentIdColumn
             // 
@@ -181,6 +291,14 @@ namespace Financial_System.Forms
             this.TypeColumn.ReadOnly = true;
             this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // TermColumn
+            // 
+            this.TermColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TermColumn.HeaderText = "Term";
+            this.TermColumn.Name = "TermColumn";
+            this.TermColumn.ReadOnly = true;
+            this.TermColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // ReceiptNumColumn
             // 
             this.ReceiptNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -189,101 +307,13 @@ namespace Financial_System.Forms
             this.ReceiptNumColumn.ReadOnly = true;
             this.ReceiptNumColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // amountBox
-            // 
-            this.amountBox.Location = new System.Drawing.Point(12, 401);
-            this.amountBox.Name = "amountBox";
-            this.amountBox.Size = new System.Drawing.Size(100, 20);
-            this.amountBox.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 382);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Amount";
-            // 
-            // TypeCmBox
-            // 
-            this.TypeCmBox.FormattingEnabled = true;
-            this.TypeCmBox.Items.AddRange(new object[] {
-            "Tuition Payment"});
-            this.TypeCmBox.Location = new System.Drawing.Point(135, 401);
-            this.TypeCmBox.Name = "TypeCmBox";
-            this.TypeCmBox.Size = new System.Drawing.Size(121, 21);
-            this.TypeCmBox.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(135, 382);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Payment Type";
-            // 
-            // ReceiptBox
-            // 
-            this.ReceiptBox.Location = new System.Drawing.Point(276, 401);
-            this.ReceiptBox.Name = "ReceiptBox";
-            this.ReceiptBox.Size = new System.Drawing.Size(100, 20);
-            this.ReceiptBox.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(276, 382);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Receipt Number";
-            // 
-            // PostPaymentButton
-            // 
-            this.PostPaymentButton.Location = new System.Drawing.Point(12, 428);
-            this.PostPaymentButton.Name = "PostPaymentButton";
-            this.PostPaymentButton.Size = new System.Drawing.Size(364, 23);
-            this.PostPaymentButton.TabIndex = 25;
-            this.PostPaymentButton.Text = "Post Payment";
-            this.PostPaymentButton.UseVisualStyleBackColor = true;
-            this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
-            // 
-            // printBtn
-            // 
-            this.printBtn.Location = new System.Drawing.Point(722, 428);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(93, 23);
-            this.printBtn.TabIndex = 26;
-            this.printBtn.Text = "Print";
-            this.printBtn.UseVisualStyleBackColor = true;
-            // 
-            // exportBtn
-            // 
-            this.exportBtn.Location = new System.Drawing.Point(609, 428);
-            this.exportBtn.Name = "exportBtn";
-            this.exportBtn.Size = new System.Drawing.Size(107, 23);
-            this.exportBtn.TabIndex = 27;
-            this.exportBtn.Text = "Export to CSV";
-            this.exportBtn.UseVisualStyleBackColor = true;
-            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
-            // 
-            // ProfilePanel
-            // 
-            this.ProfilePanel.Angle = -48F;
-            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 59);
-            this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            // 
             // StudentLedgerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 466);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.TermBox);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.PostPaymentButton);
@@ -298,6 +328,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentLedgerWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentLedgerWindow";
             this.Load += new System.EventHandler(this.StudentLedgerWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
@@ -320,10 +351,6 @@ namespace Financial_System.Forms
         public System.Windows.Forms.Label StudentNameLabel;
         private System.Windows.Forms.Panel SideInfoPanel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptNumColumn;
         private System.Windows.Forms.TextBox amountBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox TypeCmBox;
@@ -334,5 +361,12 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button exportBtn;
         private CustomUI.GradientPanel ProfilePanel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TermBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptNumColumn;
     }
 }
