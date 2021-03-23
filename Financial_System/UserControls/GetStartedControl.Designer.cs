@@ -49,7 +49,7 @@ namespace Financial_System.UserControls
             // 
             // WikiPanel
             // 
-            this.WikiPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(209)))), ((int)(((byte)(209)))));
+            this.WikiPanel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.WikiPanel.Controls.Add(this.label2);
             this.WikiPanel.Controls.Add(this.GithubLink);
             this.WikiPanel.Location = new System.Drawing.Point(23, 109);
