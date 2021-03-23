@@ -86,15 +86,13 @@ namespace Financial_System.Utils
         }
 
         // Insert Transaction Data
-        public void InsertTransaction (SQLiteConnection conn, int amount, string type, string sid, string receipt)
+        public void InsertTransaction (SQLiteConnection conn, int amount, string type, string sid, string receipt, int term)
         {
             SQLiteCommand sqlite_cmd;
 
             string insertData = "INSERT INTO Transaction_tbl(amount, type, student_id, receipt_number, term, date_recorded) VALUES (@amount, @type, @sid, @receipt, @term, @date_recorded);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
-
-            int term = 2002;
 
             sqlite_cmd.Parameters.AddWithValue("@amount", amount);
             sqlite_cmd.Parameters.AddWithValue("@type", type);
@@ -198,6 +196,7 @@ namespace Financial_System.Utils
                         read.GetValue(0),  // tid
                         read.GetValue(1), // amount
                         read.GetValue(2), // type
+                        read.GetValue(5), // term -> bruh
                         read.GetValue(4) // receipt
                     });
                 }
