@@ -158,6 +158,12 @@
     <Compile Include="UserControls\ReportsControl.Designer.cs">
       <DependentUpon>ReportsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ToolsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ToolsControl.Designer.cs">
+      <DependentUpon>ToolsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\DataHandler.cs" />
     <Compile Include="Utils\SQLiteHandler.cs" />
     <Compile Include="Program.cs" />
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentLedgerControl.resx">
       <DependentUpon>StudentLedgerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ToolsControl.resx">
+      <DependentUpon>ToolsControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
