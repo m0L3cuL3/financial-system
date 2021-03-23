@@ -134,6 +134,7 @@ namespace Financial_System.Forms
             this.ToolsButton.Text = "Tools";
             this.ToolsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ToolsButton.UseVisualStyleBackColor = true;
+            this.ToolsButton.Click += new System.EventHandler(this.ToolsButton_Click);
             // 
             // ReportButton
             // 

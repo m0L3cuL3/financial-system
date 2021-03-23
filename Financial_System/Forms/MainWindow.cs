@@ -85,6 +85,10 @@ namespace Financial_System.Forms
             sql.TermInit(sql.CreateConnection());
         }
 
-        
+        private void ToolsButton_Click(object sender, EventArgs e)
+        {
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.ToolsControl);
+        }
     }
 }
