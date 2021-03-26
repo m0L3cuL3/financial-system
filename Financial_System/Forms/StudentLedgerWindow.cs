@@ -1,9 +1,7 @@
-﻿using Financial_System.UserControls;
-using Financial_System.Utils;
+﻿using Financial_System.Utils;
 using System;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -12,6 +10,7 @@ namespace Financial_System.Forms
     {
         UIHandler ui = new UIHandler();
         SQLiteHandler sql = new SQLiteHandler();
+        Globals gb = new Globals();
         string sid;
 
         public StudentLedgerWindow(string sid)
@@ -21,6 +20,8 @@ namespace Financial_System.Forms
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
+
+            LoadList();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -126,6 +127,14 @@ namespace Financial_System.Forms
                 MessageBox.Show("Something Happened...");
             }
 
+        }
+
+        private void LoadList()
+        {
+            foreach (string payment in gb.PaymentList)
+            {
+                TypeCmBox.Items.Add(payment);
+            }
         }
     }
 }

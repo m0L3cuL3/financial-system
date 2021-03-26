@@ -53,6 +53,7 @@ namespace Financial_System.Forms
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
+            uc.DashControl.LoadChartData();
         }
 
         // Insert Student Test Button
