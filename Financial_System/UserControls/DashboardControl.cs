@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -11,8 +12,9 @@ namespace Financial_System.UserControls
 {
     public partial class DashboardControl : UserControl
     {
+        SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
-
+        Globals gb = new Globals();
         public DashboardControl()
         {
             InitializeComponent();
@@ -20,26 +22,34 @@ namespace Financial_System.UserControls
             ui.RoundPanel(InfoPanel);
             CheckNetworkConnection();
             CheckDatabaseStatus();
-            LoadSampleData();    
+            LoadChartData();
         }
 
         Func<ChartPoint, string> labelPoint = chartpoint => string.Format("{0} ({1:P})", chartpoint.Y, chartpoint.Participation);
-        
+
         // make this load actual data, next time.
-        private void LoadSampleData()
+        public void LoadChartData()
         {
             SeriesCollection series = new SeriesCollection();
 
-            // fake data -> change this to show real data.
-            series.Add(new PieSeries() { Title = "2020-2021", Values = new ChartValues<int> { 100000 }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = "2021-2022", Values = new ChartValues<int> { 125000 }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = "2022-2023", Values = new ChartValues<int> { 95000 }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = "2023-2024", Values = new ChartValues<int> { 100000 }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = "2024-2025", Values = new ChartValues<int> { 125000 }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = "2025-2026", Values = new ChartValues<int> { 95000 }, DataLabels = true, LabelPoint = labelPoint });
+            
+
+            series.Add(new PieSeries() { Title = gb.MonthList[0], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[0]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[1], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[1]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[2], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[2]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[3], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[3]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[4], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[4]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[5], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[5]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[6], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[6]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[7], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[7]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[8], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[8]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[9], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[9]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[10], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[10]) }, DataLabels = true, LabelPoint = labelPoint });
+            series.Add(new PieSeries() { Title = gb.MonthList[11], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[11]) }, DataLabels = true, LabelPoint = labelPoint });
+
             CollectablesPieChart.Series = series;
 
-            //CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
+            CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
 
             // fix for Negative/Black PieChart (Sean Baang)
             CollectablesPieChart.Hide();

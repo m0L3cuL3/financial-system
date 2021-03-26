@@ -78,9 +78,9 @@ namespace Financial_System.UserControls
             this.FeeCollectionsLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FeeCollectionsLabel.Location = new System.Drawing.Point(19, 64);
             this.FeeCollectionsLabel.Name = "FeeCollectionsLabel";
-            this.FeeCollectionsLabel.Size = new System.Drawing.Size(270, 20);
+            this.FeeCollectionsLabel.Size = new System.Drawing.Size(221, 20);
             this.FeeCollectionsLabel.TabIndex = 3;
-            this.FeeCollectionsLabel.Text = "Fee Collections (by Academic Year)";
+            this.FeeCollectionsLabel.Text = "Collection Report (by Month)";
             // 
             // NetConStatusLabel
             // 
