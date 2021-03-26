@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace Financial_System.Utils
 {
+
     interface ISQLite
     {
         SQLiteConnection CreateConnection();
@@ -12,17 +14,19 @@ namespace Financial_System.Utils
 
     class SQLiteHandler : ISQLite
     {
+        Globals gb = new Globals();
+
         public SQLiteConnection CreateConnection()
         {
             SQLiteConnection sqlite_conn;
 
             // Create a new database connection:
             sqlite_conn = new SQLiteConnection("Data Source=database.db; Version = 3; New = True; Compress = True; ");
-             
+
             // Open the connection:          
-            try 
+            try
             {
-                 sqlite_conn.Open();
+                sqlite_conn.Open();
             }
             catch (Exception ex)
             {
@@ -43,7 +47,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
 
             // TRANSACTION // renamed by alexislyndon
-            string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
+            string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TransactionTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -86,7 +90,7 @@ namespace Financial_System.Utils
         }
 
         // Insert Transaction Data
-        public void InsertTransaction (SQLiteConnection conn, int amount, string type, string sid, string receipt, int term)
+        public void InsertTransaction(SQLiteConnection conn, int amount, string type, string sid, string receipt, int term)
         {
             SQLiteCommand sqlite_cmd;
 
@@ -99,7 +103,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@sid", sid);
             sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
             sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now); 
+            sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
 
             sqlite_cmd.ExecuteNonQuery();
         }
@@ -123,61 +127,6 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@current", true); // IsCurrent term
 
             sqlite_cmd.ExecuteNonQuery();
-        }
-
-        // no more ledger?
-        public void InitializeStudentLedger(SQLiteConnection conn, int term, int sid, int tid, Boolean isClosed)
-        { //first transaction of the of the term
-            SQLiteCommand sqlite_cmd;
-
-            string insertData = "INSERT INTO Ledger_tbl( term, student_id, transaction_id, isClosed) VALUES (@term, @sid, @tid, @isClosed);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = insertData;
-
-            sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@sid", sid);
-            sqlite_cmd.Parameters.AddWithValue("@tid", tid);
-            sqlite_cmd.Parameters.AddWithValue("@isClosed", isClosed);
-            //sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
-
-            sqlite_cmd.ExecuteNonQuery();
-        }
-
-        // no more ledger?
-        public void InsertTransactiontoLedger(SQLiteConnection conn,int lid , int term, int sid, int tid, bool isClosed)
-        {//subsequent transactions of of a student
-            SQLiteCommand sqlite_cmd;
-
-            string insertData = "INSERT INTO Ledger_tbl(ledger_id, term, student_id, transaction_id, isClosed) VALUES (@lid,@term, @sid, @tid, @isClosed);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = insertData;
-
-            sqlite_cmd.Parameters.AddWithValue("@lid", lid);
-            sqlite_cmd.Parameters.AddWithValue("@term", term);
-            sqlite_cmd.Parameters.AddWithValue("@sid", sid);
-            sqlite_cmd.Parameters.AddWithValue("@tid", tid);
-            sqlite_cmd.Parameters.AddWithValue("@isClosed", isClosed);
-
-            sqlite_cmd.ExecuteNonQuery();
-        }
-
-        // dafuq is this?
-        public void GetStudentData(SQLiteConnection conn, DataGridView dgv)
-        {
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("Select * From Student_tbl ", conn);
-            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
-            {
-                while (read.Read())
-                {
-                    dgv.Rows.Add(new object[] {
-                        read.GetValue(0),  // id
-                        read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3), // fullname
-                        read.GetString(4), // section
-                        read.GetInt32(5).ToString() // level
-                    });
-                }
-            }
         }
 
         // Get Specific Student Transactions
@@ -220,9 +169,59 @@ namespace Financial_System.Utils
                     read.GetValue(read.GetOrdinal("type")),
                     read.GetValue(read.GetOrdinal("amount")),
                     read.GetValue(read.GetOrdinal("receipt_number")),
+                    read.GetValue(read.GetOrdinal("term")),
                     read.GetValue(read.GetOrdinal("date_recorded"))
                 });
             }
+        }
+
+        // Filters Transactions By Month
+        public void FilterTransactionsByMonth(SQLiteConnection conn, DataGridView dgv, string value)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month", conn);
+            sqlite_cmd.Parameters.AddWithValue("@month", value);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                dgv.Rows.Clear();
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),
+                        read.GetValue(read.GetOrdinal("student_id")),
+                        read.GetValue(read.GetOrdinal("type")),
+                        read.GetValue(read.GetOrdinal("amount")),
+                        read.GetValue(read.GetOrdinal("receipt_number")),
+                        read.GetValue(read.GetOrdinal("term")),
+                        read.GetValue(read.GetOrdinal("date_recorded"))
+                    });
+                }
+            }
+        }
+
+        // Get Total Sum of amount by Month (For LiveCharts)
+        public int GetTotalTransByMonth(SQLiteConnection conn, string value)
+        {
+            int result = 0;
+
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month", conn);
+            sqlite_cmd.Parameters.AddWithValue("@month", value);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+
+                while(read.Read())
+                {
+                    result += (int)read.GetValue(read.GetOrdinal("amount"));
+                }
+                return result;
+            }
+
+            //return result;
         }
     }
 }
