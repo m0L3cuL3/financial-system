@@ -7,16 +7,34 @@ using System.Reflection;
 
 namespace Financial_System.UserControls
 {
+    enum Month
+    {
+        January = 01,
+        February = 02,
+        March = 03,
+        April = 04,
+        May = 05,
+        June = 06,
+        July = 07,
+        August = 08,
+        September = 09,
+        October = 10,
+        November = 11,
+        December = 12
+    }
     public partial class ReportsControl : UserControl
     {
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
+        Globals gb = new Globals();
 
         public ReportsControl()
         {
             InitializeComponent();
             ui.RoundButton(expToCSVButton);
             ui.RoundButton(printButton);
+            LoadList();
+            
         }
 
         private void ReportsControl_Load(object sender, EventArgs e)
@@ -98,6 +116,115 @@ namespace Financial_System.UserControls
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             LoadTransactions();
+        }
+
+        // Loads MonthList
+        private void LoadList()
+        {
+            foreach(string month in gb.MonthList)
+            {
+                FilterComboBox.Items.Add(month);
+            }
+            
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            switch (FilterComboBox.SelectedIndex)
+            {
+                case 0:
+                    FilterReports(Month.January);
+                    break;
+                case 1:
+                    FilterReports(Month.February);
+                    break;
+                case 2:
+                    FilterReports(Month.March);
+                    break;
+                case 3:
+                    FilterReports(Month.April);
+                    break;
+                case 4:
+                    FilterReports(Month.May);
+                    break;
+                case 5:
+                    FilterReports(Month.June);
+                    break;
+                case 6:
+                    FilterReports(Month.July);
+                    break;
+                case 7:
+                    FilterReports(Month.August);
+                    break;
+                case 8:
+                    FilterReports(Month.September);
+                    break;
+                case 9:
+                    FilterReports(Month.October);
+                    break;
+                case 10:
+                    FilterReports(Month.November);
+                    break;
+                case 11:
+                    FilterReports(Month.December);
+                    break;
+            }
+            GetTotal();
+        }
+
+        // Filters Reports by Month.
+        private void FilterReports(Month month)
+        {
+            try
+            {
+                switch (month)
+                {
+                    case Month.January:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "01");
+                        break;
+                    case Month.February:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "02");
+                        break;
+                    case Month.March:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "03");
+                        break;
+                    case Month.April:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "04");
+                        break;
+                    case Month.May:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "05");
+                        break;
+                    case Month.June:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "06");
+                        break;
+                    case Month.July:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "07");
+                        break;
+                    case Month.August:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "08");
+                        break;
+                    case Month.September:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "09");
+                        break;
+                    case Month.October:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "10");
+                        break;
+                    case Month.November:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "11");
+                        break;
+                    case Month.December:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "12");
+                        break;
+                    default:
+                        sql.GetAllTransactions(sql.CreateConnection(), dataGridView1);
+                        break;
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
     }
 

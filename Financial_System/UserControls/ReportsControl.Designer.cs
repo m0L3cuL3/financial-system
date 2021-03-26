@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TransIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleLabel = new System.Windows.Forms.Label();
             this.dateDescLabel = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
@@ -42,9 +36,18 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.expToCSVButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.RefreshButton = new System.Windows.Forms.Button();
+            this.FilterComboBox = new System.Windows.Forms.ComboBox();
+            this.FilterButton = new System.Windows.Forms.Button();
             this.separator2 = new Financial_System.UserControls.Separator();
             this.separator1 = new Financial_System.UserControls.Separator();
-            this.RefreshButton = new System.Windows.Forms.Button();
+            this.TransIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TermColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,60 +63,13 @@
             this.TypeColumn,
             this.AmountColumn,
             this.ReceiptColumn,
+            this.TermColumn,
             this.DateRecordedColumn});
             this.dataGridView1.Location = new System.Drawing.Point(18, 81);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(811, 290);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // TransIdColumn
-            // 
-            this.TransIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TransIdColumn.HeaderText = "Transaction ID";
-            this.TransIdColumn.Name = "TransIdColumn";
-            this.TransIdColumn.ReadOnly = true;
-            this.TransIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // StudentIdColumn
-            // 
-            this.StudentIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.StudentIdColumn.HeaderText = "Student ID";
-            this.StudentIdColumn.Name = "StudentIdColumn";
-            this.StudentIdColumn.ReadOnly = true;
-            this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TypeColumn.HeaderText = "Type";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // AmountColumn
-            // 
-            this.AmountColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AmountColumn.HeaderText = "Amount";
-            this.AmountColumn.Name = "AmountColumn";
-            this.AmountColumn.ReadOnly = true;
-            this.AmountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ReceiptColumn
-            // 
-            this.ReceiptColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReceiptColumn.HeaderText = "Receipt #";
-            this.ReceiptColumn.Name = "ReceiptColumn";
-            this.ReceiptColumn.ReadOnly = true;
-            this.ReceiptColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // DateRecordedColumn
-            // 
-            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateRecordedColumn.HeaderText = "Date Recorded";
-            this.DateRecordedColumn.Name = "DateRecordedColumn";
-            this.DateRecordedColumn.ReadOnly = true;
-            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // titleLabel
             // 
@@ -122,9 +78,9 @@
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.titleLabel.Location = new System.Drawing.Point(15, 13);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(151, 17);
+            this.titleLabel.Size = new System.Drawing.Size(115, 17);
             this.titleLabel.TabIndex = 2;
-            this.titleLabel.Text = "Daily Collection Report";
+            this.titleLabel.Text = "Collection Report";
             // 
             // dateDescLabel
             // 
@@ -199,6 +155,45 @@
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = false;
             // 
+            // RefreshButton
+            // 
+            this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshButton.Font = new System.Drawing.Font("Ebrima", 8F);
+            this.RefreshButton.ForeColor = System.Drawing.Color.White;
+            this.RefreshButton.Location = new System.Drawing.Point(18, 377);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(129, 26);
+            this.RefreshButton.TabIndex = 11;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
+            // FilterComboBox
+            // 
+            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FilterComboBox.FormattingEnabled = true;
+            this.FilterComboBox.Location = new System.Drawing.Point(18, 33);
+            this.FilterComboBox.Name = "FilterComboBox";
+            this.FilterComboBox.Size = new System.Drawing.Size(148, 21);
+            this.FilterComboBox.TabIndex = 12;
+            // 
+            // FilterButton
+            // 
+            this.FilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.FilterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilterButton.Font = new System.Drawing.Font("Ebrima", 8F);
+            this.FilterButton.ForeColor = System.Drawing.Color.White;
+            this.FilterButton.Location = new System.Drawing.Point(172, 33);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(50, 21);
+            this.FilterButton.TabIndex = 13;
+            this.FilterButton.Text = "Filter";
+            this.FilterButton.UseVisualStyleBackColor = false;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
+            // 
             // separator2
             // 
             this.separator2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -223,25 +218,68 @@
             this.separator1.Text = "separator1";
             this.separator1.Thickness = 5;
             // 
-            // RefreshButton
+            // TransIdColumn
             // 
-            this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.RefreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshButton.Font = new System.Drawing.Font("Ebrima", 8F);
-            this.RefreshButton.ForeColor = System.Drawing.Color.White;
-            this.RefreshButton.Location = new System.Drawing.Point(18, 377);
-            this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(129, 26);
-            this.RefreshButton.TabIndex = 11;
-            this.RefreshButton.Text = "Refresh";
-            this.RefreshButton.UseVisualStyleBackColor = false;
-            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            this.TransIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TransIdColumn.HeaderText = "Transaction ID";
+            this.TransIdColumn.Name = "TransIdColumn";
+            this.TransIdColumn.ReadOnly = true;
+            this.TransIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // StudentIdColumn
+            // 
+            this.StudentIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.StudentIdColumn.HeaderText = "Student ID";
+            this.StudentIdColumn.Name = "StudentIdColumn";
+            this.StudentIdColumn.ReadOnly = true;
+            this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // AmountColumn
+            // 
+            this.AmountColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AmountColumn.HeaderText = "Amount";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.ReadOnly = true;
+            this.AmountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ReceiptColumn
+            // 
+            this.ReceiptColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReceiptColumn.HeaderText = "Receipt #";
+            this.ReceiptColumn.Name = "ReceiptColumn";
+            this.ReceiptColumn.ReadOnly = true;
+            this.ReceiptColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // TermColumn
+            // 
+            this.TermColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TermColumn.HeaderText = "Term";
+            this.TermColumn.Name = "TermColumn";
+            this.TermColumn.ReadOnly = true;
+            this.TermColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DateRecordedColumn
+            // 
+            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateRecordedColumn.HeaderText = "Date Recorded";
+            this.DateRecordedColumn.Name = "DateRecordedColumn";
+            this.DateRecordedColumn.ReadOnly = true;
+            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // ReportsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.FilterButton);
+            this.Controls.Add(this.FilterComboBox);
             this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.expToCSVButton);
@@ -264,12 +302,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateRecordedColumn;
         private System.Windows.Forms.Label titleLabel;
         private Separator separator1;
         private System.Windows.Forms.Label dateDescLabel;
@@ -280,5 +312,14 @@
         private System.Windows.Forms.Button expToCSVButton;
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.Button RefreshButton;
+        private System.Windows.Forms.ComboBox FilterComboBox;
+        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateRecordedColumn;
     }
 }
