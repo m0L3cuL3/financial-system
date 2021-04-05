@@ -10,9 +10,11 @@ namespace Financial_System.Forms
         UCHandler uc = new UCHandler();
         SQLiteHandler sql = new SQLiteHandler();
 
-        public MainWindow()
+        public MainWindow(string currUser)
         {
             InitializeComponent();
+
+            UsernameLabel.Text = currUser;
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
@@ -27,7 +29,7 @@ namespace Financial_System.Forms
             ui.DragWindow(Handle, e);
         }
 
-        // DROP DOWN
+        // Collections
         private void CollectionsButton_Click(object sender, EventArgs e)
         {
             //ui.DropDown(CollectionPanel, 27, 86);
@@ -38,7 +40,17 @@ namespace Financial_System.Forms
         // CLOSE
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Close();
+            var confirmLogout = MessageBox.Show("Do you want to logout?", "Confirm logout.", MessageBoxButtons.YesNo);
+            if(confirmLogout == DialogResult.Yes)
+            {
+                Close();
+                LoginWindow lw = new LoginWindow();
+                lw.Show();
+            }
+            else
+            {
+                WindowState = FormWindowState.Minimized;
+            }    
         }
 
         // Get Started Tab

@@ -48,6 +48,7 @@ namespace Financial_System.Forms
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.TestButton2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -230,6 +231,7 @@ namespace Financial_System.Forms
             // HeadPanel
             // 
             this.HeadPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.HeadPanel.Controls.Add(this.label1);
             this.HeadPanel.Controls.Add(this.UsernameLabel);
             this.HeadPanel.Controls.Add(this.ProfilePanel);
             this.HeadPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -242,7 +244,7 @@ namespace Financial_System.Forms
             // 
             this.UsernameLabel.AutoSize = true;
             this.UsernameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(768, 6);
+            this.UsernameLabel.Location = new System.Drawing.Point(48, 6);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(71, 17);
             this.UsernameLabel.TabIndex = 15;
@@ -252,7 +254,7 @@ namespace Financial_System.Forms
             // 
             this.ProfilePanel.Angle = -48F;
             this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(726, 6);
+            this.ProfilePanel.Location = new System.Drawing.Point(6, 6);
             this.ProfilePanel.Name = "ProfilePanel";
             this.ProfilePanel.Size = new System.Drawing.Size(36, 36);
             this.ProfilePanel.TabIndex = 14;
@@ -294,6 +296,18 @@ namespace Financial_System.Forms
             this.TestButton2.Text = "Insert Student";
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(174)))));
+            this.label1.Location = new System.Drawing.Point(48, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "edit profile";
             // 
             // MainWindow
             // 
@@ -340,5 +354,6 @@ namespace Financial_System.Forms
         private CustomUI.GradientPanel ProfilePanel;
         public System.Windows.Forms.Label UsernameLabel;
         private CustomUI.GradientPanel gradientPanel1;
+        public System.Windows.Forms.Label label1;
     }
 }
