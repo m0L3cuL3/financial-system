@@ -1,8 +1,11 @@
 ﻿using Financial_System.Utils;
 using System;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Reflection;
+using CsvHelper;
+using System.Data;
 
 namespace Financial_System.Forms
 {
@@ -12,11 +15,17 @@ namespace Financial_System.Forms
         SQLiteHandler sql = new SQLiteHandler();
         Globals gb = new Globals();
         string sid;
+        string name;
+        string section;
+        string level;
 
-        public StudentLedgerWindow(string sid)
+        public StudentLedgerWindow(string sid, string name, string section, string level)
         {
             InitializeComponent();
-            this.sid = sid; 
+            this.sid = sid;
+            this.name = name;
+            this.section = section;
+            this.level = level;
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
@@ -84,9 +93,9 @@ namespace Financial_System.Forms
         private void exportBtn_Click(object sender, EventArgs e)
         {
             //todo csv exporter
-            string current = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string path = Path.Combine(current, "LEDGER.csv");
-           
+            Directory.CreateDirectory(@".\Student_Ledgers");
+            string path = $".\\Student_Ledgers\\LEDGER([{sid}]-[{name}]-[{section}]-[{level}]).csv";
+
             try
             {
                 //Build the CSV file data as a Comma separated string.
@@ -122,9 +131,9 @@ namespace Financial_System.Forms
                 File.WriteAllText(path, csv);
                 MessageBox.Show("Export saved to: \n" + path);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Something Happened...");
+                MessageBox.Show(ex.ToString());
             }
 
         }
