@@ -79,9 +79,9 @@ namespace Financial_System.UserControls
             this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentIDLabel.Location = new System.Drawing.Point(666, 9);
             this.StudentIDLabel.Name = "StudentIDLabel";
-            this.StudentIDLabel.Size = new System.Drawing.Size(69, 17);
+            this.StudentIDLabel.Size = new System.Drawing.Size(92, 17);
             this.StudentIDLabel.TabIndex = 11;
-            this.StudentIDLabel.Text = "StudentId";
+            this.StudentIDLabel.Text = "123456789012";
             // 
             // StudentLevelLabel
             // 

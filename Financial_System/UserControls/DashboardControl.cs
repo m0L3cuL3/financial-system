@@ -30,30 +30,35 @@ namespace Financial_System.UserControls
         // make this load actual data, next time.
         public void LoadChartData()
         {
-            SeriesCollection series = new SeriesCollection();
+            try
+            {
+                SeriesCollection series = new SeriesCollection();
 
-            
+                series.Add(new PieSeries() { Title = gb.MonthList[0], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[0]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[1], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[1]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[2], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[2]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[3], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[3]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[4], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[4]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[5], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[5]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[6], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[6]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[7], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[7]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[8], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[8]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[9], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[9]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[10], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[10]) }, DataLabels = true, LabelPoint = labelPoint });
+                series.Add(new PieSeries() { Title = gb.MonthList[11], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[11]) }, DataLabels = true, LabelPoint = labelPoint });
 
-            series.Add(new PieSeries() { Title = gb.MonthList[0], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[0]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[1], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[1]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[2], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[2]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[3], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[3]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[4], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[4]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[5], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[5]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[6], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[6]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[7], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[7]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[8], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[8]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[9], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[9]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[10], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[10]) }, DataLabels = true, LabelPoint = labelPoint });
-            series.Add(new PieSeries() { Title = gb.MonthList[11], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[11]) }, DataLabels = true, LabelPoint = labelPoint });
+                CollectablesPieChart.Series = series;
 
-            CollectablesPieChart.Series = series;
+                CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
 
-            CollectablesPieChart.LegendLocation = LegendLocation.Bottom;
-
-            // fix for Negative/Black PieChart (Sean Baang)
-            CollectablesPieChart.Hide();
-            CollectablesPieChart.Show();
+                // fix for Negative/Black PieChart (Sean Baang)
+                CollectablesPieChart.Hide();
+                CollectablesPieChart.Show();
+            }
+            catch(Exception ex)
+            {
+                //TODO: Make exception output.
+            }   
         }
 
         // checks network connection.

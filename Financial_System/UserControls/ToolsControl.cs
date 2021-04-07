@@ -1,4 +1,5 @@
-﻿using Financial_System.Utils;
+﻿using Financial_System.Forms;
+using Financial_System.Utils;
 using System.Windows.Forms;
 
 namespace Financial_System.UserControls
@@ -11,6 +12,12 @@ namespace Financial_System.UserControls
             InitializeComponent();
             ui.RoundPanel(FinancialPanel);
             ui.RoundPanel(GeneralPanel);
+        }
+
+        private void AddStudButton_Click(object sender, System.EventArgs e)
+        {
+            AddStudentWindow asw = new AddStudentWindow();
+            asw.Show();
         }
     }
 }

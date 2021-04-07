@@ -31,13 +31,14 @@ namespace Financial_System.UserControls
         {
             this.TitleLabel = new System.Windows.Forms.Label();
             this.FinancialPanel = new System.Windows.Forms.Panel();
+            this.CFButton = new System.Windows.Forms.Button();
+            this.IncomeStmtButton = new System.Windows.Forms.Button();
+            this.BalSheetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GeneralPanel = new System.Windows.Forms.Panel();
-            this.BalSheetButton = new System.Windows.Forms.Button();
-            this.IncomeStmtButton = new System.Windows.Forms.Button();
-            this.CFButton = new System.Windows.Forms.Button();
             this.AddStudButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.FinancialPanel.SuspendLayout();
             this.GeneralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -63,49 +64,20 @@ namespace Financial_System.UserControls
             this.FinancialPanel.Size = new System.Drawing.Size(159, 128);
             this.FinancialPanel.TabIndex = 8;
             // 
-            // label1
+            // CFButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label1.Location = new System.Drawing.Point(18, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Financial";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label2.Location = new System.Drawing.Point(201, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 20);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "General";
-            // 
-            // GeneralPanel
-            // 
-            this.GeneralPanel.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.GeneralPanel.Controls.Add(this.AddStudButton);
-            this.GeneralPanel.Location = new System.Drawing.Point(205, 106);
-            this.GeneralPanel.Name = "GeneralPanel";
-            this.GeneralPanel.Size = new System.Drawing.Size(159, 128);
-            this.GeneralPanel.TabIndex = 10;
-            // 
-            // BalSheetButton
-            // 
-            this.BalSheetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.BalSheetButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BalSheetButton.FlatAppearance.BorderSize = 0;
-            this.BalSheetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BalSheetButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BalSheetButton.ForeColor = System.Drawing.Color.White;
-            this.BalSheetButton.Location = new System.Drawing.Point(15, 16);
-            this.BalSheetButton.Name = "BalSheetButton";
-            this.BalSheetButton.Size = new System.Drawing.Size(129, 28);
-            this.BalSheetButton.TabIndex = 11;
-            this.BalSheetButton.Text = "Balance Sheet";
-            this.BalSheetButton.UseVisualStyleBackColor = false;
+            this.CFButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.CFButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CFButton.FlatAppearance.BorderSize = 0;
+            this.CFButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CFButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CFButton.ForeColor = System.Drawing.Color.White;
+            this.CFButton.Location = new System.Drawing.Point(15, 84);
+            this.CFButton.Name = "CFButton";
+            this.CFButton.Size = new System.Drawing.Size(129, 28);
+            this.CFButton.TabIndex = 13;
+            this.CFButton.Text = "Cash Flow Statement";
+            this.CFButton.UseVisualStyleBackColor = false;
             // 
             // IncomeStmtButton
             // 
@@ -122,20 +94,50 @@ namespace Financial_System.UserControls
             this.IncomeStmtButton.Text = "Income Statement";
             this.IncomeStmtButton.UseVisualStyleBackColor = false;
             // 
-            // CFButton
+            // BalSheetButton
             // 
-            this.CFButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.CFButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CFButton.FlatAppearance.BorderSize = 0;
-            this.CFButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CFButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CFButton.ForeColor = System.Drawing.Color.White;
-            this.CFButton.Location = new System.Drawing.Point(15, 84);
-            this.CFButton.Name = "CFButton";
-            this.CFButton.Size = new System.Drawing.Size(129, 28);
-            this.CFButton.TabIndex = 13;
-            this.CFButton.Text = "Cash Flow Statement";
-            this.CFButton.UseVisualStyleBackColor = false;
+            this.BalSheetButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.BalSheetButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BalSheetButton.FlatAppearance.BorderSize = 0;
+            this.BalSheetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BalSheetButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BalSheetButton.ForeColor = System.Drawing.Color.White;
+            this.BalSheetButton.Location = new System.Drawing.Point(15, 16);
+            this.BalSheetButton.Name = "BalSheetButton";
+            this.BalSheetButton.Size = new System.Drawing.Size(129, 28);
+            this.BalSheetButton.TabIndex = 11;
+            this.BalSheetButton.Text = "Balance Sheet";
+            this.BalSheetButton.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.label1.Location = new System.Drawing.Point(18, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Financial";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.label2.Location = new System.Drawing.Point(201, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "School";
+            // 
+            // GeneralPanel
+            // 
+            this.GeneralPanel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.GeneralPanel.Controls.Add(this.button1);
+            this.GeneralPanel.Controls.Add(this.AddStudButton);
+            this.GeneralPanel.Location = new System.Drawing.Point(205, 106);
+            this.GeneralPanel.Name = "GeneralPanel";
+            this.GeneralPanel.Size = new System.Drawing.Size(159, 128);
+            this.GeneralPanel.TabIndex = 10;
             // 
             // AddStudButton
             // 
@@ -151,6 +153,22 @@ namespace Financial_System.UserControls
             this.AddStudButton.TabIndex = 12;
             this.AddStudButton.Text = "Add Student";
             this.AddStudButton.UseVisualStyleBackColor = false;
+            this.AddStudButton.Click += new System.EventHandler(this.AddStudButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(15, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 28);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Add Term";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // ToolsControl
             // 
@@ -181,5 +199,6 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.Button IncomeStmtButton;
         private System.Windows.Forms.Button BalSheetButton;
         private System.Windows.Forms.Button AddStudButton;
+        private System.Windows.Forms.Button button1;
     }
 }

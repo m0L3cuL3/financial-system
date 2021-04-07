@@ -15,6 +15,7 @@ namespace Financial_System.UserControls
         public string _StudentSection;
         public string _StudentLevel;
         public string _StudentId;
+        public string _StudentLrn;
 
         public string StudentName
         {
@@ -37,7 +38,11 @@ namespace Financial_System.UserControls
             set { _StudentId = value; }
         }
 
-
+        public string StudentLrn
+        {
+            get { return _StudentLrn; }
+            set { _StudentLrn = value; }
+        }
 
         public StudentItemControl()
         {
@@ -49,20 +54,22 @@ namespace Financial_System.UserControls
             StudentNameLabel.Text = StudentName;
             StudentSectionLabel.Text = StudentSection;
             StudentLevelLabel.Text = StudentLevel;
-            StudentIDLabel.Text = StudentId;
+            //StudentIDLabel.Text = StudentId;
+            StudentIDLabel.Text = StudentLrn;
         }
 
 
         private void ViewLedgerButton_Click(object sender, EventArgs e)
         {
             // Once clicked, the data should show on StudentLedgerWindow
-            slw = new StudentLedgerWindow(_StudentId, _StudentName, _StudentSection, _StudentLevel);
+            slw = new StudentLedgerWindow(_StudentId, _StudentLrn, _StudentName, _StudentSection, _StudentLevel);
 
             slw.StudentNameLabel.Text = StudentName;
             slw.StudentSectionLabel.Text = StudentSection;
             slw.StudentLevelLabel.Text = StudentLevel;
-            slw.StudentIDLabel.Text = StudentId;
-       
+            //slw.StudentIDLabel.Text = StudentId;
+            slw.StudentIDLabel.Text = StudentLrn;
+
             slw.Show();
         }
 
