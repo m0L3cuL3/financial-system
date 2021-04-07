@@ -2,10 +2,6 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Reflection;
-using CsvHelper;
-using System.Data;
 
 namespace Financial_System.Forms
 {
@@ -18,17 +14,22 @@ namespace Financial_System.Forms
         string name;
         string section;
         string level;
+        string lrn;
 
-        public StudentLedgerWindow(string sid, string name, string section, string level)
+        public StudentLedgerWindow(string sid, string lrn, string name, string section, string level)
         {
             InitializeComponent();
             this.sid = sid;
+            this.lrn = lrn;
             this.name = name;
             this.section = section;
             this.level = level;
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
+            ui.RoundButton(PostPaymentButton);
+            ui.RoundButton(exportBtn);
+            ui.RoundButton(printBtn);
 
             LoadList();
         }
@@ -94,7 +95,7 @@ namespace Financial_System.Forms
         {
             //todo csv exporter
             Directory.CreateDirectory(@".\Student_Ledgers");
-            string path = $".\\Student_Ledgers\\LEDGER([{sid}]-[{name}]-[{section}]-[{level}]).csv";
+            string path = $".\\Student_Ledgers\\LEDGER([{lrn}]-[{name}]-[{section}]-[{level}]).csv";
 
             try
             {

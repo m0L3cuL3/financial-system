@@ -29,6 +29,9 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.StudentLevelLabel = new System.Windows.Forms.Label();
@@ -65,8 +68,9 @@ namespace Financial_System.Forms
             this.TopBarPanel.Controls.Add(this.CloseButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopBarPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TopBarPanel.Name = "TopBarPanel";
-            this.TopBarPanel.Size = new System.Drawing.Size(827, 30);
+            this.TopBarPanel.Size = new System.Drawing.Size(747, 30);
             this.TopBarPanel.TabIndex = 0;
             this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
             // 
@@ -77,7 +81,8 @@ namespace Financial_System.Forms
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.CloseButton.ForeColor = System.Drawing.Color.Red;
-            this.CloseButton.Location = new System.Drawing.Point(803, 6);
+            this.CloseButton.Location = new System.Drawing.Point(723, 6);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(18, 18);
             this.CloseButton.TabIndex = 1;
@@ -89,7 +94,8 @@ namespace Financial_System.Forms
             this.StudentLevelLabel.AutoSize = true;
             this.StudentLevelLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentLevelLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentLevelLabel.Location = new System.Drawing.Point(87, 32);
+            this.StudentLevelLabel.Location = new System.Drawing.Point(88, 32);
+            this.StudentLevelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentLevelLabel.Name = "StudentLevelLabel";
             this.StudentLevelLabel.Size = new System.Drawing.Size(90, 17);
             this.StudentLevelLabel.TabIndex = 16;
@@ -100,18 +106,20 @@ namespace Financial_System.Forms
             this.StudentIDLabel.AutoSize = true;
             this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentIDLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentIDLabel.Location = new System.Drawing.Point(719, 53);
+            this.StudentIDLabel.Location = new System.Drawing.Point(642, 53);
+            this.StudentIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentIDLabel.Name = "StudentIDLabel";
-            this.StudentIDLabel.Size = new System.Drawing.Size(69, 17);
+            this.StudentIDLabel.Size = new System.Drawing.Size(92, 17);
             this.StudentIDLabel.TabIndex = 15;
-            this.StudentIDLabel.Text = "StudentId";
+            this.StudentIDLabel.Text = "123456789012";
             // 
             // StudentSectionLabel
             // 
             this.StudentSectionLabel.AutoSize = true;
             this.StudentSectionLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentSectionLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentSectionLabel.Location = new System.Drawing.Point(87, 53);
+            this.StudentSectionLabel.Location = new System.Drawing.Point(88, 53);
+            this.StudentSectionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentSectionLabel.Name = "StudentSectionLabel";
             this.StudentSectionLabel.Size = new System.Drawing.Size(104, 17);
             this.StudentSectionLabel.TabIndex = 14;
@@ -122,7 +130,8 @@ namespace Financial_System.Forms
             this.StudentNameLabel.AutoSize = true;
             this.StudentNameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.StudentNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentNameLabel.Location = new System.Drawing.Point(87, 11);
+            this.StudentNameLabel.Location = new System.Drawing.Point(88, 11);
+            this.StudentNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentNameLabel.Name = "StudentNameLabel";
             this.StudentNameLabel.Size = new System.Drawing.Size(97, 17);
             this.StudentNameLabel.TabIndex = 13;
@@ -138,8 +147,9 @@ namespace Financial_System.Forms
             this.SideInfoPanel.Controls.Add(this.StudentSectionLabel);
             this.SideInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SideInfoPanel.Location = new System.Drawing.Point(0, 30);
+            this.SideInfoPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SideInfoPanel.Name = "SideInfoPanel";
-            this.SideInfoPanel.Size = new System.Drawing.Size(827, 83);
+            this.SideInfoPanel.Size = new System.Drawing.Size(747, 83);
             this.SideInfoPanel.TabIndex = 17;
             // 
             // ProfilePanel
@@ -147,16 +157,29 @@ namespace Financial_System.Forms
             this.ProfilePanel.Angle = -48F;
             this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
             this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 59);
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
             this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StudentIdColumn,
@@ -164,10 +187,22 @@ namespace Financial_System.Forms
             this.TypeColumn,
             this.TermColumn,
             this.ReceiptNumColumn});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Location = new System.Drawing.Point(12, 119);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(803, 214);
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(590, 332);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -213,7 +248,8 @@ namespace Financial_System.Forms
             // 
             // amountBox
             // 
-            this.amountBox.Location = new System.Drawing.Point(12, 402);
+            this.amountBox.Location = new System.Drawing.Point(608, 184);
+            this.amountBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.amountBox.Name = "amountBox";
             this.amountBox.Size = new System.Drawing.Size(128, 20);
             this.amountBox.TabIndex = 19;
@@ -221,16 +257,19 @@ namespace Financial_System.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 386);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(608, 165);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(50, 16);
             this.label1.TabIndex = 20;
             this.label1.Text = "Amount";
             // 
             // TypeCmBox
             // 
             this.TypeCmBox.FormattingEnabled = true;
-            this.TypeCmBox.Location = new System.Drawing.Point(12, 357);
+            this.TypeCmBox.Location = new System.Drawing.Point(608, 138);
+            this.TypeCmBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TypeCmBox.Name = "TypeCmBox";
             this.TypeCmBox.Size = new System.Drawing.Size(128, 21);
             this.TypeCmBox.TabIndex = 21;
@@ -238,78 +277,101 @@ namespace Financial_System.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 341);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(608, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(86, 16);
             this.label2.TabIndex = 22;
             this.label2.Text = "Payment Type";
             // 
             // ReceiptBox
             // 
-            this.ReceiptBox.Location = new System.Drawing.Point(156, 358);
+            this.ReceiptBox.Location = new System.Drawing.Point(608, 229);
+            this.ReceiptBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ReceiptBox.Name = "ReceiptBox";
-            this.ReceiptBox.Size = new System.Drawing.Size(128, 20);
+            this.ReceiptBox.Size = new System.Drawing.Size(129, 20);
             this.ReceiptBox.TabIndex = 23;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(153, 342);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(608, 210);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.Size = new System.Drawing.Size(96, 16);
             this.label3.TabIndex = 24;
             this.label3.Text = "Receipt Number";
             // 
             // PostPaymentButton
             // 
-            this.PostPaymentButton.Location = new System.Drawing.Point(12, 428);
+            this.PostPaymentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.PostPaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PostPaymentButton.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.PostPaymentButton.ForeColor = System.Drawing.Color.White;
+            this.PostPaymentButton.Location = new System.Drawing.Point(608, 309);
+            this.PostPaymentButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PostPaymentButton.Name = "PostPaymentButton";
-            this.PostPaymentButton.Size = new System.Drawing.Size(272, 23);
+            this.PostPaymentButton.Size = new System.Drawing.Size(130, 30);
             this.PostPaymentButton.TabIndex = 25;
             this.PostPaymentButton.Text = "Post Payment";
-            this.PostPaymentButton.UseVisualStyleBackColor = true;
+            this.PostPaymentButton.UseVisualStyleBackColor = false;
             this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(722, 428);
+            this.printBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.printBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.printBtn.ForeColor = System.Drawing.Color.White;
+            this.printBtn.Location = new System.Drawing.Point(608, 421);
+            this.printBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(93, 23);
+            this.printBtn.Size = new System.Drawing.Size(128, 30);
             this.printBtn.TabIndex = 26;
             this.printBtn.Text = "Print";
-            this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.UseVisualStyleBackColor = false;
             // 
             // exportBtn
             // 
-            this.exportBtn.Location = new System.Drawing.Point(609, 428);
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.Location = new System.Drawing.Point(608, 385);
+            this.exportBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportBtn.Name = "exportBtn";
-            this.exportBtn.Size = new System.Drawing.Size(107, 23);
+            this.exportBtn.Size = new System.Drawing.Size(128, 30);
             this.exportBtn.TabIndex = 27;
             this.exportBtn.Text = "Export to CSV";
-            this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.UseVisualStyleBackColor = false;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(153, 386);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(608, 255);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(33, 16);
             this.label4.TabIndex = 29;
             this.label4.Text = "Term";
             // 
             // TermBox
             // 
-            this.TermBox.Location = new System.Drawing.Point(156, 402);
+            this.TermBox.Location = new System.Drawing.Point(608, 274);
+            this.TermBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TermBox.Name = "TermBox";
-            this.TermBox.Size = new System.Drawing.Size(128, 20);
+            this.TermBox.Size = new System.Drawing.Size(129, 20);
             this.TermBox.TabIndex = 28;
             // 
             // StudentLedgerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 466);
+            this.ClientSize = new System.Drawing.Size(747, 463);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TermBox);
             this.Controls.Add(this.exportBtn);
@@ -325,6 +387,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.SideInfoPanel);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "StudentLedgerWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentLedgerWindow";
