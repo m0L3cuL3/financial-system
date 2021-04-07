@@ -92,12 +92,6 @@ namespace Financial_System.Forms
             DisplayControlPanel.Controls.Add(TestButton2);
         }
 
-        // idk what this is lmao.
-        private void button1_Click(object sender, EventArgs e)
-        {
-            sql.TermInit(sql.CreateConnection());
-        }
-
         private void ToolsButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);

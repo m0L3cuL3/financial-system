@@ -43,12 +43,11 @@ namespace Financial_System.Forms
             this.SpacePanel = new System.Windows.Forms.Panel();
             this.PCHS_logo_picbox = new System.Windows.Forms.PictureBox();
             this.HeadPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.TestButton2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -240,6 +239,18 @@ namespace Financial_System.Forms
             this.HeadPanel.Size = new System.Drawing.Size(848, 48);
             this.HeadPanel.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(174)))));
+            this.label1.Location = new System.Drawing.Point(48, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "edit profile";
+            // 
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
@@ -263,23 +274,12 @@ namespace Financial_System.Forms
             // DisplayControlPanel
             // 
             this.DisplayControlPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayControlPanel.Controls.Add(this.button1);
             this.DisplayControlPanel.Controls.Add(this.TestButton2);
             this.DisplayControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DisplayControlPanel.Location = new System.Drawing.Point(171, 78);
             this.DisplayControlPanel.Name = "DisplayControlPanel";
             this.DisplayControlPanel.Size = new System.Drawing.Size(848, 478);
             this.DisplayControlPanel.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(18, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TestButton2
             // 
@@ -296,18 +296,6 @@ namespace Financial_System.Forms
             this.TestButton2.Text = "Insert Student";
             this.TestButton2.UseVisualStyleBackColor = false;
             this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(174)))));
-            this.label1.Location = new System.Drawing.Point(48, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "edit profile";
             // 
             // MainWindow
             // 
@@ -347,7 +335,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;
         private System.Windows.Forms.PictureBox PCHS_logo_picbox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ToolsButton;
         private System.Windows.Forms.Button ReportButton;
         private System.Windows.Forms.Button CollectionsButton;
