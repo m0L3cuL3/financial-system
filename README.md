@@ -6,15 +6,11 @@
 
 ---
 
-## ITCC 42 Service-Learning Program
-
----
-
 ## Features
 
-- [ ] Collections
-- [ ] Student Ledger
-- [ ] Transactions
+- [x] Collections
+- [x] Student Ledger
+- [x] Transactions
 - [ ] Generate Reports (Daily/Monthly)
 
 ---
@@ -22,7 +18,7 @@
 ## Technologies Used
 
 - C# (.NET Framework 4.7.2)
-- CsvHelper
+- CsvHelper (to be removed!)
 - SQLite
 
 ---
