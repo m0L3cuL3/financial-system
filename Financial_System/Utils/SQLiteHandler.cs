@@ -41,7 +41,10 @@ namespace Financial_System.Utils
             SQLiteCommand sqlite_cmd;
 
             // STUDENT //
-            string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
+            ///
+            /// Added LRN
+            ///
+            string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY, student_lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = StudentTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -50,12 +53,6 @@ namespace Financial_System.Utils
             string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TransactionTable;
-            sqlite_cmd.ExecuteNonQuery();
-
-            // LEDGER // renamed by alexislyndon
-            string StudentLedgerTable = "CREATE TABLE IF NOT EXISTS Ledger_tbl(ledger_id INTEGER PRIMARY KEY AUTOINCREMENT, transaction_id INT NOT NULL, term INT NOT NULL, isClosed BOOLEAN NOT NULL , FOREIGN KEY(transaction_id) REFERENCES Student_Transaction(transaction_id), FOREIGN KEY(term) REFERENCES Term(term_id));";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = StudentLedgerTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // TERM //
@@ -76,15 +73,16 @@ namespace Financial_System.Utils
         {//For testing only. We don't insert students, enrolment team does. Maybe we could ask JB for an API
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Student_tbl(first_name, middle_name, surname, section, level) VALUES (@fname, @midname, @surname, @section, @level);";
+            string insertData = "INSERT INTO Student_tbl(student_lrn, first_name, middle_name, surname, section, level) VALUES (@lrn, @fname, @midname, @surname, @section, @level);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@fname", "Jorge");
+            sqlite_cmd.Parameters.AddWithValue("@lrn", 198765150721);
+            sqlite_cmd.Parameters.AddWithValue("@fname", "John");
             sqlite_cmd.Parameters.AddWithValue("@midname", "David");
-            sqlite_cmd.Parameters.AddWithValue("@surname", "Nuñez");
-            sqlite_cmd.Parameters.AddWithValue("@section", "St. Thomas Aquinas");
-            sqlite_cmd.Parameters.AddWithValue("@level", 7);
+            sqlite_cmd.Parameters.AddWithValue("@surname", "Doe");
+            sqlite_cmd.Parameters.AddWithValue("@section", "St. Anselm");
+            sqlite_cmd.Parameters.AddWithValue("@level", 3);
 
             sqlite_cmd.ExecuteNonQuery();
         }
