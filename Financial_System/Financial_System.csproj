@@ -120,6 +120,12 @@
     </Compile>
     <Compile Include="CustomUI\Textbox\Trans.cs" />
     <Compile Include="Features\FinanceFunctions.cs" />
+    <Compile Include="Forms\AddStudentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddStudentWindow.Designer.cs">
+      <DependentUpon>AddStudentWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\UCHandler.cs" />
     <Compile Include="Utils\UIHandler.cs" />
+    <EmbeddedResource Include="Forms\AddStudentWindow.resx">
+      <DependentUpon>AddStudentWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </EmbeddedResource>
