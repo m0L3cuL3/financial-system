@@ -31,12 +31,12 @@ namespace Financial_System.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.CloseButton = new System.Windows.Forms.Label();
             this.LogoPanel = new System.Windows.Forms.Panel();
-            this.LogoImgBox = new System.Windows.Forms.PictureBox();
             this.TitleLabel = new System.Windows.Forms.Label();
+            this.LogoImgBox = new System.Windows.Forms.PictureBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.passLabel = new System.Windows.Forms.Label();
-            this.CloseButton = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.passTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.userTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
@@ -56,6 +56,20 @@ namespace Financial_System.Forms
             this.TopPanel.TabIndex = 0;
             this.TopPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopPanel_MouseMove);
             // 
+            // CloseButton
+            // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSize = true;
+            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseButton.ForeColor = System.Drawing.Color.Red;
+            this.CloseButton.Location = new System.Drawing.Point(266, 4);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(18, 18);
+            this.CloseButton.TabIndex = 1;
+            this.CloseButton.Text = "X";
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
             // LogoPanel
             // 
             this.LogoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(20)))), ((int)(((byte)(54)))));
@@ -67,16 +81,6 @@ namespace Financial_System.Forms
             this.LogoPanel.Size = new System.Drawing.Size(289, 183);
             this.LogoPanel.TabIndex = 1;
             // 
-            // LogoImgBox
-            // 
-            this.LogoImgBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoImgBox.Image")));
-            this.LogoImgBox.Location = new System.Drawing.Point(72, 6);
-            this.LogoImgBox.Name = "LogoImgBox";
-            this.LogoImgBox.Size = new System.Drawing.Size(144, 137);
-            this.LogoImgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoImgBox.TabIndex = 0;
-            this.LogoImgBox.TabStop = false;
-            // 
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
@@ -87,6 +91,16 @@ namespace Financial_System.Forms
             this.TitleLabel.Size = new System.Drawing.Size(204, 22);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "PCHS Finance System";
+            // 
+            // LogoImgBox
+            // 
+            this.LogoImgBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoImgBox.Image")));
+            this.LogoImgBox.Location = new System.Drawing.Point(72, 6);
+            this.LogoImgBox.Name = "LogoImgBox";
+            this.LogoImgBox.Size = new System.Drawing.Size(144, 137);
+            this.LogoImgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoImgBox.TabIndex = 0;
+            this.LogoImgBox.TabStop = false;
             // 
             // userLabel
             // 
@@ -109,20 +123,6 @@ namespace Financial_System.Forms
             this.passLabel.Size = new System.Drawing.Size(69, 17);
             this.passLabel.TabIndex = 4;
             this.passLabel.Text = "Password";
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CloseButton.AutoSize = true;
-            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseButton.ForeColor = System.Drawing.Color.Red;
-            this.CloseButton.Location = new System.Drawing.Point(266, 4);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(18, 18);
-            this.CloseButton.TabIndex = 1;
-            this.CloseButton.Text = "X";
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // loginButton
             // 
