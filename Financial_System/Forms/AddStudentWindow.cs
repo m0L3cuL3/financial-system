@@ -34,6 +34,7 @@ namespace Financial_System.Forms
             Close();
         }
 
+        // Loads Level list.
         private void LoadList()
         {
             foreach (string level in gb.LevelList)
@@ -47,11 +48,20 @@ namespace Financial_System.Forms
             ui.DragWindow(Handle, e);
         }
 
+        // Add Student (in case there is no API from Enrollment Systems)
         private void addStudButton_Click(object sender, EventArgs e)
-        {       
-            sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text, SectionTextBox.Text, LevelComboBox.SelectedIndex);
-            slc.LoadStudentLedger(sql.CreateConnection());
-            MessageBox.Show("Student Inserted!");
+        {
+            try
+            {
+                sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text, SectionTextBox.Text, LevelComboBox.SelectedIndex);
+                slc.LoadStudentLedger(sql.CreateConnection());
+                MessageBox.Show("Student Inserted!");
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
     }
 }

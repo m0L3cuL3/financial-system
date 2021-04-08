@@ -51,9 +51,9 @@ namespace Financial_System.Forms
         {
             try
             {
+                UserGridView.Rows.Clear();
                 sql.InsertUserCreds(sql.CreateConnection(), UserTextBox.Text, PassTextBox.Text);
                 sql.GetAllUsers(sql.CreateConnection(), UserGridView);
-                UserGridView.Refresh();
                 UserTextBox.Text = "";
                 PassTextBox.Text = "";
             }
@@ -64,10 +64,11 @@ namespace Financial_System.Forms
             
         }
 
+        // Loads all users.
         private void button1_Click(object sender, EventArgs e)
         {
+            UserGridView.Rows.Clear();
             sql.GetAllUsers(sql.CreateConnection(), UserGridView);
-            UserGridView.Refresh();
         }
     }
 }
