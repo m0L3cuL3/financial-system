@@ -8,10 +8,15 @@
 
 ## Features
 
+- [x] Admin Dashboard
+- [x] Login System
 - [x] Collections
 - [x] Student Ledger
 - [x] Transactions
 - [ ] Generate Reports (Daily/Monthly)
+- [x] Balance Sheet
+- [ ] Cash Flow Statement
+- [ ] Income Statement
 
 ---
 
