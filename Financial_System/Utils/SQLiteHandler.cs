@@ -44,7 +44,7 @@ namespace Financial_System.Utils
             ///
             /// Added LRN
             ///
-            string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY, student_lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
+            string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY AUTOINCREMENT, student_lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = StudentTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -56,20 +56,20 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
 
             // TERM //
-            string TermTable = "CREATE TABLE IF NOT EXISTS Term_tbl(term_id INTEGER PRIMARY KEY, startdate DATE NOT NULL, enddate DATE NOT NULL, current BOOLEAN NOT NULL);";
+            string TermTable = "CREATE TABLE IF NOT EXISTS Term_tbl(term_id INTEGER PRIMARY KEY AUTOINCREMENT, startdate DATE NOT NULL, enddate DATE NOT NULL, current BOOLEAN NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TermTable;
             sqlite_cmd.ExecuteNonQuery();
 
             // User //
-            string UserTable = "CREATE TABLE IF NOT EXISTS User_tbl(user_id INTEGER PRIMARY KEY, createdate DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, enddate DATE NOT NULL);";
+            string UserTable = "CREATE TABLE IF NOT EXISTS User_tbl(user_id INTEGER PRIMARY KEY AUTOINCREMENT, user_name VARCHAR NOT NULL UNIQUE, user_pass VARCHAR NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = UserTable;
             sqlite_cmd.ExecuteNonQuery();
         }
 
         // Insert Student Data
-        public void InsertStudentData(SQLiteConnection conn)
+        public void InsertStudentData(SQLiteConnection conn, long LRN, string fname, string midname, string surname, string section, int level)
         {//For testing only. We don't insert students, enrolment team does. Maybe we could ask JB for an API
             SQLiteCommand sqlite_cmd;
 
@@ -77,12 +77,12 @@ namespace Financial_System.Utils
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@lrn", 198765150721);
-            sqlite_cmd.Parameters.AddWithValue("@fname", "John");
-            sqlite_cmd.Parameters.AddWithValue("@midname", "David");
-            sqlite_cmd.Parameters.AddWithValue("@surname", "Doe");
-            sqlite_cmd.Parameters.AddWithValue("@section", "St. Anselm");
-            sqlite_cmd.Parameters.AddWithValue("@level", 3);
+            sqlite_cmd.Parameters.AddWithValue("@lrn", LRN);
+            sqlite_cmd.Parameters.AddWithValue("@fname", fname);
+            sqlite_cmd.Parameters.AddWithValue("@midname", midname);
+            sqlite_cmd.Parameters.AddWithValue("@surname", surname);
+            sqlite_cmd.Parameters.AddWithValue("@section", section);
+            sqlite_cmd.Parameters.AddWithValue("@level", level);
 
             sqlite_cmd.ExecuteNonQuery();
         }
@@ -220,6 +220,122 @@ namespace Financial_System.Utils
             }
 
             //return result;
+        }
+
+        // Get all user
+        public void GetAllUsers(SQLiteConnection conn, DataGridView dgv)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM User_Tbl;", conn);
+            SQLiteDataReader read = sqlite_cmd.ExecuteReader();
+
+            while (read.Read())
+            {
+                dgv.Rows.Add(new object[]
+                {
+                    read.GetValue(0),
+                    read.GetValue(read.GetOrdinal("user_name"))
+                });
+            }
+        }
+
+        // Add user
+        public void InsertUserCreds(SQLiteConnection conn, string username, string password)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO User_tbl(user_name, user_pass) VALUES (@uname, @upass);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            sqlite_cmd.Parameters.AddWithValue("@uname", username);
+            sqlite_cmd.Parameters.AddWithValue("@upass", password);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        // For change password
+        public void UpdateUserCreds(SQLiteConnection conn, string curr_uname, string curr_upass, string new_uname, string new_upass)
+        {
+
+            using (conn)
+            using (var sqlite_cmd = new SQLiteCommand())
+            {
+
+                sqlite_cmd.Connection = conn;
+
+                string IsUserExist = "SELECT count(*) FROM User_tbl WHERE user_name = @curr_uname AND user_pass = @curr_upass";
+                string UpdateData = "UPDATE User_tbl SET user_name = @new_uname, user_pass = @new_upass WHERE user_name = @curr_uname AND user_pass = @curr_upass;";
+
+                //sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = IsUserExist;
+
+
+                sqlite_cmd.Parameters.AddWithValue("@curr_uname", curr_uname);
+                sqlite_cmd.Parameters.AddWithValue("@curr_upass", curr_upass);
+
+                var userCount = (long)sqlite_cmd.ExecuteScalar();
+                if (userCount == 1)
+                {
+                    sqlite_cmd.CommandText = UpdateData;
+                    sqlite_cmd.Parameters.AddWithValue("@new_uname", new_uname);
+                    sqlite_cmd.Parameters.AddWithValue("@new_upass", new_upass);
+                    var result = (Int32)sqlite_cmd.ExecuteNonQuery();
+                    if (result == 1)
+                    {
+                        MessageBox.Show("Username and Password Updated Successfully! | Task Completed!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password | Incorrect details entered!");
+                }
+            }
+
+            //sqlite_cmd.ExecuteNonQuery();
+        }
+
+        // Check if user exists.
+        public bool GetUserCreds(SQLiteConnection conn, string uname, string upass)
+        {
+            bool IsExist = false;
+
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM User_tbl WHERE user_name = @uname AND user_pass = @upass", conn);
+            sqlite_cmd.Parameters.AddWithValue("@uname", uname);
+            sqlite_cmd.Parameters.AddWithValue("@upass", upass);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+
+                while (read.Read())
+                {
+                    IsExist = true;
+                }
+                return IsExist;
+            }
+        }
+
+        private int GetUserId(SQLiteConnection conn, string uname, string upass)
+        {
+            int result = 0;
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT user_id FROM User_tbl WHERE user_name = @uname AND user_pass = @upass", conn);
+            sqlite_cmd.Parameters.AddWithValue("@uname", uname);
+            sqlite_cmd.Parameters.AddWithValue("@upass", upass);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+
+                while (read.Read())
+                {
+                    result = (int)read.GetValue(0);
+                }
+                return result;
+            }
         }
     }
 }
