@@ -37,8 +37,8 @@ namespace Financial_System.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GeneralPanel = new System.Windows.Forms.Panel();
-            this.AddStudButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.AddStudButton = new System.Windows.Forms.Button();
             this.FinancialPanel.SuspendLayout();
             this.GeneralPanel.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +108,7 @@ namespace Financial_System.UserControls
             this.BalSheetButton.TabIndex = 11;
             this.BalSheetButton.Text = "Balance Sheet";
             this.BalSheetButton.UseVisualStyleBackColor = false;
+            this.BalSheetButton.Click += new System.EventHandler(this.BalSheetButton_Click);
             // 
             // label1
             // 
@@ -139,6 +140,21 @@ namespace Financial_System.UserControls
             this.GeneralPanel.Size = new System.Drawing.Size(159, 128);
             this.GeneralPanel.TabIndex = 10;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(15, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 28);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Add Term";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // AddStudButton
             // 
             this.AddStudButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
@@ -154,21 +170,6 @@ namespace Financial_System.UserControls
             this.AddStudButton.Text = "Add Student";
             this.AddStudButton.UseVisualStyleBackColor = false;
             this.AddStudButton.Click += new System.EventHandler(this.AddStudButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(15, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 28);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Add Term";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // ToolsControl
             // 

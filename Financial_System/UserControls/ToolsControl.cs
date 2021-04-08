@@ -19,5 +19,11 @@ namespace Financial_System.UserControls
             AddStudentWindow asw = new AddStudentWindow();
             asw.Show();
         }
+
+        private void BalSheetButton_Click(object sender, System.EventArgs e)
+        {
+            BalanceSheetWindow bsw = new BalanceSheetWindow();
+            bsw.Show();
+        }
     }
 }
