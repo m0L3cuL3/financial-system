@@ -120,6 +120,7 @@
     </Compile>
     <Compile Include="CustomUI\Textbox\Trans.cs" />
     <Compile Include="Features\FinanceFunctions.cs" />
+    <Compile Include="Features\GetTotalResult.cs" />
     <Compile Include="Forms\AddStudentWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +132,12 @@
     </Compile>
     <Compile Include="Forms\AdminWindow.Designer.cs">
       <DependentUpon>AdminWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BalanceSheetWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BalanceSheetWindow.Designer.cs">
+      <DependentUpon>BalanceSheetWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ChangePasswordWindow.cs">
       <SubType>Form</SubType>
@@ -203,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminWindow.resx">
       <DependentUpon>AdminWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BalanceSheetWindow.resx">
+      <DependentUpon>BalanceSheetWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
