@@ -43,18 +43,16 @@ namespace Financial_System.Forms
             this.SpacePanel = new System.Windows.Forms.Panel();
             this.PCHS_logo_picbox = new System.Windows.Forms.PictureBox();
             this.HeadPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.editProfButton = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
-            this.TestButton2 = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
             this.SpacePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PCHS_logo_picbox)).BeginInit();
             this.HeadPanel.SuspendLayout();
-            this.DisplayControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -230,7 +228,7 @@ namespace Financial_System.Forms
             // HeadPanel
             // 
             this.HeadPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.HeadPanel.Controls.Add(this.label1);
+            this.HeadPanel.Controls.Add(this.editProfButton);
             this.HeadPanel.Controls.Add(this.UsernameLabel);
             this.HeadPanel.Controls.Add(this.ProfilePanel);
             this.HeadPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -239,17 +237,18 @@ namespace Financial_System.Forms
             this.HeadPanel.Size = new System.Drawing.Size(848, 48);
             this.HeadPanel.TabIndex = 2;
             // 
-            // label1
+            // editProfButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(174)))));
-            this.label1.Location = new System.Drawing.Point(48, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "edit profile";
+            this.editProfButton.AutoSize = true;
+            this.editProfButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editProfButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editProfButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(117)))), ((int)(((byte)(174)))));
+            this.editProfButton.Location = new System.Drawing.Point(48, 26);
+            this.editProfButton.Name = "editProfButton";
+            this.editProfButton.Size = new System.Drawing.Size(64, 16);
+            this.editProfButton.TabIndex = 16;
+            this.editProfButton.Text = "edit profile";
+            this.editProfButton.Click += new System.EventHandler(this.editProfButton_Click);
             // 
             // UsernameLabel
             // 
@@ -274,28 +273,11 @@ namespace Financial_System.Forms
             // DisplayControlPanel
             // 
             this.DisplayControlPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayControlPanel.Controls.Add(this.TestButton2);
             this.DisplayControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DisplayControlPanel.Location = new System.Drawing.Point(171, 78);
             this.DisplayControlPanel.Name = "DisplayControlPanel";
             this.DisplayControlPanel.Size = new System.Drawing.Size(848, 478);
             this.DisplayControlPanel.TabIndex = 3;
-            // 
-            // TestButton2
-            // 
-            this.TestButton2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.TestButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TestButton2.FlatAppearance.BorderSize = 0;
-            this.TestButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestButton2.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestButton2.ForeColor = System.Drawing.Color.Black;
-            this.TestButton2.Location = new System.Drawing.Point(18, 53);
-            this.TestButton2.Name = "TestButton2";
-            this.TestButton2.Size = new System.Drawing.Size(171, 27);
-            this.TestButton2.TabIndex = 12;
-            this.TestButton2.Text = "Insert Student";
-            this.TestButton2.UseVisualStyleBackColor = false;
-            this.TestButton2.Click += new System.EventHandler(this.TestButton2_Click);
             // 
             // MainWindow
             // 
@@ -317,7 +299,6 @@ namespace Financial_System.Forms
             ((System.ComponentModel.ISupportInitialize)(this.PCHS_logo_picbox)).EndInit();
             this.HeadPanel.ResumeLayout(false);
             this.HeadPanel.PerformLayout();
-            this.DisplayControlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -332,7 +313,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Panel ButtonPanel;
         private System.Windows.Forms.Button GetStartedButton;
         private System.Windows.Forms.Panel SpacePanel;
-        private System.Windows.Forms.Button TestButton2;
         public System.Windows.Forms.Panel DisplayControlPanel;
         private System.Windows.Forms.PictureBox PCHS_logo_picbox;
         private System.Windows.Forms.Button ToolsButton;
@@ -341,6 +321,6 @@ namespace Financial_System.Forms
         private CustomUI.GradientPanel ProfilePanel;
         public System.Windows.Forms.Label UsernameLabel;
         private CustomUI.GradientPanel gradientPanel1;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label editProfButton;
     }
 }

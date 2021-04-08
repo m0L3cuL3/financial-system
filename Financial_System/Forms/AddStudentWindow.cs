@@ -1,4 +1,5 @@
-﻿using Financial_System.Utils;
+﻿using Financial_System.UserControls;
+using Financial_System.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,9 @@ namespace Financial_System.Forms
     public partial class AddStudentWindow : Form
     {
         Globals gb = new Globals();
+        SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
+        StudentLedgerControl slc = new StudentLedgerControl();
 
         public AddStudentWindow()
         {
@@ -35,13 +38,20 @@ namespace Financial_System.Forms
         {
             foreach (string level in gb.LevelList)
             {
-                FilterComboBox.Items.Add(level);
+                LevelComboBox.Items.Add(level);
             }
         }
 
         private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
         {
             ui.DragWindow(Handle, e);
+        }
+
+        private void addStudButton_Click(object sender, EventArgs e)
+        {       
+            sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text, SectionTextBox.Text, LevelComboBox.SelectedIndex);
+            slc.LoadStudentLedger(sql.CreateConnection());
+            MessageBox.Show("Student Inserted!");
         }
     }
 }

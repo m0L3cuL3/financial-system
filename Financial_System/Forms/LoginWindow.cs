@@ -8,6 +8,8 @@ namespace Financial_System.Forms
     public partial class LoginWindow : Form
     {
         UIHandler ui = new UIHandler();
+        SQLiteHandler sql = new SQLiteHandler();
+        Globals gb = new Globals();
 
         private static bool _exiting;
 
@@ -16,6 +18,7 @@ namespace Financial_System.Forms
             InitializeComponent();
             ui.RoundWindow(this);
             ui.RoundButton(loginButton);
+            sql.CreateTable(sql.CreateConnection());
         }
 
         private void TopPanel_MouseMove(object sender, MouseEventArgs e)
@@ -31,22 +34,52 @@ namespace Financial_System.Forms
         // todo: make login functional
         private void loginButton_Click(object sender, System.EventArgs e)
         {
-            if(userTextBox.Text == "admin" && passTextBox.Text == "1234")
+            if (IsAdminCheckBox.Checked) // if admin
             {
-                Hide();
-                MainWindow mw = new MainWindow(userTextBox.Text);
-                mw.Show();  
+                
+                if (userTextBox.Text == gb.USER_NAME && passTextBox.Text == gb.USER_PASS)
+                {
+                    Hide();
+                    AdminWindow aw = new AdminWindow();
+                    aw.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Input | Try Again.");
+                }
             }
-            else
+            else // if regular user
             {
-                MessageBox.Show("nope lmao!");
-            }
+                
+                if (sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
+                {
+                    Hide();
+                    MainWindow mw = new MainWindow(userTextBox.Text);
+                    mw.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Input | Try Again.");
+                }
+            }   
         }
 
         private void LoginWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             _exiting = true;
             Environment.Exit(1);
+        }
+
+        private void IsAdminCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsAdminCheckBox.Checked)
+            {
+                userLabel.Text = "Administrator";
+            }
+            else
+            {
+                userLabel.Text = "Username";
+            }
         }
     }
 }

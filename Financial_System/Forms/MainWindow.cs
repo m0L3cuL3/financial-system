@@ -19,7 +19,7 @@ namespace Financial_System.Forms
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
 
-            sql.CreateTable(sql.CreateConnection());
+            //sql.CreateTable(sql.CreateConnection());
             uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
         }
 
@@ -35,6 +35,7 @@ namespace Financial_System.Forms
             //ui.DropDown(CollectionPanel, 27, 86);
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
+            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
         }
 
         // CLOSE
@@ -68,14 +69,6 @@ namespace Financial_System.Forms
             uc.DashControl.LoadChartData();
         }
 
-        // Insert Student Test Button
-        private void TestButton2_Click(object sender, EventArgs e)
-        {
-            sql.InsertStudentData(sql.CreateConnection());
-            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
-            MessageBox.Show("Student Inserted!");
-        }
-
         // Report Tab
         private void ReportButton_Click(object sender, EventArgs e)
         {
@@ -89,13 +82,18 @@ namespace Financial_System.Forms
         {
             //don't delete
             uc.UnloadControls(DisplayControlPanel);
-            DisplayControlPanel.Controls.Add(TestButton2);
         }
 
         private void ToolsButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.ToolsControl);
+        }
+
+        private void editProfButton_Click(object sender, EventArgs e)
+        {
+            ChangePasswordWindow cpw = new ChangePasswordWindow();
+            cpw.Show();
         }
     }
 }

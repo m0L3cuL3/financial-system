@@ -38,9 +38,9 @@ namespace Financial_System.Forms
             this.userLabel = new System.Windows.Forms.Label();
             this.passLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
+            this.IsAdminCheckBox = new System.Windows.Forms.CheckBox();
             this.passTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.userTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.TopPanel.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImgBox)).BeginInit();
@@ -139,6 +139,18 @@ namespace Financial_System.Forms
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // IsAdminCheckBox
+            // 
+            this.IsAdminCheckBox.AutoSize = true;
+            this.IsAdminCheckBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.IsAdminCheckBox.Location = new System.Drawing.Point(59, 450);
+            this.IsAdminCheckBox.Name = "IsAdminCheckBox";
+            this.IsAdminCheckBox.Size = new System.Drawing.Size(170, 21);
+            this.IsAdminCheckBox.TabIndex = 7;
+            this.IsAdminCheckBox.Text = "Login As Administrator";
+            this.IsAdminCheckBox.UseVisualStyleBackColor = true;
+            this.IsAdminCheckBox.CheckedChanged += new System.EventHandler(this.IsAdminCheckBox_CheckedChanged);
+            // 
             // passTextBox
             // 
             this.passTextBox.BackColor = System.Drawing.Color.Transparent;
@@ -171,26 +183,13 @@ namespace Financial_System.Forms
             this.userTextBox.textboxRadius = 15;
             this.userTextBox.UseSystemPasswordChar = false;
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(159)))), ((int)(((byte)(213)))));
-            this.linkLabel1.Location = new System.Drawing.Point(83, 468);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(123, 17);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forgot Password?";
-            // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(244)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(289, 503);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.IsAdminCheckBox);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passLabel);
             this.Controls.Add(this.userLabel);
@@ -225,6 +224,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Label passLabel;
         private System.Windows.Forms.Label CloseButton;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.CheckBox IsAdminCheckBox;
     }
 }

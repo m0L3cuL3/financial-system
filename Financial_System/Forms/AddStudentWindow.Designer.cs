@@ -35,13 +35,15 @@ namespace Financial_System.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.FilterComboBox = new System.Windows.Forms.ComboBox();
+            this.LevelComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.addStudButton = new System.Windows.Forms.Button();
-            this.roundTextBox4 = new Financial_System.CustomUI.Textbox.RoundTextBox();
-            this.roundTextBox3 = new Financial_System.CustomUI.Textbox.RoundTextBox();
-            this.roundTextBox2 = new Financial_System.CustomUI.Textbox.RoundTextBox();
-            this.roundTextBox1 = new Financial_System.CustomUI.Textbox.RoundTextBox();
+            this.SectionTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
+            this.SurnameTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
+            this.MidnameTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
+            this.FnameTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LRNTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.TopBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +77,7 @@ namespace Financial_System.Forms
             this.userLabel.AutoSize = true;
             this.userLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.userLabel.Location = new System.Drawing.Point(19, 50);
+            this.userLabel.Location = new System.Drawing.Point(23, 117);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(75, 17);
             this.userLabel.TabIndex = 5;
@@ -86,7 +88,7 @@ namespace Financial_System.Forms
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(19, 117);
+            this.label1.Location = new System.Drawing.Point(23, 184);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 17);
             this.label1.TabIndex = 6;
@@ -97,7 +99,7 @@ namespace Financial_System.Forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(19, 180);
+            this.label2.Location = new System.Drawing.Point(23, 247);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 7;
@@ -114,14 +116,14 @@ namespace Financial_System.Forms
             this.label3.TabIndex = 9;
             this.label3.Text = "Section";
             // 
-            // FilterComboBox
+            // LevelComboBox
             // 
-            this.FilterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(260, 137);
-            this.FilterComboBox.Name = "FilterComboBox";
-            this.FilterComboBox.Size = new System.Drawing.Size(52, 21);
-            this.FilterComboBox.TabIndex = 10;
+            this.LevelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LevelComboBox.FormattingEnabled = true;
+            this.LevelComboBox.Location = new System.Drawing.Point(260, 137);
+            this.LevelComboBox.Name = "LevelComboBox";
+            this.LevelComboBox.Size = new System.Drawing.Size(52, 21);
+            this.LevelComboBox.TabIndex = 10;
             // 
             // label4
             // 
@@ -141,93 +143,124 @@ namespace Financial_System.Forms
             this.addStudButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addStudButton.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.addStudButton.ForeColor = System.Drawing.Color.White;
-            this.addStudButton.Location = new System.Drawing.Point(260, 200);
+            this.addStudButton.Location = new System.Drawing.Point(260, 267);
             this.addStudButton.Name = "addStudButton";
             this.addStudButton.Size = new System.Drawing.Size(191, 33);
             this.addStudButton.TabIndex = 12;
             this.addStudButton.Text = "Add Student";
             this.addStudButton.UseVisualStyleBackColor = false;
+            this.addStudButton.Click += new System.EventHandler(this.addStudButton_Click);
             // 
-            // roundTextBox4
+            // SectionTextBox
             // 
-            this.roundTextBox4.BackColor = System.Drawing.Color.Transparent;
-            this.roundTextBox4.BorderColor = System.Drawing.Color.Gray;
-            this.roundTextBox4.BorderSize = 1;
-            this.roundTextBox4.Br = System.Drawing.Color.White;
-            this.roundTextBox4.Font = new System.Drawing.Font("Ebrima", 12F);
-            this.roundTextBox4.ForeColor = System.Drawing.Color.Black;
-            this.roundTextBox4.Location = new System.Drawing.Point(250, 70);
-            this.roundTextBox4.Name = "roundTextBox4";
-            this.roundTextBox4.PasswordChar = '\0';
-            this.roundTextBox4.Size = new System.Drawing.Size(216, 33);
-            this.roundTextBox4.TabIndex = 8;
-            this.roundTextBox4.textboxRadius = 15;
-            this.roundTextBox4.UseSystemPasswordChar = false;
+            this.SectionTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.SectionTextBox.BorderColor = System.Drawing.Color.Gray;
+            this.SectionTextBox.BorderSize = 1;
+            this.SectionTextBox.Br = System.Drawing.Color.White;
+            this.SectionTextBox.Font = new System.Drawing.Font("Ebrima", 12F);
+            this.SectionTextBox.ForeColor = System.Drawing.Color.Black;
+            this.SectionTextBox.Location = new System.Drawing.Point(250, 70);
+            this.SectionTextBox.Name = "SectionTextBox";
+            this.SectionTextBox.PasswordChar = '\0';
+            this.SectionTextBox.Size = new System.Drawing.Size(216, 33);
+            this.SectionTextBox.TabIndex = 8;
+            this.SectionTextBox.textboxRadius = 15;
+            this.SectionTextBox.UseSystemPasswordChar = false;
             // 
-            // roundTextBox3
+            // SurnameTextBox
             // 
-            this.roundTextBox3.BackColor = System.Drawing.Color.Transparent;
-            this.roundTextBox3.BorderColor = System.Drawing.Color.Gray;
-            this.roundTextBox3.BorderSize = 1;
-            this.roundTextBox3.Br = System.Drawing.Color.White;
-            this.roundTextBox3.Font = new System.Drawing.Font("Ebrima", 12F);
-            this.roundTextBox3.ForeColor = System.Drawing.Color.Black;
-            this.roundTextBox3.Location = new System.Drawing.Point(12, 200);
-            this.roundTextBox3.Name = "roundTextBox3";
-            this.roundTextBox3.PasswordChar = '\0';
-            this.roundTextBox3.Size = new System.Drawing.Size(216, 33);
-            this.roundTextBox3.TabIndex = 4;
-            this.roundTextBox3.textboxRadius = 15;
-            this.roundTextBox3.UseSystemPasswordChar = false;
+            this.SurnameTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.SurnameTextBox.BorderColor = System.Drawing.Color.Gray;
+            this.SurnameTextBox.BorderSize = 1;
+            this.SurnameTextBox.Br = System.Drawing.Color.White;
+            this.SurnameTextBox.Font = new System.Drawing.Font("Ebrima", 12F);
+            this.SurnameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.SurnameTextBox.Location = new System.Drawing.Point(16, 267);
+            this.SurnameTextBox.Name = "SurnameTextBox";
+            this.SurnameTextBox.PasswordChar = '\0';
+            this.SurnameTextBox.Size = new System.Drawing.Size(216, 33);
+            this.SurnameTextBox.TabIndex = 4;
+            this.SurnameTextBox.textboxRadius = 15;
+            this.SurnameTextBox.UseSystemPasswordChar = false;
             // 
-            // roundTextBox2
+            // MidnameTextBox
             // 
-            this.roundTextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.roundTextBox2.BorderColor = System.Drawing.Color.Gray;
-            this.roundTextBox2.BorderSize = 1;
-            this.roundTextBox2.Br = System.Drawing.Color.White;
-            this.roundTextBox2.Font = new System.Drawing.Font("Ebrima", 12F);
-            this.roundTextBox2.ForeColor = System.Drawing.Color.Black;
-            this.roundTextBox2.Location = new System.Drawing.Point(12, 137);
-            this.roundTextBox2.Name = "roundTextBox2";
-            this.roundTextBox2.PasswordChar = '\0';
-            this.roundTextBox2.Size = new System.Drawing.Size(216, 33);
-            this.roundTextBox2.TabIndex = 3;
-            this.roundTextBox2.textboxRadius = 15;
-            this.roundTextBox2.UseSystemPasswordChar = false;
+            this.MidnameTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.MidnameTextBox.BorderColor = System.Drawing.Color.Gray;
+            this.MidnameTextBox.BorderSize = 1;
+            this.MidnameTextBox.Br = System.Drawing.Color.White;
+            this.MidnameTextBox.Font = new System.Drawing.Font("Ebrima", 12F);
+            this.MidnameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.MidnameTextBox.Location = new System.Drawing.Point(16, 204);
+            this.MidnameTextBox.Name = "MidnameTextBox";
+            this.MidnameTextBox.PasswordChar = '\0';
+            this.MidnameTextBox.Size = new System.Drawing.Size(216, 33);
+            this.MidnameTextBox.TabIndex = 3;
+            this.MidnameTextBox.textboxRadius = 15;
+            this.MidnameTextBox.UseSystemPasswordChar = false;
             // 
-            // roundTextBox1
+            // FnameTextBox
             // 
-            this.roundTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.roundTextBox1.BorderColor = System.Drawing.Color.Gray;
-            this.roundTextBox1.BorderSize = 1;
-            this.roundTextBox1.Br = System.Drawing.Color.White;
-            this.roundTextBox1.Font = new System.Drawing.Font("Ebrima", 12F);
-            this.roundTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.roundTextBox1.Location = new System.Drawing.Point(12, 70);
-            this.roundTextBox1.Name = "roundTextBox1";
-            this.roundTextBox1.PasswordChar = '\0';
-            this.roundTextBox1.Size = new System.Drawing.Size(216, 33);
-            this.roundTextBox1.TabIndex = 2;
-            this.roundTextBox1.textboxRadius = 15;
-            this.roundTextBox1.UseSystemPasswordChar = false;
+            this.FnameTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.FnameTextBox.BorderColor = System.Drawing.Color.Gray;
+            this.FnameTextBox.BorderSize = 1;
+            this.FnameTextBox.Br = System.Drawing.Color.White;
+            this.FnameTextBox.Font = new System.Drawing.Font("Ebrima", 12F);
+            this.FnameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.FnameTextBox.Location = new System.Drawing.Point(16, 137);
+            this.FnameTextBox.Name = "FnameTextBox";
+            this.FnameTextBox.PasswordChar = '\0';
+            this.FnameTextBox.Size = new System.Drawing.Size(216, 33);
+            this.FnameTextBox.TabIndex = 2;
+            this.FnameTextBox.textboxRadius = 15;
+            this.FnameTextBox.UseSystemPasswordChar = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(23, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "LRN";
+            // 
+            // LRNTextBox
+            // 
+            this.LRNTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.LRNTextBox.BorderColor = System.Drawing.Color.Gray;
+            this.LRNTextBox.BorderSize = 1;
+            this.LRNTextBox.Br = System.Drawing.Color.White;
+            this.LRNTextBox.Font = new System.Drawing.Font("Ebrima", 12F);
+            this.LRNTextBox.ForeColor = System.Drawing.Color.Black;
+            this.LRNTextBox.Location = new System.Drawing.Point(16, 70);
+            this.LRNTextBox.Name = "LRNTextBox";
+            this.LRNTextBox.PasswordChar = '\0';
+            this.LRNTextBox.Size = new System.Drawing.Size(216, 33);
+            this.LRNTextBox.TabIndex = 13;
+            this.LRNTextBox.textboxRadius = 15;
+            this.LRNTextBox.UseSystemPasswordChar = false;
             // 
             // AddStudentWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 247);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(480, 325);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LRNTextBox);
             this.Controls.Add(this.addStudButton);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.FilterComboBox);
+            this.Controls.Add(this.LevelComboBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.roundTextBox4);
+            this.Controls.Add(this.SectionTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.userLabel);
-            this.Controls.Add(this.roundTextBox3);
-            this.Controls.Add(this.roundTextBox2);
-            this.Controls.Add(this.roundTextBox1);
+            this.Controls.Add(this.SurnameTextBox);
+            this.Controls.Add(this.MidnameTextBox);
+            this.Controls.Add(this.FnameTextBox);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddStudentWindow";
@@ -244,16 +277,18 @@ namespace Financial_System.Forms
 
         private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.Label CloseButton;
-        private CustomUI.Textbox.RoundTextBox roundTextBox1;
-        private CustomUI.Textbox.RoundTextBox roundTextBox2;
-        private CustomUI.Textbox.RoundTextBox roundTextBox3;
+        private CustomUI.Textbox.RoundTextBox FnameTextBox;
+        private CustomUI.Textbox.RoundTextBox MidnameTextBox;
+        private CustomUI.Textbox.RoundTextBox SurnameTextBox;
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private CustomUI.Textbox.RoundTextBox roundTextBox4;
-        private System.Windows.Forms.ComboBox FilterComboBox;
+        private CustomUI.Textbox.RoundTextBox SectionTextBox;
+        private System.Windows.Forms.ComboBox LevelComboBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button addStudButton;
+        private System.Windows.Forms.Label label5;
+        private CustomUI.Textbox.RoundTextBox LRNTextBox;
     }
 }
