@@ -12,7 +12,9 @@ namespace Financial_System.Forms
         SQLiteHandler sql = new SQLiteHandler();
         Globals gb = new Globals();
 
+#pragma warning disable IDE0052 // Remove unread private members
         private static bool _exiting;
+#pragma warning restore IDE0052 // Remove unread private members
 
         public LoginWindow()
         {
@@ -67,7 +69,7 @@ namespace Financial_System.Forms
                     }
                 }
             }
-            catch(Exception ex)
+            catch
             {
                 MessageBox.Show("Something went wrong. Please contact your administrator.");
             }  

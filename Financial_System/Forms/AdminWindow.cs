@@ -24,7 +24,7 @@ namespace Financial_System.Forms
 
         private void AdminWindow_Load(object sender, EventArgs e)
         {
-            sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+            LoadUsers();
         }
 
         private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
@@ -57,7 +57,7 @@ namespace Financial_System.Forms
                 UserTextBox.Text = "";
                 PassTextBox.Text = "";
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Something went wrong. Please try again.");
             }
@@ -69,6 +69,24 @@ namespace Financial_System.Forms
         {
             UserGridView.Rows.Clear();
             sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+        }
+
+        // Initialize DB
+        private void InitializeDb_Btn_Click(object sender, EventArgs e)
+        {
+            sql.CreateTable(sql.CreateConnection());
+        }
+
+        private void LoadUsers()
+        {
+            try
+            {
+                sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+            }
+            catch
+            {
+                MessageBox.Show("Database does not exists. Please initialize database in Database Tools Tab.");
+            }
         }
     }
 }

@@ -112,6 +112,9 @@ namespace Financial_System.Forms
             this.TotalLiabilityEquity_Lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.IsBalanced_Lbl = new System.Windows.Forms.Label();
+            this.ExportToExcel_Btn = new System.Windows.Forms.Button();
+            this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrAsset_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FixedAsset_DGV)).BeginInit();
@@ -1014,11 +1017,32 @@ namespace Financial_System.Forms
             this.IsBalanced_Lbl.TabIndex = 33;
             this.IsBalanced_Lbl.Text = "N/A";
             // 
+            // ExportToExcel_Btn
+            // 
+            this.ExportToExcel_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.ExportToExcel_Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExportToExcel_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExportToExcel_Btn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportToExcel_Btn.ForeColor = System.Drawing.Color.White;
+            this.ExportToExcel_Btn.Location = new System.Drawing.Point(601, 440);
+            this.ExportToExcel_Btn.Name = "ExportToExcel_Btn";
+            this.ExportToExcel_Btn.Size = new System.Drawing.Size(136, 29);
+            this.ExportToExcel_Btn.TabIndex = 45;
+            this.ExportToExcel_Btn.Text = "Export To Excel";
+            this.ExportToExcel_Btn.UseVisualStyleBackColor = false;
+            this.ExportToExcel_Btn.Click += new System.EventHandler(this.ExportToPdf_Btn_Click);
+            // 
+            // SaveFileDialog
+            // 
+            this.SaveFileDialog.InitialDirectory = "C:\\";
+            this.SaveFileDialog.RestoreDirectory = true;
+            // 
             // BalanceSheetWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 475);
+            this.Controls.Add(this.ExportToExcel_Btn);
             this.Controls.Add(this.IsBalanced_Lbl);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TotalAssets_Lbl);
@@ -1117,5 +1141,8 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button AddEquity_Btn;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label IsBalanced_Lbl;
+        private System.Windows.Forms.Button ExportToExcel_Btn;
+        private System.Windows.Forms.SaveFileDialog SaveFileDialog;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

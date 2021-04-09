@@ -57,7 +57,7 @@ namespace Financial_System.Forms
                 slc.LoadStudentLedger(sql.CreateConnection());
                 MessageBox.Show("Student Inserted!");
             }
-            catch(Exception ex)
+            catch
             {
 
             }
