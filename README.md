@@ -1,6 +1,6 @@
-![pchs-logo](PCHS-Logo.png)
-
 # Financial System for Pangantucan Community High School (PCHS)
+
+![pchs-logo](PCHS-Logo.png)
 
 ## :warning: Under Development
 
@@ -8,6 +8,7 @@
 
 ## Features
 
+- [x] Multi-User Support
 - [x] Admin Dashboard
 - [x] Login System
 - [x] Collections
@@ -18,12 +19,16 @@
 - [ ] Cash Flow Statement
 - [ ] Income Statement
 
+## App Scope and Limitations
+
+- Single Device Only __(due to the limitations of SQLite, this may change in the future)__
+
 ---
 
 ## Technologies Used
 
 - C# (.NET Framework 4.7.2)
-- CsvHelper (to be removed!)
+- CsvHelper
 - SQLite
 
 ---
