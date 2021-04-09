@@ -28,7 +28,7 @@
 ## Technologies Used
 
 - C# (.NET Framework 4.7.2)
-- CsvHelper
+- IronXL (still in testing)
 - SQLite
 
 ---
