@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Financial_System")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("PCHS Financial System")]
+[assembly: AssemblyDescription("Financial System")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Financial_System")]
+[assembly: AssemblyProduct("PCHS Financial System")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

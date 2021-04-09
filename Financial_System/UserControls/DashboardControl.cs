@@ -55,7 +55,7 @@ namespace Financial_System.UserControls
                 CollectablesPieChart.Hide();
                 CollectablesPieChart.Show();
             }
-            catch(Exception ex)
+            catch
             {
                 //TODO: Make exception output.
             }   

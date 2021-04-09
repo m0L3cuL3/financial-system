@@ -37,7 +37,7 @@ namespace Financial_System.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GeneralPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddTermButton = new System.Windows.Forms.Button();
             this.AddStudButton = new System.Windows.Forms.Button();
             this.FinancialPanel.SuspendLayout();
             this.GeneralPanel.SuspendLayout();
@@ -78,6 +78,7 @@ namespace Financial_System.UserControls
             this.CFButton.TabIndex = 13;
             this.CFButton.Text = "Cash Flow Statement";
             this.CFButton.UseVisualStyleBackColor = false;
+            this.CFButton.Click += new System.EventHandler(this.CFButton_Click);
             // 
             // IncomeStmtButton
             // 
@@ -93,6 +94,7 @@ namespace Financial_System.UserControls
             this.IncomeStmtButton.TabIndex = 12;
             this.IncomeStmtButton.Text = "Income Statement";
             this.IncomeStmtButton.UseVisualStyleBackColor = false;
+            this.IncomeStmtButton.Click += new System.EventHandler(this.IncomeStmtButton_Click);
             // 
             // BalSheetButton
             // 
@@ -133,27 +135,28 @@ namespace Financial_System.UserControls
             // GeneralPanel
             // 
             this.GeneralPanel.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.GeneralPanel.Controls.Add(this.button1);
+            this.GeneralPanel.Controls.Add(this.AddTermButton);
             this.GeneralPanel.Controls.Add(this.AddStudButton);
             this.GeneralPanel.Location = new System.Drawing.Point(205, 106);
             this.GeneralPanel.Name = "GeneralPanel";
             this.GeneralPanel.Size = new System.Drawing.Size(159, 128);
             this.GeneralPanel.TabIndex = 10;
             // 
-            // button1
+            // AddTermButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(15, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 28);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Add Term";
-            this.button1.UseVisualStyleBackColor = false;
+            this.AddTermButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.AddTermButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddTermButton.FlatAppearance.BorderSize = 0;
+            this.AddTermButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTermButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddTermButton.ForeColor = System.Drawing.Color.White;
+            this.AddTermButton.Location = new System.Drawing.Point(15, 50);
+            this.AddTermButton.Name = "AddTermButton";
+            this.AddTermButton.Size = new System.Drawing.Size(129, 28);
+            this.AddTermButton.TabIndex = 13;
+            this.AddTermButton.Text = "Add Term";
+            this.AddTermButton.UseVisualStyleBackColor = false;
+            this.AddTermButton.Click += new System.EventHandler(this.AddTermButton_Click);
             // 
             // AddStudButton
             // 
@@ -200,6 +203,6 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.Button IncomeStmtButton;
         private System.Windows.Forms.Button BalSheetButton;
         private System.Windows.Forms.Button AddStudButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddTermButton;
     }
 }

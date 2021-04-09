@@ -14,16 +14,36 @@ namespace Financial_System.UserControls
             ui.RoundPanel(GeneralPanel);
         }
 
+        // Add Student
         private void AddStudButton_Click(object sender, System.EventArgs e)
         {
             AddStudentWindow asw = new AddStudentWindow();
             asw.Show();
         }
 
+        // Create Balance Sheet
         private void BalSheetButton_Click(object sender, System.EventArgs e)
         {
             BalanceSheetWindow bsw = new BalanceSheetWindow();
             bsw.Show();
+        }
+
+        // Create Income Statement
+        private void IncomeStmtButton_Click(object sender, System.EventArgs e)
+        {
+            MessageBox.Show("Work in progress!");
+        }
+
+        // Create CashFlow Statement
+        private void CFButton_Click(object sender, System.EventArgs e)
+        {
+            MessageBox.Show("Work in progress!");
+        }
+
+        // Add Term
+        private void AddTermButton_Click(object sender, System.EventArgs e)
+        {
+            MessageBox.Show("Work in progress!");
         }
     }
 }
