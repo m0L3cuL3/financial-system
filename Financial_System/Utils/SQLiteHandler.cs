@@ -56,7 +56,7 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
 
             // TERM //
-            string TermTable = "CREATE TABLE IF NOT EXISTS Term_tbl(term_id INTEGER PRIMARY KEY AUTOINCREMENT, startdate DATE NOT NULL, enddate DATE NOT NULL, current BOOLEAN NOT NULL);";
+            string TermTable = "CREATE TABLE IF NOT EXISTS Term_tbl(term_id INTEGER PRIMARY KEY, term_desc VARCHAR NOT NULL);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = TermTable;
             sqlite_cmd.ExecuteNonQuery();
@@ -107,24 +107,36 @@ namespace Financial_System.Utils
         }
 
         // idk what this is??
-        public void TermInit(SQLiteConnection conn)
+        public void InsertTerm(SQLiteConnection conn, string termId, string termDesc)
         {//make 1 term 2002
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Term_tbl(term_id, startdate, enddate, current) VALUES (@term, @start, @end, @current);";
+            string insertData = "INSERT INTO Term_tbl(term_id, term_desc) VALUES (@term, @desc);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
-            int term = 2002; // -> not id, (id, start, end, current)
-            DateTime start = new DateTime(2021, 1, 1);
-            DateTime end = new DateTime(2021, 5, 31);
-
-            sqlite_cmd.Parameters.AddWithValue("@term", term); // id = 1 - infinity (incremental)
-            sqlite_cmd.Parameters.AddWithValue("@start", start); // start date
-            sqlite_cmd.Parameters.AddWithValue("@end", end); // end data
-            sqlite_cmd.Parameters.AddWithValue("@current", true); // IsCurrent term
+            sqlite_cmd.Parameters.AddWithValue("@term", termId); // id = 1 - infinity (incremental)
+            sqlite_cmd.Parameters.AddWithValue("@desc", termDesc); // IsCurrent term
 
             sqlite_cmd.ExecuteNonQuery();
+        }
+
+        public void GetTerm(SQLiteConnection conn, DataGridView dgv)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl", conn);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                dgv.Rows.Clear();
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),  // term id
+                        read.GetValue(read.GetOrdinal("term_desc")), // term description
+                    });
+                }
+            }
         }
 
         // Get Specific Student Transactions
@@ -141,10 +153,11 @@ namespace Financial_System.Utils
                 {
                     dgv.Rows.Add(new object[] {
                         read.GetValue(0),  // tid
-                        read.GetValue(1), // amount
-                        read.GetValue(2), // type
-                        read.GetValue(5), // term -> bruh
-                        read.GetValue(4) // receipt
+                        read.GetValue(read.GetOrdinal("amount")), // amount
+                        read.GetValue(read.GetOrdinal("type")), // type
+                        read.GetValue(read.GetOrdinal("term")), // term
+                        read.GetValue(read.GetOrdinal("receipt_number")), // receipt
+                        read.GetValue(read.GetOrdinal("date_recorded"))
                     });
                 }
             }
@@ -173,13 +186,43 @@ namespace Financial_System.Utils
             }
         }
 
-        // Filters Transactions By Month
-        public void FilterTransactionsByMonth(SQLiteConnection conn, DataGridView dgv, string value)
+        // Filters Transactions By Day
+        public void FilterTransactionsByDay(SQLiteConnection conn, DataGridView dgv, string month, string day, string year)
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month", conn);
-            sqlite_cmd.Parameters.AddWithValue("@month", value);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month AND strftime('%d', date_recorded) = @day AND strftime('%Y', date_recorded) = @year", conn);
+            sqlite_cmd.Parameters.AddWithValue("@month", month);
+            sqlite_cmd.Parameters.AddWithValue("@day", day);
+            sqlite_cmd.Parameters.AddWithValue("@year", year);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                dgv.Rows.Clear();
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),
+                        read.GetValue(read.GetOrdinal("student_id")),
+                        read.GetValue(read.GetOrdinal("type")),
+                        read.GetValue(read.GetOrdinal("amount")),
+                        read.GetValue(read.GetOrdinal("receipt_number")),
+                        read.GetValue(read.GetOrdinal("term")),
+                        read.GetValue(read.GetOrdinal("date_recorded"))
+                    });
+                }
+            }
+
+        }
+
+        // Filters Transaction By Month
+        public void FilterTransactionsByMonth(SQLiteConnection conn, DataGridView dgv, string month, string year)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month AND strftime('%Y', date_recorded) = @year", conn);
+            sqlite_cmd.Parameters.AddWithValue("@month", month);
+            sqlite_cmd.Parameters.AddWithValue("@year", year);
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
@@ -200,14 +243,15 @@ namespace Financial_System.Utils
         }
 
         // Get Total Sum of amount by Month (For LiveCharts)
-        public int GetTotalTransByMonth(SQLiteConnection conn, string value)
+        public int GetTotalTransByMonth(SQLiteConnection conn, string month, string year)
         {
             int result = 0;
 
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month", conn);
-            sqlite_cmd.Parameters.AddWithValue("@month", value);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%m', date_recorded) = @month AND strftime('%Y', date_recorded) = @year", conn);
+            sqlite_cmd.Parameters.AddWithValue("@month", month);
+            sqlite_cmd.Parameters.AddWithValue("@year", year);
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
