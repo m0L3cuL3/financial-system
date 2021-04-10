@@ -22,6 +22,7 @@ namespace Financial_System.UserControls
         November = 11,
         December = 12
     }
+
     public partial class ReportsControl : UserControl
     {
         SQLiteHandler sql = new SQLiteHandler();
@@ -32,7 +33,6 @@ namespace Financial_System.UserControls
         {
             InitializeComponent();
             ui.RoundButton(expToCSVButton);
-            ui.RoundButton(printButton);
             LoadList();
             
         }
@@ -123,97 +123,233 @@ namespace Financial_System.UserControls
         {
             foreach(string month in gb.MonthList)
             {
-                FilterComboBox.Items.Add(month);
+                MonthComboBox.Items.Add(month);
             }
             
+            foreach(string day in gb.DayList)
+            {
+                DayComboBox.Items.Add(day);
+            }
+
+            // filter settings
+            foreach (string settings in gb.ReportFilterList)
+            {
+                FilterSettingsCbox.Items.Add(settings);
+            }
+
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            switch (FilterComboBox.SelectedIndex)
+            
+            if (FilterSettingsCbox.SelectedIndex == 0)
             {
-                case 0:
-                    FilterReports(Month.January);
-                    break;
-                case 1:
-                    FilterReports(Month.February);
-                    break;
-                case 2:
-                    FilterReports(Month.March);
-                    break;
-                case 3:
-                    FilterReports(Month.April);
-                    break;
-                case 4:
-                    FilterReports(Month.May);
-                    break;
-                case 5:
-                    FilterReports(Month.June);
-                    break;
-                case 6:
-                    FilterReports(Month.July);
-                    break;
-                case 7:
-                    FilterReports(Month.August);
-                    break;
-                case 8:
-                    FilterReports(Month.September);
-                    break;
-                case 9:
-                    FilterReports(Month.October);
-                    break;
-                case 10:
-                    FilterReports(Month.November);
-                    break;
-                case 11:
-                    FilterReports(Month.December);
-                    break;
+                if(DayComboBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+                }
+                else
+                {
+                    try
+                    {
+                        switch (MonthComboBox.SelectedIndex)
+                        {
+                            case 0:
+                                FilterReportsByDay(Month.January);
+                                break;
+                            case 1:
+                                FilterReportsByDay(Month.February);
+                                break;
+                            case 2:
+                                FilterReportsByDay(Month.March);
+                                break;
+                            case 3:
+                                FilterReportsByDay(Month.April);
+                                break;
+                            case 4:
+                                FilterReportsByDay(Month.May);
+                                break;
+                            case 5:
+                                FilterReportsByDay(Month.June);
+                                break;
+                            case 6:
+                                FilterReportsByDay(Month.July);
+                                break;
+                            case 7:
+                                FilterReportsByDay(Month.August);
+                                break;
+                            case 8:
+                                FilterReportsByDay(Month.September);
+                                break;
+                            case 9:
+                                FilterReportsByDay(Month.October);
+                                break;
+                            case 10:
+                                FilterReportsByDay(Month.November);
+                                break;
+                            case 11:
+                                FilterReportsByDay(Month.December);
+                                break;
+                        }
+                        GetTotal();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+                    }
+                }
+                
+                
             }
-            GetTotal();
+            else
+            {
+                try
+                {
+                    switch (MonthComboBox.SelectedIndex)
+                    {
+                        case 0:
+                            FilterReportsByMonth(Month.January);
+                            break;
+                        case 1:
+                            FilterReportsByMonth(Month.February);
+                            break;
+                        case 2:
+                            FilterReportsByMonth(Month.March);
+                            break;
+                        case 3:
+                            FilterReportsByMonth(Month.April);
+                            break;
+                        case 4:
+                            FilterReportsByMonth(Month.May);
+                            break;
+                        case 5:
+                            FilterReportsByMonth(Month.June);
+                            break;
+                        case 6:
+                            FilterReportsByMonth(Month.July);
+                            break;
+                        case 7:
+                            FilterReportsByMonth(Month.August);
+                            break;
+                        case 8:
+                            FilterReportsByMonth(Month.September);
+                            break;
+                        case 9:
+                            FilterReportsByMonth(Month.October);
+                            break;
+                        case 10:
+                            FilterReportsByMonth(Month.November);
+                            break;
+                        case 11:
+                            FilterReportsByMonth(Month.December);
+                            break;
+                    }
+                    GetTotal();
+                }
+                catch
+                {
+                    MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+                }
+            }
+
         }
 
-        // Filters Reports by Month.
-        private void FilterReports(Month month)
+        // Filters Reports by Day (Daily Reports).
+        private void FilterReportsByDay(Month month)
         {
             try
             {
                 switch (month)
                 {
                     case Month.January:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "01");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "01", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.February:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "02");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "02", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.March:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "03");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "03", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.April:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "04");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "04", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.May:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "05");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "05", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.June:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "06");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "06", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.July:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "07");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "07", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.August:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "08");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "08", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.September:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "09");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "09", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.October:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "10");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "10", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.November:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "11");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "11", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
                         break;
                     case Month.December:
-                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "12");
+                        sql.FilterTransactionsByDay(sql.CreateConnection(), dataGridView1, "12", DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
+                        break;
+                    default:
+                        sql.GetAllTransactions(sql.CreateConnection(), dataGridView1);
+                        break;
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+            }
+        }
+
+        private void FilterReportsByMonth(Month month)
+        {
+            try
+            {
+                switch (month)
+                {
+                    case Month.January:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "01", YearTextBox.Text);
+                        break;
+                    case Month.February:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "02", YearTextBox.Text);
+                        break;
+                    case Month.March:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "03", YearTextBox.Text);
+                        break;
+                    case Month.April:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "04", YearTextBox.Text);
+                        break;
+                    case Month.May:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "05", YearTextBox.Text);
+                        break;
+                    case Month.June:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "06", YearTextBox.Text);
+                        break;
+                    case Month.July:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "07", YearTextBox.Text);
+                        break;
+                    case Month.August:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "08", YearTextBox.Text);
+                        break;
+                    case Month.September:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "09", YearTextBox.Text);
+                        break;
+                    case Month.October:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "10", YearTextBox.Text);
+                        break;
+                    case Month.November:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "11", YearTextBox.Text);
+                        break;
+                    case Month.December:
+                        sql.FilterTransactionsByMonth(sql.CreateConnection(), dataGridView1, "12", YearTextBox.Text);
                         break;
                     default:
                         sql.GetAllTransactions(sql.CreateConnection(), dataGridView1);
@@ -224,6 +360,18 @@ namespace Financial_System.UserControls
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+            }
+        }
+
+        private void FilterSettingsCbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (FilterSettingsCbox.SelectedIndex == 0)
+            {
+                DayComboBox.Enabled = true;     
+            }
+            else
+            {
+                DayComboBox.Enabled = false;
             }
         }
     }
