@@ -40,10 +40,9 @@ namespace Financial_System.UserControls
             MessageBox.Show("Work in progress!");
         }
 
-        // Add Term
         private void AddTermButton_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Work in progress!");
+
         }
     }
 }
