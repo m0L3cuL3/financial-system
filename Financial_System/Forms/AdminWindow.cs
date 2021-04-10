@@ -25,6 +25,7 @@ namespace Financial_System.Forms
         private void AdminWindow_Load(object sender, EventArgs e)
         {
             LoadUsers();
+            sql.GetTerm(sql.CreateConnection(), TermDGV);
         }
 
         private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
@@ -51,11 +52,18 @@ namespace Financial_System.Forms
         {
             try
             {
-                UserGridView.Rows.Clear();
-                sql.InsertUserCreds(sql.CreateConnection(), UserTextBox.Text, PassTextBox.Text);
-                sql.GetAllUsers(sql.CreateConnection(), UserGridView);
-                UserTextBox.Text = "";
-                PassTextBox.Text = "";
+                if (UserTextBox.Text == "" || PassTextBox.Text == "")
+                {
+                    MessageBox.Show("Blank fields. Please enter data.");
+                }
+                else
+                {
+                    UserGridView.Rows.Clear();
+                    sql.InsertUserCreds(sql.CreateConnection(), UserTextBox.Text, PassTextBox.Text);
+                    sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+                    UserTextBox.Text = "";
+                    PassTextBox.Text = "";
+                }             
             }
             catch
             {
@@ -75,6 +83,7 @@ namespace Financial_System.Forms
         private void InitializeDb_Btn_Click(object sender, EventArgs e)
         {
             sql.CreateTable(sql.CreateConnection());
+            MessageBox.Show("Database initialized!");
         }
 
         private void LoadUsers()
@@ -87,6 +96,30 @@ namespace Financial_System.Forms
             {
                 MessageBox.Show("Database does not exists. Please initialize database in Database Tools Tab.");
             }
+        }
+
+        private void AddTerm_Btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(TermId_txtBox.Text == "" || TermDesc_txtBox.Text == "")
+                {
+                    MessageBox.Show("Blank fields. Please enter data.");
+                }
+                else
+                {
+                    TermDGV.Rows.Clear();
+                    sql.InsertTerm(sql.CreateConnection(), TermId_txtBox.Text, TermDesc_txtBox.Text);
+                    sql.GetTerm(sql.CreateConnection(), TermDGV);
+                    TermId_txtBox.Text = "";
+                    TermDesc_txtBox.Text = "";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong.");
+            }
+            
         }
     }
 }
