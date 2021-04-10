@@ -46,6 +46,9 @@ namespace Financial_System.Forms
 
         private void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
+            StudentNameLabel.Text = name;
+            StudentSectionLevelLabel.Text = $"{section}-{level}";
+            StudentLRNLabel.Text = lrn;
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
         }
 
@@ -59,7 +62,7 @@ namespace Financial_System.Forms
         {
             try
             {
-                if (amountBox.Text == "" || TypeCmBox.SelectedItem == "" || ReceiptBox.Text == "")
+                if (amountBox.Text == "" || TypeCmBox.SelectedItem.ToString() == "" || ReceiptBox.Text == "")
                 {
                     MessageBox.Show("Something went wrong. Make sure to fill all the requirements.");
                 }
