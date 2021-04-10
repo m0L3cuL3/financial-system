@@ -66,7 +66,7 @@ namespace Financial_System.Forms
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
-            uc.DashControl.LoadChartData();
+            uc.DashControl.LoadCurrReports();
         }
 
         // Report Tab
