@@ -266,6 +266,7 @@ namespace Financial_System.Forms
             this.Name = "AddStudentWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddStudentWindow";
+            this.Load += new System.EventHandler(this.AddStudentWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
             this.ResumeLayout(false);

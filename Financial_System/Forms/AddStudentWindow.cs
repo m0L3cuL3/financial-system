@@ -24,9 +24,7 @@ namespace Financial_System.Forms
             InitializeComponent();
 
             ui.RoundWindow(this);
-            ui.RoundButton(addStudButton);
-
-            LoadList();
+            ui.RoundButton(addStudButton);    
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -62,6 +60,12 @@ namespace Financial_System.Forms
 
             }
             
+        }
+
+        // OnFormLoad
+        private void AddStudentWindow_Load(object sender, EventArgs e)
+        {
+            LoadList();
         }
     }
 }
