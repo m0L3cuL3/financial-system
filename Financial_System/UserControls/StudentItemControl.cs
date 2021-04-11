@@ -64,12 +64,6 @@ namespace Financial_System.UserControls
             // Once clicked, the data should show on StudentLedgerWindow
             slw = new StudentLedgerWindow(_StudentId, _StudentLrn, _StudentName, _StudentSection, _StudentLevel);
 
-            //slw.StudentNameLabel.Text = StudentName;
-            //slw.StudentSectionLevelLabel.Text = StudentSection;
-            //slw.StudentLevelLabel.Text = StudentLevel;
-            //slw.StudentIDLabel.Text = StudentId;
-            //slw.StudentIDLabel.Text = StudentLrn;
-
             slw.Show();
         }
 

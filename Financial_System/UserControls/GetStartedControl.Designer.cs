@@ -78,6 +78,7 @@ namespace Financial_System.UserControls
             this.GithubLink.TabIndex = 0;
             this.GithubLink.TabStop = true;
             this.GithubLink.Text = "https://github.com/m0L3cuL3/financial-system/wiki";
+            this.GithubLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GithubLink_LinkClicked);
             // 
             // label1
             // 
