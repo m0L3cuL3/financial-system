@@ -1,12 +1,5 @@
 ﻿using Financial_System.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -14,7 +7,7 @@ namespace Financial_System.Forms
     public partial class AdminWindow : Form
     {
         UIHandler ui = new UIHandler();
-        SQLiteHandler sql = new SQLiteHandler();
+        static SQLiteHandler sql = new SQLiteHandler();
 
         public AdminWindow()
         {
@@ -22,10 +15,11 @@ namespace Financial_System.Forms
             ui.RoundWindow(this);
         }
 
-        private void AdminWindow_Load(object sender, EventArgs e)
+        private async void AdminWindow_Load(object sender, EventArgs e)
         {
+            CheckForIllegalCrossThreadCalls = false;
+            await sql.GetTerm(sql.CreateConnection(), TermDGV);
             LoadUsers();
-            sql.GetTerm(sql.CreateConnection(), TermDGV);
         }
 
         private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
@@ -38,16 +32,17 @@ namespace Financial_System.Forms
             var confirmLogout = MessageBox.Show("Do you want to logout?", "Confirm logout.", MessageBoxButtons.YesNo);
             if (confirmLogout == DialogResult.Yes)
             {
-                Close();
+                Hide();
                 LoginWindow lw = new LoginWindow();
                 lw.Show();
             }
             else
             {
-                WindowState = FormWindowState.Minimized;
+                // do nothing...
             }
         }
 
+        // Adds User
         private void addUserButton_Click(object sender, EventArgs e)
         {
             try
@@ -79,13 +74,14 @@ namespace Financial_System.Forms
             sql.GetAllUsers(sql.CreateConnection(), UserGridView);
         }
 
-        // Initialize DB
+        // Initialize DB onClick
         private void InitializeDb_Btn_Click(object sender, EventArgs e)
         {
-            sql.CreateTable(sql.CreateConnection());
+            InitializeDB();
             MessageBox.Show("Database initialized!");
         }
 
+        // Load Users
         private void LoadUsers()
         {
             try
@@ -94,11 +90,18 @@ namespace Financial_System.Forms
             }
             catch
             {
-                MessageBox.Show("Database does not exists. Please initialize database in Database Tools Tab.");
+                MessageBox.Show("Something went wrong, make sure the database is initialized.");
             }
         }
 
-        private void AddTerm_Btn_Click(object sender, EventArgs e)
+        // Initializes Database
+        private async void InitializeDB()
+        {
+            await sql.CreateTable(sql.CreateConnection());
+        }
+
+        // Adds Academic Term
+        private async void AddTerm_Btn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -110,7 +113,7 @@ namespace Financial_System.Forms
                 {
                     TermDGV.Rows.Clear();
                     sql.InsertTerm(sql.CreateConnection(), TermId_txtBox.Text, TermDesc_txtBox.Text);
-                    sql.GetTerm(sql.CreateConnection(), TermDGV);
+                    await sql.GetTerm(sql.CreateConnection(), TermDGV);
                     TermId_txtBox.Text = "";
                     TermDesc_txtBox.Text = "";
                 }
@@ -119,7 +122,7 @@ namespace Financial_System.Forms
             {
                 MessageBox.Show("Something went wrong.");
             }
-            
         }
+
     }
 }
