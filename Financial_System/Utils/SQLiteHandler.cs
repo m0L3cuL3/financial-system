@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Utils
@@ -9,12 +10,13 @@ namespace Financial_System.Utils
     interface ISQLite
     {
         SQLiteConnection CreateConnection();
-        void CreateTable(SQLiteConnection conn);
+        Task CreateTable(SQLiteConnection conn);
     }
-
+    /// 
+    /// TODO: make methods async to increase performance.
+    /// 
     class SQLiteHandler : ISQLite
     {
-        Globals gb = new Globals();
 
         public SQLiteConnection CreateConnection()
         {
@@ -36,36 +38,40 @@ namespace Financial_System.Utils
         }
 
         // Create Tables
-        public void CreateTable(SQLiteConnection conn)
+        public async Task CreateTable(SQLiteConnection conn)
         {
-            SQLiteCommand sqlite_cmd;
 
-            // STUDENT //
-            ///
-            /// Added LRN
-            ///
-            string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY AUTOINCREMENT, student_lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = StudentTable;
-            sqlite_cmd.ExecuteNonQuery();
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
 
-            // TRANSACTION // renamed by alexislyndon
-            string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = TransactionTable;
-            sqlite_cmd.ExecuteNonQuery();
+                // STUDENT //
+                ///
+                /// Added LRN
+                ///
+                string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY AUTOINCREMENT, student_lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = StudentTable;
+                sqlite_cmd.ExecuteNonQuery();
 
-            // TERM //
-            string TermTable = "CREATE TABLE IF NOT EXISTS Term_tbl(term_id INTEGER PRIMARY KEY, term_desc VARCHAR NOT NULL);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = TermTable;
-            sqlite_cmd.ExecuteNonQuery();
+                // TRANSACTION // renamed by alexislyndon
+                string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = TransactionTable;
+                sqlite_cmd.ExecuteNonQuery();
 
-            // User //
-            string UserTable = "CREATE TABLE IF NOT EXISTS User_tbl(user_id INTEGER PRIMARY KEY AUTOINCREMENT, user_name VARCHAR NOT NULL UNIQUE, user_pass VARCHAR NOT NULL);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = UserTable;
-            sqlite_cmd.ExecuteNonQuery();
+                // TERM //
+                string TermTable = "CREATE TABLE IF NOT EXISTS Term_tbl(term_id INTEGER PRIMARY KEY, term_desc VARCHAR NOT NULL);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = TermTable;
+                sqlite_cmd.ExecuteNonQuery();
+
+                // User //
+                string UserTable = "CREATE TABLE IF NOT EXISTS User_tbl(user_id INTEGER PRIMARY KEY AUTOINCREMENT, user_name VARCHAR NOT NULL UNIQUE, user_pass VARCHAR NOT NULL);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = UserTable;
+                sqlite_cmd.ExecuteNonQuery();
+            });
         }
 
         // Insert Student Data
@@ -121,22 +127,26 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        public void GetTerm(SQLiteConnection conn, DataGridView dgv)
+        // Get Term (made async to increase performance)
+        public async Task GetTerm(SQLiteConnection conn, DataGridView dgv)
         {
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl", conn);
-
-            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            await Task.Run(() =>
             {
-                dgv.Rows.Clear();
-                while (read.Read())
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl", conn);
+
+                using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
                 {
-                    dgv.Rows.Add(new object[] {
+                    dgv.Rows.Clear();
+                    while (read.Read())
+                    {
+                        dgv.Rows.Add(new object[] {
                         read.GetValue(0),  // term id
                         read.GetValue(read.GetOrdinal("term_desc")), // term description
                     });
+                    }
                 }
-            }
+            });
         }
 
         // Get Specific Student Transactions
@@ -243,7 +253,7 @@ namespace Financial_System.Utils
         }
 
         // Get Total Sum of amount by Month (For LiveCharts)
-        public int GetTotalTransByMonth(SQLiteConnection conn, string month, string year)
+        public int GetTotalTransByMonthAsync(SQLiteConnection conn, string month, string year)
         {
             int result = 0;
 
@@ -256,13 +266,12 @@ namespace Financial_System.Utils
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
 
-                while(read.Read())
+                while (read.Read())
                 {
                     result += (int)read.GetValue(read.GetOrdinal("amount"));
                 }
                 return result;
             }
-
             //return result;
         }
 
@@ -270,18 +279,20 @@ namespace Financial_System.Utils
         public void GetAllUsers(SQLiteConnection conn, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
-
             sqlite_cmd = new SQLiteCommand("SELECT * FROM User_Tbl;", conn);
-            SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
-            while (read.Read())
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
-                dgv.Rows.Add(new object[]
+                dgv.Rows.Clear();
+                while (read.Read())
                 {
-                    read.GetValue(0),
-                    read.GetValue(read.GetOrdinal("user_name"))
-                });
-            }
+                    dgv.Rows.Add(new object[]
+                    {
+                        read.GetValue(0),
+                        read.GetValue(read.GetOrdinal("user_name"))
+                    });
+                }
+            }      
         }
 
         // Add user
@@ -362,6 +373,7 @@ namespace Financial_System.Utils
             }
         }
 
+        // Get userId 
         private int GetUserId(SQLiteConnection conn, string uname, string upass)
         {
             int result = 0;

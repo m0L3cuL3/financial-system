@@ -20,13 +20,17 @@ namespace Financial_System.Utils
         // Unloads Controls
         public void UnloadControls(Panel panel)
         {
+            panel.SuspendLayout();
             panel.Controls.Clear();
+            panel.ResumeLayout();
         }
 
         // Loads Controls
         public void LoadControl(Panel panel, UserControl userControl)
         {
+            panel.SuspendLayout();
             panel.Controls.Add(userControl);
+            panel.ResumeLayout();
         }
     }
 }
