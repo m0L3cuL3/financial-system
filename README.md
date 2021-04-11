@@ -14,7 +14,7 @@
 - [x] Collections
 - [x] Student Ledger
 - [x] Transactions
-- [ ] Generate Reports (Daily/Monthly)
+- [x] Generate Reports (Daily/Monthly)
 - [x] Balance Sheet
 - [ ] Cash Flow Statement
 - [ ] Income Statement
@@ -28,8 +28,8 @@
 ## Technologies Used
 
 - C# (.NET Framework 4.7.2)
-- IronXL (still in testing)
-- SQLite
+- IronXL
+- SQLite (will probably use ORM libraries)
 
 ---
 
