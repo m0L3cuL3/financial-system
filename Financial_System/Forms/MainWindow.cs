@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using Financial_System.Utils;
 
@@ -18,9 +19,6 @@ namespace Financial_System.Forms
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
-
-            //sql.CreateTable(sql.CreateConnection());
-            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
         }
 
         // MOVING BORDERLESS WINDOW
@@ -44,13 +42,13 @@ namespace Financial_System.Forms
             var confirmLogout = MessageBox.Show("Do you want to logout?", "Confirm logout.", MessageBoxButtons.YesNo);
             if(confirmLogout == DialogResult.Yes)
             {
-                Close();
+                Hide();
                 LoginWindow lw = new LoginWindow();
                 lw.Show();
             }
             else
             {
-                WindowState = FormWindowState.Minimized;
+                // do nothing...
             }    
         }
 
@@ -65,8 +63,8 @@ namespace Financial_System.Forms
         private void DashboardButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
+            Thread.Sleep(1000);
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
-            uc.DashControl.LoadCurrReports();
         }
 
         // Report Tab
@@ -84,12 +82,14 @@ namespace Financial_System.Forms
             uc.UnloadControls(DisplayControlPanel);
         }
 
+        // Tools
         private void ToolsButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.ToolsControl);
         }
 
+        // Edit Profile
         private void editProfButton_Click(object sender, EventArgs e)
         {
             ChangePasswordWindow cpw = new ChangePasswordWindow();
