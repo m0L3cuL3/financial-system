@@ -40,39 +40,38 @@ namespace Financial_System.Forms
         {
             try
             {
-                if (IsAdminCheckBox.Checked) // if admin
+                switch (IsAdminCheckBox.Checked)
                 {
-
-                    if (userTextBox.Text == gb.USER_NAME && passTextBox.Text == gb.USER_PASS)
-                    {
-                        Hide();
-                        AdminWindow aw = new AdminWindow();
-                        aw.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Input | Try Again.");
-                    }
-                }
-                else // if regular user
-                {
-
-                    if (sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
-                    {
-                        Hide();
-                        MainWindow mw = new MainWindow(userTextBox.Text);
-                        mw.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid Input | Try Again.");
-                    }
+                    case true:
+                        if (userTextBox.Text == gb.USER_NAME && passTextBox.Text == gb.USER_PASS)
+                        {
+                            Hide();
+                            AdminWindow aw = new AdminWindow();
+                            aw.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Input | Try Again.");
+                        }
+                        break;
+                    case false:
+                        if (sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
+                        {
+                            Hide();
+                            MainWindow mw = new MainWindow(userTextBox.Text);
+                            mw.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid Input | Try Again.");
+                        }
+                        break;
                 }
             }
             catch
             {
-                MessageBox.Show("Something went wrong. Please contact your administrator.");
-            }  
+                MessageBox.Show("Something went wrong. Please contact your administrator.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Close
@@ -95,7 +94,7 @@ namespace Financial_System.Forms
             }
         }
 
-        private void InitializeDB(string dbFilename)
+        private async void InitializeDB(string dbFilename)
         {
             if (File.Exists(dbFilename))
             {
@@ -107,7 +106,7 @@ namespace Financial_System.Forms
 
                 if (CreateFile == DialogResult.Yes)
                 {
-                    sql.CreateTable(sql.CreateConnection());
+                    await sql.CreateTable(sql.CreateConnection());
                 }
                 else
                 {
