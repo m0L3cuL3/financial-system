@@ -1,12 +1,6 @@
 ﻿using Financial_System.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -31,10 +25,14 @@ namespace Financial_System.Forms
                 if (confirmResult == DialogResult.Yes)
                 {
                     sql.UpdateUserCreds(sql.CreateConnection(), CurrUserTextBox.Text, CurrPassTextBox.Text, NewUserTextBox.Text, NewPassTextBox.Text);
+                    CurrUserTextBox.Text = "";
+                    CurrPassTextBox.Text = "";
+                    NewUserTextBox.Text = "";
+                    NewPassTextBox.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Nothing was added");// If 'No', do something here.
+                    MessageBox.Show("Nothing was changed.");// If 'No', do something here.
                 }
             }
             catch (Exception ex)
