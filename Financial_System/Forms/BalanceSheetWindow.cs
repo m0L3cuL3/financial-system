@@ -13,20 +13,20 @@ namespace Financial_System.Forms
         GetTotalResult gtr = new GetTotalResult();
 
         // Asset Amount
-        decimal TotalAsset = 0;
-        decimal CurrentAssetAmount = 0;
-        decimal FixedAssetAmount = 0;
+        private static decimal TotalAsset = 0;
+        private static decimal CurrentAssetAmount = 0;
+        private static decimal FixedAssetAmount = 0;
 
         // Liability Amount
-        decimal TotalLiability = 0;
-        decimal CurrentLiabilityAmount = 0;
-        decimal NonCurrentLiabilityAmount = 0;
+        private static decimal TotalLiability = 0;
+        private static decimal CurrentLiabilityAmount = 0;
+        private static decimal NonCurrentLiabilityAmount = 0;
 
         // Equity Amount
-        decimal TotalEquityAmount = 0;
+        private static decimal TotalEquityAmount = 0;
 
         // Liability and Equity
-        decimal TotalLiabilityEquity = 0;
+        private static decimal TotalLiabilityEquity = 0;
 
         public BalanceSheetWindow()
         {
@@ -177,12 +177,13 @@ namespace Financial_System.Forms
             }
         }
 
-        // Export to Excel
+        // Export to Excel on click
         private void ExportToPdf_Btn_Click(object sender, EventArgs e)
         {
             ExportToExcel();
         }
 
+        // Export to Excel
         private void ExportToExcel()
         {
 
