@@ -30,8 +30,6 @@ namespace Financial_System.Forms
             ui.RoundButton(PostPaymentButton);
             ui.RoundButton(exportBtn);
             ui.RoundButton(printBtn);
-
-            LoadList();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -46,15 +44,11 @@ namespace Financial_System.Forms
 
         private void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
+            LoadList();
             StudentNameLabel.Text = name;
             StudentSectionLevelLabel.Text = $"{section}-{level}";
             StudentLRNLabel.Text = lrn;
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //todo double click on transaction to pull up transaction details
         }
 
         // post payment
@@ -76,6 +70,10 @@ namespace Financial_System.Forms
                     {
                         sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text, Convert.ToInt32(TermBox.Text));
                         MessageBox.Show("Transaction Added");
+                        TypeCmBox.Text = "";
+                        amountBox.Text = "";
+                        ReceiptBox.Text = "";
+                        TermBox.Text = "";
                     }
                     else
                     {
