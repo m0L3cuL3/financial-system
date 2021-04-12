@@ -4,6 +4,7 @@ using System;
 using System.Windows.Forms;
 using IronXL;
 using System.Linq;
+using System.IO;
 
 namespace Financial_System.Forms
 {
@@ -45,7 +46,7 @@ namespace Financial_System.Forms
         }
 
         // Add Current Assets
-        private void AddCurrAsset_Btn_Click(object sender, EventArgs e)
+        private async void AddCurrAsset_Btn_Click(object sender, EventArgs e)
         {
             if(CurrAssetDesc_txtBox.Text == "" || CurrAssetAmount_txtBox.Text == "")
             {
@@ -54,7 +55,7 @@ namespace Financial_System.Forms
             else
             {
                 CurrAsset_DGV.Rows.Add(CurrAssetDesc_txtBox.Text, CurrAssetAmount_txtBox.Text); // add to row
-                CurrentAssetAmount = gtr.GetTotal(CurrAsset_DGV); // stores total current assets
+                CurrentAssetAmount = await gtr.GetTotal(CurrAsset_DGV, 1); // stores total current assets
                 TotalCurrAssets_Lbl.Text = $"Total Current Assets: {CurrentAssetAmount}"; // get total current assets
                 
                 // CLEAR TEXTBOX
@@ -71,7 +72,7 @@ namespace Financial_System.Forms
         }
 
         // Add Fixed Assets
-        private void AddFixedAsset_Btn_Click(object sender, EventArgs e)
+        private async void AddFixedAsset_Btn_Click(object sender, EventArgs e)
         {
             if (FixedAssetDesc_txtBox.Text == "" || FixedAssetAmount_txtBox.Text == "")
             {
@@ -80,7 +81,7 @@ namespace Financial_System.Forms
             else
             {
                 FixedAsset_DGV.Rows.Add(FixedAssetDesc_txtBox.Text, FixedAssetAmount_txtBox.Text); // add to row
-                FixedAssetAmount = gtr.GetTotal(FixedAsset_DGV); // stores total fixed assets
+                FixedAssetAmount = await gtr.GetTotal(FixedAsset_DGV, 1); // stores total fixed assets
                 TotalFixedAssets_Lbl.Text = $"Total Fixed Assets: {FixedAssetAmount}"; // get total fixed assets
 
                 // CLEAR TEXTBOX
@@ -97,7 +98,7 @@ namespace Financial_System.Forms
         }
 
         // Add Current Liabilities
-        private void AddCurrLiability_Btn_Click(object sender, EventArgs e)
+        private async void AddCurrLiability_Btn_Click(object sender, EventArgs e)
         {
             if (CurrLiabilityDesc_txtBox.Text == "" || CurrLiabilityAmount_txtBox.Text == "")
             {
@@ -106,7 +107,7 @@ namespace Financial_System.Forms
             else
             {
                 CurrLiability_DGV.Rows.Add(CurrLiabilityDesc_txtBox.Text, CurrLiabilityAmount_txtBox.Text); // add to row
-                CurrentLiabilityAmount = gtr.GetTotal(CurrLiability_DGV); // stores total current liabilities
+                CurrentLiabilityAmount = await gtr.GetTotal(CurrLiability_DGV, 1); // stores total current liabilities
                 TotalCurrLiability_Lbl.Text = $"Total Current Liabilities: {CurrentLiabilityAmount}"; // get total current liabilities
 
                 // CLEAR TEXTBOX
@@ -124,7 +125,7 @@ namespace Financial_System.Forms
         }
 
         // Add Non-Current Liabilities
-        private void AddNonCurrLiability_Btn_Click(object sender, EventArgs e)
+        private async void AddNonCurrLiability_Btn_Click(object sender, EventArgs e)
         {
             if (NonCurrLiabilityDesc_txtBox.Text == "" || NonCurrLiabilityAmount_txtBox.Text == "")
             {
@@ -133,7 +134,7 @@ namespace Financial_System.Forms
             else
             {
                 NonCurrLiability_DGV.Rows.Add(NonCurrLiabilityDesc_txtBox.Text, NonCurrLiabilityAmount_txtBox.Text); // add to row
-                NonCurrentLiabilityAmount = gtr.GetTotal(NonCurrLiability_DGV); // stores total current liabilities
+                NonCurrentLiabilityAmount = await gtr.GetTotal(NonCurrLiability_DGV, 1); // stores total current liabilities
                 TotalNonCurrLiability_Lbl.Text = $"Total Non-Current Liabilities: {NonCurrentLiabilityAmount}"; // get total current liabilities
 
                 // CLEAR TEXTBOX
@@ -151,7 +152,7 @@ namespace Financial_System.Forms
         }
 
         // Add Equity
-        private void AddEquity_Btn_Click(object sender, EventArgs e)
+        private async void AddEquity_Btn_Click(object sender, EventArgs e)
         {
             if (EquityDesc_txtBox.Text == "" || EquityAmount_txtBox.Text == "")
             {
@@ -160,7 +161,7 @@ namespace Financial_System.Forms
             else
             {
                 Equity_DGV.Rows.Add(EquityDesc_txtBox.Text, EquityAmount_txtBox.Text); // add to row
-                TotalEquityAmount = gtr.GetTotal(Equity_DGV); // stores total current liabilities
+                TotalEquityAmount = await gtr.GetTotal(Equity_DGV, 1); // stores total current liabilities
                 TotalEquity_Lbl.Text = $"Total Equity: {TotalEquityAmount}"; // get total current liabilities
 
                 // CLEAR TEXTBOX
@@ -184,6 +185,9 @@ namespace Financial_System.Forms
         }
 
         // Export to Excel
+        /// 
+        /// Make this export to excel on a certain month and year.
+        ///
         private void ExportToExcel()
         {
 
@@ -408,27 +412,11 @@ namespace Financial_System.Forms
             getWs["P4:Q4"].Value = TotalLiabilityEquity;
             #endregion
 
-            // Save the excel file -> make this so that the user can choose a filepath.
-            ///
-            /// If you create a file as a regular user in C: drive
-            /// It will throw an UnauthorizedAccessException.
-            /// Either login as admin or save the file in another drive.
-            ///
-            
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets\\Balance Sheet.xlsx";
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = @"C:\";      
-            saveFileDialog.Title = "Save Excel Sheet";
-            saveFileDialog.CheckPathExists = true;
-            saveFileDialog.DefaultExt = "xlsx";
-            saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-            saveFileDialog.FilterIndex = 2;
-            saveFileDialog.RestoreDirectory = true;
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filename = saveFileDialog.FileName;
-                wb.SaveAs(filename);
-            }
+            wb.SaveAs(path);
+            MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 

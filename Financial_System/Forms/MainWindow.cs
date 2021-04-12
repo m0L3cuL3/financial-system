@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Windows.Forms;
 using Financial_System.Utils;
 
@@ -7,9 +6,9 @@ namespace Financial_System.Forms
 {
     public partial class MainWindow : Form
     {
-        UIHandler ui = new UIHandler();
-        UCHandler uc = new UCHandler();
-        SQLiteHandler sql = new SQLiteHandler();
+        readonly UIHandler ui = new UIHandler();
+        readonly UCHandler uc = new UCHandler();
+        readonly SQLiteHandler sql = new SQLiteHandler();
 
         public MainWindow(string currUser)
         {
@@ -19,6 +18,11 @@ namespace Financial_System.Forms
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         // MOVING BORDERLESS WINDOW
@@ -63,7 +67,6 @@ namespace Financial_System.Forms
         private void DashboardButton_Click(object sender, EventArgs e)
         {
             uc.UnloadControls(DisplayControlPanel);
-            Thread.Sleep(1000);
             uc.LoadControl(DisplayControlPanel, uc.DashControl);
         }
 

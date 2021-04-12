@@ -42,13 +42,14 @@ namespace Financial_System.Forms
             ui.DragWindow(Handle, e);
         }
 
-        private void StudentLedgerWindow_Load(object sender, EventArgs e)
+        private async void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
             LoadList();
             StudentNameLabel.Text = name;
-            StudentSectionLevelLabel.Text = $"{section}-{level}";
+            StudentSectionLevelLabel.Text = $"{section} - {level}";
             StudentLRNLabel.Text = lrn;
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
+            await sql.GetTerm(sql.CreateConnection(), TermComboBox);
         }
 
         // post payment
@@ -68,12 +69,12 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text, Convert.ToInt32(TermBox.Text));
+                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text, TermComboBox.SelectedIndex);
                         MessageBox.Show("Transaction Added");
                         TypeCmBox.Text = "";
                         amountBox.Text = "";
                         ReceiptBox.Text = "";
-                        TermBox.Text = "";
+                        TermComboBox.Text = "";
                     }
                     else
                     {
@@ -95,8 +96,8 @@ namespace Financial_System.Forms
         private void exportBtn_Click(object sender, EventArgs e)
         {
             //todo csv exporter
-            Directory.CreateDirectory(@".\Student_Ledgers");
-            string path = $".\\Student_Ledgers\\LEDGER([{lrn}]-[{name}]-[{section}]-[{level}]).csv";
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers\\LEDGER([{lrn}]-[{name}]-[{section}]-[{level}]).csv";
 
             try
             {

@@ -43,7 +43,7 @@ namespace Financial_System.Forms
         }
 
         // Adds User
-        private void addUserButton_Click(object sender, EventArgs e)
+        private async void addUserButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -54,8 +54,8 @@ namespace Financial_System.Forms
                 else
                 {
                     UserGridView.Rows.Clear();
-                    sql.InsertUserCreds(sql.CreateConnection(), UserTextBox.Text, PassTextBox.Text);
-                    sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+                    await sql.InsertUserCreds(sql.CreateConnection(), UserTextBox.Text, PassTextBox.Text);
+                    await sql.GetAllUsers(sql.CreateConnection(), UserGridView);
                     UserTextBox.Text = "";
                     PassTextBox.Text = "";
                 }             
@@ -68,10 +68,10 @@ namespace Financial_System.Forms
         }
 
         // Loads all users.
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             UserGridView.Rows.Clear();
-            sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+            await sql.GetAllUsers(sql.CreateConnection(), UserGridView);
         }
 
         // Initialize DB onClick
@@ -82,11 +82,11 @@ namespace Financial_System.Forms
         }
 
         // Load Users
-        private void LoadUsers()
+        private async void LoadUsers()
         {
             try
             {
-                sql.GetAllUsers(sql.CreateConnection(), UserGridView);
+                await sql.GetAllUsers(sql.CreateConnection(), UserGridView);
             }
             catch
             {
@@ -112,7 +112,7 @@ namespace Financial_System.Forms
                 else
                 {
                     TermDGV.Rows.Clear();
-                    sql.InsertTerm(sql.CreateConnection(), TermId_txtBox.Text, TermDesc_txtBox.Text);
+                    await sql.InsertTerm(sql.CreateConnection(), TermId_txtBox.Text, TermDesc_txtBox.Text);
                     await sql.GetTerm(sql.CreateConnection(), TermDGV);
                     TermId_txtBox.Text = "";
                     TermDesc_txtBox.Text = "";

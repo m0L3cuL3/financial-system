@@ -4,6 +4,8 @@ using Financial_System.Utils;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
+using Financial_System.Features;
 
 namespace Financial_System.UserControls
 {
@@ -27,28 +29,32 @@ namespace Financial_System.UserControls
     {
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
+        GetTotalResult gtr = new GetTotalResult();
         Globals gb = new Globals();
 
         public ReportsControl()
         {
             InitializeComponent();
             ui.RoundButton(expToCSVButton);
-            LoadList();
+            
             
         }
 
-        private void ReportsControl_Load(object sender, EventArgs e)
+        private async void ReportsControl_Load(object sender, EventArgs e)
         {
+            CheckForIllegalCrossThreadCalls = false;
+
             LoadTransactions();
             dateLabel.Text = DateTime.Now.ToString("M/d/yyyy");
+            await LoadList();
         }
 
         // Loads Transactions
-        public void LoadTransactions()
+        public async void LoadTransactions()
         {
             dataGridView1.Rows.Clear();
             sql.GetAllTransactions(sql.CreateConnection(), dataGridView1);
-            GetTotal();
+            await gtr.GetTotal(dataGridView1, 3, totalLabel);
         }
 
         // Exports Reports CSV file (as of now Daily Collections pa)
@@ -99,19 +105,6 @@ namespace Financial_System.UserControls
             }
         }
 
-        // Get Total Sum of Reports (as of now Daily Collections pa)
-        private void GetTotal()
-        {
-            int i = 0;
-
-            foreach(DataGridViewRow r in dataGridView1.Rows)
-            {
-                i += Convert.ToInt32(r.Cells[3].Value);
-            }
-
-            totalLabel.Text = i.ToString();
-        }
-
         // Refreshes Transaction DataGridView
         private void RefreshButton_Click(object sender, EventArgs e)
         {
@@ -119,27 +112,29 @@ namespace Financial_System.UserControls
         }
 
         // Loads MonthList
-        private void LoadList()
+        private async Task LoadList()
         {
-            foreach(string month in gb.MonthList)
+            await Task.Run(() =>
             {
-                MonthComboBox.Items.Add(month);
-            }
-            
-            foreach(string day in gb.DayList)
-            {
-                DayComboBox.Items.Add(day);
-            }
+                foreach (string month in gb.MonthList)
+                {
+                    MonthComboBox.Items.Add(month);
+                }
 
-            // filter settings
-            foreach (string settings in gb.ReportFilterList)
-            {
-                FilterSettingsCbox.Items.Add(settings);
-            }
+                foreach (string day in gb.DayList)
+                {
+                    DayComboBox.Items.Add(day);
+                }
 
+                // filter settings
+                foreach (string settings in gb.ReportFilterList)
+                {
+                    FilterSettingsCbox.Items.Add(settings);
+                }
+            });
         }
 
-        private void FilterButton_Click(object sender, EventArgs e)
+        private async void FilterButton_Click(object sender, EventArgs e)
         {
             
             if (FilterSettingsCbox.SelectedIndex == 0)
@@ -191,7 +186,7 @@ namespace Financial_System.UserControls
                                 FilterReportsByDay(Month.December);
                                 break;
                         }
-                        GetTotal();
+                        await gtr.GetTotal(dataGridView1, 3, totalLabel);
                     }
                     catch
                     {
@@ -244,7 +239,7 @@ namespace Financial_System.UserControls
                             FilterReportsByMonth(Month.December);
                             break;
                     }
-                    GetTotal();
+                    await gtr.GetTotal(dataGridView1, 3, totalLabel);
                 }
                 catch
                 {

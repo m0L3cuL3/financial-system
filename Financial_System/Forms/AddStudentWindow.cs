@@ -1,23 +1,16 @@
 ﻿using Financial_System.UserControls;
 using Financial_System.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
 {
     public partial class AddStudentWindow : Form
     {
-        Globals gb = new Globals();
-        SQLiteHandler sql = new SQLiteHandler();
-        UIHandler ui = new UIHandler();
-        StudentLedgerControl slc = new StudentLedgerControl();
+        readonly Globals gb = new Globals();
+        readonly SQLiteHandler sql = new SQLiteHandler();
+        readonly UIHandler ui = new UIHandler();
+        readonly StudentLedgerControl slc = new StudentLedgerControl();
 
         public AddStudentWindow()
         {
@@ -35,9 +28,9 @@ namespace Financial_System.Forms
         // Loads Level list.
         private void LoadList()
         {
-            foreach (string level in gb.LevelList)
+            for(int i = 0; i < gb.LevelList.Length; i++)
             {
-                LevelComboBox.Items.Add(level);
+                LevelComboBox.Items.Add(gb.LevelList[i]);
             }
         }
 
@@ -57,7 +50,7 @@ namespace Financial_System.Forms
             }
             catch
             {
-
+                MessageBox.Show("Something went wrong. Please try again.");
             }
             
         }

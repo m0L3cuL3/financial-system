@@ -112,19 +112,22 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        // idk what this is??
-        public void InsertTerm(SQLiteConnection conn, string termId, string termDesc)
-        {//make 1 term 2002
-            SQLiteCommand sqlite_cmd;
+        // Insert Term
+        public async Task InsertTerm(SQLiteConnection conn, string termId, string termDesc)
+        {
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Term_tbl(term_id, term_desc) VALUES (@term, @desc);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = insertData;
+                string insertData = "INSERT INTO Term_tbl(term_id, term_desc) VALUES (@term, @desc);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@term", termId); // id = 1 - infinity (incremental)
-            sqlite_cmd.Parameters.AddWithValue("@desc", termDesc); // IsCurrent term
+                sqlite_cmd.Parameters.AddWithValue("@term", termId); // id = 1 - infinity (incremental)
+                sqlite_cmd.Parameters.AddWithValue("@desc", termDesc); // IsCurrent term
 
-            sqlite_cmd.ExecuteNonQuery();
+                sqlite_cmd.ExecuteNonQuery();
+            });
         }
 
         // Get Term (made async to increase performance)
@@ -144,6 +147,24 @@ namespace Financial_System.Utils
                         read.GetValue(0),  // term id
                         read.GetValue(read.GetOrdinal("term_desc")), // term description
                     });
+                    }
+                }
+            });
+        }
+
+        // Get Term (This is for StudentLedgerWindow)
+        public async Task GetTerm(SQLiteConnection conn, ComboBox cb)
+        {
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl", conn);
+
+                using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                        cb.Items.Add(read.GetValue(read.GetOrdinal("term_desc"))); // term description
                     }
                 }
             });
@@ -275,39 +296,67 @@ namespace Financial_System.Utils
             //return result;
         }
 
-        // Get all user
-        public void GetAllUsers(SQLiteConnection conn, DataGridView dgv)
+        public async Task<string> GetTotalTransaction(SQLiteConnection conn)
         {
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM User_Tbl;", conn);
-
-            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            return await Task.Run(() =>
             {
-                dgv.Rows.Clear();
-                while (read.Read())
+                int result = 0;
+
+                SQLiteCommand sqlite_cmd;
+
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn);
+
+                using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
                 {
-                    dgv.Rows.Add(new object[]
+
+                    while (read.Read())
                     {
-                        read.GetValue(0),
-                        read.GetValue(read.GetOrdinal("user_name"))
-                    });
+                        result += (int)read.GetValue(read.GetOrdinal("amount"));
+                    }
+                    return result.ToString();
                 }
-            }      
+            });   
+        }
+
+        // Get all user
+        public async Task GetAllUsers(SQLiteConnection conn, DataGridView dgv)
+        {
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM User_Tbl;", conn);
+
+                using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+                {
+                    dgv.Rows.Clear();
+                    while (read.Read())
+                    {
+                        dgv.Rows.Add(new object[]
+                        {
+                            read.GetValue(0),
+                            read.GetValue(read.GetOrdinal("user_name"))
+                        });
+                    }
+                }
+            }); 
         }
 
         // Add user
-        public void InsertUserCreds(SQLiteConnection conn, string username, string password)
+        public async Task InsertUserCreds(SQLiteConnection conn, string username, string password)
         {
-            SQLiteCommand sqlite_cmd;
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO User_tbl(user_name, user_pass) VALUES (@uname, @upass);";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = insertData;
+                string insertData = "INSERT INTO User_tbl(user_name, user_pass) VALUES (@uname, @upass);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@uname", username);
-            sqlite_cmd.Parameters.AddWithValue("@upass", password);
+                sqlite_cmd.Parameters.AddWithValue("@uname", username);
+                sqlite_cmd.Parameters.AddWithValue("@upass", password);
 
-            sqlite_cmd.ExecuteNonQuery();
+                sqlite_cmd.ExecuteNonQuery();
+            });
         }
 
         // For change password
@@ -352,25 +401,28 @@ namespace Financial_System.Utils
         }
 
         // Check if user exists.
-        public bool GetUserCreds(SQLiteConnection conn, string uname, string upass)
+        public async Task<bool> GetUserCreds(SQLiteConnection conn, string uname, string upass)
         {
-            bool IsExist = false;
-
-            SQLiteCommand sqlite_cmd;
-
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM User_tbl WHERE user_name = @uname AND user_pass = @upass", conn);
-            sqlite_cmd.Parameters.AddWithValue("@uname", uname);
-            sqlite_cmd.Parameters.AddWithValue("@upass", upass);
-
-            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            return await Task.Run(() =>
             {
+                bool IsExist = false;
 
-                while (read.Read())
+                SQLiteCommand sqlite_cmd;
+
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM User_tbl WHERE user_name = @uname AND user_pass = @upass", conn);
+                sqlite_cmd.Parameters.AddWithValue("@uname", uname);
+                sqlite_cmd.Parameters.AddWithValue("@upass", upass);
+
+                using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
                 {
-                    IsExist = true;
+
+                    while (read.Read())
+                    {
+                        IsExist = true;
+                    }
+                    return IsExist;
                 }
-                return IsExist;
-            }
+            });
         }
 
         // Get userId 

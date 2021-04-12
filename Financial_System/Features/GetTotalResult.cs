@@ -11,16 +11,35 @@ namespace Financial_System.Features
     public class GetTotalResult
     {
         // Use this for calculating DGV rows.
-        public decimal GetTotal(DataGridView dgv)
+
+        public async Task<decimal> GetTotal(DataGridView dgv, int rIndex)
         {
-            int i = 0;
-
-            foreach (DataGridViewRow r in dgv.Rows)
+            return await Task.Run(() =>
             {
-                i += Convert.ToInt32(r.Cells[1].Value);
-            }
+                int i = 0;
 
-            return i;
+                foreach (DataGridViewRow r in dgv.Rows)
+                {
+                    i += Convert.ToInt32(r.Cells[rIndex].Value);
+                }
+
+                return i;
+            });
+        }
+
+        public async Task GetTotal(DataGridView dgv, int rIndex, Label lbl)
+        {
+            await Task.Run(() =>
+            {
+                int i = 0;
+
+                foreach (DataGridViewRow r in dgv.Rows)
+                {
+                    i += Convert.ToInt32(r.Cells[rIndex].Value);
+                }
+
+                lbl.Text = i.ToString();
+            });
         }
 
         // Check if balanced.

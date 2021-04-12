@@ -49,7 +49,7 @@ namespace Financial_System.UserControls
             // 
             // WikiPanel
             // 
-            this.WikiPanel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.WikiPanel.BackColor = System.Drawing.Color.LightSlateGray;
             this.WikiPanel.Controls.Add(this.label2);
             this.WikiPanel.Controls.Add(this.GithubLink);
             this.WikiPanel.Location = new System.Drawing.Point(23, 109);
@@ -94,7 +94,7 @@ namespace Financial_System.UserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.WikiPanel);
             this.Controls.Add(this.TitleLabel);

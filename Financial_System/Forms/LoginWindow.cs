@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Financial_System.Utils;
@@ -36,7 +35,7 @@ namespace Financial_System.Forms
         }
 
         // Login
-        private void loginButton_Click(object sender, EventArgs e)
+        private async void loginButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -55,7 +54,7 @@ namespace Financial_System.Forms
                         }
                         break;
                     case false:
-                        if (sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
+                        if (await sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
                         {
                             Hide();
                             MainWindow mw = new MainWindow(userTextBox.Text);
@@ -84,13 +83,14 @@ namespace Financial_System.Forms
         // Checks if the user is going to login as a admin or a regular user.
         private void IsAdminCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (IsAdminCheckBox.Checked)
+            switch (IsAdminCheckBox.Checked)
             {
-                userLabel.Text = "Administrator";
-            }
-            else
-            {
-                userLabel.Text = "Username";
+                case true:
+                    userLabel.Text = "Administrator";
+                    break;
+                case false:
+                    userLabel.Text = "Username";
+                    break;
             }
         }
 
@@ -98,7 +98,7 @@ namespace Financial_System.Forms
         {
             if (File.Exists(dbFilename))
             {
-
+                // do nothing
             }
             else
             {
