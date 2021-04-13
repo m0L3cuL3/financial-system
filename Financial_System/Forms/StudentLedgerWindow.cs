@@ -1,4 +1,6 @@
-﻿using Financial_System.Utils;
+﻿using Financial_System.Features;
+using Financial_System.Utils;
+using IronXL;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -10,6 +12,8 @@ namespace Financial_System.Forms
         UIHandler ui = new UIHandler();
         SQLiteHandler sql = new SQLiteHandler();
         Globals gb = new Globals();
+        GetTotalResult gtr = new GetTotalResult();
+
         string sid;
         string name;
         string section;
@@ -29,7 +33,6 @@ namespace Financial_System.Forms
             ui.RoundWindow(this); // makes the window round.
             ui.RoundButton(PostPaymentButton);
             ui.RoundButton(exportBtn);
-            ui.RoundButton(printBtn);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -44,12 +47,14 @@ namespace Financial_System.Forms
 
         private async void StudentLedgerWindow_Load(object sender, EventArgs e)
         {
-            LoadList();
             StudentNameLabel.Text = name;
             StudentSectionLevelLabel.Text = $"{section} - {level}";
             StudentLRNLabel.Text = lrn;
+
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
+
             await sql.GetTerm(sql.CreateConnection(), TermComboBox);
+            await gtr.GetList(TypeCmBox, gb.PaymentList);
         }
 
         // post payment
@@ -95,58 +100,76 @@ namespace Financial_System.Forms
         // export ledger
         private void exportBtn_Click(object sender, EventArgs e)
         {
-            //todo csv exporter
-            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers");
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers\\LEDGER([{lrn}]-[{name}]-[{section}]-[{level}]).csv";
-
-            try
-            {
-                //Build the CSV file data as a Comma separated string.
-                string csv = string.Empty;
-
-                //Add the Header row for CSV file.
-                foreach (DataGridViewColumn column in dataGridView1.Columns)
-                {
-                    csv += column.HeaderText + ',';
-                }
-                //Add new line.
-                csv += "\r\n";
-
-                //Adding the Rows
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Value != null)
-                        {
-                            //Add the Data rows.
-                            csv += cell.Value.ToString().TrimEnd(',').Replace(",", ";") + ',';
-                        }
-                        // break;
-                    }
-                    //Add new line.
-                    csv += "\r\n";
-                }
-
-                //Exporting to CSV.
-                
-                File.WriteAllText(path, csv);
-                MessageBox.Show("Export saved to: \n" + path);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
+            ExportToExcel();
         }
 
-        private void LoadList()
+        private void ExportToExcel()
         {
-            foreach (string payment in gb.PaymentList)
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers\\{name}.xlsx";
+
+            WorkBook wb;
+            WorkSheet xlsSheet;
+
+            if (!File.Exists(path))
             {
-                TypeCmBox.Items.Add(payment);
+                wb = WorkBook.Create(ExcelFileFormat.XLSX);
+                wb.Metadata.Author = "PCHS";
+                xlsSheet = wb.CreateWorkSheet($"{section} - {level}");
             }
+            else
+            {
+                wb = WorkBook.Load(path);
+                xlsSheet = wb.GetWorkSheet($"{section} - {level}");
+            }
+
+            // Current Assets
+            xlsSheet.Merge("A1:F1");
+            xlsSheet["A1:F1"].Value = name;
+            xlsSheet["A1:F1"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+            xlsSheet["A1:F1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            xlsSheet["A1:F1"].Style.SetBackgroundColor("#7EA0D6");
+            xlsSheet["A1:F1"].Style.Font.SetColor("#F2F4F5");
+            xlsSheet["A1:F1"].Style.Font.Height = 16;
+
+            xlsSheet["A2:F2"].Style.Font.Height = 12;
+            xlsSheet["A2:F2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:F2"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:F2"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:F2"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:F2"].Style.BottomBorder.SetColor("#000000");
+            xlsSheet["A2:F2"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+            xlsSheet["A2:F2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            xlsSheet["A2:F2"].Style.SetBackgroundColor("#2F75B5");
+            xlsSheet["A2:F2"].Style.Font.SetColor("#F2F4F5");
+            xlsSheet["A2"].Value = "Transaction ID";
+            xlsSheet["B2"].Value = "Amount";
+            xlsSheet["C2"].Value = "Type";
+            xlsSheet["D2"].Value = "Term";
+            xlsSheet["E2"].Value = "Receipt #";
+            xlsSheet["F2"].Value = "Date Recorded";
+
+            int currIndex = 3;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+
+                xlsSheet[$"A{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+                xlsSheet[$"B{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+
+                xlsSheet[$"A{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+                xlsSheet[$"B{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+
+                xlsSheet[$"A{currIndex}"].Value = dataGridView1.Rows[i].Cells[0].Value; // transaction id
+                xlsSheet[$"B{currIndex}"].Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value); // amount
+                xlsSheet[$"C{currIndex}"].Value = dataGridView1.Rows[i].Cells[2].Value; // type
+                xlsSheet[$"D{currIndex}"].Value = dataGridView1.Rows[i].Cells[3].Value; // term
+                xlsSheet[$"E{currIndex}"].Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
+                xlsSheet[$"F{currIndex}"].Value = dataGridView1.Rows[i].Cells[5].Value; // date recorded
+                currIndex = currIndex + 1;
+            }
+
+            wb.SaveAs(path);
+            MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

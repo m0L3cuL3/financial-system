@@ -13,6 +13,10 @@ namespace Financial_System.Forms
         UIHandler ui = new UIHandler();
         GetTotalResult gtr = new GetTotalResult();
 
+        // Month & Year
+        private string month;
+        private string year;
+
         // Asset Amount
         private static decimal TotalAsset = 0;
         private static decimal CurrentAssetAmount = 0;
@@ -29,10 +33,14 @@ namespace Financial_System.Forms
         // Liability and Equity
         private static decimal TotalLiabilityEquity = 0;
 
-        public BalanceSheetWindow()
+        public BalanceSheetWindow(string month, string year)
         {
             InitializeComponent();
             ui.RoundWindow(this);
+
+            this.month = month;
+            this.year = year;
+            MonthYearLabel.Text = $"{month} - {year}";
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -190,12 +198,24 @@ namespace Financial_System.Forms
         ///
         private void ExportToExcel()
         {
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets\\Balance Sheet.xlsx";
 
-            WorkBook wb = WorkBook.Create(ExcelFileFormat.XLSX);
-            wb.Metadata.Author = "PCHS";
+            WorkBook wb; 
+            
 
-            WorkSheet xlsSheet = wb.CreateWorkSheet("Balance Sheet");
-            WorkSheet getWs = wb.GetWorkSheet("Balance Sheet");
+            if (!File.Exists(path))
+            {
+                wb = WorkBook.Create(ExcelFileFormat.XLSX);
+                wb.Metadata.Author = "PCHS";
+            }
+            else
+            {
+                wb = WorkBook.Load(path);
+            }
+
+            WorkSheet xlsSheet = wb.CreateWorkSheet($"{month} - {year}");
+            WorkSheet getWs = wb.GetWorkSheet($"{month} - {year}");
 
             int RowCount = getWs.Rows.Count() + 1;
 
@@ -411,9 +431,6 @@ namespace Financial_System.Forms
             getWs["P4:Q4"].Style.Font.Bold = true;
             getWs["P4:Q4"].Value = TotalLiabilityEquity;
             #endregion
-
-            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets");
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets\\Balance Sheet.xlsx";
 
             wb.SaveAs(path);
             MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);

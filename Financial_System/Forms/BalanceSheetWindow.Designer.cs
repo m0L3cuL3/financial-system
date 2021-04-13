@@ -29,21 +29,21 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.CurrAsset_DGV = new System.Windows.Forms.DataGridView();
@@ -73,8 +73,6 @@ namespace Financial_System.Forms
             this.label15 = new System.Windows.Forms.Label();
             this.FixedAssetAmount_txtBox = new System.Windows.Forms.TextBox();
             this.FixedAssetDesc_txtBox = new System.Windows.Forms.TextBox();
-            this.separator2 = new Financial_System.UserControls.Separator();
-            this.separator1 = new Financial_System.UserControls.Separator();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.CurrAssetAmount_txtBox = new System.Windows.Forms.TextBox();
@@ -97,8 +95,6 @@ namespace Financial_System.Forms
             this.TotalNonCurrLiability_Lbl = new System.Windows.Forms.Label();
             this.TotalCurrLiability_Lbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.separator3 = new Financial_System.UserControls.Separator();
-            this.separator4 = new Financial_System.UserControls.Separator();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.TotalEquity_Lbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -107,7 +103,6 @@ namespace Financial_System.Forms
             this.EquityDesc_txtBox = new System.Windows.Forms.TextBox();
             this.AddEquity_Btn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.separator5 = new Financial_System.UserControls.Separator();
             this.TotalAssets_Lbl = new System.Windows.Forms.Label();
             this.TotalLiabilityEquity_Lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -115,6 +110,12 @@ namespace Financial_System.Forms
             this.ExportToExcel_Btn = new System.Windows.Forms.Button();
             this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.MonthYearLabel = new System.Windows.Forms.Label();
+            this.separator2 = new Financial_System.UserControls.Separator();
+            this.separator1 = new Financial_System.UserControls.Separator();
+            this.separator3 = new Financial_System.UserControls.Separator();
+            this.separator4 = new Financial_System.UserControls.Separator();
+            this.separator5 = new Financial_System.UserControls.Separator();
             this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrAsset_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FixedAsset_DGV)).BeginInit();
@@ -130,6 +131,7 @@ namespace Financial_System.Forms
             // TopBarPanel
             // 
             this.TopBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.TopBarPanel.Controls.Add(this.MonthYearLabel);
             this.TopBarPanel.Controls.Add(this.CloseButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
@@ -158,31 +160,31 @@ namespace Financial_System.Forms
             // 
             this.CurrAsset_DGV.AllowUserToAddRows = false;
             this.CurrAsset_DGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.CurrAsset_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.CurrAsset_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.CurrAsset_DGV.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.CurrAsset_DGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CurrAsset_DGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CurrAsset_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CurrAsset_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CurrAsset_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CurrAsset_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CurrAssetsColumn,
             this.CurrAssetsAmountColumn});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CurrAsset_DGV.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CurrAsset_DGV.DefaultCellStyle = dataGridViewCellStyle3;
             this.CurrAsset_DGV.Location = new System.Drawing.Point(26, 67);
             this.CurrAsset_DGV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CurrAsset_DGV.Name = "CurrAsset_DGV";
@@ -213,31 +215,31 @@ namespace Financial_System.Forms
             // 
             this.FixedAsset_DGV.AllowUserToAddRows = false;
             this.FixedAsset_DGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.FixedAsset_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.FixedAsset_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.FixedAsset_DGV.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.FixedAsset_DGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FixedAsset_DGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FixedAsset_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FixedAsset_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.FixedAsset_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FixedAsset_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FixedAssetsColumn,
             this.FixedAssetsAmountColumn});
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FixedAsset_DGV.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FixedAsset_DGV.DefaultCellStyle = dataGridViewCellStyle6;
             this.FixedAsset_DGV.Location = new System.Drawing.Point(400, 67);
             this.FixedAsset_DGV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FixedAsset_DGV.Name = "FixedAsset_DGV";
@@ -268,31 +270,31 @@ namespace Financial_System.Forms
             // 
             this.CurrLiability_DGV.AllowUserToAddRows = false;
             this.CurrLiability_DGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.CurrLiability_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.CurrLiability_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.CurrLiability_DGV.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.CurrLiability_DGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CurrLiability_DGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CurrLiability_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CurrLiability_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.CurrLiability_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CurrLiability_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CurrLiabilitiesColumn,
             this.CurrAmountLiabilitiesColumn});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CurrLiability_DGV.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CurrLiability_DGV.DefaultCellStyle = dataGridViewCellStyle9;
             this.CurrLiability_DGV.Location = new System.Drawing.Point(26, 67);
             this.CurrLiability_DGV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CurrLiability_DGV.Name = "CurrLiability_DGV";
@@ -323,31 +325,31 @@ namespace Financial_System.Forms
             // 
             this.NonCurrLiability_DGV.AllowUserToAddRows = false;
             this.NonCurrLiability_DGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.NonCurrLiability_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.NonCurrLiability_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.NonCurrLiability_DGV.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.NonCurrLiability_DGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NonCurrLiability_DGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NonCurrLiability_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NonCurrLiability_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.NonCurrLiability_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NonCurrLiability_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NonCurrLiabilitiesColumn,
             this.NonCurrAmountLiabilitiesColumn});
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.NonCurrLiability_DGV.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.NonCurrLiability_DGV.DefaultCellStyle = dataGridViewCellStyle12;
             this.NonCurrLiability_DGV.Location = new System.Drawing.Point(400, 67);
             this.NonCurrLiability_DGV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NonCurrLiability_DGV.Name = "NonCurrLiability_DGV";
@@ -433,31 +435,31 @@ namespace Financial_System.Forms
             // 
             this.Equity_DGV.AllowUserToAddRows = false;
             this.Equity_DGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.Equity_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.Equity_DGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.Equity_DGV.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.Equity_DGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Equity_DGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Equity_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Equity_DGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.Equity_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Equity_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DescEquityColumn,
             this.EquityAmountColumn});
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Equity_DGV.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Equity_DGV.DefaultCellStyle = dataGridViewCellStyle15;
             this.Equity_DGV.Location = new System.Drawing.Point(26, 67);
             this.Equity_DGV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Equity_DGV.Name = "Equity_DGV";
@@ -572,28 +574,6 @@ namespace Financial_System.Forms
             this.FixedAssetDesc_txtBox.Name = "FixedAssetDesc_txtBox";
             this.FixedAssetDesc_txtBox.Size = new System.Drawing.Size(129, 21);
             this.FixedAssetDesc_txtBox.TabIndex = 41;
-            // 
-            // separator2
-            // 
-            this.separator2.BackColor = System.Drawing.Color.White;
-            this.separator2.IsVertical = false;
-            this.separator2.Location = new System.Drawing.Point(400, 208);
-            this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(306, 23);
-            this.separator2.TabIndex = 40;
-            this.separator2.Text = "separator2";
-            this.separator2.Thickness = 1;
-            // 
-            // separator1
-            // 
-            this.separator1.BackColor = System.Drawing.Color.White;
-            this.separator1.IsVertical = false;
-            this.separator1.Location = new System.Drawing.Point(26, 208);
-            this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(306, 23);
-            this.separator1.TabIndex = 39;
-            this.separator1.Text = "separator1";
-            this.separator1.Thickness = 1;
             // 
             // label13
             // 
@@ -847,28 +827,6 @@ namespace Financial_System.Forms
             this.label6.TabIndex = 30;
             this.label6.Text = "Liabilities";
             // 
-            // separator3
-            // 
-            this.separator3.BackColor = System.Drawing.Color.White;
-            this.separator3.IsVertical = false;
-            this.separator3.Location = new System.Drawing.Point(400, 208);
-            this.separator3.Name = "separator3";
-            this.separator3.Size = new System.Drawing.Size(306, 23);
-            this.separator3.TabIndex = 53;
-            this.separator3.Text = "separator3";
-            this.separator3.Thickness = 1;
-            // 
-            // separator4
-            // 
-            this.separator4.BackColor = System.Drawing.Color.White;
-            this.separator4.IsVertical = false;
-            this.separator4.Location = new System.Drawing.Point(26, 208);
-            this.separator4.Name = "separator4";
-            this.separator4.Size = new System.Drawing.Size(306, 23);
-            this.separator4.TabIndex = 52;
-            this.separator4.Text = "separator4";
-            this.separator4.Thickness = 1;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.TotalEquity_Lbl);
@@ -962,17 +920,6 @@ namespace Financial_System.Forms
             this.label7.TabIndex = 30;
             this.label7.Text = "Equity";
             // 
-            // separator5
-            // 
-            this.separator5.BackColor = System.Drawing.Color.White;
-            this.separator5.IsVertical = false;
-            this.separator5.Location = new System.Drawing.Point(26, 208);
-            this.separator5.Name = "separator5";
-            this.separator5.Size = new System.Drawing.Size(306, 23);
-            this.separator5.TabIndex = 64;
-            this.separator5.Text = "separator5";
-            this.separator5.Thickness = 1;
-            // 
             // TotalAssets_Lbl
             // 
             this.TotalAssets_Lbl.AutoSize = true;
@@ -1037,6 +984,73 @@ namespace Financial_System.Forms
             this.SaveFileDialog.InitialDirectory = "C:\\";
             this.SaveFileDialog.RestoreDirectory = true;
             // 
+            // MonthYearLabel
+            // 
+            this.MonthYearLabel.AutoSize = true;
+            this.MonthYearLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonthYearLabel.ForeColor = System.Drawing.Color.White;
+            this.MonthYearLabel.Location = new System.Drawing.Point(315, 7);
+            this.MonthYearLabel.Name = "MonthYearLabel";
+            this.MonthYearLabel.Size = new System.Drawing.Size(113, 16);
+            this.MonthYearLabel.TabIndex = 45;
+            this.MonthYearLabel.Text = "MonthYearLabel";
+            this.MonthYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // separator2
+            // 
+            this.separator2.BackColor = System.Drawing.Color.White;
+            this.separator2.IsVertical = false;
+            this.separator2.Location = new System.Drawing.Point(400, 208);
+            this.separator2.Name = "separator2";
+            this.separator2.Size = new System.Drawing.Size(306, 23);
+            this.separator2.TabIndex = 40;
+            this.separator2.Text = "separator2";
+            this.separator2.Thickness = 1;
+            // 
+            // separator1
+            // 
+            this.separator1.BackColor = System.Drawing.Color.White;
+            this.separator1.IsVertical = false;
+            this.separator1.Location = new System.Drawing.Point(26, 208);
+            this.separator1.Name = "separator1";
+            this.separator1.Size = new System.Drawing.Size(306, 23);
+            this.separator1.TabIndex = 39;
+            this.separator1.Text = "separator1";
+            this.separator1.Thickness = 1;
+            // 
+            // separator3
+            // 
+            this.separator3.BackColor = System.Drawing.Color.White;
+            this.separator3.IsVertical = false;
+            this.separator3.Location = new System.Drawing.Point(400, 208);
+            this.separator3.Name = "separator3";
+            this.separator3.Size = new System.Drawing.Size(306, 23);
+            this.separator3.TabIndex = 53;
+            this.separator3.Text = "separator3";
+            this.separator3.Thickness = 1;
+            // 
+            // separator4
+            // 
+            this.separator4.BackColor = System.Drawing.Color.White;
+            this.separator4.IsVertical = false;
+            this.separator4.Location = new System.Drawing.Point(26, 208);
+            this.separator4.Name = "separator4";
+            this.separator4.Size = new System.Drawing.Size(306, 23);
+            this.separator4.TabIndex = 52;
+            this.separator4.Text = "separator4";
+            this.separator4.Thickness = 1;
+            // 
+            // separator5
+            // 
+            this.separator5.BackColor = System.Drawing.Color.White;
+            this.separator5.IsVertical = false;
+            this.separator5.Location = new System.Drawing.Point(26, 208);
+            this.separator5.Name = "separator5";
+            this.separator5.Size = new System.Drawing.Size(306, 23);
+            this.separator5.TabIndex = 64;
+            this.separator5.Text = "separator5";
+            this.separator5.Thickness = 1;
+            // 
             // BalanceSheetWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1051,6 +1065,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BalanceSheetWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BalanceSheetWindow";
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
@@ -1144,5 +1159,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button ExportToExcel_Btn;
         private System.Windows.Forms.SaveFileDialog SaveFileDialog;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label MonthYearLabel;
     }
 }

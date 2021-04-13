@@ -41,7 +41,6 @@ namespace Financial_System.Forms
             this.StudentLRNLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,10 +55,10 @@ namespace Financial_System.Forms
             this.ReceiptBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PostPaymentButton = new System.Windows.Forms.Button();
-            this.printBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TermComboBox = new System.Windows.Forms.ComboBox();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.TopBarPanel.SuspendLayout();
             this.SideInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -95,36 +94,36 @@ namespace Financial_System.Forms
             // StudentIDLabel
             // 
             this.StudentIDLabel.AutoSize = true;
-            this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentIDLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentIDLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentIDLabel.Location = new System.Drawing.Point(86, 52);
+            this.StudentIDLabel.Location = new System.Drawing.Point(86, 53);
             this.StudentIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentIDLabel.Name = "StudentIDLabel";
-            this.StudentIDLabel.Size = new System.Drawing.Size(89, 17);
+            this.StudentIDLabel.Size = new System.Drawing.Size(77, 16);
             this.StudentIDLabel.TabIndex = 15;
             this.StudentIDLabel.Text = "Student LRN:";
             // 
             // StudentSectionLevelLabel
             // 
             this.StudentSectionLevelLabel.AutoSize = true;
-            this.StudentSectionLevelLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.StudentSectionLevelLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentSectionLevelLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentSectionLevelLabel.Location = new System.Drawing.Point(192, 33);
+            this.StudentSectionLevelLabel.Location = new System.Drawing.Point(179, 32);
             this.StudentSectionLevelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentSectionLevelLabel.Name = "StudentSectionLevelLabel";
-            this.StudentSectionLevelLabel.Size = new System.Drawing.Size(120, 16);
+            this.StudentSectionLevelLabel.Size = new System.Drawing.Size(115, 15);
             this.StudentSectionLevelLabel.TabIndex = 14;
             this.StudentSectionLevelLabel.Text = "StudentSectionLevel";
             // 
             // StudentNameLabel
             // 
             this.StudentNameLabel.AutoSize = true;
-            this.StudentNameLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentNameLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentNameLabel.Location = new System.Drawing.Point(146, 12);
+            this.StudentNameLabel.Location = new System.Drawing.Point(138, 11);
             this.StudentNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentNameLabel.Name = "StudentNameLabel";
-            this.StudentNameLabel.Size = new System.Drawing.Size(84, 16);
+            this.StudentNameLabel.Size = new System.Drawing.Size(79, 15);
             this.StudentNameLabel.TabIndex = 13;
             this.StudentNameLabel.Text = "StudentName";
             // 
@@ -148,49 +147,38 @@ namespace Financial_System.Forms
             // StudentLRNLabel
             // 
             this.StudentLRNLabel.AutoSize = true;
-            this.StudentLRNLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.StudentLRNLabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentLRNLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.StudentLRNLabel.Location = new System.Drawing.Point(183, 53);
+            this.StudentLRNLabel.Location = new System.Drawing.Point(171, 53);
             this.StudentLRNLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StudentLRNLabel.Name = "StudentLRNLabel";
-            this.StudentLRNLabel.Size = new System.Drawing.Size(71, 16);
+            this.StudentLRNLabel.Size = new System.Drawing.Size(68, 15);
             this.StudentLRNLabel.TabIndex = 20;
             this.StudentLRNLabel.Text = "StudentLRN";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(86, 32);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 17);
+            this.label6.Size = new System.Drawing.Size(85, 16);
             this.label6.TabIndex = 19;
             this.label6.Text = "Section/Level:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(86, 11);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 17);
+            this.label5.Size = new System.Drawing.Size(44, 16);
             this.label5.TabIndex = 18;
             this.label5.Text = "Name:";
-            // 
-            // ProfilePanel
-            // 
-            this.ProfilePanel.Angle = -48F;
-            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
-            this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
             // 
             // dataGridView1
             // 
@@ -345,7 +333,7 @@ namespace Financial_System.Forms
             // 
             this.PostPaymentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
             this.PostPaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PostPaymentButton.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.PostPaymentButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PostPaymentButton.ForeColor = System.Drawing.Color.White;
             this.PostPaymentButton.Location = new System.Drawing.Point(712, 309);
             this.PostPaymentButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -356,32 +344,18 @@ namespace Financial_System.Forms
             this.PostPaymentButton.UseVisualStyleBackColor = false;
             this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
             // 
-            // printBtn
-            // 
-            this.printBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
-            this.printBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.printBtn.ForeColor = System.Drawing.Color.White;
-            this.printBtn.Location = new System.Drawing.Point(712, 421);
-            this.printBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(128, 30);
-            this.printBtn.TabIndex = 26;
-            this.printBtn.Text = "Print";
-            this.printBtn.UseVisualStyleBackColor = false;
-            // 
             // exportBtn
             // 
             this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
             this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportBtn.ForeColor = System.Drawing.Color.White;
-            this.exportBtn.Location = new System.Drawing.Point(712, 385);
+            this.exportBtn.Location = new System.Drawing.Point(712, 421);
             this.exportBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportBtn.Name = "exportBtn";
             this.exportBtn.Size = new System.Drawing.Size(128, 30);
             this.exportBtn.TabIndex = 27;
-            this.exportBtn.Text = "Export to CSV";
+            this.exportBtn.Text = "Export to Excel";
             this.exportBtn.UseVisualStyleBackColor = false;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
@@ -405,6 +379,17 @@ namespace Financial_System.Forms
             this.TermComboBox.Size = new System.Drawing.Size(128, 21);
             this.TermComboBox.TabIndex = 30;
             // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
+            // 
             // StudentLedgerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +398,6 @@ namespace Financial_System.Forms
             this.Controls.Add(this.TermComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.exportBtn);
-            this.Controls.Add(this.printBtn);
             this.Controls.Add(this.PostPaymentButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ReceiptBox);
@@ -456,7 +440,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.TextBox ReceiptBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button PostPaymentButton;
-        private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button exportBtn;
         private CustomUI.GradientPanel ProfilePanel;
         private System.Windows.Forms.Label label4;
