@@ -59,5 +59,17 @@ namespace Financial_System.Features
                 isBalanceLabel.Text = "FALSE"; // if not balanced return FALSE.
             }
         }
+
+        // 
+        public async Task GetList(ComboBox cb, string[] arr)
+        {
+            await Task.Run(() =>
+            {
+                for(int i = 0; i < arr.Length; i++)
+                {
+                    cb.Items.Add(arr[i]);
+                }
+            });
+        }
     }
 }
