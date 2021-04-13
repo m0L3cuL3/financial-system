@@ -49,9 +49,17 @@ namespace Financial_System.UserControls
             this.CollectablesPanel = new Financial_System.CustomUI.GradientPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.InfoPanel2 = new Financial_System.CustomUI.GradientPanel();
+            this.InfoPanel3 = new Financial_System.CustomUI.GradientPanel();
+            this.TransLabel = new System.Windows.Forms.Label();
+            this.TransTotalLabel = new System.Windows.Forms.Label();
+            this.InfoPanel4 = new Financial_System.CustomUI.GradientPanel();
+            this.EnrolledStudentLabel = new System.Windows.Forms.Label();
+            this.StudentCountTotalLabel = new System.Windows.Forms.Label();
             this.InfoPanel.SuspendLayout();
             this.CollectablesPanel.SuspendLayout();
             this.InfoPanel2.SuspendLayout();
+            this.InfoPanel3.SuspendLayout();
+            this.InfoPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // network_timer
@@ -90,12 +98,11 @@ namespace Financial_System.UserControls
             // CollectablesPieChart
             // 
             this.CollectablesPieChart.BackColor = System.Drawing.Color.Transparent;
-            this.CollectablesPieChart.BackColorTransparent = true;
             this.CollectablesPieChart.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CollectablesPieChart.ForeColor = System.Drawing.Color.White;
             this.CollectablesPieChart.Location = new System.Drawing.Point(12, 12);
             this.CollectablesPieChart.Name = "CollectablesPieChart";
-            this.CollectablesPieChart.Size = new System.Drawing.Size(271, 219);
+            this.CollectablesPieChart.Size = new System.Drawing.Size(271, 217);
             this.CollectablesPieChart.TabIndex = 0;
             // 
             // YearTextBox
@@ -138,6 +145,7 @@ namespace Financial_System.UserControls
             this.conStatusLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conStatusLabel.Location = new System.Drawing.Point(224, 15);
             this.conStatusLabel.Name = "conStatusLabel";
+            this.conStatusLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.conStatusLabel.Size = new System.Drawing.Size(33, 17);
             this.conStatusLabel.TabIndex = 9;
             this.conStatusLabel.Text = "N/A";
@@ -162,9 +170,9 @@ namespace Financial_System.UserControls
             this.TotalLabel.ForeColor = System.Drawing.Color.White;
             this.TotalLabel.Location = new System.Drawing.Point(17, 16);
             this.TotalLabel.Name = "TotalLabel";
-            this.TotalLabel.Size = new System.Drawing.Size(43, 17);
+            this.TotalLabel.Size = new System.Drawing.Size(80, 17);
             this.TotalLabel.TabIndex = 11;
-            this.TotalLabel.Text = "Total:";
+            this.TotalLabel.Text = "Total Cash:";
             // 
             // OverallReportLabel
             // 
@@ -209,7 +217,7 @@ namespace Financial_System.UserControls
             this.InfoLabel.AutoSize = true;
             this.InfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.InfoLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoLabel.Location = new System.Drawing.Point(324, 67);
+            this.InfoLabel.Location = new System.Drawing.Point(330, 275);
             this.InfoLabel.Name = "InfoLabel";
             this.InfoLabel.Size = new System.Drawing.Size(160, 20);
             this.InfoLabel.TabIndex = 7;
@@ -223,7 +231,7 @@ namespace Financial_System.UserControls
             this.InfoPanel.Controls.Add(this.NetLatencyLabel);
             this.InfoPanel.Controls.Add(this.conStatusLabel);
             this.InfoPanel.Controls.Add(this.pingStatusLabel);
-            this.InfoPanel.Location = new System.Drawing.Point(328, 90);
+            this.InfoPanel.Location = new System.Drawing.Point(334, 298);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(288, 75);
             this.InfoPanel.TabIndex = 8;
@@ -231,8 +239,8 @@ namespace Financial_System.UserControls
             // 
             // CollectablesPanel
             // 
-            this.CollectablesPanel.Angle = 45F;
-            this.CollectablesPanel.BottomColor = System.Drawing.Color.SteelBlue;
+            this.CollectablesPanel.Angle = -90F;
+            this.CollectablesPanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.CollectablesPanel.Controls.Add(this.CollectablesPieChart);
             this.CollectablesPanel.Controls.Add(this.YearTextBox);
             this.CollectablesPanel.Controls.Add(this.ShowReportsButton);
@@ -240,18 +248,18 @@ namespace Financial_System.UserControls
             this.CollectablesPanel.Name = "CollectablesPanel";
             this.CollectablesPanel.Size = new System.Drawing.Size(295, 283);
             this.CollectablesPanel.TabIndex = 9;
-            this.CollectablesPanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.CollectablesPanel.TopColor = System.Drawing.Color.SteelBlue;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(324, 176);
+            this.label5.Location = new System.Drawing.Point(330, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(195, 20);
+            this.label5.Size = new System.Drawing.Size(203, 20);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Overall Collection Report";
+            this.label5.Text = "Overall Collection Amount";
             // 
             // InfoPanel2
             // 
@@ -259,17 +267,93 @@ namespace Financial_System.UserControls
             this.InfoPanel2.BottomColor = System.Drawing.Color.SteelBlue;
             this.InfoPanel2.Controls.Add(this.TotalLabel);
             this.InfoPanel2.Controls.Add(this.OverallReportLabel);
-            this.InfoPanel2.Location = new System.Drawing.Point(328, 199);
+            this.InfoPanel2.Location = new System.Drawing.Point(334, 90);
             this.InfoPanel2.Name = "InfoPanel2";
             this.InfoPanel2.Size = new System.Drawing.Size(288, 47);
             this.InfoPanel2.TabIndex = 11;
             this.InfoPanel2.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            // 
+            // InfoPanel3
+            // 
+            this.InfoPanel3.Angle = 45F;
+            this.InfoPanel3.BottomColor = System.Drawing.Color.SteelBlue;
+            this.InfoPanel3.Controls.Add(this.TransLabel);
+            this.InfoPanel3.Controls.Add(this.TransTotalLabel);
+            this.InfoPanel3.Location = new System.Drawing.Point(334, 143);
+            this.InfoPanel3.Name = "InfoPanel3";
+            this.InfoPanel3.Size = new System.Drawing.Size(288, 47);
+            this.InfoPanel3.TabIndex = 12;
+            this.InfoPanel3.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            // 
+            // TransLabel
+            // 
+            this.TransLabel.AutoSize = true;
+            this.TransLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TransLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransLabel.ForeColor = System.Drawing.Color.White;
+            this.TransLabel.Location = new System.Drawing.Point(17, 16);
+            this.TransLabel.Name = "TransLabel";
+            this.TransLabel.Size = new System.Drawing.Size(131, 17);
+            this.TransLabel.TabIndex = 11;
+            this.TransLabel.Text = "Transactions Made:";
+            // 
+            // TransTotalLabel
+            // 
+            this.TransTotalLabel.AutoSize = true;
+            this.TransTotalLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TransTotalLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransTotalLabel.ForeColor = System.Drawing.Color.Chartreuse;
+            this.TransTotalLabel.Location = new System.Drawing.Point(224, 16);
+            this.TransTotalLabel.Name = "TransTotalLabel";
+            this.TransTotalLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TransTotalLabel.Size = new System.Drawing.Size(33, 17);
+            this.TransTotalLabel.TabIndex = 6;
+            this.TransTotalLabel.Text = "N/A";
+            // 
+            // InfoPanel4
+            // 
+            this.InfoPanel4.Angle = 45F;
+            this.InfoPanel4.BottomColor = System.Drawing.Color.SteelBlue;
+            this.InfoPanel4.Controls.Add(this.EnrolledStudentLabel);
+            this.InfoPanel4.Controls.Add(this.StudentCountTotalLabel);
+            this.InfoPanel4.Location = new System.Drawing.Point(334, 196);
+            this.InfoPanel4.Name = "InfoPanel4";
+            this.InfoPanel4.Size = new System.Drawing.Size(288, 47);
+            this.InfoPanel4.TabIndex = 14;
+            this.InfoPanel4.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            // 
+            // EnrolledStudentLabel
+            // 
+            this.EnrolledStudentLabel.AutoSize = true;
+            this.EnrolledStudentLabel.BackColor = System.Drawing.Color.Transparent;
+            this.EnrolledStudentLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnrolledStudentLabel.ForeColor = System.Drawing.Color.White;
+            this.EnrolledStudentLabel.Location = new System.Drawing.Point(17, 16);
+            this.EnrolledStudentLabel.Name = "EnrolledStudentLabel";
+            this.EnrolledStudentLabel.Size = new System.Drawing.Size(121, 17);
+            this.EnrolledStudentLabel.TabIndex = 11;
+            this.EnrolledStudentLabel.Text = "Enrolled Students:";
+            // 
+            // StudentCountTotalLabel
+            // 
+            this.StudentCountTotalLabel.AutoSize = true;
+            this.StudentCountTotalLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StudentCountTotalLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentCountTotalLabel.ForeColor = System.Drawing.Color.Chartreuse;
+            this.StudentCountTotalLabel.Location = new System.Drawing.Point(224, 16);
+            this.StudentCountTotalLabel.Name = "StudentCountTotalLabel";
+            this.StudentCountTotalLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StudentCountTotalLabel.Size = new System.Drawing.Size(33, 17);
+            this.StudentCountTotalLabel.TabIndex = 6;
+            this.StudentCountTotalLabel.Text = "N/A";
             // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Controls.Add(this.InfoPanel4);
+            this.Controls.Add(this.InfoPanel3);
             this.Controls.Add(this.CollectablesPanel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.InfoPanel2);
@@ -286,6 +370,10 @@ namespace Financial_System.UserControls
             this.CollectablesPanel.PerformLayout();
             this.InfoPanel2.ResumeLayout(false);
             this.InfoPanel2.PerformLayout();
+            this.InfoPanel3.ResumeLayout(false);
+            this.InfoPanel3.PerformLayout();
+            this.InfoPanel4.ResumeLayout(false);
+            this.InfoPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +399,11 @@ namespace Financial_System.UserControls
         private CustomUI.GradientPanel CollectablesPanel;
         private System.Windows.Forms.Label label5;
         private CustomUI.GradientPanel InfoPanel2;
+        private CustomUI.GradientPanel InfoPanel3;
+        private System.Windows.Forms.Label TransLabel;
+        private System.Windows.Forms.Label TransTotalLabel;
+        private CustomUI.GradientPanel InfoPanel4;
+        private System.Windows.Forms.Label EnrolledStudentLabel;
+        private System.Windows.Forms.Label StudentCountTotalLabel;
     }
 }

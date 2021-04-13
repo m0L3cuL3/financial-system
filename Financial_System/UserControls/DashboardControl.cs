@@ -30,13 +30,17 @@ namespace Financial_System.UserControls
             ui.RoundPanel(CollectablesPanel);
             ui.RoundPanel(InfoPanel);
             ui.RoundPanel(InfoPanel2);
+            ui.RoundPanel(InfoPanel3);
+            ui.RoundPanel(InfoPanel4);
         }
 
         private void DashboardControl_Load(object sender, EventArgs e)
         {
+            TotalLabel.Text = $"Total Collected ({currYear}):";
             CheckNetworkConnection();
             LoadCurrReportsAsync();
             total_timer.Start();
+            MessageBox.Show(sql.GetTotalTransaction(sql.CreateConnection(), currYear).ToString());
         }
 
         // Load Current Year Collection Reports
@@ -49,7 +53,7 @@ namespace Financial_System.UserControls
                 int mIndex = 0;
                 for(int i = 0; i < gb.MonthList.Length; i++)
                 {
-                    series.Add(new PieSeries() { Title = gb.MonthList[i], Values = new ChartValues<int> { sql.GetTotalTransByMonthAsync(sql.CreateConnection(), gb.MonthIndex[mIndex], currYear) }, DataLabels = true, LabelPoint = labelPoint });
+                    series.Add(new PieSeries() { Title = gb.MonthList[i], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[mIndex], currYear) }, DataLabels = true, LabelPoint = labelPoint });
                     mIndex += 1;
 
                     CollectablesPieChart.Series = series;
@@ -77,7 +81,7 @@ namespace Financial_System.UserControls
                 int mIndex = 0;
                 for (int i = 0; i < gb.MonthList.Length; i++)
                 {
-                    series.Add(new PieSeries() { Title = gb.MonthList[i], Values = new ChartValues<int> { sql.GetTotalTransByMonthAsync(sql.CreateConnection(), gb.MonthIndex[mIndex], YearTextBox.Text) }, DataLabels = true, LabelPoint = labelPoint });
+                    series.Add(new PieSeries() { Title = gb.MonthList[i], Values = new ChartValues<int> { sql.GetTotalTransByMonth(sql.CreateConnection(), gb.MonthIndex[mIndex], YearTextBox.Text) }, DataLabels = true, LabelPoint = labelPoint });
                     mIndex += 1;
 
                     CollectablesPieChart.Series = series;
@@ -141,7 +145,10 @@ namespace Financial_System.UserControls
 
         private async void total_timer_Tick(object sender, EventArgs e)
         {
-            OverallReportLabel.Text = await sql.GetTotalTransaction(sql.CreateConnection());
+            
+            OverallReportLabel.Text = await sql.GetTotalTransaction(sql.CreateConnection(), currYear);
+            TransTotalLabel.Text = await sql.GetTransactionCount(sql.CreateConnection());
+            StudentCountTotalLabel.Text = await sql.GetStudentCount(sql.CreateConnection());
         }
     }
 }
