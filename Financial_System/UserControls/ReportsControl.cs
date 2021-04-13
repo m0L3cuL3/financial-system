@@ -35,9 +35,7 @@ namespace Financial_System.UserControls
         public ReportsControl()
         {
             InitializeComponent();
-            ui.RoundButton(expToCSVButton);
-            
-            
+            ui.RoundButton(expToCSVButton); 
         }
 
         private async void ReportsControl_Load(object sender, EventArgs e)
@@ -46,7 +44,9 @@ namespace Financial_System.UserControls
 
             LoadTransactions();
             dateLabel.Text = DateTime.Now.ToString("M/d/yyyy");
-            await LoadList();
+            await gtr.GetList(MonthComboBox, gb.MonthList);
+            await gtr.GetList(DayComboBox, gb.DayList);
+            await gtr.GetList(FilterSettingsCbox, gb.ReportFilterList);
         }
 
         // Loads Transactions
@@ -109,29 +109,6 @@ namespace Financial_System.UserControls
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             LoadTransactions();
-        }
-
-        // Loads MonthList
-        private async Task LoadList()
-        {
-            await Task.Run(() =>
-            {
-                foreach (string month in gb.MonthList)
-                {
-                    MonthComboBox.Items.Add(month);
-                }
-
-                foreach (string day in gb.DayList)
-                {
-                    DayComboBox.Items.Add(day);
-                }
-
-                // filter settings
-                foreach (string settings in gb.ReportFilterList)
-                {
-                    FilterSettingsCbox.Items.Add(settings);
-                }
-            });
         }
 
         private async void FilterButton_Click(object sender, EventArgs e)
