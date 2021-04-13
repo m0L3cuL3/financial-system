@@ -93,6 +93,24 @@ namespace Financial_System.Utils
             sqlite_cmd.ExecuteNonQuery();
         }
 
+        public async Task<string> GetStudentCount(SQLiteConnection conn)
+        {
+            return await Task.Run(() =>
+            {
+                object result;
+
+                SQLiteCommand sqlite_cmd;
+
+                sqlite_cmd = new SQLiteCommand("SELECT Count(*) FROM Student_tbl", conn);
+
+                result = sqlite_cmd.ExecuteScalar();
+
+                int numRows = Convert.ToInt32(result);
+
+                return numRows.ToString();
+            });
+        }
+
         // Insert Transaction Data
         public void InsertTransaction(SQLiteConnection conn, int amount, string type, string sid, string receipt, int term)
         {
@@ -274,7 +292,7 @@ namespace Financial_System.Utils
         }
 
         // Get Total Sum of amount by Month (For LiveCharts)
-        public int GetTotalTransByMonthAsync(SQLiteConnection conn, string month, string year)
+        public int GetTotalTransByMonth(SQLiteConnection conn, string month, string year)
         {
             int result = 0;
 
@@ -296,7 +314,7 @@ namespace Financial_System.Utils
             //return result;
         }
 
-        public async Task<string> GetTotalTransaction(SQLiteConnection conn)
+        public async Task<string> GetTotalTransaction(SQLiteConnection conn, string year)
         {
             return await Task.Run(() =>
             {
@@ -304,7 +322,8 @@ namespace Financial_System.Utils
 
                 SQLiteCommand sqlite_cmd;
 
-                sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn);
+                sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE strftime('%Y', date_recorded) = @year", conn);
+                sqlite_cmd.Parameters.AddWithValue("@year", year);
 
                 using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
                 {
@@ -316,6 +335,24 @@ namespace Financial_System.Utils
                     return result.ToString();
                 }
             });   
+        }
+
+        public async Task<string> GetTransactionCount(SQLiteConnection conn)
+        {
+            return await Task.Run(() =>
+            {
+                object result;
+
+                SQLiteCommand sqlite_cmd;
+
+                sqlite_cmd = new SQLiteCommand("SELECT Count(*) FROM Transaction_tbl", conn);
+
+                result = sqlite_cmd.ExecuteScalar();
+
+                int numRows = Convert.ToInt32(result);
+
+                return numRows.ToString();
+            });
         }
 
         // Get all user
