@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using Financial_System.Features;
+using IronXL;
 
 namespace Financial_System.UserControls
 {
@@ -35,7 +36,7 @@ namespace Financial_System.UserControls
         public ReportsControl()
         {
             InitializeComponent();
-            ui.RoundButton(expToCSVButton); 
+            ui.RoundButton(exportButton); 
         }
 
         private async void ReportsControl_Load(object sender, EventArgs e)
@@ -57,52 +58,39 @@ namespace Financial_System.UserControls
             await gtr.GetTotal(dataGridView1, 3, totalLabel);
         }
 
-        // Exports Reports CSV file (as of now Daily Collections pa)
+        // Exports Reports Excel file.
         private void expToCSVButton_Click(object sender, EventArgs e)
         {
-            //todo csv exporter
-            string current = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string path = Path.Combine(current, "REPORTS.csv");
-
             try
             {
-                //Build the CSV file data as a Comma separated string.
-                string csv = string.Empty;
-
-                //Add the Header row for CSV file.
-                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                switch (FilterSettingsCbox.SelectedIndex)
                 {
-                    csv += column.HeaderText + ',';
-                }
-                //Add new line.
-                csv += "\r\n";
-
-                //Adding the Rows
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Value != null)
+                    case 0:
+                        if (MonthComboBox.SelectedItem == null || DayComboBox.SelectedItem == null || YearTextBox.Text == "")
                         {
-                            //Add the Data rows.
-                            csv += cell.Value.ToString().TrimEnd(',').Replace(",", ";") + ',';
+                            MessageBox.Show("Something went wrong. Make sure to enter the necessary data.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        // break;
-                    }
-                    //Add new line.
-                    csv += "\r\n";
+                        else
+                        {
+                            ExportReportDaily(MonthComboBox.SelectedItem.ToString(), DayComboBox.SelectedItem.ToString(), YearTextBox.Text);
+                        }
+                        break;
+                    case 1:
+                        if (MonthComboBox.SelectedItem == null || YearTextBox.Text == "")
+                        {
+                            MessageBox.Show("Something went wrong. Make sure to enter the necessary data.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            ExportReportMonth(MonthComboBox.SelectedItem.ToString(), YearTextBox.Text);
+                        }
+                        break;
                 }
-
-                //Exporting to CSV.
-
-                File.WriteAllText(path, csv);
-                MessageBox.Show("Export saved to: \n" + path);
             }
             catch
             {
-                MessageBox.Show("Something Happened...");
-            }
+                MessageBox.Show("Duplicate Data. The data you are trying to export already exists!", "Duplicate Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
         }
 
         // Refreshes Transaction DataGridView
@@ -111,6 +99,7 @@ namespace Financial_System.UserControls
             LoadTransactions();
         }
 
+        // Filters Transaction
         private async void FilterButton_Click(object sender, EventArgs e)
         {
             
@@ -118,7 +107,7 @@ namespace Financial_System.UserControls
             {
                 if(DayComboBox.SelectedItem == null)
                 {
-                    MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+                    MessageBox.Show("Incomplete data. Make sure to enter complete data.", "Incomplete Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -167,7 +156,7 @@ namespace Financial_System.UserControls
                     }
                     catch
                     {
-                        MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+                        MessageBox.Show("Something went wrong. Please contact your administrator.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 
@@ -220,7 +209,7 @@ namespace Financial_System.UserControls
                 }
                 catch
                 {
-                    MessageBox.Show("Something went wrong. Please enter the necessary data, otherwise contact your administrator.");
+                    MessageBox.Show("Something went wrong. Please contact your administrator.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -281,6 +270,7 @@ namespace Financial_System.UserControls
             }
         }
 
+        // Filters Reports by Month (Monthly Reports)
         private void FilterReportsByMonth(Month month)
         {
             try
@@ -329,9 +319,9 @@ namespace Financial_System.UserControls
 
                 }
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Something went wrong. Please contact your administrator.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -345,6 +335,149 @@ namespace Financial_System.UserControls
             {
                 DayComboBox.Enabled = false;
             }
+        }
+
+        // Export Daily Reports to Excel
+        private void ExportReportDaily(string month, string day, string year)
+        {
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Reports");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Reports\\Daily Collection Report.xlsx";
+
+            WorkBook wb;
+            WorkSheet xlsSheet;
+
+            if (!File.Exists(path))
+            {
+                wb = WorkBook.Create(ExcelFileFormat.XLSX);
+                wb.Metadata.Author = "PCHS";
+                xlsSheet = wb.CreateWorkSheet($"{month} - {day} - {year}");
+            }
+            else
+            {
+                wb = WorkBook.Load(path);
+                wb.CreateWorkSheet($"{month} - {day} - {year}");
+                xlsSheet = wb.GetWorkSheet($"{month} - {day} - {year}");
+            }
+
+            xlsSheet.Merge("A1:G1");
+            xlsSheet["A1:G1"].Value = "Daily Collection Report";
+            xlsSheet["A1:G1"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+            xlsSheet["A1:G1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            xlsSheet["A1:G1"].Style.SetBackgroundColor("#7EA0D6");
+            xlsSheet["A1:G1"].Style.Font.SetColor("#F2F4F5");
+            xlsSheet["A1:G1"].Style.Font.Height = 16;
+
+            xlsSheet["A2:G2"].Style.Font.Height = 12;
+            xlsSheet["A2:G2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.BottomBorder.SetColor("#000000");
+            xlsSheet["A2:G2"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+            xlsSheet["A2:G2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            xlsSheet["A2:G2"].Style.SetBackgroundColor("#2F75B5");
+            xlsSheet["A2:G2"].Style.Font.SetColor("#F2F4F5");
+            xlsSheet["A2"].Value = "Transaction ID";
+            xlsSheet["B2"].Value = "Student ID";
+            xlsSheet["C2"].Value = "Type";
+            xlsSheet["D2"].Value = "Amount";
+            xlsSheet["E2"].Value = "Receipt #";
+            xlsSheet["F2"].Value = "Term";
+            xlsSheet["G2"].Value = "Date Recorded";
+
+            int currIndex = 3;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+
+                xlsSheet[$"A{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+                xlsSheet[$"B{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+
+                xlsSheet[$"A{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+                xlsSheet[$"B{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+
+                xlsSheet[$"A{currIndex}"].Value = dataGridView1.Rows[i].Cells[0].Value; // transaction id
+                xlsSheet[$"B{currIndex}"].Value = dataGridView1.Rows[i].Cells[1].Value; // student
+                xlsSheet[$"C{currIndex}"].Value = dataGridView1.Rows[i].Cells[2].Value; // type
+                xlsSheet[$"D{currIndex}"].Value = dataGridView1.Rows[i].Cells[3].Value; // amount
+                xlsSheet[$"E{currIndex}"].Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
+                xlsSheet[$"F{currIndex}"].Value = dataGridView1.Rows[i].Cells[5].Value; // term
+                xlsSheet[$"G{currIndex}"].Value = dataGridView1.Rows[i].Cells[6].Value; // date recorded
+                currIndex = currIndex + 1;
+            }
+
+            wb.SaveAs(path);
+            MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        // Export Monthly Reports to Excel
+        private void ExportReportMonth(string month, string year)
+        {
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Reports");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Reports\\Monthly Collection Report.xlsx";
+
+            WorkBook wb;
+            WorkSheet xlsSheet;
+
+            if (!File.Exists(path))
+            {
+                wb = WorkBook.Create(ExcelFileFormat.XLSX);
+                wb.Metadata.Author = "PCHS";
+                xlsSheet = wb.CreateWorkSheet($"{month} - {year}");
+            }
+            else
+            {
+                wb = WorkBook.Load(path);
+                xlsSheet = wb.GetWorkSheet($"{month} - {year}");
+            }
+
+            xlsSheet.Merge("A1:G1");
+            xlsSheet["A1:G1"].Value = "Daily Collection Report";
+            xlsSheet["A1:G1"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+            xlsSheet["A1:G1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            xlsSheet["A1:G1"].Style.SetBackgroundColor("#7EA0D6");
+            xlsSheet["A1:G1"].Style.Font.SetColor("#F2F4F5");
+            xlsSheet["A1:G1"].Style.Font.Height = 16;
+
+            xlsSheet["A2:G2"].Style.Font.Height = 12;
+            xlsSheet["A2:G2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
+            xlsSheet["A2:G2"].Style.BottomBorder.SetColor("#000000");
+            xlsSheet["A2:G2"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+            xlsSheet["A2:G2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            xlsSheet["A2:G2"].Style.SetBackgroundColor("#2F75B5");
+            xlsSheet["A2:G2"].Style.Font.SetColor("#F2F4F5");
+            xlsSheet["A2"].Value = "Transaction ID";
+            xlsSheet["B2"].Value = "Student ID";
+            xlsSheet["C2"].Value = "Type";
+            xlsSheet["D2"].Value = "Amount";
+            xlsSheet["E2"].Value = "Receipt #";
+            xlsSheet["F2"].Value = "Term";
+            xlsSheet["G2"].Value = "Date Recorded";
+
+            int currIndex = 3;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+
+                xlsSheet[$"A{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+                xlsSheet[$"B{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
+
+                xlsSheet[$"A{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+                xlsSheet[$"B{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+
+                xlsSheet[$"A{currIndex}"].Value = dataGridView1.Rows[i].Cells[0].Value; // transaction id
+                xlsSheet[$"B{currIndex}"].Value = dataGridView1.Rows[i].Cells[1].Value; // student
+                xlsSheet[$"C{currIndex}"].Value = dataGridView1.Rows[i].Cells[2].Value; // type
+                xlsSheet[$"D{currIndex}"].Value = dataGridView1.Rows[i].Cells[3].Value; // amount
+                xlsSheet[$"E{currIndex}"].Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
+                xlsSheet[$"F{currIndex}"].Value = dataGridView1.Rows[i].Cells[5].Value; // term
+                xlsSheet[$"G{currIndex}"].Value = dataGridView1.Rows[i].Cells[6].Value; // date recorded
+                currIndex = currIndex + 1;
+            }
+
+            wb.SaveAs(path);
+            MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 

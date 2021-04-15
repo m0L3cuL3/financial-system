@@ -44,7 +44,7 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.totalDescLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
-            this.expToCSVButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.MonthComboBox = new System.Windows.Forms.ComboBox();
             this.FilterButton = new System.Windows.Forms.Button();
@@ -216,20 +216,20 @@
             this.totalLabel.TabIndex = 8;
             this.totalLabel.Text = "N/A";
             // 
-            // expToCSVButton
+            // exportButton
             // 
-            this.expToCSVButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.expToCSVButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.expToCSVButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.expToCSVButton.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.expToCSVButton.ForeColor = System.Drawing.Color.White;
-            this.expToCSVButton.Location = new System.Drawing.Point(700, 431);
-            this.expToCSVButton.Name = "expToCSVButton";
-            this.expToCSVButton.Size = new System.Drawing.Size(129, 37);
-            this.expToCSVButton.TabIndex = 9;
-            this.expToCSVButton.Text = "Export To CSV";
-            this.expToCSVButton.UseVisualStyleBackColor = false;
-            this.expToCSVButton.Click += new System.EventHandler(this.expToCSVButton_Click);
+            this.exportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.exportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportButton.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.exportButton.ForeColor = System.Drawing.Color.White;
+            this.exportButton.Location = new System.Drawing.Point(700, 431);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(129, 37);
+            this.exportButton.TabIndex = 9;
+            this.exportButton.Text = "Export To Excel";
+            this.exportButton.UseVisualStyleBackColor = false;
+            this.exportButton.Click += new System.EventHandler(this.expToCSVButton_Click);
             // 
             // RefreshButton
             // 
@@ -382,7 +382,7 @@
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.MonthComboBox);
             this.Controls.Add(this.RefreshButton);
-            this.Controls.Add(this.expToCSVButton);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.totalDescLabel);
             this.Controls.Add(this.separator2);
@@ -409,7 +409,7 @@
         private Separator separator2;
         private System.Windows.Forms.Label totalDescLabel;
         private System.Windows.Forms.Label totalLabel;
-        private System.Windows.Forms.Button expToCSVButton;
+        private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.ComboBox MonthComboBox;
         private System.Windows.Forms.Button FilterButton;
