@@ -3,30 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using srbrettle.FinancialFormulas;
+using System.Windows.Forms;
 
 namespace Financial_System.Features
 {
     class FinanceFunctions
     {
-        
-        public decimal CalcAssets(decimal liabilities, decimal equity)
+        GetTotalResult gtr = new GetTotalResult();
+
+        #region Cash Flow Statement
+
+        public async Task<decimal> CalcOCF(TextBox txtBox, DataGridView dgv1, DataGridView dgv2)
         {
-            decimal result = FinancialFormulas.CalcAssets(liabilities, equity);
-            return result;
+            decimal NetEarnings = Convert.ToDecimal(txtBox.Text);
+            decimal AC_Total = await gtr.GetTotal(dgv1, 1); // add
+            decimal SC_Total = await gtr.GetTotal(dgv2, 1); // sub
+            decimal Total = NetEarnings + AC_Total - SC_Total;
+
+            return Total;
         }
 
-        public decimal CalcEquity(decimal assets, decimal liabilities)
+        public async Task<decimal> CalcICF(DataGridView dgv1, decimal totalOCF)
         {
-            decimal result = FinancialFormulas.CalcEquity(assets, liabilities);
-            return result;
+            decimal ICF_Total = await gtr.GetTotal(dgv1, 1);
+            decimal Total = totalOCF - ICF_Total;
+
+            return Total;
         }
 
-        public decimal CalcLiabilities(decimal assets, decimal equity)
+        public async Task<decimal> CalcFCF(DataGridView dgv1, decimal totalICF)
         {
-            decimal result = FinancialFormulas.CalcLiabilities(assets, equity);
-            return result;
+            decimal FCF_Total = await gtr.GetTotal(dgv1, 1);
+            decimal Total = FCF_Total + totalICF;
+
+            return Total;
         }
 
+        #endregion
     }
 }

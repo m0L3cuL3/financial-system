@@ -45,6 +45,7 @@ namespace Financial_System.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopBarPanel = new System.Windows.Forms.Panel();
+            this.MonthYearLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Label();
             this.CurrAsset_DGV = new System.Windows.Forms.DataGridView();
             this.CurrAssetsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,12 +68,14 @@ namespace Financial_System.Forms
             this.DescEquityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquityAmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.FixedAssetAmount_txtBox = new System.Windows.Forms.TextBox();
             this.FixedAssetDesc_txtBox = new System.Windows.Forms.TextBox();
+            this.separator2 = new Financial_System.UserControls.Separator();
+            this.separator1 = new Financial_System.UserControls.Separator();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.CurrAssetAmount_txtBox = new System.Windows.Forms.TextBox();
@@ -95,6 +98,8 @@ namespace Financial_System.Forms
             this.TotalNonCurrLiability_Lbl = new System.Windows.Forms.Label();
             this.TotalCurrLiability_Lbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.separator3 = new Financial_System.UserControls.Separator();
+            this.separator4 = new Financial_System.UserControls.Separator();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.TotalEquity_Lbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -103,6 +108,7 @@ namespace Financial_System.Forms
             this.EquityDesc_txtBox = new System.Windows.Forms.TextBox();
             this.AddEquity_Btn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.separator5 = new Financial_System.UserControls.Separator();
             this.TotalAssets_Lbl = new System.Windows.Forms.Label();
             this.TotalLiabilityEquity_Lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -110,19 +116,13 @@ namespace Financial_System.Forms
             this.ExportToExcel_Btn = new System.Windows.Forms.Button();
             this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.MonthYearLabel = new System.Windows.Forms.Label();
-            this.separator2 = new Financial_System.UserControls.Separator();
-            this.separator1 = new Financial_System.UserControls.Separator();
-            this.separator3 = new Financial_System.UserControls.Separator();
-            this.separator4 = new Financial_System.UserControls.Separator();
-            this.separator5 = new Financial_System.UserControls.Separator();
             this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrAsset_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FixedAsset_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CurrLiability_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NonCurrLiability_DGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Equity_DGV)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -140,6 +140,18 @@ namespace Financial_System.Forms
             this.TopBarPanel.Size = new System.Drawing.Size(743, 30);
             this.TopBarPanel.TabIndex = 1;
             this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
+            // 
+            // MonthYearLabel
+            // 
+            this.MonthYearLabel.AutoSize = true;
+            this.MonthYearLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonthYearLabel.ForeColor = System.Drawing.Color.White;
+            this.MonthYearLabel.Location = new System.Drawing.Point(315, 7);
+            this.MonthYearLabel.Name = "MonthYearLabel";
+            this.MonthYearLabel.Size = new System.Drawing.Size(113, 16);
+            this.MonthYearLabel.TabIndex = 45;
+            this.MonthYearLabel.Text = "MonthYearLabel";
+            this.MonthYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CloseButton
             // 
@@ -497,18 +509,18 @@ namespace Financial_System.Forms
             this.label5.TabIndex = 29;
             this.label5.Text = "Assets";
             // 
-            // tabControl1
+            // TabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 30);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(743, 354);
-            this.tabControl1.TabIndex = 30;
+            this.TabControl.Controls.Add(this.tabPage1);
+            this.TabControl.Controls.Add(this.tabPage2);
+            this.TabControl.Controls.Add(this.tabPage3);
+            this.TabControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TabControl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabControl.Location = new System.Drawing.Point(0, 30);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(743, 354);
+            this.TabControl.TabIndex = 30;
             // 
             // tabPage1
             // 
@@ -574,6 +586,28 @@ namespace Financial_System.Forms
             this.FixedAssetDesc_txtBox.Name = "FixedAssetDesc_txtBox";
             this.FixedAssetDesc_txtBox.Size = new System.Drawing.Size(129, 21);
             this.FixedAssetDesc_txtBox.TabIndex = 41;
+            // 
+            // separator2
+            // 
+            this.separator2.BackColor = System.Drawing.Color.White;
+            this.separator2.IsVertical = false;
+            this.separator2.Location = new System.Drawing.Point(400, 208);
+            this.separator2.Name = "separator2";
+            this.separator2.Size = new System.Drawing.Size(306, 23);
+            this.separator2.TabIndex = 40;
+            this.separator2.Text = "separator2";
+            this.separator2.Thickness = 1;
+            // 
+            // separator1
+            // 
+            this.separator1.BackColor = System.Drawing.Color.White;
+            this.separator1.IsVertical = false;
+            this.separator1.Location = new System.Drawing.Point(26, 208);
+            this.separator1.Name = "separator1";
+            this.separator1.Size = new System.Drawing.Size(306, 23);
+            this.separator1.TabIndex = 39;
+            this.separator1.Text = "separator1";
+            this.separator1.Thickness = 1;
             // 
             // label13
             // 
@@ -827,6 +861,28 @@ namespace Financial_System.Forms
             this.label6.TabIndex = 30;
             this.label6.Text = "Liabilities";
             // 
+            // separator3
+            // 
+            this.separator3.BackColor = System.Drawing.Color.White;
+            this.separator3.IsVertical = false;
+            this.separator3.Location = new System.Drawing.Point(400, 208);
+            this.separator3.Name = "separator3";
+            this.separator3.Size = new System.Drawing.Size(306, 23);
+            this.separator3.TabIndex = 53;
+            this.separator3.Text = "separator3";
+            this.separator3.Thickness = 1;
+            // 
+            // separator4
+            // 
+            this.separator4.BackColor = System.Drawing.Color.White;
+            this.separator4.IsVertical = false;
+            this.separator4.Location = new System.Drawing.Point(26, 208);
+            this.separator4.Name = "separator4";
+            this.separator4.Size = new System.Drawing.Size(306, 23);
+            this.separator4.TabIndex = 52;
+            this.separator4.Text = "separator4";
+            this.separator4.Thickness = 1;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.TotalEquity_Lbl);
@@ -920,6 +976,17 @@ namespace Financial_System.Forms
             this.label7.TabIndex = 30;
             this.label7.Text = "Equity";
             // 
+            // separator5
+            // 
+            this.separator5.BackColor = System.Drawing.Color.White;
+            this.separator5.IsVertical = false;
+            this.separator5.Location = new System.Drawing.Point(26, 208);
+            this.separator5.Name = "separator5";
+            this.separator5.Size = new System.Drawing.Size(306, 23);
+            this.separator5.TabIndex = 64;
+            this.separator5.Text = "separator5";
+            this.separator5.Thickness = 1;
+            // 
             // TotalAssets_Lbl
             // 
             this.TotalAssets_Lbl.AutoSize = true;
@@ -984,73 +1051,6 @@ namespace Financial_System.Forms
             this.SaveFileDialog.InitialDirectory = "C:\\";
             this.SaveFileDialog.RestoreDirectory = true;
             // 
-            // MonthYearLabel
-            // 
-            this.MonthYearLabel.AutoSize = true;
-            this.MonthYearLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthYearLabel.ForeColor = System.Drawing.Color.White;
-            this.MonthYearLabel.Location = new System.Drawing.Point(315, 7);
-            this.MonthYearLabel.Name = "MonthYearLabel";
-            this.MonthYearLabel.Size = new System.Drawing.Size(113, 16);
-            this.MonthYearLabel.TabIndex = 45;
-            this.MonthYearLabel.Text = "MonthYearLabel";
-            this.MonthYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // separator2
-            // 
-            this.separator2.BackColor = System.Drawing.Color.White;
-            this.separator2.IsVertical = false;
-            this.separator2.Location = new System.Drawing.Point(400, 208);
-            this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(306, 23);
-            this.separator2.TabIndex = 40;
-            this.separator2.Text = "separator2";
-            this.separator2.Thickness = 1;
-            // 
-            // separator1
-            // 
-            this.separator1.BackColor = System.Drawing.Color.White;
-            this.separator1.IsVertical = false;
-            this.separator1.Location = new System.Drawing.Point(26, 208);
-            this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(306, 23);
-            this.separator1.TabIndex = 39;
-            this.separator1.Text = "separator1";
-            this.separator1.Thickness = 1;
-            // 
-            // separator3
-            // 
-            this.separator3.BackColor = System.Drawing.Color.White;
-            this.separator3.IsVertical = false;
-            this.separator3.Location = new System.Drawing.Point(400, 208);
-            this.separator3.Name = "separator3";
-            this.separator3.Size = new System.Drawing.Size(306, 23);
-            this.separator3.TabIndex = 53;
-            this.separator3.Text = "separator3";
-            this.separator3.Thickness = 1;
-            // 
-            // separator4
-            // 
-            this.separator4.BackColor = System.Drawing.Color.White;
-            this.separator4.IsVertical = false;
-            this.separator4.Location = new System.Drawing.Point(26, 208);
-            this.separator4.Name = "separator4";
-            this.separator4.Size = new System.Drawing.Size(306, 23);
-            this.separator4.TabIndex = 52;
-            this.separator4.Text = "separator4";
-            this.separator4.Thickness = 1;
-            // 
-            // separator5
-            // 
-            this.separator5.BackColor = System.Drawing.Color.White;
-            this.separator5.IsVertical = false;
-            this.separator5.Location = new System.Drawing.Point(26, 208);
-            this.separator5.Name = "separator5";
-            this.separator5.Size = new System.Drawing.Size(306, 23);
-            this.separator5.TabIndex = 64;
-            this.separator5.Text = "separator5";
-            this.separator5.Thickness = 1;
-            // 
             // BalanceSheetWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1061,7 +1061,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TotalAssets_Lbl);
             this.Controls.Add(this.TotalLiabilityEquity_Lbl);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BalanceSheetWindow";
@@ -1074,7 +1074,7 @@ namespace Financial_System.Forms
             ((System.ComponentModel.ISupportInitialize)(this.CurrLiability_DGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NonCurrLiability_DGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Equity_DGV)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1111,7 +1111,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn DescEquityColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquityAmountColumn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label TotalFixedAssets_Lbl;
         private System.Windows.Forms.Label TotalCurrAssets_Lbl;
