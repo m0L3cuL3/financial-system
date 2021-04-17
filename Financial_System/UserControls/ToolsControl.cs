@@ -35,7 +35,7 @@ namespace Financial_System.UserControls
         {
             if(MonthComboBox.SelectedIndex == -1 || YearTextBox.Text == "")
             {
-                MessageBox.Show("Please input Month & Year.", "Invalid option.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Input Month & Year.", "Invalid Option.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -54,8 +54,15 @@ namespace Financial_System.UserControls
         // Create CashFlow Statement
         private void CFButton_Click(object sender, System.EventArgs e)
         {
-            CashFlowWindow cfw = new CashFlowWindow();
-            cfw.Show();
+            if (MonthComboBox.SelectedIndex == -1 || YearTextBox.Text == "")
+            {
+                MessageBox.Show("Input Month & Year.", "Invalid Option.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                CashFlowWindow cfw = new CashFlowWindow(MonthComboBox.SelectedItem.ToString(), YearTextBox.Text);
+                cfw.Show();
+            }
         }
     }
 }

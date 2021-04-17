@@ -31,25 +31,27 @@ namespace Financial_System.UserControls
         {
             this.TitleLabel = new System.Windows.Forms.Label();
             this.FinancialPanel = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CFButton = new System.Windows.Forms.Button();
             this.BalSheetButton = new System.Windows.Forms.Button();
             this.MonthYearGbox = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.YearTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.MonthComboBox = new System.Windows.Forms.ComboBox();
-            this.CFButton = new System.Windows.Forms.Button();
             this.IncomeStmtButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GeneralPanel = new System.Windows.Forms.Panel();
             this.AddStudButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.DayComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.FinancialPanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.MonthYearGbox.SuspendLayout();
             this.GeneralPanel.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -65,14 +67,42 @@ namespace Financial_System.UserControls
             // FinancialPanel
             // 
             this.FinancialPanel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.FinancialPanel.Controls.Add(this.groupBox3);
+            this.FinancialPanel.Controls.Add(this.groupBox2);
             this.FinancialPanel.Controls.Add(this.groupBox1);
-            this.FinancialPanel.Controls.Add(this.BalSheetButton);
             this.FinancialPanel.Controls.Add(this.MonthYearGbox);
-            this.FinancialPanel.Controls.Add(this.IncomeStmtButton);
             this.FinancialPanel.Location = new System.Drawing.Point(22, 106);
             this.FinancialPanel.Name = "FinancialPanel";
-            this.FinancialPanel.Size = new System.Drawing.Size(575, 351);
+            this.FinancialPanel.Size = new System.Drawing.Size(235, 346);
             this.FinancialPanel.TabIndex = 8;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.CFButton);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(17, 185);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(201, 70);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cash Flow Statement";
+            // 
+            // CFButton
+            // 
+            this.CFButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.CFButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CFButton.FlatAppearance.BorderSize = 0;
+            this.CFButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CFButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CFButton.ForeColor = System.Drawing.Color.White;
+            this.CFButton.Location = new System.Drawing.Point(18, 29);
+            this.CFButton.Name = "CFButton";
+            this.CFButton.Size = new System.Drawing.Size(166, 25);
+            this.CFButton.TabIndex = 13;
+            this.CFButton.Text = "Open Tool";
+            this.CFButton.UseVisualStyleBackColor = false;
+            this.CFButton.Click += new System.EventHandler(this.CFButton_Click);
             // 
             // BalSheetButton
             // 
@@ -82,18 +112,16 @@ namespace Financial_System.UserControls
             this.BalSheetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BalSheetButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BalSheetButton.ForeColor = System.Drawing.Color.White;
-            this.BalSheetButton.Location = new System.Drawing.Point(383, 165);
+            this.BalSheetButton.Location = new System.Drawing.Point(18, 29);
             this.BalSheetButton.Name = "BalSheetButton";
-            this.BalSheetButton.Size = new System.Drawing.Size(152, 28);
+            this.BalSheetButton.Size = new System.Drawing.Size(166, 25);
             this.BalSheetButton.TabIndex = 11;
-            this.BalSheetButton.Text = "Balance Sheet";
+            this.BalSheetButton.Text = "Open Tool";
             this.BalSheetButton.UseVisualStyleBackColor = false;
             this.BalSheetButton.Click += new System.EventHandler(this.BalSheetButton_Click);
             // 
             // MonthYearGbox
             // 
-            this.MonthYearGbox.Controls.Add(this.label6);
-            this.MonthYearGbox.Controls.Add(this.DayComboBox);
             this.MonthYearGbox.Controls.Add(this.label4);
             this.MonthYearGbox.Controls.Add(this.YearTextBox);
             this.MonthYearGbox.Controls.Add(this.label3);
@@ -102,7 +130,7 @@ namespace Financial_System.UserControls
             this.MonthYearGbox.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonthYearGbox.Location = new System.Drawing.Point(17, 16);
             this.MonthYearGbox.Name = "MonthYearGbox";
-            this.MonthYearGbox.Size = new System.Drawing.Size(271, 87);
+            this.MonthYearGbox.Size = new System.Drawing.Size(201, 87);
             this.MonthYearGbox.TabIndex = 14;
             this.MonthYearGbox.TabStop = false;
             this.MonthYearGbox.Text = "Settings";
@@ -111,7 +139,7 @@ namespace Financial_System.UserControls
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(185, 25);
+            this.label4.Location = new System.Drawing.Point(116, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 14;
@@ -119,7 +147,7 @@ namespace Financial_System.UserControls
             // 
             // YearTextBox
             // 
-            this.YearTextBox.Location = new System.Drawing.Point(188, 44);
+            this.YearTextBox.Location = new System.Drawing.Point(119, 44);
             this.YearTextBox.Multiline = true;
             this.YearTextBox.Name = "YearTextBox";
             this.YearTextBox.Size = new System.Drawing.Size(65, 24);
@@ -144,22 +172,6 @@ namespace Financial_System.UserControls
             this.MonthComboBox.Size = new System.Drawing.Size(92, 24);
             this.MonthComboBox.TabIndex = 0;
             // 
-            // CFButton
-            // 
-            this.CFButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.CFButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CFButton.FlatAppearance.BorderSize = 0;
-            this.CFButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CFButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CFButton.ForeColor = System.Drawing.Color.White;
-            this.CFButton.Location = new System.Drawing.Point(18, 29);
-            this.CFButton.Name = "CFButton";
-            this.CFButton.Size = new System.Drawing.Size(129, 25);
-            this.CFButton.TabIndex = 13;
-            this.CFButton.Text = "Open Tool";
-            this.CFButton.UseVisualStyleBackColor = false;
-            this.CFButton.Click += new System.EventHandler(this.CFButton_Click);
-            // 
             // IncomeStmtButton
             // 
             this.IncomeStmtButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
@@ -168,11 +180,11 @@ namespace Financial_System.UserControls
             this.IncomeStmtButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IncomeStmtButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IncomeStmtButton.ForeColor = System.Drawing.Color.White;
-            this.IncomeStmtButton.Location = new System.Drawing.Point(383, 233);
+            this.IncomeStmtButton.Location = new System.Drawing.Point(18, 30);
             this.IncomeStmtButton.Name = "IncomeStmtButton";
-            this.IncomeStmtButton.Size = new System.Drawing.Size(152, 28);
+            this.IncomeStmtButton.Size = new System.Drawing.Size(166, 25);
             this.IncomeStmtButton.TabIndex = 12;
-            this.IncomeStmtButton.Text = "Income Statement";
+            this.IncomeStmtButton.Text = "Open Tool";
             this.IncomeStmtButton.UseVisualStyleBackColor = false;
             this.IncomeStmtButton.Click += new System.EventHandler(this.IncomeStmtButton_Click);
             // 
@@ -190,7 +202,7 @@ namespace Financial_System.UserControls
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label2.Location = new System.Drawing.Point(622, 81);
+            this.label2.Location = new System.Drawing.Point(327, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 20);
             this.label2.TabIndex = 11;
@@ -200,7 +212,7 @@ namespace Financial_System.UserControls
             // 
             this.GeneralPanel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.GeneralPanel.Controls.Add(this.AddStudButton);
-            this.GeneralPanel.Location = new System.Drawing.Point(626, 106);
+            this.GeneralPanel.Location = new System.Drawing.Point(331, 106);
             this.GeneralPanel.Name = "GeneralPanel";
             this.GeneralPanel.Size = new System.Drawing.Size(159, 128);
             this.GeneralPanel.TabIndex = 10;
@@ -221,36 +233,29 @@ namespace Financial_System.UserControls
             this.AddStudButton.UseVisualStyleBackColor = false;
             this.AddStudButton.Click += new System.EventHandler(this.AddStudButton_Click);
             // 
-            // groupBox1
+            // groupBox2
             // 
-            this.groupBox1.Controls.Add(this.CFButton);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 109);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(164, 70);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cash Flow Statement";
+            this.groupBox2.Controls.Add(this.BalSheetButton);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(17, 109);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(201, 70);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Balance Sheet";
             // 
-            // label6
+            // groupBox3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(113, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 16);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Select Day:";
-            // 
-            // DayComboBox
-            // 
-            this.DayComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DayComboBox.FormattingEnabled = true;
-            this.DayComboBox.Location = new System.Drawing.Point(116, 44);
-            this.DayComboBox.Name = "DayComboBox";
-            this.DayComboBox.Size = new System.Drawing.Size(66, 24);
-            this.DayComboBox.TabIndex = 15;
+            this.groupBox3.Controls.Add(this.IncomeStmtButton);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(17, 261);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(201, 70);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Income Statement";
             // 
             // ToolsControl
             // 
@@ -265,10 +270,12 @@ namespace Financial_System.UserControls
             this.Size = new System.Drawing.Size(848, 478);
             this.Load += new System.EventHandler(this.ToolsControl_Load);
             this.FinancialPanel.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.MonthYearGbox.ResumeLayout(false);
             this.MonthYearGbox.PerformLayout();
             this.GeneralPanel.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,7 +298,7 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox MonthComboBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox DayComboBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
