@@ -75,13 +75,14 @@ namespace Financial_System.Forms
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.TotalCashFlow_Lbl = new System.Windows.Forms.Label();
+            this.TotalFCF_Lbl = new System.Windows.Forms.Label();
+            this.TotalICF_Lbl = new System.Windows.Forms.Label();
+            this.TotalOCF_Lbl = new System.Windows.Forms.Label();
             this.NetCashFinancing_Lbl = new System.Windows.Forms.Label();
             this.NetCashInvesting_Lbl = new System.Windows.Forms.Label();
             this.CashFlow_Lbl = new System.Windows.Forms.Label();
-            this.TotalOCF_Lbl = new System.Windows.Forms.Label();
-            this.TotalICF_Lbl = new System.Windows.Forms.Label();
-            this.TotalFCF_Lbl = new System.Windows.Forms.Label();
-            this.TotalCashFlow_Lbl = new System.Windows.Forms.Label();
+            this.MonthYearLabel = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FCF_DGV)).BeginInit();
@@ -98,6 +99,7 @@ namespace Financial_System.Forms
             // TopBarPanel
             // 
             this.TopBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.TopBarPanel.Controls.Add(this.MonthYearLabel);
             this.TopBarPanel.Controls.Add(this.CloseButton);
             this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
@@ -134,6 +136,7 @@ namespace Financial_System.Forms
             this.ExportToExcel_Btn.TabIndex = 39;
             this.ExportToExcel_Btn.Text = "Export To Excel";
             this.ExportToExcel_Btn.UseVisualStyleBackColor = false;
+            this.ExportToExcel_Btn.Click += new System.EventHandler(this.ExportToExcel_Btn_Click);
             // 
             // tabPage4
             // 
@@ -554,6 +557,54 @@ namespace Financial_System.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results";
             // 
+            // TotalCashFlow_Lbl
+            // 
+            this.TotalCashFlow_Lbl.AutoSize = true;
+            this.TotalCashFlow_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalCashFlow_Lbl.ForeColor = System.Drawing.Color.Black;
+            this.TotalCashFlow_Lbl.Location = new System.Drawing.Point(236, 80);
+            this.TotalCashFlow_Lbl.Name = "TotalCashFlow_Lbl";
+            this.TotalCashFlow_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TotalCashFlow_Lbl.Size = new System.Drawing.Size(28, 16);
+            this.TotalCashFlow_Lbl.TabIndex = 62;
+            this.TotalCashFlow_Lbl.Text = "N/A";
+            // 
+            // TotalFCF_Lbl
+            // 
+            this.TotalFCF_Lbl.AutoSize = true;
+            this.TotalFCF_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalFCF_Lbl.ForeColor = System.Drawing.Color.Black;
+            this.TotalFCF_Lbl.Location = new System.Drawing.Point(236, 62);
+            this.TotalFCF_Lbl.Name = "TotalFCF_Lbl";
+            this.TotalFCF_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TotalFCF_Lbl.Size = new System.Drawing.Size(28, 16);
+            this.TotalFCF_Lbl.TabIndex = 61;
+            this.TotalFCF_Lbl.Text = "N/A";
+            // 
+            // TotalICF_Lbl
+            // 
+            this.TotalICF_Lbl.AutoSize = true;
+            this.TotalICF_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalICF_Lbl.ForeColor = System.Drawing.Color.Black;
+            this.TotalICF_Lbl.Location = new System.Drawing.Point(236, 44);
+            this.TotalICF_Lbl.Name = "TotalICF_Lbl";
+            this.TotalICF_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TotalICF_Lbl.Size = new System.Drawing.Size(28, 16);
+            this.TotalICF_Lbl.TabIndex = 60;
+            this.TotalICF_Lbl.Text = "N/A";
+            // 
+            // TotalOCF_Lbl
+            // 
+            this.TotalOCF_Lbl.AutoSize = true;
+            this.TotalOCF_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalOCF_Lbl.ForeColor = System.Drawing.Color.Black;
+            this.TotalOCF_Lbl.Location = new System.Drawing.Point(236, 26);
+            this.TotalOCF_Lbl.Name = "TotalOCF_Lbl";
+            this.TotalOCF_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TotalOCF_Lbl.Size = new System.Drawing.Size(28, 16);
+            this.TotalOCF_Lbl.TabIndex = 59;
+            this.TotalOCF_Lbl.Text = "N/A";
+            // 
             // NetCashFinancing_Lbl
             // 
             this.NetCashFinancing_Lbl.AutoSize = true;
@@ -586,53 +637,17 @@ namespace Financial_System.Forms
             this.CashFlow_Lbl.TabIndex = 41;
             this.CashFlow_Lbl.Text = "Total Cash Flow:";
             // 
-            // TotalOCF_Lbl
+            // MonthYearLabel
             // 
-            this.TotalOCF_Lbl.AutoSize = true;
-            this.TotalOCF_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalOCF_Lbl.ForeColor = System.Drawing.Color.Black;
-            this.TotalOCF_Lbl.Location = new System.Drawing.Point(236, 26);
-            this.TotalOCF_Lbl.Name = "TotalOCF_Lbl";
-            this.TotalOCF_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TotalOCF_Lbl.Size = new System.Drawing.Size(28, 16);
-            this.TotalOCF_Lbl.TabIndex = 59;
-            this.TotalOCF_Lbl.Text = "N/A";
-            // 
-            // TotalICF_Lbl
-            // 
-            this.TotalICF_Lbl.AutoSize = true;
-            this.TotalICF_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalICF_Lbl.ForeColor = System.Drawing.Color.Black;
-            this.TotalICF_Lbl.Location = new System.Drawing.Point(236, 44);
-            this.TotalICF_Lbl.Name = "TotalICF_Lbl";
-            this.TotalICF_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TotalICF_Lbl.Size = new System.Drawing.Size(28, 16);
-            this.TotalICF_Lbl.TabIndex = 60;
-            this.TotalICF_Lbl.Text = "N/A";
-            // 
-            // TotalFCF_Lbl
-            // 
-            this.TotalFCF_Lbl.AutoSize = true;
-            this.TotalFCF_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalFCF_Lbl.ForeColor = System.Drawing.Color.Black;
-            this.TotalFCF_Lbl.Location = new System.Drawing.Point(236, 62);
-            this.TotalFCF_Lbl.Name = "TotalFCF_Lbl";
-            this.TotalFCF_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TotalFCF_Lbl.Size = new System.Drawing.Size(28, 16);
-            this.TotalFCF_Lbl.TabIndex = 61;
-            this.TotalFCF_Lbl.Text = "N/A";
-            // 
-            // TotalCashFlow_Lbl
-            // 
-            this.TotalCashFlow_Lbl.AutoSize = true;
-            this.TotalCashFlow_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalCashFlow_Lbl.ForeColor = System.Drawing.Color.Black;
-            this.TotalCashFlow_Lbl.Location = new System.Drawing.Point(236, 80);
-            this.TotalCashFlow_Lbl.Name = "TotalCashFlow_Lbl";
-            this.TotalCashFlow_Lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TotalCashFlow_Lbl.Size = new System.Drawing.Size(28, 16);
-            this.TotalCashFlow_Lbl.TabIndex = 62;
-            this.TotalCashFlow_Lbl.Text = "N/A";
+            this.MonthYearLabel.AutoSize = true;
+            this.MonthYearLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonthYearLabel.ForeColor = System.Drawing.Color.White;
+            this.MonthYearLabel.Location = new System.Drawing.Point(315, 7);
+            this.MonthYearLabel.Name = "MonthYearLabel";
+            this.MonthYearLabel.Size = new System.Drawing.Size(113, 16);
+            this.MonthYearLabel.TabIndex = 46;
+            this.MonthYearLabel.Text = "MonthYearLabel";
+            this.MonthYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CashFlowWindow
             // 
@@ -710,5 +725,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Label TotalFCF_Lbl;
         private System.Windows.Forms.Label TotalICF_Lbl;
         private System.Windows.Forms.Label TotalOCF_Lbl;
+        private System.Windows.Forms.Label MonthYearLabel;
     }
 }

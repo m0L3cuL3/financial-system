@@ -198,8 +198,8 @@ namespace Financial_System.Forms
         ///
         private void ExportToExcel()
         {
-            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets");
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Balance Sheets\\Balance Sheet.xlsx";
+            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Financial Statements");
+            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Financial Statements\\Balance Sheet.xlsx";
 
             WorkBook wb; 
             
