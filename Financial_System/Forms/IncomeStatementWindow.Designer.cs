@@ -29,6 +29,7 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomeStatementWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,7 +78,7 @@ namespace Financial_System.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.ExportToExcel = new System.Windows.Forms.Button();
+            this.ExportToExcel_Btn = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.GroupBox.SuspendLayout();
             this.ListPanel2.SuspendLayout();
@@ -670,31 +671,33 @@ namespace Financial_System.Forms
             this.label10.TabIndex = 22;
             this.label10.Text = "Revenue:";
             // 
-            // ExportToExcel
+            // ExportToExcel_Btn
             // 
-            this.ExportToExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
-            this.ExportToExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExportToExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExportToExcel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportToExcel.ForeColor = System.Drawing.Color.White;
-            this.ExportToExcel.Location = new System.Drawing.Point(565, 429);
-            this.ExportToExcel.Name = "ExportToExcel";
-            this.ExportToExcel.Size = new System.Drawing.Size(166, 34);
-            this.ExportToExcel.TabIndex = 42;
-            this.ExportToExcel.Text = "Export To Excel";
-            this.ExportToExcel.UseVisualStyleBackColor = false;
+            this.ExportToExcel_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.ExportToExcel_Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExportToExcel_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExportToExcel_Btn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportToExcel_Btn.ForeColor = System.Drawing.Color.White;
+            this.ExportToExcel_Btn.Location = new System.Drawing.Point(565, 429);
+            this.ExportToExcel_Btn.Name = "ExportToExcel_Btn";
+            this.ExportToExcel_Btn.Size = new System.Drawing.Size(166, 34);
+            this.ExportToExcel_Btn.TabIndex = 42;
+            this.ExportToExcel_Btn.Text = "Export To Excel";
+            this.ExportToExcel_Btn.UseVisualStyleBackColor = false;
+            this.ExportToExcel_Btn.Click += new System.EventHandler(this.ExportToExcel_Click);
             // 
             // IncomeStatementWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 475);
-            this.Controls.Add(this.ExportToExcel);
+            this.Controls.Add(this.ExportToExcel_Btn);
             this.Controls.Add(this.ListPanel2);
             this.Controls.Add(this.ListPanel);
             this.Controls.Add(this.GroupBox);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IncomeStatementWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncomeStatementWindow";
@@ -760,6 +763,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label TotalGrossProfit_Lbl;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Button ExportToExcel;
+        private System.Windows.Forms.Button ExportToExcel_Btn;
     }
 }

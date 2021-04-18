@@ -32,6 +32,7 @@ namespace Financial_System.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentLedgerWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.StudentIDLabel = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@ namespace Financial_System.Forms
             this.StudentLRNLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +60,6 @@ namespace Financial_System.Forms
             this.exportBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TermComboBox = new System.Windows.Forms.ComboBox();
-            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.TopBarPanel.SuspendLayout();
             this.SideInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -179,6 +180,17 @@ namespace Financial_System.Forms
             this.label5.Size = new System.Drawing.Size(44, 16);
             this.label5.TabIndex = 18;
             this.label5.Text = "Name:";
+            // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
             // 
             // dataGridView1
             // 
@@ -379,17 +391,6 @@ namespace Financial_System.Forms
             this.TermComboBox.Size = new System.Drawing.Size(128, 21);
             this.TermComboBox.TabIndex = 30;
             // 
-            // ProfilePanel
-            // 
-            this.ProfilePanel.Angle = -48F;
-            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
-            this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
-            // 
             // StudentLedgerWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,6 +410,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.SideInfoPanel);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "StudentLedgerWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -44,6 +44,7 @@ namespace Financial_System.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BalanceSheetWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.MonthYearLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Label();
@@ -1064,6 +1065,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BalanceSheetWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BalanceSheetWindow";
