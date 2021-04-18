@@ -62,7 +62,7 @@ namespace Financial_System.Forms
         {
             try
             {
-                if (amountBox.Text == "" || TypeCmBox.SelectedItem.ToString() == "" || ReceiptBox.Text == "")
+                if (amountBox.Text == string.Empty || TypeCmBox.SelectedItem.ToString() == string.Empty || ReceiptBox.Text == string.Empty)
                 {
                     MessageBox.Show("Something went wrong. Make sure to fill all the requirements.");
                 }

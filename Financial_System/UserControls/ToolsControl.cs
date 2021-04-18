@@ -33,7 +33,7 @@ namespace Financial_System.UserControls
         // Create Balance Sheet
         private void BalSheetButton_Click(object sender, System.EventArgs e)
         {
-            if(MonthComboBox.SelectedIndex == -1 || YearTextBox.Text == "")
+            if(MonthComboBox.SelectedIndex == -1 || YearTextBox.Text == string.Empty)
             {
                 MessageBox.Show("Input Month & Year.", "Invalid Option.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -48,7 +48,8 @@ namespace Financial_System.UserControls
         // Create Income Statement
         private void IncomeStmtButton_Click(object sender, System.EventArgs e)
         {
-            MessageBox.Show("Work in progress!");
+            IncomeStatementWindow isw = new IncomeStatementWindow();
+            isw.Show();
         }
 
         // Create CashFlow Statement

@@ -122,9 +122,11 @@ namespace Financial_System.UserControls
             this.pingStatusLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pingStatusLabel.Location = new System.Drawing.Point(224, 41);
             this.pingStatusLabel.Name = "pingStatusLabel";
+            this.pingStatusLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.pingStatusLabel.Size = new System.Drawing.Size(33, 17);
             this.pingStatusLabel.TabIndex = 10;
             this.pingStatusLabel.Text = "N/A";
+            this.pingStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // NetConLabel
             // 
@@ -176,14 +178,13 @@ namespace Financial_System.UserControls
             // 
             // OverallReportLabel
             // 
-            this.OverallReportLabel.AutoSize = true;
             this.OverallReportLabel.BackColor = System.Drawing.Color.Transparent;
             this.OverallReportLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OverallReportLabel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.OverallReportLabel.Location = new System.Drawing.Point(224, 16);
+            this.OverallReportLabel.Location = new System.Drawing.Point(103, 16);
             this.OverallReportLabel.Name = "OverallReportLabel";
             this.OverallReportLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.OverallReportLabel.Size = new System.Drawing.Size(33, 17);
+            this.OverallReportLabel.Size = new System.Drawing.Size(154, 17);
             this.OverallReportLabel.TabIndex = 6;
             this.OverallReportLabel.Text = "N/A";
             // 
@@ -299,14 +300,13 @@ namespace Financial_System.UserControls
             // 
             // TransTotalLabel
             // 
-            this.TransTotalLabel.AutoSize = true;
             this.TransTotalLabel.BackColor = System.Drawing.Color.Transparent;
             this.TransTotalLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransTotalLabel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.TransTotalLabel.Location = new System.Drawing.Point(224, 16);
+            this.TransTotalLabel.Location = new System.Drawing.Point(147, 16);
             this.TransTotalLabel.Name = "TransTotalLabel";
             this.TransTotalLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.TransTotalLabel.Size = new System.Drawing.Size(33, 17);
+            this.TransTotalLabel.Size = new System.Drawing.Size(110, 17);
             this.TransTotalLabel.TabIndex = 6;
             this.TransTotalLabel.Text = "N/A";
             // 
@@ -336,14 +336,13 @@ namespace Financial_System.UserControls
             // 
             // StudentCountTotalLabel
             // 
-            this.StudentCountTotalLabel.AutoSize = true;
             this.StudentCountTotalLabel.BackColor = System.Drawing.Color.Transparent;
             this.StudentCountTotalLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentCountTotalLabel.ForeColor = System.Drawing.Color.Chartreuse;
-            this.StudentCountTotalLabel.Location = new System.Drawing.Point(224, 16);
+            this.StudentCountTotalLabel.Location = new System.Drawing.Point(144, 16);
             this.StudentCountTotalLabel.Name = "StudentCountTotalLabel";
             this.StudentCountTotalLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.StudentCountTotalLabel.Size = new System.Drawing.Size(33, 17);
+            this.StudentCountTotalLabel.Size = new System.Drawing.Size(113, 17);
             this.StudentCountTotalLabel.TabIndex = 6;
             this.StudentCountTotalLabel.Text = "N/A";
             // 
