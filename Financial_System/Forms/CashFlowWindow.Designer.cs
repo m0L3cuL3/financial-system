@@ -43,6 +43,7 @@ namespace Financial_System.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopBarPanel = new System.Windows.Forms.Panel();
+            this.MonthYearLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Label();
             this.ExportToExcel_Btn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -82,7 +83,6 @@ namespace Financial_System.Forms
             this.NetCashFinancing_Lbl = new System.Windows.Forms.Label();
             this.NetCashInvesting_Lbl = new System.Windows.Forms.Label();
             this.CashFlow_Lbl = new System.Windows.Forms.Label();
-            this.MonthYearLabel = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FCF_DGV)).BeginInit();
@@ -109,6 +109,18 @@ namespace Financial_System.Forms
             this.TopBarPanel.TabIndex = 2;
             this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
             // 
+            // MonthYearLabel
+            // 
+            this.MonthYearLabel.AutoSize = true;
+            this.MonthYearLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonthYearLabel.ForeColor = System.Drawing.Color.White;
+            this.MonthYearLabel.Location = new System.Drawing.Point(315, 7);
+            this.MonthYearLabel.Name = "MonthYearLabel";
+            this.MonthYearLabel.Size = new System.Drawing.Size(113, 16);
+            this.MonthYearLabel.TabIndex = 46;
+            this.MonthYearLabel.Text = "MonthYearLabel";
+            this.MonthYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CloseButton
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -122,6 +134,7 @@ namespace Financial_System.Forms
             this.CloseButton.Size = new System.Drawing.Size(18, 18);
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "X";
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // ExportToExcel_Btn
             // 
@@ -637,18 +650,6 @@ namespace Financial_System.Forms
             this.CashFlow_Lbl.TabIndex = 41;
             this.CashFlow_Lbl.Text = "Total Cash Flow:";
             // 
-            // MonthYearLabel
-            // 
-            this.MonthYearLabel.AutoSize = true;
-            this.MonthYearLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MonthYearLabel.ForeColor = System.Drawing.Color.White;
-            this.MonthYearLabel.Location = new System.Drawing.Point(315, 7);
-            this.MonthYearLabel.Name = "MonthYearLabel";
-            this.MonthYearLabel.Size = new System.Drawing.Size(113, 16);
-            this.MonthYearLabel.TabIndex = 46;
-            this.MonthYearLabel.Text = "MonthYearLabel";
-            this.MonthYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CashFlowWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -661,6 +662,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.ExportToExcel_Btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CashFlowWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CashFlowWindow";
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
