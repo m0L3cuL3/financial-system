@@ -10,12 +10,12 @@ namespace Financial_System.UserControls
         public GetStartedControl()
         {
             InitializeComponent();
-            ui.RoundPanel(WikiPanel);
+            ui.RoundPanel(InfoPanel);
         }
 
-        private void GithubLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ManualButton_Click(object sender, System.EventArgs e)
         {
-            Process.Start("https://github.com/m0L3cuL3/financial-system/wiki");
+            Process.Start("https://github.com/m0L3cuL3/financial-system/wiki/Documentation");
         }
     }
 }

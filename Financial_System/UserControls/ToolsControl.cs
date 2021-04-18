@@ -48,8 +48,15 @@ namespace Financial_System.UserControls
         // Create Income Statement
         private void IncomeStmtButton_Click(object sender, System.EventArgs e)
         {
-            IncomeStatementWindow isw = new IncomeStatementWindow();
-            isw.Show();
+            if (MonthComboBox.SelectedIndex == -1 || YearTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Input Month & Year.", "Invalid Option.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                IncomeStatementWindow isw = new IncomeStatementWindow(MonthComboBox.SelectedItem.ToString(), YearTextBox.Text);
+                isw.Show();
+            }
         }
 
         // Create CashFlow Statement

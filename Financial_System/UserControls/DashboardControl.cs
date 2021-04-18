@@ -40,7 +40,6 @@ namespace Financial_System.UserControls
             CheckNetworkConnection();
             LoadCurrReportsAsync();
             total_timer.Start();
-            MessageBox.Show(sql.GetTotalTransaction(sql.CreateConnection(), currYear).ToString());
         }
 
         // Load Current Year Collection Reports
