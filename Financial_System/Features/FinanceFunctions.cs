@@ -40,5 +40,36 @@ namespace Financial_System.Features
         }
 
         #endregion
+
+        #region Income Statement
+        
+        public async Task<decimal> CalcGrossProfit(decimal revenue, decimal costOfGoodsSold)
+        {
+            return await Task.Run(() =>
+            {
+                decimal result = revenue - costOfGoodsSold;
+                return result;
+            });
+        }
+
+        public async Task<decimal> CalcOperatingIncome(decimal grossProfit, decimal operatingExpense)
+        {
+            return await Task.Run(() =>
+            {
+                decimal result = grossProfit - operatingExpense;
+                return result;
+            });
+        }
+
+        public async Task<decimal> CalcNetIncome(decimal operatingIncome, decimal nonOperatingItems)
+        {
+            return await Task.Run(() =>
+            {
+                decimal result = operatingIncome + nonOperatingItems;
+                return result;
+            });
+        }
+        
+        #endregion
     }
 }
