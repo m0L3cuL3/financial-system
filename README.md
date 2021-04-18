@@ -16,8 +16,8 @@
 - [x] Transactions
 - [x] Generate Reports (Daily/Monthly)
 - [x] Balance Sheet
-- [ ] Cash Flow Statement
-- [ ] Income Statement
+- [x] Cash Flow Statement
+- [x] Income Statement
 
 ## App Scope and Limitations
 
