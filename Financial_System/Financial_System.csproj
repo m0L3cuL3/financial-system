@@ -213,6 +213,12 @@
     <Compile Include="Forms\ChangePasswordWindow.Designer.cs">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IncomeStatementWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IncomeStatementWindow.Designer.cs">
+      <DependentUpon>IncomeStatementWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IncomeStatementWindow.resx">
+      <DependentUpon>IncomeStatementWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
