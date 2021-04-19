@@ -1,6 +1,6 @@
-﻿using Financial_System.Features;
+﻿using ClosedXML.Excel;
+using Financial_System.Features;
 using Financial_System.Utils;
-using IronXL;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -100,76 +100,80 @@ namespace Financial_System.Forms
         // export ledger
         private void exportBtn_Click(object sender, EventArgs e)
         {
-            ExportToExcel();
+            Export();
         }
 
-        private void ExportToExcel()
+        private void Export()
         {
-            Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers");
-            string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers\\{name}.xlsx";
-
-            WorkBook wb;
-            WorkSheet xlsSheet;
-
-            if (!File.Exists(path))
+            try
             {
-                wb = WorkBook.Create(ExcelFileFormat.XLSX);
-                wb.Metadata.Author = "PCHS";
-                xlsSheet = wb.CreateWorkSheet($"{section} - {level}");
+                Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers");
+                string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Student Ledgers\\{name}.xlsx";
+
+                IXLWorkbook wb;
+                IXLWorksheet ws;
+
+                if (!File.Exists(path))
+                {
+                    wb = new XLWorkbook();
+                    ws = wb.Worksheets.Add($"{section} - {level}");
+                }
+                else
+                {
+                    wb = new XLWorkbook(path);
+                    ws = wb.Worksheet($"{section} - {level}");
+                }
+
+                #region Title
+                // Title
+                ws.Cell("A1").Value = name;
+                ws.Cell("A1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("A1").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("A1").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#7EA0D6"));
+                ws.Cell("A1").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Cell("A1").Style.Font.SetFontSize(16);
+                ws.Range("A1:F1").Merge();
+                #endregion
+
+                #region Columns
+
+                ws.Range("A2:F2").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
+                ws.Range("A2:F2").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Cell("A2").Value = "Transaction ID";
+                ws.Cell("B2").Value = "Amount";
+                ws.Cell("C2").Value = "Type";
+                ws.Cell("D2").Value = "Term";
+                ws.Cell("E2").Value = "Receipt #";
+                ws.Cell("F2").Value = "Date Recorded";
+
+                int currIndex = 3;
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    ws.Cell($"A{currIndex}").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    ws.Cell($"A{currIndex}").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+                    ws.Cell($"B{currIndex}").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    ws.Cell($"B{currIndex}").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+                    ws.Cell($"A{currIndex}").Value = dataGridView1.Rows[i].Cells[0].Value; // transaction id
+                    ws.Cell($"B{currIndex}").Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value); // amount
+                    ws.Cell($"C{currIndex}").Value = dataGridView1.Rows[i].Cells[2].Value; // type
+                    ws.Cell($"D{currIndex}").Value = dataGridView1.Rows[i].Cells[3].Value; // term
+                    ws.Cell($"E{currIndex}").Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
+                    ws.Cell($"F{currIndex}").Value = dataGridView1.Rows[i].Cells[5].Value; // date recorded
+                    currIndex = currIndex + 1;
+                }
+
+                #endregion
+
+                wb.SaveAs(path);
+                MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            catch (ArgumentException ex)
             {
-                wb = WorkBook.Load(path);
-                xlsSheet = wb.GetWorkSheet($"{section} - {level}");
+                MessageBox.Show("An error occured.\n" + ex.Message, "XLSX Export Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // Current Assets
-            xlsSheet.Merge("A1:F1");
-            xlsSheet["A1:F1"].Value = name;
-            xlsSheet["A1:F1"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-            xlsSheet["A1:F1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-            xlsSheet["A1:F1"].Style.SetBackgroundColor("#7EA0D6");
-            xlsSheet["A1:F1"].Style.Font.SetColor("#F2F4F5");
-            xlsSheet["A1:F1"].Style.Font.Height = 16;
-
-            xlsSheet["A2:F2"].Style.Font.Height = 12;
-            xlsSheet["A2:F2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-            xlsSheet["A2:F2"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-            xlsSheet["A2:F2"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-            xlsSheet["A2:F2"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-            xlsSheet["A2:F2"].Style.BottomBorder.SetColor("#000000");
-            xlsSheet["A2:F2"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-            xlsSheet["A2:F2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-            xlsSheet["A2:F2"].Style.SetBackgroundColor("#2F75B5");
-            xlsSheet["A2:F2"].Style.Font.SetColor("#F2F4F5");
-            xlsSheet["A2"].Value = "Transaction ID";
-            xlsSheet["B2"].Value = "Amount";
-            xlsSheet["C2"].Value = "Type";
-            xlsSheet["D2"].Value = "Term";
-            xlsSheet["E2"].Value = "Receipt #";
-            xlsSheet["F2"].Value = "Date Recorded";
-
-            int currIndex = 3;
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-
-                xlsSheet[$"A{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet[$"B{currIndex}"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-
-                xlsSheet[$"A{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet[$"B{currIndex}"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-
-                xlsSheet[$"A{currIndex}"].Value = dataGridView1.Rows[i].Cells[0].Value; // transaction id
-                xlsSheet[$"B{currIndex}"].Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value); // amount
-                xlsSheet[$"C{currIndex}"].Value = dataGridView1.Rows[i].Cells[2].Value; // type
-                xlsSheet[$"D{currIndex}"].Value = dataGridView1.Rows[i].Cells[3].Value; // term
-                xlsSheet[$"E{currIndex}"].Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
-                xlsSheet[$"F{currIndex}"].Value = dataGridView1.Rows[i].Cells[5].Value; // date recorded
-                currIndex = currIndex + 1;
-            }
-
-            wb.SaveAs(path);
-            MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

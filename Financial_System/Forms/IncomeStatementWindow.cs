@@ -1,16 +1,9 @@
 ﻿using Financial_System.Features;
 using Financial_System.Utils;
-using IronXL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace Financial_System.Forms
 {
@@ -139,178 +132,151 @@ namespace Financial_System.Forms
 
         private void ExportToExcel_Click(object sender, EventArgs e)
         {
-            ExportToExcel();
+            Export();
         }
 
-        private void ExportToExcel()
+        private void Export()
         {
             try
             {
                 Directory.CreateDirectory($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Financial Statements");
                 string path = $"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\PCHS Finance\\Financial Statements\\Income Statement.xlsx";
 
-                WorkBook wb;
-                WorkSheet xlsSheet;
+                IXLWorkbook wb;
+                IXLWorksheet ws;
 
                 if (!File.Exists(path))
                 {
-                    wb = WorkBook.Create(ExcelFileFormat.XLSX);
-                    wb.Metadata.Author = "PCHS";
+                    wb = new XLWorkbook();
                 }
                 else
                 {
-                    wb = WorkBook.Load(path);
+                    wb = new XLWorkbook(path);
                 }
 
-                xlsSheet = wb.CreateWorkSheet($"{month} - {year}");
+                ws = wb.Worksheets.Add($"{month} - {year}");
 
-                xlsSheet.Merge("A1:E1");
-                xlsSheet["A1:E1"].Value = $"Income Statement";
-                xlsSheet["A1:E1"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["A1:E1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["A1:E1"].Style.SetBackgroundColor("#2F75B5");
-                xlsSheet["A1:E1"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["A1:E1"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A1:E1"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A1:E1"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A1:E1"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A1:E1"].Style.Font.Height = 16;
+                #region Title
 
-                xlsSheet["A2:B2"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["A2:B2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["A2:B2"].Style.SetBackgroundColor("#7EA0D6");
-                xlsSheet["A2:B2"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["A2:B2"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A2:B2"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A2:B2"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A2:B2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A2"].Value = "Period";
-                xlsSheet["B2"].Value = $"{year}";
+                // Title
+                ws.Cell("A1").Value = $"Income Statement {month} - {year}";
+                ws.Cell("A1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("A1").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("A1").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
+                ws.Cell("A1").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Cell("A1").Style.Font.SetFontSize(16);
+                ws.Range("A1:E1").Merge();
+
+                #endregion
+
+                #region Period & Year Columns
+
+                // Period & Year Columns
+                ws.Cell("A2").Value = "Period";
+                ws.Cell("B2").Value = $"{year}";
+                ws.Cell("A2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("A2").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("B2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("B2").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("A2").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#7EA0D6"));
+                ws.Cell("A2").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Cell("B2").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#7EA0D6"));
+                ws.Cell("B2").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+
+                #endregion
 
                 #region Gross Profit
 
-                xlsSheet.Merge("D2:E2");
-                xlsSheet["D2:E2"].Value = $"Gross Profit";
-                xlsSheet["D2:E2"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["D2:E2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["D2:E2"].Style.SetBackgroundColor("#002C74");
-                xlsSheet["D2:E2"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["D2:E2"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D2:E2"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D2:E2"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D2:E2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+                // Header
+                ws.Cell("D2").Value = "Gross Profit";
+                ws.Cell("D2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("D2").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("D2").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#002C74"));
+                ws.Cell("D2").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("D2:E2").Merge();
 
-                xlsSheet.Merge("D3:E3");
-                xlsSheet["D3:E3"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["D3:E3"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["D3:E3"].Style.SetBackgroundColor("#2F75B5");
-                xlsSheet["D3:E3"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["D3:E3"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D3:E3"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D3:E3"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D3:E3"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D3:E3"].Value = Convert.ToDecimal(TotalGrossProfit_Lbl.Text);
+                // Result
+                ws.Cell("D3").Value = Convert.ToDecimal(TotalGrossProfit_Lbl.Text);
+                ws.Cell("D3").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("D3").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("D3").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
+                ws.Cell("D3").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("D3:E3").Merge();
 
                 #endregion
 
                 #region Operating Income
 
-                xlsSheet.Merge("D4:E4");
-                xlsSheet["D4:E4"].Value = $"Operating Income";
-                xlsSheet["D4:E4"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["D4:E4"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["D4:E4"].Style.SetBackgroundColor("#002C74");
-                xlsSheet["D4:E4"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["D4:E4"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D4:E4"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D4:E4"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D4:E4"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+                // Header
+                ws.Cell("D4").Value = "Operating Income";
+                ws.Cell("D4").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("D4").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("D4").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#002C74"));
+                ws.Cell("D4").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("D4:E4").Merge();
 
-                xlsSheet.Merge("D5:E5");
-                xlsSheet["D5:E5"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["D5:E5"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["D5:E5"].Style.SetBackgroundColor("#2F75B5");
-                xlsSheet["D5:E5"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["D5:E5"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D5:E5"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D5:E5"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D5:E5"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D5:E5"].Value = Convert.ToDecimal(TotalOperatingIncome_Lbl.Text);
+                // Result
+                ws.Cell("D5").Value = Convert.ToDecimal(TotalOperatingIncome_Lbl.Text);
+                ws.Cell("D5").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("D5").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("D5").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
+                ws.Cell("D5").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("D5:E5").Merge();
 
                 #endregion
 
                 #region Net Income
 
-                xlsSheet.Merge("D6:E6");
-                xlsSheet["D6:E6"].Value = $"Net Income";
-                xlsSheet["D6:E6"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["D6:E6"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["D6:E6"].Style.SetBackgroundColor("#002C74");
-                xlsSheet["D6:E6"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["D6:E6"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D6:E6"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D6:E6"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D6:E6"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+                // Header
+                ws.Cell("D6").Value = "Net Income";
+                ws.Cell("D6").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("D6").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("D6").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#002C74"));
+                ws.Cell("D6").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("D6:E6").Merge();
 
-                xlsSheet.Merge("D7:E7");
-                xlsSheet["D7:E7"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["D7:E7"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["D7:E7"].Style.SetBackgroundColor("#2F75B5");
-                xlsSheet["D7:E7"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["D7:E7"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D7:E7"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D7:E7"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D7:E7"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["D7:E7"].Value = Convert.ToDecimal(TotalNetIncome_Lbl.Text);
+                // Result
+                ws.Cell("D7").Value = Convert.ToDecimal(TotalNetIncome_Lbl.Text);
+                ws.Cell("D7").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                ws.Cell("D7").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+                ws.Cell("D7").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
+                ws.Cell("D7").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("D7:E7").Merge();
 
                 #endregion
 
-                xlsSheet["A3:A11"].Style.SetBackgroundColor("#2F75B5");
-                xlsSheet["A3:A11"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["A3:A11"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["A3:A11"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["A3:A11"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A3:A11"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A3:A11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["A3:A11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
+                #region Column A
+                ws.Cell("A3").Value = "Revenue";
+                ws.Cell("A4").Value = "Cost of Goods Sold";
+                ws.Cell("A5").Value = "Research and Development";
+                ws.Cell("A6").Value = "Sales, General & Admin";
+                ws.Cell("A7").Value = "Additional Income/Expense";
+                ws.Cell("A8").Value = "Earnings Before Interest & Tax";
+                ws.Cell("A9").Value = "Interest Expense";
+                ws.Cell("A10").Value = "Earning Before Tax";
+                ws.Cell("A11").Value = "Income Tax";
+                #endregion
 
-                xlsSheet["B3:B11"].Style.SetBackgroundColor("#2F75B5");
-                xlsSheet["B3:B11"].Style.Font.SetColor("#F2F4F5");
-                xlsSheet["B3:B11"].Style.VerticalAlignment = IronXL.Styles.VerticalAlignment.Center;
-                xlsSheet["B3:B11"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
-                xlsSheet["B3:B11"].Style.TopBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["B3:B11"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["B3:B11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Thin;
-                xlsSheet["B3:B11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thin;
-
-                xlsSheet["A3"].Value = "Revenue";
-                xlsSheet["A4"].Value = "Cost of Goods Sold";
-                xlsSheet["A5"].Value = "Research and Development";
-                xlsSheet["A6"].Value = "Sales, General & Admin";
-                xlsSheet["A7"].Value = "Additional Income/Expense";
-                xlsSheet["A8"].Value = "Earnings Before Interest & Tax";
-                xlsSheet["A9"].Value = "Interest Expense";
-                xlsSheet["A10"].Value = "Earning Before Tax";
-                xlsSheet["A11"].Value = "Income Tax";
-
-                xlsSheet["B3"].Value = Convert.ToDecimal(Revenue_txtBox.Text);
-                xlsSheet["B4"].Value = Convert.ToDecimal(Cgs_txtBox.Text);
-                xlsSheet["B5"].Value = Convert.ToDecimal(RnD_txtBox.Text);
-                xlsSheet["B6"].Value = Convert.ToDecimal(Sga_txtBox.Text);
-                xlsSheet["B7"].Value = Convert.ToDecimal(AddInEx_txtBox.Text);
-                xlsSheet["B8"].Value = Convert.ToDecimal(Ebit_txtBox.Text);
-                xlsSheet["B9"].Value = Convert.ToDecimal(IntExp_Lbl.Text);
-                xlsSheet["B10"].Value = Convert.ToDecimal(Ebt_txtBox.Text);
-                xlsSheet["B11"].Value = Convert.ToDecimal(InTax_txtBox.Text);
+                #region Column B
+                ws.Cell("B3").Value = Convert.ToDecimal(Revenue_txtBox.Text);
+                ws.Cell("B4").Value = Convert.ToDecimal(Cgs_txtBox.Text);
+                ws.Cell("B5").Value = Convert.ToDecimal(RnD_txtBox.Text);
+                ws.Cell("B6").Value = Convert.ToDecimal(Sga_txtBox.Text);
+                ws.Cell("B7").Value = Convert.ToDecimal(AddInEx_txtBox.Text);
+                ws.Cell("B8").Value = Convert.ToDecimal(Ebit_txtBox.Text);
+                ws.Cell("B9").Value = Convert.ToDecimal(IntExp_Lbl.Text);
+                ws.Cell("B10").Value = Convert.ToDecimal(Ebt_txtBox.Text);
+                ws.Cell("B11").Value = Convert.ToDecimal(InTax_txtBox.Text);
+                #endregion
 
                 wb.SaveAs(path);
                 MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch
+            catch (ArgumentException ex)
             {
-                MessageBox.Show($"{month} - {year} already exists! Please contact your administrator.", "Duplicate worksheets.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occured.\n" + ex.Message, "XLSX Export Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
     }
 }
