@@ -28,7 +28,7 @@
 ## Technologies Used
 
 - C# (.NET Framework 4.7.2)
-- IronXL (will change to ClosedXML)
+- ClosedXML
 - SQLite (will probably use ORM libraries)
 
 ---
