@@ -23,9 +23,9 @@
 
 ## Technologies Used
 
-- C# (.NET Framework 4.7.2)
-- ClosedXML
-- SQLite (will probably use ORM libraries)
+- __C#__ (.NET Framework 4.7.2)
+- __ClosedXML__
+- __SQLite__
 
 ---
 
