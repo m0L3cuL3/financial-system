@@ -9,8 +9,8 @@ namespace Financial_System
     public class Globals
     {
         // SUPERUSERS //
-        public string USER_NAME = "superadmin";
-        public string USER_PASS = "password123";
+        public string USER_NAME = "a";
+        public string USER_PASS = "a";
 
         public string[] ReportFilterList =
         {

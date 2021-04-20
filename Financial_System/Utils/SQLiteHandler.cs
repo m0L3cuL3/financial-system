@@ -49,13 +49,13 @@ namespace Financial_System.Utils
                 ///
                 /// Added LRN
                 ///
-                string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(student_id INTEGER PRIMARY KEY AUTOINCREMENT, student_lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR NOT NULL, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL);";
+                string StudentTable = "CREATE TABLE IF NOT EXISTS Student_tbl(lrn INTEGER PRIMARY KEY, first_name VARCHAR, middle_name VARCHAR, surname VARCHAR NOT NULL, date_created DATE NOT NULL);";
                 sqlite_cmd = conn.CreateCommand();
                 sqlite_cmd.CommandText = StudentTable;
                 sqlite_cmd.ExecuteNonQuery();
 
                 // TRANSACTION // renamed by alexislyndon
-                string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, student_id INT NOT NULL, receipt_number VARCHAR NOT NULL, term INT NOT NULL, date_recorded DATE NOT NULL, user INT NULL, FOREIGN KEY(student_id) REFERENCES Student_tbl(student_id), FOREIGN KEY(term) REFERENCES Term_tbl(term_id), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
+                string TransactionTable = "CREATE TABLE IF NOT EXISTS Transaction_tbl(transaction_id INTEGER PRIMARY KEY AUTOINCREMENT, amount INT NOT NULL, type VARCHAR NOT NULL, lrn INT NOT NULL, reference VARCHAR NOT NULL, date_recorded DATE NOT NULL, user INT NULL, void TINYINT NULL, FOREIGN KEY(lrn) REFERENCES Student_tbl(lrn), FOREIGN KEY(user) REFERENCES User_tbl(user_id));";
                 sqlite_cmd = conn.CreateCommand();
                 sqlite_cmd.CommandText = TransactionTable;
                 sqlite_cmd.ExecuteNonQuery();
@@ -71,6 +71,37 @@ namespace Financial_System.Utils
                 sqlite_cmd = conn.CreateCommand();
                 sqlite_cmd.CommandText = UserTable;
                 sqlite_cmd.ExecuteNonQuery();
+
+                ///////////////////// DB by alexislyndon tables added: Enrolment_tbl, Fees_tbl, FeeGroup_tbl, Orphans_tbl
+
+                string EnrolmentTable = "CREATE TABLE IF NOT EXISTS Enrolment_tbl(enrolment_id INTEGER PRIMARY KEY, lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL, aycode VARCHAR);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = EnrolmentTable;
+                sqlite_cmd.ExecuteNonQuery();
+
+                // Schedule of Fees Table// increases/decrease balance
+                string ScheduleFeesPayments = "CREATE TABLE IF NOT EXISTS FPTemplate_tbl(fp_id INTEGER PRIMARY KEY AUTOINCREMENT, fp_name  VARCHAR NOT NULL UNIQUE, amount INT, payment INT, fp_desc  VARCHAR NOT NULL);";
+                sqlite_cmd = conn.CreateCommand();                        //Fee or Payment Template table
+                sqlite_cmd.CommandText = ScheduleFeesPayments;
+                sqlite_cmd.ExecuteNonQuery();
+
+                // Fee or Payment Group //
+                string FeeGroupTable = "CREATE TABLE IF NOT EXISTS FeeGroup_tbl(fg_id INTEGER PRIMARY KEY AUTOINCREMENT, fg_name VARCHAR NOT NULL, fg_desc VARCHAR NOT NULL, date_recorded DATE NOT NULL);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = FeeGroupTable;
+                sqlite_cmd.ExecuteNonQuery();
+
+                //list of fees in a FeeGroup
+                string FeeGroupFeesTable = "CREATE TABLE IF NOT EXISTS FeeGroupFees_tbl(fg_id INTEGER PRIMARY KEY AUTOINCREMENT, fp_id INT NOT NULL);";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = FeeGroupFeesTable;
+                sqlite_cmd.ExecuteNonQuery();
+
+                /*// Transactions without an enrolment id //
+                string OrphanTransactions = "CREATE TABLE IF NOT EXISTS OrphanTransactions_tbl(id INTEGER PRIMARY KEY AUTOINCREMENT, tid INT NOT NULL, lrn VARCHAR NOT NULL, resolved? VARCHAR);"; //Learner Reference Number: 12digit unique nationwide
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = OrphanTransactions;
+                sqlite_cmd.ExecuteNonQuery();*/
             });
         }
 
@@ -111,20 +142,28 @@ namespace Financial_System.Utils
             });
         }
 
-        // Insert Transaction Data
-        public void InsertTransaction(SQLiteConnection conn, int amount, string type, string sid, string receipt, int term)
+        /// <summary>
+        /// Post a transaction tied to a student by its lrn
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="amount"></param>
+        /// <param name="payment"></param>
+        /// <param name="type"></param>
+        /// <param name="lrn"></param>
+        /// <param name="reference"></param>
+        public void InsertTransaction(SQLiteConnection conn, int? amount, int? payment, string type, string lrn, string reference)
         {
             SQLiteCommand sqlite_cmd;
 
-            string insertData = "INSERT INTO Transaction_tbl(amount, type, student_id, receipt_number, term, date_recorded) VALUES (@amount, @type, @sid, @receipt, @term, @date_recorded);";
+            string insertData = "INSERT INTO Transaction_tbl(amount, payment, type, lrn, reference, date_recorded) VALUES (@amount, @payment @type, @lrn, @ref, @date_recorded);";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = insertData;
 
             sqlite_cmd.Parameters.AddWithValue("@amount", amount);
+            sqlite_cmd.Parameters.AddWithValue("@payment", payment);
             sqlite_cmd.Parameters.AddWithValue("@type", type);
-            sqlite_cmd.Parameters.AddWithValue("@sid", sid);
-            sqlite_cmd.Parameters.AddWithValue("@receipt", receipt);
-            sqlite_cmd.Parameters.AddWithValue("@term", term);
+            sqlite_cmd.Parameters.AddWithValue("@lrn", lrn);
+            sqlite_cmd.Parameters.AddWithValue("@ref", reference);
             sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
 
             sqlite_cmd.ExecuteNonQuery();
@@ -189,6 +228,7 @@ namespace Financial_System.Utils
         }
 
         // Get Specific Student Transactions
+        // TO CHANGE GET TRANSACTION ON LRN ON CURRENT TERM
         public void GetStudentTransactions(SQLiteConnection conn, DataGridView dgv, string sid)
         {
             SQLiteCommand sqlite_cmd;
@@ -482,5 +522,237 @@ namespace Financial_System.Utils
                 return result;
             }
         }
+
+        /// <summary>
+        /// Creates a new Fee Template for use in bulk operations. Fees increase the balance. Fees are charges by the school to the student.
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="desc"></param>
+        /// <param name="amount"></param>
+        public void NewFeeTemplate(SQLiteConnection conn, string name, string desc, int amount)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO FPTemplate_tbl(fp_name, fp_desc, amount) VALUES (@name, @desc, @amount);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            //sqlite_cmd.Parameters.AddWithValue("@id", id);
+            sqlite_cmd.Parameters.AddWithValue("@name", name);
+            sqlite_cmd.Parameters.AddWithValue("@desc", desc);
+            sqlite_cmd.Parameters.AddWithValue("@amount", amount);
+            //sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Creates a new Payment Template for use in bulk operations. Payments decrease the balance. For the purpose of decreasing the student's balance, discounts, scholarships can also be applied as a payment transaction.
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="desc"></param>
+        /// <param name="payment"></param>
+        public void NewPaymentTemplate(SQLiteConnection conn, string name, string desc, int payment)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO FPTemplate_tbl(fp_name, fp_desc, payment) VALUES (@name, @desc, @payment);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            //sqlite_cmd.Parameters.AddWithValue("@id", id);
+            sqlite_cmd.Parameters.AddWithValue("@name", name);
+            sqlite_cmd.Parameters.AddWithValue("@desc", desc);
+            sqlite_cmd.Parameters.AddWithValue("@payment", payment);
+            //sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        //creates a new fee group
+        public void NewFeeGroup(SQLiteConnection conn, string name, string desc)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO FeeGroup_tbl(fg_name, fg_desc, date_created) VALUES (@fgname, @fgdesc, @date_created);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            sqlite_cmd.Parameters.AddWithValue("@name", name);
+            sqlite_cmd.Parameters.AddWithValue("@desc", desc);
+            sqlite_cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        // adds a fee or payment into a fee group
+        public void InsertFeeTOGroup(SQLiteConnection conn, int feegroupID, int feepayment)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO FeeGroupFees_tbl(fg_id, fp_id) VALUES (@fgid, @fpid);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            sqlite_cmd.Parameters.AddWithValue("@fgid", feegroupID);
+            sqlite_cmd.Parameters.AddWithValue("@desc", feepayment);
+            //sqlite_cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        // this function takes a list of LRNs and executes the fee group against them
+        public void ExecuteFeeGroup(SQLiteConnection conn, int feegroupID, List<int> lrns)
+        {
+            List <int> feegroupfees = new List<int>();
+            feegroupfees.AddRange(GetFeeGroupFees(conn, feegroupID)); // a list of all the fees in a group
+            var feegroupname = GetFeeGroupname(conn, feegroupID);
+
+            foreach (int student in lrns) // for every lrn in the list
+            {
+                foreach (int fee in feegroupfees) // for every fee in a feegroup 
+                {
+                    var feedetails = GetFeesPayments(conn,fee);
+                    var fid = feedetails[0]; //feepayment_id
+                    var name = feedetails[1]; //name
+                    var desc = feedetails[2]; //desc
+                    var amount = int.Parse(feedetails[3]); //amount
+                    var payment = int.Parse(feedetails[4]); //payment
+
+                    InsertTransaction(conn, amount, payment, name, student.ToString(), feegroupname);
+                }
+            }
+        }
+
+        public List<int> GetFeeGroupFees(SQLiteConnection conn, int feegroupID)
+        {
+            List<int> feesinagroup = new List<int>();
+
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM FeeGroupFees_tbl WHERE fg_id = @feegroupiD", conn);
+            sqlite_cmd.Parameters.AddWithValue("@feegroupID", feegroupID);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    feesinagroup.Add((int)read.GetValue(1));
+                }
+                return feesinagroup; //returns the fees in a FeeGroup
+            }
+        }
+
+        //gets the details of a Fee or Payment : fp_id name desc amount payment
+        public List<string> GetFeesPayments(SQLiteConnection conn, int fp_id)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("Select * From FPTemplate_tbl WHERE fp_id = @fpid", conn); //AND TERM = current term
+            sqlite_cmd.Parameters.AddWithValue("@fpid", fp_id);
+            List<string> fp = new List<string>();
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    fp.Add(read.GetValue(0).ToString()); //feepayment_id
+                    fp.Add(read.GetValue(1).ToString()); //name
+                    fp.Add(read.GetValue(2).ToString()); //desc
+                    fp.Add(read.GetValue(3).ToString()); //amount
+                    fp.Add(read.GetValue(4).ToString()); //payment
+                    //read.GetValue(read.GetOrdinal("amount"))
+
+                }
+
+                return fp; // returns details of a payment/fee in a form of List
+            }
+        }
+
+        /// <summary>
+        /// Returns the name of a Fee Group
+        /// </summary>
+        /// <param name="conn"></param>
+        /// <param name="feegroupID"></param>
+        /// <returns></returns>
+        public string GetFeeGroupname(SQLiteConnection conn, int feegroupID)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM FeeGroup_tbl WHERE fg_id = @feegroupiD", conn);
+            sqlite_cmd.Parameters.AddWithValue("@feegroupID", feegroupID);
+            var feegroupname = "";
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    feegroupname = read.GetValue(read.GetOrdinal("fg_name")).ToString();
+                }
+            }
+            return feegroupname;
+        }
+
+        public void GetFees(SQLiteConnection conn, DataGridView dgv)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("Select * From FPTemplate_tbl WHERE amount IS NOT NULL", conn);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                dgv.Rows.Clear();
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),  // tid
+                        read.GetValue(read.GetOrdinal("fp_name")), // fee or payment name
+                        read.GetValue(read.GetOrdinal("fp_desc")), // desc
+                        read.GetValue(read.GetOrdinal("amount")), // amount (balance increasing)
+                        //read.GetValue(read.GetOrdinal("fg_name")).ToString();
+                });
+                }
+            }
+        }
+
+        public void GetPayments(SQLiteConnection conn, DataGridView dgv)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("Select * From FPTemplate_tbl WHERE payment IS NOT NULL", conn);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                dgv.Rows.Clear();
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),  // tid
+                        read.GetValue(read.GetOrdinal("fp_name")), // fee or payment name
+                        read.GetValue(read.GetOrdinal("fp_desc")), // desc
+                        read.GetValue(read.GetOrdinal("payment")), // payment (balance decreasing)
+                        //read.GetValue(read.GetOrdinal("fg_name")).ToString();
+                });
+                }
+            }
+        } //NewGroup
+
+        public void NewGroup(SQLiteConnection conn, string name, string desc)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO FeeGroup_tbl(fg_name, fg_desc, date_recorded) VALUES (@name, @desc, @date_recorded);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            //sqlite_cmd.Parameters.AddWithValue("@id", id);
+            sqlite_cmd.Parameters.AddWithValue("@name", name);
+            sqlite_cmd.Parameters.AddWithValue("@desc", desc);
+            sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
     }
 }

@@ -16,6 +16,8 @@ namespace Financial_System.Utils
         public StudentItemControl StudControl = new StudentItemControl();
         public ReportsControl ReportsControl = new ReportsControl();
         public ToolsControl ToolsControl = new ToolsControl();
+        public BulkOperationsControl BulkControl = new BulkOperationsControl();
+
 
         // Unloads Controls
         public void UnloadControls(Panel panel)

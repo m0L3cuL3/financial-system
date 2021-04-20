@@ -2,6 +2,7 @@
 using Financial_System.Utils;
 using IronXL;
 using System;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Windows.Forms;
 
@@ -74,7 +75,7 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), TypeCmBox.Text, sid, ReceiptBox.Text, TermComboBox.SelectedIndex);
+                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), null, TypeCmBox.Text, sid, ReceiptBox.Text ); //TermComboBox.SelectedIndex
                         MessageBox.Show("Transaction Added");
                         TypeCmBox.Text = "";
                         amountBox.Text = "";
