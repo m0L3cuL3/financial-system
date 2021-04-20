@@ -1,9 +1,5 @@
 # Financial System for Pangantucan Community High School (PCHS)
 
-![pchs-logo](PCHS-Logo.png)
-
-## :warning: Under Development
-
 ---
 
 ## Features
@@ -21,7 +17,7 @@
 
 ## App Scope and Limitations
 
-- Single Device Only __(due to the limitations of SQLite, this may change in the future)__
+- __Single Device Only__ (due to the limitations of SQLite, this may change in the future)
 
 ---
 
@@ -35,9 +31,9 @@
 
 ## Contributors
 
-- Sean Baang :philippines:
-- Michael Pagaran :philippines:
-- Alexis Galaura :philippines:
-- Gecel Rodriguez :philippines:
-- Joseph Rosales :philippines:
-- Gian Paredes :philippines:
+- Sean Baang 
+- Michael Pagaran 
+- Alexis Galaura
+- Gecel Rodriguez
+- Joseph Rosales
+- Gian Paredes
