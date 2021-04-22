@@ -18,7 +18,6 @@ namespace Financial_System.UserControls
 
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
-        GetTotalResult gtr = new GetTotalResult();
         Globals gb = new Globals();
 
         public BulkOperationsControl()
@@ -35,7 +34,7 @@ namespace Financial_System.UserControls
         {
             using (NewFeeWindow nfw = new NewFeeWindow())
             {
-                nfw.ShowDialog(this.TopLevelControl);
+                nfw.ShowDialog(TopLevelControl);
             }
             refreshtables();
         }
@@ -44,7 +43,7 @@ namespace Financial_System.UserControls
         {
             using (NewPaymentWindow npw = new NewPaymentWindow())
             {
-                npw.ShowDialog(this.TopLevelControl);
+                npw.ShowDialog(TopLevelControl);
             }
             refreshtables();
         }
@@ -66,7 +65,7 @@ namespace Financial_System.UserControls
         {
             using (NewGroupWindow ngw = new NewGroupWindow())
             {
-                ngw.ShowDialog(this.TopLevelControl);
+                ngw.ShowDialog(TopLevelControl);
             }
             refreshtables();
         }

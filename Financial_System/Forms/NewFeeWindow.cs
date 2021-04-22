@@ -22,36 +22,55 @@ namespace Financial_System.Forms
         public NewFeeWindow()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (name.Text != "" && desc.Text != "" && amount.Text != "")
-            {
-                try
-                {
-                    sql.NewFeeTemplate(sql.CreateConnection(), name.Text, desc.Text, int.Parse(amount.Text));
-                    this.Close();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill out all fields.");
-            }
-
-
+            ui.RoundWindow(this);
         }
 
         private void amount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;         //Just Digits
             if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
-            if (e.KeyChar == (char)13) button1_Click(sender, e);  //Allow Enter  
+            if (e.KeyChar == (char)13) Create_Btn_Click(sender, e);  //Allow Enter  
+        }
+
+        private void Create_Btn_Click(object sender, EventArgs e)
+        {
+            if (!IsEmpty())
+            {
+                try
+                {
+                    sql.NewFeeTemplate(sql.CreateConnection(), name.Text, desc.Text, int.Parse(amount.Text));
+                    Close();
+                }
+                catch (FormatException fe)
+                {
+                    MessageBox.Show($"An error occured. {fe.Message}", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill out all fields.", "Incomplete Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool IsEmpty()
+        {
+            bool status = false;
+            foreach (Control c in Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox txtBox = c as TextBox;
+                    if (txtBox.Text == string.Empty)
+                    {
+                        status = true;
+                    }
+                    else
+                    {
+                        status = false;
+                    }
+                }
+            }
+            return status;
         }
     }
 }
