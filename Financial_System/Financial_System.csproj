@@ -269,6 +269,24 @@
     <Compile Include="Forms\ChangePasswordWindow.Designer.cs">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewGroupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewGroupWindow.Designer.cs">
+      <DependentUpon>NewGroupWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewPaymentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewPaymentWindow.Designer.cs">
+      <DependentUpon>NewPaymentWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewFeeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewFeeWindow.Designer.cs">
+      <DependentUpon>NewFeeWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\IncomeStatementWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +348,12 @@
     <Compile Include="UserControls\ToolsControl.Designer.cs">
       <DependentUpon>ToolsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\BulkOperationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BulkOperationsControl.Designer.cs">
+      <DependentUpon>BulkOperationsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\SQLiteHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,11 +374,21 @@
     <EmbeddedResource Include="Forms\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewGroupWindow.resx">
+      <DependentUpon>NewGroupWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewPaymentWindow.resx">
+      <DependentUpon>NewPaymentWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewFeeWindow.resx">
+      <DependentUpon>NewFeeWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\IncomeStatementWindow.resx">
       <DependentUpon>IncomeStatementWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -389,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ToolsControl.resx">
       <DependentUpon>ToolsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\BulkOperationsControl.resx">
+      <DependentUpon>BulkOperationsControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Financial_System_TemporaryKey.pfx" />
     <None Include="packages.config" />

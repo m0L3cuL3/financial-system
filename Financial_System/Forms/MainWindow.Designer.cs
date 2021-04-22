@@ -47,6 +47,7 @@ namespace Financial_System.Forms
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
+            this.BulkButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -106,6 +107,7 @@ namespace Financial_System.Forms
             // ButtonPanel
             // 
             this.ButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.ButtonPanel.Controls.Add(this.BulkButton);
             this.ButtonPanel.Controls.Add(this.ToolsButton);
             this.ButtonPanel.Controls.Add(this.ReportButton);
             this.ButtonPanel.Controls.Add(this.CollectionsButton);
@@ -279,6 +281,23 @@ namespace Financial_System.Forms
             this.DisplayControlPanel.Size = new System.Drawing.Size(848, 478);
             this.DisplayControlPanel.TabIndex = 3;
             // 
+            // BulkButton
+            // 
+            this.BulkButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BulkButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BulkButton.FlatAppearance.BorderSize = 0;
+            this.BulkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BulkButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BulkButton.ForeColor = System.Drawing.Color.White;
+            this.BulkButton.Location = new System.Drawing.Point(0, 135);
+            this.BulkButton.Name = "BulkButton";
+            this.BulkButton.Size = new System.Drawing.Size(171, 27);
+            this.BulkButton.TabIndex = 15;
+            this.BulkButton.Text = "Bulk Operations";
+            this.BulkButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BulkButton.UseVisualStyleBackColor = true;
+            this.BulkButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,5 +343,6 @@ namespace Financial_System.Forms
         public System.Windows.Forms.Label UsernameLabel;
         private CustomUI.GradientPanel gradientPanel1;
         public System.Windows.Forms.Label editProfButton;
+        private System.Windows.Forms.Button BulkButton;
     }
 }

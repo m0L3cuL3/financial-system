@@ -100,5 +100,11 @@ namespace Financial_System.Forms
             ChangePasswordWindow cpw = new ChangePasswordWindow();
             cpw.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            uc.UnloadControls(DisplayControlPanel);
+            uc.LoadControl(DisplayControlPanel, uc.BulkControl);
+        }
     }
 }
