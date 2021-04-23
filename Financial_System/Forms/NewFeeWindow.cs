@@ -1,13 +1,6 @@
 ﻿using Financial_System.Features;
 using Financial_System.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -16,13 +9,16 @@ namespace Financial_System.Forms
     {
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
-        GetTotalResult gtr = new GetTotalResult();
-        Globals gb = new Globals();
 
         public NewFeeWindow()
         {
             InitializeComponent();
             ui.RoundWindow(this);
+        }
+
+        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            ui.DragWindow(Handle, e);
         }
 
         private void amount_KeyPress(object sender, KeyPressEventArgs e)
@@ -72,5 +68,7 @@ namespace Financial_System.Forms
             }
             return status;
         }
+
+        
     }
 }

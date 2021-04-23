@@ -91,9 +91,9 @@ namespace Financial_System.Forms
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(23, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.Size = new System.Drawing.Size(95, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Second Name";
+            this.label1.Text = "Middle Name";
             // 
             // label2
             // 
