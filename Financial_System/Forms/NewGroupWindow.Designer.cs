@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewGroupWindow));
             this.label2 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
             this.desc = new System.Windows.Forms.TextBox();
@@ -44,15 +45,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(66, 94);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(65, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.Size = new System.Drawing.Size(101, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Fee Group Name";
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(60, 110);
+            this.name.Location = new System.Drawing.Point(65, 110);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(100, 20);
             this.name.TabIndex = 1;
@@ -69,20 +71,26 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 159);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(52, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 13);
+            this.label3.Size = new System.Drawing.Size(127, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Fee Group Description";
             // 
             // createbtn
             // 
+            this.createbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.createbtn.FlatAppearance.BorderSize = 0;
+            this.createbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createbtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createbtn.ForeColor = System.Drawing.Color.White;
             this.createbtn.Location = new System.Drawing.Point(78, 276);
             this.createbtn.Name = "createbtn";
             this.createbtn.Size = new System.Drawing.Size(75, 23);
             this.createbtn.TabIndex = 3;
             this.createbtn.Text = "Create";
-            this.createbtn.UseVisualStyleBackColor = true;
+            this.createbtn.UseVisualStyleBackColor = false;
             this.createbtn.Click += new System.EventHandler(this.createbtn_Click);
             // 
             // label4
@@ -133,6 +141,7 @@
             this.Controls.Add(this.name);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewGroupWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Fee Group";

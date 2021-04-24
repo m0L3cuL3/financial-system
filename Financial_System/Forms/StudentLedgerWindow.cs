@@ -52,7 +52,6 @@ namespace Financial_System.Forms
             StudentNameLabel.Text = name;
             StudentSectionLevelLabel.Text = $"{section} - {level}";
             StudentLRNLabel.Text = lrn;
-
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, lrn);
 
             await sql.GetTerm(sql.CreateConnection(), TermComboBox);
@@ -77,7 +76,7 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), null, TypeCmBox.Text, lrn, ReceiptBox.Text ); //TermComboBox.SelectedIndex
+                        sql.InsertTransaction(sql.CreateConnection(), null, Convert.ToInt32(amountBox.Text), TypeCmBox.Text, lrn, ReceiptBox.Text ); //TermComboBox.SelectedIndex
                         MessageBox.Show("Transaction Added");
                         TypeCmBox.Text = "";
                         amountBox.Text = "";

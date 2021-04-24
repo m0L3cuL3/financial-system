@@ -45,11 +45,13 @@
             // 
             // updatebtn
             // 
-            this.updatebtn.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.updatebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
             this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updatebtn.Location = new System.Drawing.Point(214, 327);
+            this.updatebtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatebtn.ForeColor = System.Drawing.Color.White;
+            this.updatebtn.Location = new System.Drawing.Point(214, 317);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(75, 23);
+            this.updatebtn.Size = new System.Drawing.Size(75, 33);
             this.updatebtn.TabIndex = 11;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = false;
@@ -80,27 +82,30 @@
             // amountlbl
             // 
             this.amountlbl.AutoSize = true;
+            this.amountlbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountlbl.Location = new System.Drawing.Point(199, 87);
             this.amountlbl.Name = "amountlbl";
-            this.amountlbl.Size = new System.Drawing.Size(43, 13);
+            this.amountlbl.Size = new System.Drawing.Size(50, 16);
             this.amountlbl.TabIndex = 13;
             this.amountlbl.Text = "Amount";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(39, 139);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(67, 16);
             this.label4.TabIndex = 12;
             this.label4.Text = "Description";
             // 
             // namelbl
             // 
             this.namelbl.AutoSize = true;
+            this.namelbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.namelbl.Location = new System.Drawing.Point(36, 87);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(56, 13);
+            this.namelbl.Size = new System.Drawing.Size(63, 16);
             this.namelbl.TabIndex = 10;
             this.namelbl.Text = "Fee Name";
             // 
@@ -116,11 +121,13 @@
             // 
             // deletebtn
             // 
-            this.deletebtn.BackColor = System.Drawing.Color.Coral;
+            this.deletebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
             this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deletebtn.Location = new System.Drawing.Point(12, 327);
+            this.deletebtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.ForeColor = System.Drawing.Color.White;
+            this.deletebtn.Location = new System.Drawing.Point(12, 317);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(75, 23);
+            this.deletebtn.Size = new System.Drawing.Size(75, 33);
             this.deletebtn.TabIndex = 14;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = false;

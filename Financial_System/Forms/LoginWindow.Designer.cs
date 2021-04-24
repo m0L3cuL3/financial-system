@@ -66,7 +66,7 @@ namespace Financial_System.Forms
             this.CloseButton.Location = new System.Drawing.Point(266, 4);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(18, 18);
-            this.CloseButton.TabIndex = 1;
+            this.CloseButton.TabIndex = 8;
             this.CloseButton.Text = "X";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -79,7 +79,7 @@ namespace Financial_System.Forms
             this.LogoPanel.Location = new System.Drawing.Point(0, 26);
             this.LogoPanel.Name = "LogoPanel";
             this.LogoPanel.Size = new System.Drawing.Size(289, 183);
-            this.LogoPanel.TabIndex = 1;
+            this.LogoPanel.TabIndex = 7;
             // 
             // TitleLabel
             // 
@@ -89,7 +89,7 @@ namespace Financial_System.Forms
             this.TitleLabel.Location = new System.Drawing.Point(48, 146);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(204, 22);
-            this.TitleLabel.TabIndex = 1;
+            this.TitleLabel.TabIndex = 6;
             this.TitleLabel.Text = "PCHS Finance System";
             // 
             // LogoImgBox
@@ -110,7 +110,7 @@ namespace Financial_System.Forms
             this.userLabel.Location = new System.Drawing.Point(50, 244);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(71, 17);
-            this.userLabel.TabIndex = 2;
+            this.userLabel.TabIndex = 4;
             this.userLabel.Text = "Username";
             // 
             // passLabel
@@ -121,7 +121,7 @@ namespace Financial_System.Forms
             this.passLabel.Location = new System.Drawing.Point(50, 312);
             this.passLabel.Name = "passLabel";
             this.passLabel.Size = new System.Drawing.Size(69, 17);
-            this.passLabel.TabIndex = 4;
+            this.passLabel.TabIndex = 5;
             this.passLabel.Text = "Password";
             // 
             // loginButton
@@ -134,7 +134,7 @@ namespace Financial_System.Forms
             this.loginButton.Location = new System.Drawing.Point(82, 385);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(124, 31);
-            this.loginButton.TabIndex = 5;
+            this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Log In";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -146,7 +146,7 @@ namespace Financial_System.Forms
             this.IsAdminCheckBox.Location = new System.Drawing.Point(59, 450);
             this.IsAdminCheckBox.Name = "IsAdminCheckBox";
             this.IsAdminCheckBox.Size = new System.Drawing.Size(170, 21);
-            this.IsAdminCheckBox.TabIndex = 7;
+            this.IsAdminCheckBox.TabIndex = 3;
             this.IsAdminCheckBox.Text = "Login As Administrator";
             this.IsAdminCheckBox.UseVisualStyleBackColor = true;
             this.IsAdminCheckBox.CheckedChanged += new System.EventHandler(this.IsAdminCheckBox_CheckedChanged);
@@ -163,7 +163,7 @@ namespace Financial_System.Forms
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.PasswordChar = '●';
             this.passTextBox.Size = new System.Drawing.Size(200, 33);
-            this.passTextBox.TabIndex = 3;
+            this.passTextBox.TabIndex = 1;
             this.passTextBox.textboxRadius = 15;
             this.passTextBox.UseSystemPasswordChar = true;
             // 
@@ -179,7 +179,7 @@ namespace Financial_System.Forms
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.PasswordChar = '\0';
             this.userTextBox.Size = new System.Drawing.Size(200, 33);
-            this.userTextBox.TabIndex = 2;
+            this.userTextBox.TabIndex = 0;
             this.userTextBox.textboxRadius = 15;
             this.userTextBox.UseSystemPasswordChar = false;
             // 

@@ -42,18 +42,12 @@ namespace Financial_System.Forms
             this.StudentLRNLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TermColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeCmBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.type_Lbl = new System.Windows.Forms.Label();
             this.ReceiptBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.PostPaymentButton = new System.Windows.Forms.Button();
@@ -62,7 +56,13 @@ namespace Financial_System.Forms
             this.TermComboBox = new System.Windows.Forms.ComboBox();
             this.balORcredit = new System.Windows.Forms.Label();
             this.balancelbl = new System.Windows.Forms.Label();
-            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
+            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TermColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TopBarPanel.SuspendLayout();
             this.SideInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -184,10 +184,22 @@ namespace Financial_System.Forms
             this.label5.TabIndex = 18;
             this.label5.Text = "Name:";
             // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightSteelBlue;
@@ -204,12 +216,12 @@ namespace Financial_System.Forms
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StudentIdColumn,
+            this.DateRecordedColumn,
+            this.ReceiptNumColumn,
+            this.TypeColumn,
             this.AmountColumn,
             this.payment,
-            this.TypeColumn,
-            this.TermColumn,
-            this.ReceiptNumColumn,
-            this.DateRecordedColumn});
+            this.TermColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,8 +237,136 @@ namespace Financial_System.Forms
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(692, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(624, 332);
             this.dataGridView1.TabIndex = 18;
+            // 
+            // amountBox
+            // 
+            this.amountBox.Location = new System.Drawing.Point(647, 181);
+            this.amountBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.amountBox.Name = "amountBox";
+            this.amountBox.Size = new System.Drawing.Size(193, 20);
+            this.amountBox.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(644, 162);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Amount";
+            // 
+            // TypeCmBox
+            // 
+            this.TypeCmBox.FormattingEnabled = true;
+            this.TypeCmBox.Location = new System.Drawing.Point(647, 138);
+            this.TypeCmBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TypeCmBox.Name = "TypeCmBox";
+            this.TypeCmBox.Size = new System.Drawing.Size(193, 21);
+            this.TypeCmBox.TabIndex = 21;
+            // 
+            // type_Lbl
+            // 
+            this.type_Lbl.AutoSize = true;
+            this.type_Lbl.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.type_Lbl.Location = new System.Drawing.Point(644, 119);
+            this.type_Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.type_Lbl.Name = "type_Lbl";
+            this.type_Lbl.Size = new System.Drawing.Size(86, 16);
+            this.type_Lbl.TabIndex = 22;
+            this.type_Lbl.Text = "Payment Type";
+            // 
+            // ReceiptBox
+            // 
+            this.ReceiptBox.Location = new System.Drawing.Point(647, 223);
+            this.ReceiptBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ReceiptBox.Name = "ReceiptBox";
+            this.ReceiptBox.Size = new System.Drawing.Size(193, 20);
+            this.ReceiptBox.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(644, 204);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 16);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Receipt Number";
+            // 
+            // PostPaymentButton
+            // 
+            this.PostPaymentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.PostPaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PostPaymentButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostPaymentButton.ForeColor = System.Drawing.Color.White;
+            this.PostPaymentButton.Location = new System.Drawing.Point(647, 292);
+            this.PostPaymentButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.PostPaymentButton.Name = "PostPaymentButton";
+            this.PostPaymentButton.Size = new System.Drawing.Size(193, 30);
+            this.PostPaymentButton.TabIndex = 25;
+            this.PostPaymentButton.Text = "Post Payment";
+            this.PostPaymentButton.UseVisualStyleBackColor = false;
+            this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
+            // 
+            // exportBtn
+            // 
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.Location = new System.Drawing.Point(647, 421);
+            this.exportBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.Size = new System.Drawing.Size(193, 30);
+            this.exportBtn.TabIndex = 27;
+            this.exportBtn.Text = "Export to Excel";
+            this.exportBtn.UseVisualStyleBackColor = false;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(644, 246);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 16);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Term";
+            // 
+            // TermComboBox
+            // 
+            this.TermComboBox.FormattingEnabled = true;
+            this.TermComboBox.Location = new System.Drawing.Point(647, 265);
+            this.TermComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TermComboBox.Name = "TermComboBox";
+            this.TermComboBox.Size = new System.Drawing.Size(193, 21);
+            this.TermComboBox.TabIndex = 30;
+            // 
+            // balORcredit
+            // 
+            this.balORcredit.AutoSize = true;
+            this.balORcredit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balORcredit.Location = new System.Drawing.Point(644, 354);
+            this.balORcredit.Name = "balORcredit";
+            this.balORcredit.Size = new System.Drawing.Size(64, 17);
+            this.balORcredit.TabIndex = 31;
+            this.balORcredit.Text = "Balance:";
+            // 
+            // balancelbl
+            // 
+            this.balancelbl.AutoSize = true;
+            this.balancelbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balancelbl.Location = new System.Drawing.Point(642, 371);
+            this.balancelbl.Name = "balancelbl";
+            this.balancelbl.Size = new System.Drawing.Size(78, 25);
+            this.balancelbl.TabIndex = 32;
+            this.balancelbl.Text = "₱ -----";
             // 
             // StudentIdColumn
             // 
@@ -235,6 +375,30 @@ namespace Financial_System.Forms
             this.StudentIdColumn.Name = "StudentIdColumn";
             this.StudentIdColumn.ReadOnly = true;
             this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DateRecordedColumn
+            // 
+            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateRecordedColumn.HeaderText = "Date Recorded";
+            this.DateRecordedColumn.Name = "DateRecordedColumn";
+            this.DateRecordedColumn.ReadOnly = true;
+            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ReceiptNumColumn
+            // 
+            this.ReceiptNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReceiptNumColumn.HeaderText = "Reference";
+            this.ReceiptNumColumn.Name = "ReceiptNumColumn";
+            this.ReceiptNumColumn.ReadOnly = true;
+            this.ReceiptNumColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // AmountColumn
             // 
@@ -250,14 +414,6 @@ namespace Financial_System.Forms
             this.payment.Name = "payment";
             this.payment.ReadOnly = true;
             // 
-            // TypeColumn
-            // 
-            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TypeColumn.HeaderText = "Type";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // TermColumn
             // 
             this.TermColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -265,161 +421,6 @@ namespace Financial_System.Forms
             this.TermColumn.Name = "TermColumn";
             this.TermColumn.ReadOnly = true;
             this.TermColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ReceiptNumColumn
-            // 
-            this.ReceiptNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReceiptNumColumn.HeaderText = "Reference";
-            this.ReceiptNumColumn.Name = "ReceiptNumColumn";
-            this.ReceiptNumColumn.ReadOnly = true;
-            this.ReceiptNumColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // DateRecordedColumn
-            // 
-            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateRecordedColumn.HeaderText = "Date Recorded";
-            this.DateRecordedColumn.Name = "DateRecordedColumn";
-            this.DateRecordedColumn.ReadOnly = true;
-            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // amountBox
-            // 
-            this.amountBox.Location = new System.Drawing.Point(712, 184);
-            this.amountBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.amountBox.Name = "amountBox";
-            this.amountBox.Size = new System.Drawing.Size(128, 20);
-            this.amountBox.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(712, 165);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Amount";
-            // 
-            // TypeCmBox
-            // 
-            this.TypeCmBox.FormattingEnabled = true;
-            this.TypeCmBox.Location = new System.Drawing.Point(712, 138);
-            this.TypeCmBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TypeCmBox.Name = "TypeCmBox";
-            this.TypeCmBox.Size = new System.Drawing.Size(128, 21);
-            this.TypeCmBox.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(712, 119);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 16);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Payment Type";
-            // 
-            // ReceiptBox
-            // 
-            this.ReceiptBox.Location = new System.Drawing.Point(712, 229);
-            this.ReceiptBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ReceiptBox.Name = "ReceiptBox";
-            this.ReceiptBox.Size = new System.Drawing.Size(129, 20);
-            this.ReceiptBox.TabIndex = 23;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(712, 210);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 16);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Receipt Number";
-            // 
-            // PostPaymentButton
-            // 
-            this.PostPaymentButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
-            this.PostPaymentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PostPaymentButton.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PostPaymentButton.ForeColor = System.Drawing.Color.White;
-            this.PostPaymentButton.Location = new System.Drawing.Point(712, 309);
-            this.PostPaymentButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PostPaymentButton.Name = "PostPaymentButton";
-            this.PostPaymentButton.Size = new System.Drawing.Size(130, 30);
-            this.PostPaymentButton.TabIndex = 25;
-            this.PostPaymentButton.Text = "Post Payment";
-            this.PostPaymentButton.UseVisualStyleBackColor = false;
-            this.PostPaymentButton.Click += new System.EventHandler(this.PostPaymentButton_Click);
-            // 
-            // exportBtn
-            // 
-            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
-            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportBtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportBtn.ForeColor = System.Drawing.Color.White;
-            this.exportBtn.Location = new System.Drawing.Point(712, 421);
-            this.exportBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.exportBtn.Name = "exportBtn";
-            this.exportBtn.Size = new System.Drawing.Size(128, 30);
-            this.exportBtn.TabIndex = 27;
-            this.exportBtn.Text = "Export to Excel";
-            this.exportBtn.UseVisualStyleBackColor = false;
-            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(712, 255);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 16);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Term";
-            // 
-            // TermComboBox
-            // 
-            this.TermComboBox.FormattingEnabled = true;
-            this.TermComboBox.Location = new System.Drawing.Point(712, 274);
-            this.TermComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TermComboBox.Name = "TermComboBox";
-            this.TermComboBox.Size = new System.Drawing.Size(128, 21);
-            this.TermComboBox.TabIndex = 30;
-            // 
-            // balORcredit
-            // 
-            this.balORcredit.AutoSize = true;
-            this.balORcredit.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balORcredit.Location = new System.Drawing.Point(715, 351);
-            this.balORcredit.Name = "balORcredit";
-            this.balORcredit.Size = new System.Drawing.Size(64, 17);
-            this.balORcredit.TabIndex = 31;
-            this.balORcredit.Text = "Balance:";
-            // 
-            // balancelbl
-            // 
-            this.balancelbl.AutoSize = true;
-            this.balancelbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balancelbl.Location = new System.Drawing.Point(713, 379);
-            this.balancelbl.Name = "balancelbl";
-            this.balancelbl.Size = new System.Drawing.Size(78, 25);
-            this.balancelbl.TabIndex = 32;
-            this.balancelbl.Text = "₱ -----";
-            // 
-            // ProfilePanel
-            // 
-            this.ProfilePanel.Angle = -48F;
-            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
-            this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
             // 
             // StudentLedgerWindow
             // 
@@ -434,7 +435,7 @@ namespace Financial_System.Forms
             this.Controls.Add(this.PostPaymentButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ReceiptBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.type_Lbl);
             this.Controls.Add(this.TypeCmBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.amountBox);
@@ -470,7 +471,7 @@ namespace Financial_System.Forms
         private System.Windows.Forms.TextBox amountBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox TypeCmBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label type_Lbl;
         private System.Windows.Forms.TextBox ReceiptBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button PostPaymentButton;
@@ -481,14 +482,14 @@ namespace Financial_System.Forms
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label StudentLRNLabel;
         private System.Windows.Forms.ComboBox TermComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn payment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TermColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptNumColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateRecordedColumn;
         private System.Windows.Forms.Label balORcredit;
         private System.Windows.Forms.Label balancelbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateRecordedColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReceiptNumColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn payment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermColumn;
     }
 }

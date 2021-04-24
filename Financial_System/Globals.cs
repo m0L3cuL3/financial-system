@@ -12,8 +12,8 @@ namespace Financial_System
         public static int _term;
 
         // SUPERUSERS //
-        public string USER_NAME = "a";
-        public string USER_PASS = "a";
+        public string USER_NAME = "admin";
+        public string USER_PASS = "pchs";
 
         public string[] ReportFilterList =
         {

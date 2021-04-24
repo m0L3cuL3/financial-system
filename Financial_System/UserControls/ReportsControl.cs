@@ -85,9 +85,9 @@ namespace Financial_System.UserControls
                         break;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Duplicate Data. The data you are trying to export already exists!", "Duplicate Data!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occured. {ex.Message}", "Export Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
         }
 
@@ -378,7 +378,7 @@ namespace Financial_System.UserControls
                 ws.Cell("B2").Value = "Student ID";
                 ws.Cell("C2").Value = "Type";
                 ws.Cell("D2").Value = "Amount";
-                ws.Cell("E2").Value = "Receipt #";
+                ws.Cell("E2").Value = "Reference";
                 ws.Cell("F2").Value = "Term";
                 ws.Cell("G2").Value = "Date Recorded";
 
@@ -395,7 +395,7 @@ namespace Financial_System.UserControls
                     ws.Cell($"B{currIndex}").Value = dataGridView1.Rows[i].Cells[1].Value; // student id
                     ws.Cell($"C{currIndex}").Value = dataGridView1.Rows[i].Cells[2].Value; // type
                     ws.Cell($"D{currIndex}").Value = dataGridView1.Rows[i].Cells[3].Value; // amount
-                    ws.Cell($"E{currIndex}").Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
+                    ws.Cell($"E{currIndex}").Value = dataGridView1.Rows[i].Cells[4].Value; // receipt #
                     ws.Cell($"F{currIndex}").Value = dataGridView1.Rows[i].Cells[5].Value; // term
                     ws.Cell($"G{currIndex}").Value = dataGridView1.Rows[i].Cells[6].Value; // date recorded
                     currIndex = currIndex + 1;
@@ -453,7 +453,7 @@ namespace Financial_System.UserControls
             ws.Cell("B2").Value = "Student ID";
             ws.Cell("C2").Value = "Type";
             ws.Cell("D2").Value = "Amount";
-            ws.Cell("E2").Value = "Receipt #";
+            ws.Cell("E2").Value = "Reference";
             ws.Cell("F2").Value = "Term";
             ws.Cell("G2").Value = "Date Recorded";
 
@@ -470,7 +470,7 @@ namespace Financial_System.UserControls
                 ws.Cell($"B{currIndex}").Value = dataGridView1.Rows[i].Cells[1].Value; // student id
                 ws.Cell($"C{currIndex}").Value = dataGridView1.Rows[i].Cells[2].Value; // type
                 ws.Cell($"D{currIndex}").Value = dataGridView1.Rows[i].Cells[3].Value; // amount
-                ws.Cell($"E{currIndex}").Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
+                ws.Cell($"E{currIndex}").Value = dataGridView1.Rows[i].Cells[4].Value; // receipt #
                 ws.Cell($"F{currIndex}").Value = dataGridView1.Rows[i].Cells[5].Value; // term
                 ws.Cell($"G{currIndex}").Value = dataGridView1.Rows[i].Cells[6].Value; // date recorded
                 currIndex = currIndex + 1;

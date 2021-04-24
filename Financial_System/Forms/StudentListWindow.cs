@@ -122,7 +122,7 @@ namespace Financial_System.Forms
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            sql.FilterStudents(sql.CreateConnection(), dataGridView1, "", "", "", familynamebx.Text, "", ""); ;
+            sql.FilterStudentsBySurname(sql.CreateConnection(), dataGridView1, familynamebx.Text);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -133,6 +133,11 @@ namespace Financial_System.Forms
         private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
         {
             ui.DragWindow(Handle, e);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            sql.FilterStudentsByLRN(sql.CreateConnection(), dataGridView1, lrnBox.Text);
         }
     }
 }

@@ -1026,11 +1026,9 @@ namespace Financial_System.Utils
             }
         }
 
-        public void FilterStudents(SQLiteConnection conn, DataGridView dgv, string lrn, string firstname, string middlename, string familyname, string level, string section)
+        public void FilterStudentsBySurname(SQLiteConnection conn, DataGridView dgv, string familyname)
         {
             string family = "%" + familyname  + "%";
-            string lvl = "%" + level + "%";
-            string sec = "%" + section + "%";
 
             SQLiteCommand sqlite_cmd;
             sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE surname LIKE IIF(IFNULL(@surname, '') = '', surname, @surname)", conn);
@@ -1049,6 +1047,32 @@ namespace Financial_System.Utils
                         read.GetValue(read.GetOrdinal("surname")), 
                         read.GetValue(read.GetOrdinal("first_name")), 
                         read.GetValue(read.GetOrdinal("middle_name")), 
+                    });
+                }
+            }
+        }
+
+        public void FilterStudentsByLRN(SQLiteConnection conn, DataGridView dgv, string lrn)
+        {
+            string id = "%" + lrn + "%";
+
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE lrn LIKE IIF(IFNULL(@lrn, '') = '', lrn, @lrn)", conn);
+            //sqlite_cmd.Parameters.AddWithValue("@lrn", lrn); // 
+            //sqlite_cmd.Parameters.AddWithValue("@desc", middlename); // 
+            //sqlite_cmd.Parameters.AddWithValue("@name", familyname); // 
+            sqlite_cmd.Parameters.AddWithValue("@lrn", id); // 
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                dgv.Rows.Clear();
+                while (read.Read())
+                {
+                    dgv.Rows.Add(new object[] {
+                        read.GetValue(0),
+                        read.GetValue(read.GetOrdinal("surname")),
+                        read.GetValue(read.GetOrdinal("first_name")),
+                        read.GetValue(read.GetOrdinal("middle_name")),
                     });
                 }
             }
