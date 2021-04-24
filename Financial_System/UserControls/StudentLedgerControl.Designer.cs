@@ -39,6 +39,8 @@ namespace Financial_System.UserControls
             this.LRNRadioButton = new System.Windows.Forms.RadioButton();
             this.NameRadioButton = new System.Windows.Forms.RadioButton();
             this.FilterTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.FilterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,10 +181,30 @@ namespace Financial_System.UserControls
             this.FilterTextBox.textboxRadius = 15;
             this.FilterTextBox.UseSystemPasswordChar = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(22, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 34);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "New Temporary Transaction";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "For Student not in the System Yet";
+            // 
             // StudentLedgerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.FilterPanel);
             this.Controls.Add(this.StudentFlowPanel);
             this.Controls.Add(this.FilterButton);
@@ -209,5 +231,7 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.RadioButton LevelRadioButton;
         private CustomUI.GradientPanel FilterPanel;
         private System.Windows.Forms.RadioButton ShowAllRadioButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

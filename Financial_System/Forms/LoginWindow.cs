@@ -22,6 +22,7 @@ namespace Financial_System.Forms
             ui.RoundButton(loginButton);
             //sql.CreateTable(sql.CreateConnection());
             InitializeDB("database.db");
+            userTextBox.Select();
         }
 
         private void TopPanel_MouseMove(object sender, MouseEventArgs e)
@@ -113,6 +114,21 @@ namespace Financial_System.Forms
                     MessageBox.Show("Database not created, Please contact your administrator.", "Activity Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void passTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) loginButton_Click(sender, e);  //Allow Enter  
+        }
+
+        private void userTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) loginButton_Click(sender, e);  //Allow Enter  
+        }
+
+        private void LoginWindow_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = userTextBox;
         }
     }
 }

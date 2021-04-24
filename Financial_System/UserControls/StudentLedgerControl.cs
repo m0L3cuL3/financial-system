@@ -43,18 +43,18 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentId = read.GetInt32(0).ToString(); // id  
-                sc.StudentLrn = read.GetInt64(1).ToString(); // LRN
-                sc.StudentName = read.GetString(2) + " " + read.GetString(3) + " " + read.GetString(4); // fullname
-                sc.StudentSection = read.GetString(5); // section  
-                sc.StudentLevel = read.GetInt32(6).ToString(); // level
+                //sc.StudentId = read.GetInt32(0).ToString(); // id  
+                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
+                sc.StudentName = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
+                //sc.StudentSection = read.GetString(5); // section  
+                //sc.StudentLevel = read.GetInt32(6).ToString(); // level
 
                 //sc.StudentIDLabel.Text = "Student ID: " + read.GetInt32(0).ToString(); // id
                 //sc.StudentIDLabel.Text = "Student LRN: " + read.GetInt64(1).ToString(); // LRN
-                sc.StudentIDLabel.Text = read.GetInt64(1).ToString(); // LRN
-                sc.StudentNameLabel.Text = read.GetString(2) + " " + read.GetString(3) + " " + read.GetString(4); // fullname
-                sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
-                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
+                sc.StudentNameLabel.Text = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
+                //sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
+                //sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -67,7 +67,7 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE student_LRN = @lrn", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE lrn = @lrn", conn);
 
             sqlite_cmd.Parameters.AddWithValue("@lrn", FilterTextBox.Text);
 

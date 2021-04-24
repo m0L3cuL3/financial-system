@@ -213,6 +213,24 @@
     <Compile Include="Forms\ChangePasswordWindow.Designer.cs">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditFeeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditFeeWindow.Designer.cs">
+      <DependentUpon>EditFeeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentListWindow.Designer.cs">
+      <DependentUpon>StudentListWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TermEditWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TermEditWindow.Designer.cs">
+      <DependentUpon>TermEditWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewGroupWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +335,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditFeeWindow.resx">
+      <DependentUpon>EditFeeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentListWindow.resx">
+      <DependentUpon>StudentListWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TermEditWindow.resx">
+      <DependentUpon>TermEditWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewGroupWindow.resx">
       <DependentUpon>NewGroupWindow.cs</DependentUpon>

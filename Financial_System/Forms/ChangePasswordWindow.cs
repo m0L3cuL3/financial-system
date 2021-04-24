@@ -25,10 +25,12 @@ namespace Financial_System.Forms
                 if (confirmResult == DialogResult.Yes)
                 {
                     sql.UpdateUserCreds(sql.CreateConnection(), CurrUserTextBox.Text, CurrPassTextBox.Text, NewUserTextBox.Text, NewPassTextBox.Text);
+                    ((MainWindow)this.Owner).LabelText = NewUserTextBox.Text;
                     CurrUserTextBox.Text = "";
                     CurrPassTextBox.Text = "";
                     NewUserTextBox.Text = "";
                     NewPassTextBox.Text = "";
+
                 }
                 else
                 {

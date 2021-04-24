@@ -29,12 +29,13 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.UserTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
@@ -53,13 +54,17 @@ namespace Financial_System.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.TermId_txtBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.TermDGV = new System.Windows.Forms.DataGridView();
-            this.TermIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TermDescColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.TermDesc_txtBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.AddTerm_Btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.InitializeDb_Btn = new System.Windows.Forms.Button();
+            this.TermIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TermDescColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.current = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.makeCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TopBarPanel.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.UserTab.SuspendLayout();
@@ -68,6 +73,7 @@ namespace Financial_System.Forms
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TermDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -107,7 +113,7 @@ namespace Financial_System.Forms
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.PasswordChar = '\0';
             this.UserTextBox.Size = new System.Drawing.Size(180, 33);
-            this.UserTextBox.TabIndex = 4;
+            this.UserTextBox.TabIndex = 0;
             this.UserTextBox.textboxRadius = 15;
             this.UserTextBox.UseSystemPasswordChar = false;
             // 
@@ -123,7 +129,7 @@ namespace Financial_System.Forms
             this.PassTextBox.Name = "PassTextBox";
             this.PassTextBox.PasswordChar = '\0';
             this.PassTextBox.Size = new System.Drawing.Size(180, 33);
-            this.PassTextBox.TabIndex = 5;
+            this.PassTextBox.TabIndex = 1;
             this.PassTextBox.textboxRadius = 15;
             this.PassTextBox.UseSystemPasswordChar = false;
             // 
@@ -160,7 +166,7 @@ namespace Financial_System.Forms
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(747, 433);
-            this.TabControl.TabIndex = 8;
+            this.TabControl.TabIndex = 3;
             // 
             // UserTab
             // 
@@ -198,31 +204,31 @@ namespace Financial_System.Forms
             // 
             this.UserGridView.AllowUserToAddRows = false;
             this.UserGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.UserGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.UserGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.UserGridView.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.UserGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UserGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UserGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.UserGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UserGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserIdColumn,
             this.UsernameColumn});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UserGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UserGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.UserGridView.Location = new System.Drawing.Point(210, 20);
             this.UserGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.UserGridView.Name = "UserGridView";
@@ -259,7 +265,7 @@ namespace Financial_System.Forms
             this.addUserButton.Location = new System.Drawing.Point(25, 154);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(153, 31);
-            this.addUserButton.TabIndex = 8;
+            this.addUserButton.TabIndex = 2;
             this.addUserButton.Text = "Add User";
             this.addUserButton.UseVisualStyleBackColor = false;
             this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
@@ -278,6 +284,7 @@ namespace Financial_System.Forms
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.TermId_txtBox);
             this.groupBox2.Controls.Add(this.TermDGV);
@@ -286,7 +293,7 @@ namespace Financial_System.Forms
             this.groupBox2.Controls.Add(this.AddTerm_Btn);
             this.groupBox2.Location = new System.Drawing.Point(25, 107);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(469, 272);
+            this.groupBox2.Size = new System.Drawing.Size(512, 272);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Setup Academic Term";
@@ -314,7 +321,7 @@ namespace Financial_System.Forms
             this.TermId_txtBox.Name = "TermId_txtBox";
             this.TermId_txtBox.PasswordChar = '\0';
             this.TermId_txtBox.Size = new System.Drawing.Size(165, 26);
-            this.TermId_txtBox.TabIndex = 21;
+            this.TermId_txtBox.TabIndex = 4;
             this.TermId_txtBox.textboxRadius = 15;
             this.TermId_txtBox.UseSystemPasswordChar = false;
             // 
@@ -322,31 +329,32 @@ namespace Financial_System.Forms
             // 
             this.TermDGV.AllowUserToAddRows = false;
             this.TermDGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.TermDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.TermDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.TermDGV.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.TermDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TermDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TermDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TermDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.TermDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TermDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TermIdColumn,
-            this.TermDescColumn});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TermDGV.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TermDescColumn,
+            this.current});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TermDGV.DefaultCellStyle = dataGridViewCellStyle12;
             this.TermDGV.Location = new System.Drawing.Point(202, 26);
             this.TermDGV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TermDGV.Name = "TermDGV";
@@ -354,24 +362,9 @@ namespace Financial_System.Forms
             this.TermDGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.TermDGV.RowHeadersVisible = false;
             this.TermDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TermDGV.Size = new System.Drawing.Size(245, 231);
+            this.TermDGV.Size = new System.Drawing.Size(273, 231);
             this.TermDGV.TabIndex = 20;
-            // 
-            // TermIdColumn
-            // 
-            this.TermIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TermIdColumn.HeaderText = "Term ID";
-            this.TermIdColumn.Name = "TermIdColumn";
-            this.TermIdColumn.ReadOnly = true;
-            this.TermIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // TermDescColumn
-            // 
-            this.TermDescColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TermDescColumn.HeaderText = "Term Description";
-            this.TermDescColumn.Name = "TermDescColumn";
-            this.TermDescColumn.ReadOnly = true;
-            this.TermDescColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TermDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TermDGV_CellDoubleClick);
             // 
             // label2
             // 
@@ -396,7 +389,7 @@ namespace Financial_System.Forms
             this.TermDesc_txtBox.Name = "TermDesc_txtBox";
             this.TermDesc_txtBox.PasswordChar = '\0';
             this.TermDesc_txtBox.Size = new System.Drawing.Size(165, 26);
-            this.TermDesc_txtBox.TabIndex = 11;
+            this.TermDesc_txtBox.TabIndex = 5;
             this.TermDesc_txtBox.textboxRadius = 15;
             this.TermDesc_txtBox.UseSystemPasswordChar = false;
             // 
@@ -407,10 +400,10 @@ namespace Financial_System.Forms
             this.AddTerm_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTerm_Btn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.AddTerm_Btn.ForeColor = System.Drawing.Color.White;
-            this.AddTerm_Btn.Location = new System.Drawing.Point(18, 226);
+            this.AddTerm_Btn.Location = new System.Drawing.Point(18, 202);
             this.AddTerm_Btn.Name = "AddTerm_Btn";
             this.AddTerm_Btn.Size = new System.Drawing.Size(165, 31);
-            this.AddTerm_Btn.TabIndex = 10;
+            this.AddTerm_Btn.TabIndex = 6;
             this.AddTerm_Btn.Text = "Add Academic Term";
             this.AddTerm_Btn.UseVisualStyleBackColor = false;
             this.AddTerm_Btn.Click += new System.EventHandler(this.AddTerm_Btn_Click);
@@ -440,6 +433,60 @@ namespace Financial_System.Forms
             this.InitializeDb_Btn.UseVisualStyleBackColor = false;
             this.InitializeDb_Btn.Click += new System.EventHandler(this.InitializeDb_Btn_Click);
             // 
+            // TermIdColumn
+            // 
+            this.TermIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TermIdColumn.Frozen = true;
+            this.TermIdColumn.HeaderText = "Term ID";
+            this.TermIdColumn.Name = "TermIdColumn";
+            this.TermIdColumn.ReadOnly = true;
+            this.TermIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TermIdColumn.Width = 72;
+            // 
+            // TermDescColumn
+            // 
+            this.TermDescColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TermDescColumn.Frozen = true;
+            this.TermDescColumn.HeaderText = "Term Description";
+            this.TermDescColumn.Name = "TermDescColumn";
+            this.TermDescColumn.ReadOnly = true;
+            this.TermDescColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TermDescColumn.Width = 120;
+            // 
+            // current
+            // 
+            this.current.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.current.Frozen = true;
+            this.current.HeaderText = "Current?";
+            this.current.Name = "current";
+            this.current.ReadOnly = true;
+            this.current.Width = 80;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(18, 148);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(129, 20);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Make Current Term";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeCurrentToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // makeCurrentToolStripMenuItem
+            // 
+            this.makeCurrentToolStripMenuItem.Name = "makeCurrentToolStripMenuItem";
+            this.makeCurrentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.makeCurrentToolStripMenuItem.Text = "Make current";
+            this.makeCurrentToolStripMenuItem.Click += new System.EventHandler(this.makeCurrentToolStripMenuItem_Click);
+            // 
             // AdminWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +510,7 @@ namespace Financial_System.Forms
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TermDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -489,10 +537,14 @@ namespace Financial_System.Forms
         private CustomUI.Textbox.RoundTextBox TermDesc_txtBox;
         private System.Windows.Forms.Button AddTerm_Btn;
         private System.Windows.Forms.DataGridView TermDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TermIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TermDescColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private CustomUI.Textbox.RoundTextBox TermId_txtBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermDescColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn current;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem makeCurrentToolStripMenuItem;
     }
 }

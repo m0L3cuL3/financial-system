@@ -110,7 +110,7 @@ namespace Financial_System.Forms
             this.userLabel.Location = new System.Drawing.Point(50, 244);
             this.userLabel.Name = "userLabel";
             this.userLabel.Size = new System.Drawing.Size(71, 17);
-            this.userLabel.TabIndex = 2;
+            this.userLabel.TabIndex = 10;
             this.userLabel.Text = "Username";
             // 
             // passLabel
@@ -121,7 +121,7 @@ namespace Financial_System.Forms
             this.passLabel.Location = new System.Drawing.Point(50, 312);
             this.passLabel.Name = "passLabel";
             this.passLabel.Size = new System.Drawing.Size(69, 17);
-            this.passLabel.TabIndex = 4;
+            this.passLabel.TabIndex = 20;
             this.passLabel.Text = "Password";
             // 
             // loginButton
@@ -134,7 +134,7 @@ namespace Financial_System.Forms
             this.loginButton.Location = new System.Drawing.Point(82, 385);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(124, 31);
-            this.loginButton.TabIndex = 5;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Log In";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -146,7 +146,7 @@ namespace Financial_System.Forms
             this.IsAdminCheckBox.Location = new System.Drawing.Point(59, 450);
             this.IsAdminCheckBox.Name = "IsAdminCheckBox";
             this.IsAdminCheckBox.Size = new System.Drawing.Size(170, 21);
-            this.IsAdminCheckBox.TabIndex = 7;
+            this.IsAdminCheckBox.TabIndex = 3;
             this.IsAdminCheckBox.Text = "Login As Administrator";
             this.IsAdminCheckBox.UseVisualStyleBackColor = true;
             this.IsAdminCheckBox.CheckedChanged += new System.EventHandler(this.IsAdminCheckBox_CheckedChanged);
@@ -163,9 +163,10 @@ namespace Financial_System.Forms
             this.passTextBox.Name = "passTextBox";
             this.passTextBox.PasswordChar = '●';
             this.passTextBox.Size = new System.Drawing.Size(200, 33);
-            this.passTextBox.TabIndex = 3;
+            this.passTextBox.TabIndex = 2;
             this.passTextBox.textboxRadius = 15;
             this.passTextBox.UseSystemPasswordChar = true;
+            this.passTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passTextBox_KeyPress);
             // 
             // userTextBox
             // 
@@ -179,9 +180,10 @@ namespace Financial_System.Forms
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.PasswordChar = '\0';
             this.userTextBox.Size = new System.Drawing.Size(200, 33);
-            this.userTextBox.TabIndex = 2;
+            this.userTextBox.TabIndex = 1;
             this.userTextBox.textboxRadius = 15;
             this.userTextBox.UseSystemPasswordChar = false;
+            this.userTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.userTextBox_KeyPress);
             // 
             // LoginWindow
             // 
@@ -202,6 +204,7 @@ namespace Financial_System.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginWindow_FormClosing);
+            this.Load += new System.EventHandler(this.LoginWindow_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.LogoPanel.ResumeLayout(false);

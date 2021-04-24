@@ -9,6 +9,19 @@ namespace Financial_System.Forms
         readonly UIHandler ui = new UIHandler();
         readonly UCHandler uc = new UCHandler();
         readonly SQLiteHandler sql = new SQLiteHandler();
+        Globals gb = new Globals();
+
+        public string LabelText
+        {
+            get
+            {
+                return UsernameLabel.Text;
+            }
+            set
+            {
+                UsernameLabel.Text = value;
+            }
+        }
 
         public MainWindow(string currUser)
         {
@@ -18,11 +31,13 @@ namespace Financial_System.Forms
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
+            Globals._term = sql.GetCurrentTerm(sql.CreateConnection());
         }
 
         // MOVING BORDERLESS WINDOW
@@ -48,7 +63,7 @@ namespace Financial_System.Forms
             {
                 Hide();
                 LoginWindow lw = new LoginWindow();
-                lw.Show();
+                lw.ShowDialog(this);
             }
             else
             {
@@ -96,7 +111,7 @@ namespace Financial_System.Forms
         private void editProfButton_Click(object sender, EventArgs e)
         {
             ChangePasswordWindow cpw = new ChangePasswordWindow();
-            cpw.Show();
+            cpw.ShowDialog(this);
         }
 
         private void button1_Click(object sender, EventArgs e)

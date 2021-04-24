@@ -4,6 +4,7 @@ using IronXL;
 using System;
 using System.Data.SqlTypes;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -15,16 +16,16 @@ namespace Financial_System.Forms
         Globals gb = new Globals();
         GetTotalResult gtr = new GetTotalResult();
 
-        string sid;
+        //string sid;
         string name;
         string section;
         string level;
         string lrn;
 
-        public StudentLedgerWindow(string sid, string lrn, string name, string section, string level)
+        public StudentLedgerWindow(string lrn, string name, string section, string level)
         {
             InitializeComponent();
-            this.sid = sid;
+            //this.sid = sid;
             this.lrn = lrn;
             this.name = name;
             this.section = section;
@@ -52,10 +53,11 @@ namespace Financial_System.Forms
             StudentSectionLevelLabel.Text = $"{section} - {level}";
             StudentLRNLabel.Text = lrn;
 
-            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, lrn);
 
             await sql.GetTerm(sql.CreateConnection(), TermComboBox);
             await gtr.GetList(TypeCmBox, gb.PaymentList);
+            totalcalc();
         }
 
         // post payment
@@ -75,7 +77,7 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), null, TypeCmBox.Text, sid, ReceiptBox.Text ); //TermComboBox.SelectedIndex
+                        sql.InsertTransaction(sql.CreateConnection(), null ,Convert.ToInt32(amountBox.Text), TypeCmBox.Text, lrn ,ReceiptBox.Text); //TermComboBox.SelectedIndex
                         MessageBox.Show("Transaction Added");
                         TypeCmBox.Text = "";
                         amountBox.Text = "";
@@ -94,8 +96,9 @@ namespace Financial_System.Forms
             }
 
             //reportsControl.RefreshDGV(); // auto load in reports.
-            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, lrn);
             dataGridView1.Refresh();
+            totalcalc();
         }
 
         // export ledger
@@ -171,6 +174,30 @@ namespace Financial_System.Forms
 
             wb.SaveAs(path);
             MessageBox.Show($"File saved at {path}", "XLSX Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void totalcalc()
+        {
+            int paymenttotal = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(t => t.Cells[2].Value.Equals(DBNull.Value) ? 0 : Convert.ToInt32(t.Cells[2].Value));
+            int feestotal = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(t => t.Cells[1].Value.Equals(DBNull.Value) ? 0 : Convert.ToInt32(t.Cells[1].Value));
+            //paymentlbl.Text = paymenttotal.ToString();
+            //amountlbl.Text = feestotal.ToString();
+
+            if ((feestotal - paymenttotal) > 0)
+            {
+                balORcredit.Text = "Balance";
+                balancelbl.Text = "₱  " + Math.Abs(feestotal - paymenttotal).ToString();
+                balancelbl.ForeColor = System.Drawing.Color.Red;
+
+            }
+            else
+            {
+                balancelbl.ForeColor = System.Drawing.Color.Green;
+                balORcredit.Text = "Credit";
+                balancelbl.Text = "₱  " + Math.Abs(feestotal - paymenttotal).ToString();
+
+            }
+
         }
     }
 }

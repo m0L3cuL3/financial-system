@@ -6,6 +6,8 @@ namespace Financial_System.Forms
 {
     public partial class AdminWindow : Form
     {
+
+        public string termid = "";
         UIHandler ui = new UIHandler();
         static SQLiteHandler sql = new SQLiteHandler();
 
@@ -112,7 +114,7 @@ namespace Financial_System.Forms
                 else
                 {
                     TermDGV.Rows.Clear();
-                    await sql.InsertTerm(sql.CreateConnection(), TermId_txtBox.Text, TermDesc_txtBox.Text);
+                    await sql.InsertTerm(sql.CreateConnection(), TermId_txtBox.Text, TermDesc_txtBox.Text, checkBox1.Checked);
                     await sql.GetTerm(sql.CreateConnection(), TermDGV);
                     TermId_txtBox.Text = "";
                     TermDesc_txtBox.Text = "";
@@ -124,5 +126,36 @@ namespace Financial_System.Forms
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(checkBox1.Checked.ToString());
+        }
+
+        private async void TermDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedrowindex = TermDGV.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = TermDGV.Rows[selectedrowindex];
+            //string cellValue = Convert.ToString(selectedRow.Cells["enter column name"].Value);
+
+            termid = TermDGV.Rows[selectedrowindex].Cells[0].Value.ToString();
+
+            using (TermEditWindow tew = new TermEditWindow(termid))
+            {
+                tew.ShowDialog(this.TopLevelControl);
+            }
+            await sql.GetTerm(sql.CreateConnection(), TermDGV);
+
+
+        }
+
+        private void makeCurrentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = TermDGV.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = TermDGV.Rows[selectedrowindex];
+            //string cellValue = Convert.ToString(selectedRow.Cells["enter column name"].Value);
+
+            termid = TermDGV.Rows[selectedrowindex].Cells[0].Value.ToString();
+
+        }
     }
 }
