@@ -78,6 +78,7 @@ namespace Financial_System.Forms
                     sql.InsertImportData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2], section, Convert.ToInt32(level[1]), aycode);
                     sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2]);
                 }
+                MessageBox.Show($"CSV Loaded", "Import Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
