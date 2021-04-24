@@ -405,10 +405,10 @@ namespace Financial_System.Utils
                 {
                     dgv.Rows.Add(new object[] {
                         read.GetValue(0),
-                        read.GetValue(read.GetOrdinal("student_id")),
+                        read.GetValue(read.GetOrdinal("lrn")),
                         read.GetValue(read.GetOrdinal("type")),
-                        read.GetValue(read.GetOrdinal("amount")),
-                        read.GetValue(read.GetOrdinal("receipt_number")),
+                        read.GetValue(read.GetOrdinal("payment")),
+                        read.GetValue(read.GetOrdinal("reference")),
                         read.GetValue(read.GetOrdinal("term")),
                         read.GetValue(read.GetOrdinal("date_recorded"))
                     });
@@ -433,10 +433,10 @@ namespace Financial_System.Utils
                 {
                     dgv.Rows.Add(new object[] {
                         read.GetValue(0),
-                        read.GetValue(read.GetOrdinal("student_id")),
+                        read.GetValue(read.GetOrdinal("lrn")),
                         read.GetValue(read.GetOrdinal("type")),
-                        read.GetValue(read.GetOrdinal("amount")),
-                        read.GetValue(read.GetOrdinal("receipt_number")),
+                        read.GetValue(read.GetOrdinal("payment")),
+                        read.GetValue(read.GetOrdinal("reference")),
                         read.GetValue(read.GetOrdinal("term")),
                         read.GetValue(read.GetOrdinal("date_recorded"))
                     });

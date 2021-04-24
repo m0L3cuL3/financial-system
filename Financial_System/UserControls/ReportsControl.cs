@@ -152,9 +152,9 @@ namespace Financial_System.UserControls
                         }
                         await gtr.GetTotal(dataGridView1, 3, totalLabel);
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        MessageBox.Show("Something went wrong. Please contact your administrator.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An error occured. {ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 
@@ -205,9 +205,9 @@ namespace Financial_System.UserControls
                     }
                     await gtr.GetTotal(dataGridView1, 3, totalLabel);
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Something went wrong. Please contact your administrator.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"An error occured. {ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
