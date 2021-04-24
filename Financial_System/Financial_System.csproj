@@ -269,6 +269,10 @@
     <Compile Include="Forms\ChangePasswordWindow.Designer.cs">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditFeeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditFeeWindow.Designer.cs" />
     <Compile Include="Forms\ImportStudentCsvWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +321,14 @@
     <Compile Include="Forms\StudentLedgerWindow.Designer.cs">
       <DependentUpon>StudentLedgerWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\StudentListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentListWindow.Designer.cs" />
+    <Compile Include="Forms\TermEditWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TermEditWindow.Designer.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="UserControls\DashboardControl.cs">
       <SubType>UserControl</SubType>
@@ -380,6 +392,7 @@
     <EmbeddedResource Include="Forms\ChangePasswordWindow.resx">
       <DependentUpon>ChangePasswordWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditFeeWindow.resx" />
     <EmbeddedResource Include="Forms\ImportStudentCsvWindow.resx">
       <DependentUpon>ImportStudentCsvWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +418,8 @@
     <EmbeddedResource Include="Forms\StudentLedgerWindow.resx">
       <DependentUpon>StudentLedgerWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentListWindow.resx" />
+    <EmbeddedResource Include="Forms\TermEditWindow.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

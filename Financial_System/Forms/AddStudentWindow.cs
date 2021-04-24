@@ -44,7 +44,7 @@ namespace Financial_System.Forms
         {
             try
             {
-                sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text, SectionTextBox.Text, LevelComboBox.SelectedIndex);
+                //sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text, SectionTextBox.Text, LevelComboBox.SelectedIndex);
                 slc.LoadStudentLedger(sql.CreateConnection());
                 MessageBox.Show("Student Inserted!");
             }

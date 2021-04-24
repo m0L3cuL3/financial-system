@@ -17,21 +17,12 @@ namespace Financial_System.Forms
 
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
+        GetTotalResult gtr = new GetTotalResult();
+        Globals gb = new Globals();
 
         public NewPaymentWindow()
         {
             InitializeComponent();
-            ui.RoundWindow(this);
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            ui.DragWindow(Handle, e);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,54 +30,32 @@ namespace Financial_System.Forms
 
         }
 
-        private void payment_KeyPress(object sender, KeyPressEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar)) e.Handled = true;         //Just Digits
-            if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
-            if (e.KeyChar == (char)13) Create_Btn_Click(sender, e);  //Allow Enter  
-        }
-
-        private void Create_Btn_Click(object sender, EventArgs e)
-        {
-            if (!IsEmpty())
-            {
+            if (name.Text != "" && desc.Text != "" && payment.Text != "") 
+            { 
                 try
                 {
                     sql.NewPaymentTemplate(sql.CreateConnection(), name.Text, desc.Text, int.Parse(payment.Text));
-                    Close();
+                    this.Close();
                 }
-                catch (FormatException fe)
+                catch (Exception)
                 {
-                    MessageBox.Show($"An error occured. {fe.Message}", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    throw;
                 }
             }
             else
             {
-                MessageBox.Show("Please fill out all fields.", "Incomplete Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please fill out all fields.");
             }
         }
 
-        private bool IsEmpty()
+        private void payment_KeyPress(object sender, KeyPressEventArgs e)
         {
-            bool status = false;
-            foreach (Control c in Controls)
-            {
-                if (c is TextBox)
-                {
-                    TextBox txtBox = c as TextBox;
-                    if (txtBox.Text == string.Empty)
-                    {
-                        status = true;
-                    }
-                    else
-                    {
-                        status = false;
-                    }
-                }
-            }
-            return status;
+            if (!char.IsDigit(e.KeyChar)) e.Handled = true;         //Just Digits
+            if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
+            if (e.KeyChar == (char)13) button1_Click(sender, e);  //Allow Enter  
         }
-
-       
     }
 }

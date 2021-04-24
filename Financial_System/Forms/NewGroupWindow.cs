@@ -16,62 +16,34 @@ namespace Financial_System.Forms
     {
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
+        GetTotalResult gtr = new GetTotalResult();
+        Globals gb = new Globals();
 
         public NewGroupWindow()
         {
             InitializeComponent();
-            ui.RoundWindow(this);
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void createbtn_Click(object sender, EventArgs e)
         {
-            Close();
-        }
-
-        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            ui.DragWindow(Handle, e);
-        }
-
-        private void Create_Btn_Click(object sender, EventArgs e)
-        {
-            if (!IsEmpty())
+            if (name.Text != "" && desc.Text != "")
             {
                 try
                 {
                     sql.NewGroup(sql.CreateConnection(), name.Text, desc.Text);
-                    Close();
+                    this.Close();
                 }
-                catch (FormatException fe)
+                catch (Exception)
                 {
-                    MessageBox.Show($"An error occured. {fe.Message}", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    throw;
                 }
             }
             else
             {
-                MessageBox.Show("Please fill out all fields.", "Incomplete Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please fill out all fields.");
             }
-        }
-
-        private bool IsEmpty()
-        {
-            bool status = false;
-            foreach (Control c in Controls)
-            {
-                if (c is TextBox)
-                {
-                    TextBox txtBox = c as TextBox;
-                    if (txtBox.Text == string.Empty)
-                    {
-                        status = true;
-                    }
-                    else
-                    {
-                        status = false;
-                    }
-                }
-            }
-            return status;
+            
         }
     }
 }
