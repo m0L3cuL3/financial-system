@@ -14,6 +14,7 @@ namespace Financial_System.Forms
     public partial class TermEditWindow : Form
     {
         SQLiteHandler sql = new SQLiteHandler();
+        UIHandler ui = new UIHandler();
         string[] list;
         string termid;
         public TermEditWindow(string termid)
@@ -39,6 +40,16 @@ namespace Financial_System.Forms
         {
             //delete
 
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            ui.DragWindow(Handle, e);
         }
     }
 }

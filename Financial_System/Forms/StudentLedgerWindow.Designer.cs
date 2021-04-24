@@ -32,6 +32,7 @@ namespace Financial_System.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentLedgerWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.StudentIDLabel = new System.Windows.Forms.Label();
@@ -41,7 +42,15 @@ namespace Financial_System.Forms
             this.StudentLRNLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TermColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReceiptNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TypeCmBox = new System.Windows.Forms.ComboBox();
@@ -52,14 +61,6 @@ namespace Financial_System.Forms
             this.exportBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TermComboBox = new System.Windows.Forms.ComboBox();
-            this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TermColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReceiptNumColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateRecordedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.balORcredit = new System.Windows.Forms.Label();
             this.balancelbl = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
@@ -183,6 +184,17 @@ namespace Financial_System.Forms
             this.label5.TabIndex = 18;
             this.label5.Text = "Name:";
             // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -226,6 +238,60 @@ namespace Financial_System.Forms
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(692, 332);
             this.dataGridView1.TabIndex = 18;
+            // 
+            // StudentIdColumn
+            // 
+            this.StudentIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.StudentIdColumn.HeaderText = "Transaction ID";
+            this.StudentIdColumn.Name = "StudentIdColumn";
+            this.StudentIdColumn.ReadOnly = true;
+            this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // AmountColumn
+            // 
+            this.AmountColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AmountColumn.HeaderText = "Amount";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.ReadOnly = true;
+            this.AmountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // payment
+            // 
+            this.payment.HeaderText = "Payment";
+            this.payment.Name = "payment";
+            this.payment.ReadOnly = true;
+            // 
+            // TypeColumn
+            // 
+            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TypeColumn.HeaderText = "Type";
+            this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.ReadOnly = true;
+            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // TermColumn
+            // 
+            this.TermColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TermColumn.HeaderText = "Term";
+            this.TermColumn.Name = "TermColumn";
+            this.TermColumn.ReadOnly = true;
+            this.TermColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ReceiptNumColumn
+            // 
+            this.ReceiptNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReceiptNumColumn.HeaderText = "Reference";
+            this.ReceiptNumColumn.Name = "ReceiptNumColumn";
+            this.ReceiptNumColumn.ReadOnly = true;
+            this.ReceiptNumColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DateRecordedColumn
+            // 
+            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateRecordedColumn.HeaderText = "Date Recorded";
+            this.DateRecordedColumn.Name = "DateRecordedColumn";
+            this.DateRecordedColumn.ReadOnly = true;
+            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // amountBox
             // 
@@ -335,71 +401,6 @@ namespace Financial_System.Forms
             this.TermComboBox.Size = new System.Drawing.Size(128, 21);
             this.TermComboBox.TabIndex = 30;
             // 
-            // StudentIdColumn
-            // 
-            this.StudentIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.StudentIdColumn.HeaderText = "Transaction ID";
-            this.StudentIdColumn.Name = "StudentIdColumn";
-            this.StudentIdColumn.ReadOnly = true;
-            this.StudentIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // AmountColumn
-            // 
-            this.AmountColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AmountColumn.HeaderText = "Amount";
-            this.AmountColumn.Name = "AmountColumn";
-            this.AmountColumn.ReadOnly = true;
-            this.AmountColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // payment
-            // 
-            this.payment.HeaderText = "Payment";
-            this.payment.Name = "payment";
-            this.payment.ReadOnly = true;
-            // 
-            // TypeColumn
-            // 
-            this.TypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TypeColumn.HeaderText = "Type";
-            this.TypeColumn.Name = "TypeColumn";
-            this.TypeColumn.ReadOnly = true;
-            this.TypeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // TermColumn
-            // 
-            this.TermColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TermColumn.HeaderText = "Term";
-            this.TermColumn.Name = "TermColumn";
-            this.TermColumn.ReadOnly = true;
-            this.TermColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ReceiptNumColumn
-            // 
-            this.ReceiptNumColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ReceiptNumColumn.HeaderText = "Reference";
-            this.ReceiptNumColumn.Name = "ReceiptNumColumn";
-            this.ReceiptNumColumn.ReadOnly = true;
-            this.ReceiptNumColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // DateRecordedColumn
-            // 
-            this.DateRecordedColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateRecordedColumn.HeaderText = "Date Recorded";
-            this.DateRecordedColumn.Name = "DateRecordedColumn";
-            this.DateRecordedColumn.ReadOnly = true;
-            this.DateRecordedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ProfilePanel
-            // 
-            this.ProfilePanel.Angle = -48F;
-            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
-            this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
-            // 
             // balORcredit
             // 
             this.balORcredit.AutoSize = true;
@@ -441,10 +442,11 @@ namespace Financial_System.Forms
             this.Controls.Add(this.SideInfoPanel);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "StudentLedgerWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StudentLedgerWindow";
+            this.Text = "Student Ledger";
             this.Load += new System.EventHandler(this.StudentLedgerWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();

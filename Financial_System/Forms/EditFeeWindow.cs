@@ -80,5 +80,15 @@ namespace Financial_System.Forms
             }
             this.Close();
         }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            ui.DragWindow(Handle, e);
+        }
     }
 }

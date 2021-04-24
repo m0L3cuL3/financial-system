@@ -265,7 +265,7 @@ namespace Financial_System.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddStudentWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddStudentWindow";
+            this.Text = "Add Student";
             this.Load += new System.EventHandler(this.AddStudentWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();

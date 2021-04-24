@@ -53,5 +53,15 @@ namespace Financial_System.Forms
             if (e.KeyChar == (char)8) e.Handled = false;            //Allow Backspace
             if (e.KeyChar == (char)13) button1_Click(sender, e);  //Allow Enter  
         }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            ui.DragWindow(Handle, e);
+        }
     }
 }

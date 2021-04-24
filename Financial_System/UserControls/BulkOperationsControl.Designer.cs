@@ -64,10 +64,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.newList = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.listid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listdesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -397,6 +397,7 @@
             // execute
             // 
             this.execute.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.execute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.execute.ForeColor = System.Drawing.Color.White;
             this.execute.Location = new System.Drawing.Point(18, 418);
             this.execute.Name = "execute";
@@ -472,16 +473,6 @@
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.SelectionChanged += new System.EventHandler(this.dataGridView5_SelectionChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(253, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 17);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Fees/Payments in Group";
-            // 
             // listid
             // 
             this.listid.HeaderText = "id";
@@ -498,6 +489,16 @@
             this.listdesc.HeaderText = "Description";
             this.listdesc.Name = "listdesc";
             this.listdesc.Width = 125;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(253, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(163, 17);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Fees/Payments in Group";
             // 
             // BulkOperationsControl
             // 

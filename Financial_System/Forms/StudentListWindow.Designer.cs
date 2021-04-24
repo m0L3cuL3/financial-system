@@ -33,8 +33,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.listlrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listsurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listfname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listmiddlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listsection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,27 +62,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.listidlbl = new System.Windows.Forms.Label();
-            this.lrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listlrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listsurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listfname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listmiddlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listsection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TopBarPanel = new System.Windows.Forms.Panel();
+            this.CloseButton = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.TopBarPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(327, 9);
+            this.label1.Location = new System.Drawing.Point(115, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(331, 33);
             this.label1.TabIndex = 1;
@@ -78,7 +81,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 75);
+            this.textBox1.Location = new System.Drawing.Point(12, 139);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 2;
@@ -87,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 60);
+            this.label2.Location = new System.Drawing.Point(12, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 3;
@@ -119,13 +122,45 @@
             this.level,
             this.section});
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 99);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 165);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(523, 421);
+            this.dataGridView1.Size = new System.Drawing.Size(523, 355);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
+            // lrn
+            // 
+            this.lrn.HeaderText = "LRN";
+            this.lrn.Name = "lrn";
+            // 
+            // surname
+            // 
+            this.surname.HeaderText = "Surname";
+            this.surname.Name = "surname";
+            // 
+            // firstname
+            // 
+            this.firstname.HeaderText = "Firstname";
+            this.firstname.Name = "firstname";
+            // 
+            // middlename
+            // 
+            this.middlename.HeaderText = "Middlename";
+            this.middlename.Name = "middlename";
+            this.middlename.Width = 80;
+            // 
+            // level
+            // 
+            this.level.HeaderText = "Level";
+            this.level.Name = "level";
+            this.level.Width = 70;
+            // 
+            // section
+            // 
+            this.section.HeaderText = "Section";
+            this.section.Name = "section";
             // 
             // label3
             // 
@@ -159,6 +194,41 @@
             this.dataGridView2.Size = new System.Drawing.Size(396, 355);
             this.dataGridView2.TabIndex = 9;
             // 
+            // listlrn
+            // 
+            this.listlrn.HeaderText = "LRN";
+            this.listlrn.Name = "listlrn";
+            // 
+            // listsurname
+            // 
+            this.listsurname.HeaderText = "Surname";
+            this.listsurname.Name = "listsurname";
+            this.listsurname.Width = 80;
+            // 
+            // listfname
+            // 
+            this.listfname.HeaderText = "Firstname";
+            this.listfname.Name = "listfname";
+            this.listfname.Width = 60;
+            // 
+            // listmiddlename
+            // 
+            this.listmiddlename.HeaderText = "Middlename";
+            this.listmiddlename.Name = "listmiddlename";
+            this.listmiddlename.Width = 80;
+            // 
+            // listlevel
+            // 
+            this.listlevel.HeaderText = "Level";
+            this.listlevel.Name = "listlevel";
+            this.listlevel.Width = 40;
+            // 
+            // listsection
+            // 
+            this.listsection.HeaderText = "Section";
+            this.listsection.Name = "listsection";
+            this.listsection.Width = 60;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -169,7 +239,7 @@
             "10",
             "11",
             "12"});
-            this.comboBox1.Location = new System.Drawing.Point(360, 75);
+            this.comboBox1.Location = new System.Drawing.Point(360, 139);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(71, 21);
             this.comboBox1.TabIndex = 10;
@@ -177,7 +247,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(437, 75);
+            this.comboBox2.Location = new System.Drawing.Point(437, 139);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(96, 21);
             this.comboBox2.TabIndex = 11;
@@ -186,7 +256,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(290, 75);
+            this.label4.Location = new System.Drawing.Point(290, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 12;
@@ -213,7 +283,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(357, 60);
+            this.label7.Location = new System.Drawing.Point(357, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 15;
@@ -222,7 +292,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(434, 60);
+            this.label8.Location = new System.Drawing.Point(434, 124);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 16;
@@ -246,7 +316,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(118, 60);
+            this.label9.Location = new System.Drawing.Point(118, 124);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 20;
@@ -254,7 +324,7 @@
             // 
             // familynamebx
             // 
-            this.familynamebx.Location = new System.Drawing.Point(118, 75);
+            this.familynamebx.Location = new System.Drawing.Point(118, 139);
             this.familynamebx.Name = "familynamebx";
             this.familynamebx.Size = new System.Drawing.Size(100, 20);
             this.familynamebx.TabIndex = 19;
@@ -301,78 +371,37 @@
             this.listidlbl.TabIndex = 24;
             this.listidlbl.Text = "List ID: ";
             // 
-            // lrn
+            // TopBarPanel
             // 
-            this.lrn.HeaderText = "LRN";
-            this.lrn.Name = "lrn";
+            this.TopBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.TopBarPanel.Controls.Add(this.CloseButton);
+            this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopBarPanel.Name = "TopBarPanel";
+            this.TopBarPanel.Size = new System.Drawing.Size(984, 30);
+            this.TopBarPanel.TabIndex = 25;
+            this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
             // 
-            // surname
+            // CloseButton
             // 
-            this.surname.HeaderText = "Surname";
-            this.surname.Name = "surname";
-            // 
-            // firstname
-            // 
-            this.firstname.HeaderText = "Firstname";
-            this.firstname.Name = "firstname";
-            // 
-            // middlename
-            // 
-            this.middlename.HeaderText = "Middlename";
-            this.middlename.Name = "middlename";
-            this.middlename.Width = 80;
-            // 
-            // level
-            // 
-            this.level.HeaderText = "Level";
-            this.level.Name = "level";
-            this.level.Width = 70;
-            // 
-            // section
-            // 
-            this.section.HeaderText = "Section";
-            this.section.Name = "section";
-            // 
-            // listlrn
-            // 
-            this.listlrn.HeaderText = "LRN";
-            this.listlrn.Name = "listlrn";
-            // 
-            // listsurname
-            // 
-            this.listsurname.HeaderText = "Surname";
-            this.listsurname.Name = "listsurname";
-            this.listsurname.Width = 80;
-            // 
-            // listfname
-            // 
-            this.listfname.HeaderText = "Firstname";
-            this.listfname.Name = "listfname";
-            this.listfname.Width = 60;
-            // 
-            // listmiddlename
-            // 
-            this.listmiddlename.HeaderText = "Middlename";
-            this.listmiddlename.Name = "listmiddlename";
-            this.listmiddlename.Width = 80;
-            // 
-            // listlevel
-            // 
-            this.listlevel.HeaderText = "Level";
-            this.listlevel.Name = "listlevel";
-            this.listlevel.Width = 40;
-            // 
-            // listsection
-            // 
-            this.listsection.HeaderText = "Section";
-            this.listsection.Name = "listsection";
-            this.listsection.Width = 60;
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSize = true;
+            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseButton.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.CloseButton.ForeColor = System.Drawing.Color.Red;
+            this.CloseButton.Location = new System.Drawing.Point(960, 6);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(18, 18);
+            this.CloseButton.TabIndex = 1;
+            this.CloseButton.Text = "X";
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // StudentListWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.TopBarPanel);
             this.Controls.Add(this.listidlbl);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -395,11 +424,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentListWindow";
             this.Text = "Student Lists";
             this.Load += new System.EventHandler(this.StudentListWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.TopBarPanel.ResumeLayout(false);
+            this.TopBarPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,5 +472,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn listmiddlename;
         private System.Windows.Forms.DataGridViewTextBoxColumn listlevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn listsection;
+        private System.Windows.Forms.Panel TopBarPanel;
+        private System.Windows.Forms.Label CloseButton;
     }
 }
