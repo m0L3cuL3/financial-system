@@ -1068,7 +1068,7 @@ namespace Financial_System.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BalanceSheetWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BalanceSheetWindow";
+            this.Text = "Create Balance Sheet";
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CurrAsset_DGV)).EndInit();

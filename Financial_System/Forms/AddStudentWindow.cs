@@ -42,16 +42,16 @@ namespace Financial_System.Forms
         // Add Student (in case there is no API from Enrollment Systems)
         private void addStudButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text, SectionTextBox.Text, LevelComboBox.SelectedIndex);
+            //try
+            //{
+                sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(LRNTextBox.Text), FnameTextBox.Text, MidnameTextBox.Text, SurnameTextBox.Text);
                 slc.LoadStudentLedger(sql.CreateConnection());
                 MessageBox.Show("Student Inserted!");
-            }
-            catch
+            //}
+/*            catch
             {
                 MessageBox.Show("Something went wrong. Please try again.");
-            }
+            }*/
             
         }
 

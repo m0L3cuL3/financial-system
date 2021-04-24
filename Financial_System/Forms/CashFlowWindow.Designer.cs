@@ -665,7 +665,7 @@ namespace Financial_System.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CashFlowWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CashFlowWindow";
+            this.Text = "Create Cash Flow";
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
             this.tabPage4.ResumeLayout(false);

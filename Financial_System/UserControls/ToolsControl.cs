@@ -72,5 +72,12 @@ namespace Financial_System.UserControls
                 cfw.Show();
             }
         }
+
+        // Imports Csv Data
+        private void Import_Btn_Click(object sender, System.EventArgs e)
+        {
+            ImportStudentCsvWindow iscw = new ImportStudentCsvWindow();
+            iscw.ShowDialog();
+        }
     }
 }

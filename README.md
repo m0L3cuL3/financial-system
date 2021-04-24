@@ -2,15 +2,13 @@
 
 ![pchs-logo](PCHS-Logo.png)
 
-## :warning: Under Development
-
 ---
 
 ## Features
 
 - [x] Multi-User Support
+- [x] Import CSV to Database
 - [x] Admin Dashboard
-- [x] Login System
 - [x] Collections
 - [x] Student Ledger
 - [x] Transactions
@@ -29,11 +27,11 @@
 
 - C# (.NET Framework 4.7.2)
 - ClosedXML
-- SQLite (will probably use ORM libraries)
+- SQLite
 
 ---
 
-## Contributors
+## Group Members
 
 - Sean Baang :philippines:
 - Michael Pagaran :philippines:

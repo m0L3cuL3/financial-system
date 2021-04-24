@@ -700,7 +700,7 @@ namespace Financial_System.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IncomeStatementWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IncomeStatementWindow";
+            this.Text = "Create Income Statement";
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
             this.GroupBox.ResumeLayout(false);

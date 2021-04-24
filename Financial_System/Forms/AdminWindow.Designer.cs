@@ -29,13 +29,13 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.UserTextBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
@@ -51,16 +51,20 @@ namespace Financial_System.Forms
             this.addUserButton = new System.Windows.Forms.Button();
             this.DatabaseTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TermId_txtBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.TermDGV = new System.Windows.Forms.DataGridView();
             this.TermIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TermDescColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.current = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.TermDesc_txtBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.AddTerm_Btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.InitializeDb_Btn = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.makeCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TopBarPanel.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.UserTab.SuspendLayout();
@@ -69,6 +73,7 @@ namespace Financial_System.Forms
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TermDGV)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -108,7 +113,7 @@ namespace Financial_System.Forms
             this.UserTextBox.Name = "UserTextBox";
             this.UserTextBox.PasswordChar = '\0';
             this.UserTextBox.Size = new System.Drawing.Size(180, 33);
-            this.UserTextBox.TabIndex = 4;
+            this.UserTextBox.TabIndex = 0;
             this.UserTextBox.textboxRadius = 15;
             this.UserTextBox.UseSystemPasswordChar = false;
             // 
@@ -124,7 +129,7 @@ namespace Financial_System.Forms
             this.PassTextBox.Name = "PassTextBox";
             this.PassTextBox.PasswordChar = '\0';
             this.PassTextBox.Size = new System.Drawing.Size(180, 33);
-            this.PassTextBox.TabIndex = 5;
+            this.PassTextBox.TabIndex = 1;
             this.PassTextBox.textboxRadius = 15;
             this.PassTextBox.UseSystemPasswordChar = false;
             // 
@@ -161,7 +166,7 @@ namespace Financial_System.Forms
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(747, 433);
-            this.TabControl.TabIndex = 8;
+            this.TabControl.TabIndex = 3;
             // 
             // UserTab
             // 
@@ -260,7 +265,7 @@ namespace Financial_System.Forms
             this.addUserButton.Location = new System.Drawing.Point(25, 154);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(153, 31);
-            this.addUserButton.TabIndex = 8;
+            this.addUserButton.TabIndex = 2;
             this.addUserButton.Text = "Add User";
             this.addUserButton.UseVisualStyleBackColor = false;
             this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
@@ -279,6 +284,7 @@ namespace Financial_System.Forms
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.TermId_txtBox);
             this.groupBox2.Controls.Add(this.TermDGV);
@@ -287,10 +293,21 @@ namespace Financial_System.Forms
             this.groupBox2.Controls.Add(this.AddTerm_Btn);
             this.groupBox2.Location = new System.Drawing.Point(25, 107);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(469, 272);
+            this.groupBox2.Size = new System.Drawing.Size(512, 272);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Setup Academic Term";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(18, 148);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(129, 20);
+            this.checkBox1.TabIndex = 23;
+            this.checkBox1.Text = "Make Current Term";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label3
             // 
@@ -315,7 +332,7 @@ namespace Financial_System.Forms
             this.TermId_txtBox.Name = "TermId_txtBox";
             this.TermId_txtBox.PasswordChar = '\0';
             this.TermId_txtBox.Size = new System.Drawing.Size(165, 26);
-            this.TermId_txtBox.TabIndex = 21;
+            this.TermId_txtBox.TabIndex = 4;
             this.TermId_txtBox.textboxRadius = 15;
             this.TermId_txtBox.UseSystemPasswordChar = false;
             // 
@@ -339,7 +356,8 @@ namespace Financial_System.Forms
             this.TermDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TermDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TermIdColumn,
-            this.TermDescColumn});
+            this.TermDescColumn,
+            this.current});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,24 +373,38 @@ namespace Financial_System.Forms
             this.TermDGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.TermDGV.RowHeadersVisible = false;
             this.TermDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TermDGV.Size = new System.Drawing.Size(245, 231);
+            this.TermDGV.Size = new System.Drawing.Size(273, 231);
             this.TermDGV.TabIndex = 20;
+            this.TermDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TermDGV_CellDoubleClick);
             // 
             // TermIdColumn
             // 
-            this.TermIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TermIdColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TermIdColumn.Frozen = true;
             this.TermIdColumn.HeaderText = "Term ID";
             this.TermIdColumn.Name = "TermIdColumn";
             this.TermIdColumn.ReadOnly = true;
             this.TermIdColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TermIdColumn.Width = 72;
             // 
             // TermDescColumn
             // 
-            this.TermDescColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TermDescColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TermDescColumn.Frozen = true;
             this.TermDescColumn.HeaderText = "Term Description";
             this.TermDescColumn.Name = "TermDescColumn";
             this.TermDescColumn.ReadOnly = true;
             this.TermDescColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TermDescColumn.Width = 120;
+            // 
+            // current
+            // 
+            this.current.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.current.Frozen = true;
+            this.current.HeaderText = "Current?";
+            this.current.Name = "current";
+            this.current.ReadOnly = true;
+            this.current.Width = 80;
             // 
             // label2
             // 
@@ -397,7 +429,7 @@ namespace Financial_System.Forms
             this.TermDesc_txtBox.Name = "TermDesc_txtBox";
             this.TermDesc_txtBox.PasswordChar = '\0';
             this.TermDesc_txtBox.Size = new System.Drawing.Size(165, 26);
-            this.TermDesc_txtBox.TabIndex = 11;
+            this.TermDesc_txtBox.TabIndex = 5;
             this.TermDesc_txtBox.textboxRadius = 15;
             this.TermDesc_txtBox.UseSystemPasswordChar = false;
             // 
@@ -408,10 +440,10 @@ namespace Financial_System.Forms
             this.AddTerm_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTerm_Btn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.AddTerm_Btn.ForeColor = System.Drawing.Color.White;
-            this.AddTerm_Btn.Location = new System.Drawing.Point(18, 226);
+            this.AddTerm_Btn.Location = new System.Drawing.Point(18, 202);
             this.AddTerm_Btn.Name = "AddTerm_Btn";
             this.AddTerm_Btn.Size = new System.Drawing.Size(165, 31);
-            this.AddTerm_Btn.TabIndex = 10;
+            this.AddTerm_Btn.TabIndex = 6;
             this.AddTerm_Btn.Text = "Add Academic Term";
             this.AddTerm_Btn.UseVisualStyleBackColor = false;
             this.AddTerm_Btn.Click += new System.EventHandler(this.AddTerm_Btn_Click);
@@ -441,6 +473,20 @@ namespace Financial_System.Forms
             this.InitializeDb_Btn.UseVisualStyleBackColor = false;
             this.InitializeDb_Btn.Click += new System.EventHandler(this.InitializeDb_Btn_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeCurrentToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 26);
+            // 
+            // makeCurrentToolStripMenuItem
+            // 
+            this.makeCurrentToolStripMenuItem.Name = "makeCurrentToolStripMenuItem";
+            this.makeCurrentToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.makeCurrentToolStripMenuItem.Text = "Make current";
+            this.makeCurrentToolStripMenuItem.Click += new System.EventHandler(this.makeCurrentToolStripMenuItem_Click);
+            // 
             // AdminWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,10 +495,9 @@ namespace Financial_System.Forms
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminWindow";
+            this.Text = "Admin";
             this.Load += new System.EventHandler(this.AdminWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
@@ -465,6 +510,7 @@ namespace Financial_System.Forms
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TermDGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -491,10 +537,14 @@ namespace Financial_System.Forms
         private CustomUI.Textbox.RoundTextBox TermDesc_txtBox;
         private System.Windows.Forms.Button AddTerm_Btn;
         private System.Windows.Forms.DataGridView TermDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TermIdColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TermDescColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private CustomUI.Textbox.RoundTextBox TermId_txtBox;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TermDescColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn current;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem makeCurrentToolStripMenuItem;
     }
 }
