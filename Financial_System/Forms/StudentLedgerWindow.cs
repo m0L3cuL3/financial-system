@@ -4,6 +4,7 @@ using Financial_System.Utils;
 using System;
 using System.Data.SqlTypes;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -52,10 +53,11 @@ namespace Financial_System.Forms
             StudentSectionLevelLabel.Text = $"{section} - {level}";
             StudentLRNLabel.Text = lrn;
 
-            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, lrn);
 
             await sql.GetTerm(sql.CreateConnection(), TermComboBox);
             await gtr.GetList(TypeCmBox, gb.PaymentList);
+            totalcalc();
         }
 
         // post payment
@@ -75,7 +77,7 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), null, TypeCmBox.Text, sid, ReceiptBox.Text ); //TermComboBox.SelectedIndex
+                        sql.InsertTransaction(sql.CreateConnection(), Convert.ToInt32(amountBox.Text), null, TypeCmBox.Text, lrn, ReceiptBox.Text ); //TermComboBox.SelectedIndex
                         MessageBox.Show("Transaction Added");
                         TypeCmBox.Text = "";
                         amountBox.Text = "";
@@ -88,14 +90,15 @@ namespace Financial_System.Forms
                     }
                 }   
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Exception Error!");
+                MessageBox.Show($"An error occured. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //reportsControl.RefreshDGV(); // auto load in reports.
-            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, sid);
+            sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, lrn);
             dataGridView1.Refresh();
+            totalcalc();
         }
 
         // export ledger
@@ -133,19 +136,20 @@ namespace Financial_System.Forms
                 ws.Cell("A1").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#7EA0D6"));
                 ws.Cell("A1").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
                 ws.Cell("A1").Style.Font.SetFontSize(16);
-                ws.Range("A1:F1").Merge();
+                ws.Range("A1:G1").Merge();
                 #endregion
 
                 #region Columns
 
-                ws.Range("A2:F2").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
-                ws.Range("A2:F2").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
+                ws.Range("A2:G2").Style.Fill.SetBackgroundColor(XLColor.FromHtml("#2F75B5"));
+                ws.Range("A2:G2").Style.Font.SetFontColor(XLColor.FromHtml("#F2F4F5"));
                 ws.Cell("A2").Value = "Transaction ID";
                 ws.Cell("B2").Value = "Amount";
-                ws.Cell("C2").Value = "Type";
-                ws.Cell("D2").Value = "Term";
-                ws.Cell("E2").Value = "Receipt #";
-                ws.Cell("F2").Value = "Date Recorded";
+                ws.Cell("C2").Value = "Payment";
+                ws.Cell("D2").Value = "Type";
+                ws.Cell("E2").Value = "Term";
+                ws.Cell("F2").Value = "Reference";
+                ws.Cell("G2").Value = "Date Recorded";
 
                 int currIndex = 3;
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -162,6 +166,7 @@ namespace Financial_System.Forms
                     ws.Cell($"D{currIndex}").Value = dataGridView1.Rows[i].Cells[3].Value; // term
                     ws.Cell($"E{currIndex}").Value = Convert.ToInt32(dataGridView1.Rows[i].Cells[4].Value); // receipt #
                     ws.Cell($"F{currIndex}").Value = dataGridView1.Rows[i].Cells[5].Value; // date recorded
+                    ws.Cell($"G{currIndex}").Value = dataGridView1.Rows[i].Cells[6].Value; // date recorded
                     currIndex = currIndex + 1;
                 }
 
@@ -173,6 +178,30 @@ namespace Financial_System.Forms
             catch (ArgumentException ex)
             {
                 MessageBox.Show("An error occured.\n" + ex.Message, "XLSX Export Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void totalcalc()
+        {
+            int paymenttotal = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(t => t.Cells[2].Value.Equals(DBNull.Value) ? 0 : Convert.ToInt32(t.Cells[2].Value));
+            int feestotal = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(t => t.Cells[1].Value.Equals(DBNull.Value) ? 0 : Convert.ToInt32(t.Cells[1].Value));
+            //paymentlbl.Text = paymenttotal.ToString();
+            //amountlbl.Text = feestotal.ToString();
+
+            if ((feestotal - paymenttotal) > 0)
+            {
+                balORcredit.Text = "Balance";
+                balancelbl.Text = "₱  " + Math.Abs(feestotal - paymenttotal).ToString();
+                balancelbl.ForeColor = System.Drawing.Color.Red;
+
+            }
+            else
+            {
+                balancelbl.ForeColor = System.Drawing.Color.Green;
+                balORcredit.Text = "Credit";
+                balancelbl.Text = "₱  " + Math.Abs(feestotal - paymenttotal).ToString();
+
             }
 
         }

@@ -134,6 +134,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NewGroupWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Fee Group";
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();

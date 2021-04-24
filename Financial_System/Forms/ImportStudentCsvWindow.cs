@@ -76,6 +76,7 @@ namespace Financial_System.Forms
                     string[] level = fulllevel.Split(null);
                     var aycode = (string)STUD_DGV.Rows[i].Cells["AY_CODE"].Value;
                     sql.InsertImportData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2], section, Convert.ToInt32(level[1]), aycode);
+                    sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2]);
                 }
             }
             catch (Exception ex)

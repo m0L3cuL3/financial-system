@@ -718,27 +718,34 @@ namespace Financial_System.Utils
         // this function takes a list of LRNs and executes the fee group against them
         public void ExecuteFeeGroup(SQLiteConnection conn, int feegroupID, List<string> lrns)
         {
-            List <int> feegroupfees = new List<int>();
-            feegroupfees.AddRange(GetFeeGroupFees(conn, feegroupID)); // a list of all the fees in a group
-            var feegroupname = GetFeeGroupname(conn, feegroupID);
-
-            foreach (string student in lrns) // for every lrn in the list
+            try
             {
-                foreach (int fee in feegroupfees) // for every fee in a feegroup 
+                List<int> feegroupfees = new List<int>();
+                feegroupfees.AddRange(GetFeeGroupFees(conn, feegroupID)); // a list of all the fees in a group
+                var feegroupname = GetFeeGroupname(conn, feegroupID);
+
+                foreach (string student in lrns) // for every lrn in the list
                 {
-                    List<string> feedetails = GetFeesPayments(conn,fee);
-                    string fid = feedetails[0]; //feepayment_id
-                    string name = feedetails[1]; //name
-                    string desc = feedetails[4]; //desc
-                    string amount = feedetails[2]; //amount
-                    string payment = feedetails[3]; //payment
+                    foreach (int fee in feegroupfees) // for every fee in a feegroup 
+                    {
+                        List<string> feedetails = GetFeesPayments(conn, fee);
+                        string fid = feedetails[0]; //feepayment_id
+                        string name = feedetails[1]; //name
+                        string desc = feedetails[4]; //desc
+                        string amount = feedetails[2]; //amount
+                        string payment = feedetails[3]; //payment
 
-                    MessageBox.Show($" FID: {fid}\n  NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}");
+                        MessageBox.Show($"FEE ID: {fid}\n NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}", "Fee Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    InsertTransaction(conn, amount.Equals("") ? 0 : Convert.ToInt32(amount), payment.Equals("") ? 0: Convert.ToInt32(payment), name, student.ToString(), feegroupname);
+                        InsertTransaction(conn, amount.Equals("") ? 0 : Convert.ToInt32(amount), payment.Equals("") ? 0 : Convert.ToInt32(payment), name, student.ToString(), feegroupname);
+                    }
                 }
             }
-            MessageBox.Show("yawa");
+            catch(Exception ex)
+            {
+                MessageBox.Show($"An error occured. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         // referenced by ExecuteFeeGroup()

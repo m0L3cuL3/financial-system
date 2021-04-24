@@ -178,12 +178,19 @@ namespace Financial_System.UserControls
 
         private void removeFeebtn_Click(object sender, EventArgs e)
         {
-            int selectedrowindex = dataGridView3.CurrentCell.RowIndex;
-            DataGridViewRow selectedRow = dataGridView3.Rows[selectedrowindex];
-            dgv3selection = dataGridView3.Rows[selectedrowindex].Cells[0].Value.ToString();
-            sql.DELETEFeeFROMGroup(sql.CreateConnection(), groupid, dgv3selection); //DELETEFeeFROMGroup works for both payments and fees 
-            sql.GetFeeGroupFeesMembers(sql.CreateConnection(), groupid, dataGridView3);
-            totalcalc();
+            try
+            {
+                int selectedrowindex = dataGridView3.CurrentCell.RowIndex;
+                DataGridViewRow selectedRow = dataGridView3.Rows[selectedrowindex];
+                dgv3selection = dataGridView3.Rows[selectedrowindex].Cells[0].Value.ToString();
+                sql.DELETEFeeFROMGroup(sql.CreateConnection(), groupid, dgv3selection); //DELETEFeeFROMGroup works for both payments and fees 
+                sql.GetFeeGroupFeesMembers(sql.CreateConnection(), groupid, dataGridView3);
+                totalcalc();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"An error occured. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void paymenttoGroupbtn_Click(object sender, EventArgs e)
@@ -226,8 +233,15 @@ namespace Financial_System.UserControls
         //execute button
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> intlist = sql.GetListsMembers(sql.CreateConnection(), dgv5selection);
-            sql.ExecuteFeeGroup(sql.CreateConnection(),Convert.ToInt32(groupid), intlist);
+            try
+            {
+                List<string> intlist = sql.GetListsMembers(sql.CreateConnection(), dgv5selection);
+                sql.ExecuteFeeGroup(sql.CreateConnection(), Convert.ToInt32(groupid), intlist);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"An error occured. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void newList_Click(object sender, EventArgs e)

@@ -42,7 +42,6 @@ namespace Financial_System.Forms
             this.StudentLRNLabel = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.StudentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +62,7 @@ namespace Financial_System.Forms
             this.TermComboBox = new System.Windows.Forms.ComboBox();
             this.balORcredit = new System.Windows.Forms.Label();
             this.balancelbl = new System.Windows.Forms.Label();
+            this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.TopBarPanel.SuspendLayout();
             this.SideInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -183,17 +183,6 @@ namespace Financial_System.Forms
             this.label5.Size = new System.Drawing.Size(44, 16);
             this.label5.TabIndex = 18;
             this.label5.Text = "Name:";
-            // 
-            // ProfilePanel
-            // 
-            this.ProfilePanel.Angle = -48F;
-            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
-            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
-            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ProfilePanel.Name = "ProfilePanel";
-            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
-            this.ProfilePanel.TabIndex = 17;
-            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
             // 
             // dataGridView1
             // 
@@ -415,11 +404,22 @@ namespace Financial_System.Forms
             // 
             this.balancelbl.AutoSize = true;
             this.balancelbl.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balancelbl.Location = new System.Drawing.Point(718, 380);
+            this.balancelbl.Location = new System.Drawing.Point(713, 379);
             this.balancelbl.Name = "balancelbl";
-            this.balancelbl.Size = new System.Drawing.Size(102, 25);
+            this.balancelbl.Size = new System.Drawing.Size(78, 25);
             this.balancelbl.TabIndex = 32;
-            this.balancelbl.Text = "₱ -20000";
+            this.balancelbl.Text = "₱ -----";
+            // 
+            // ProfilePanel
+            // 
+            this.ProfilePanel.Angle = -48F;
+            this.ProfilePanel.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(142)))), ((int)(((byte)(208)))));
+            this.ProfilePanel.Location = new System.Drawing.Point(12, 11);
+            this.ProfilePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ProfilePanel.Name = "ProfilePanel";
+            this.ProfilePanel.Size = new System.Drawing.Size(66, 58);
+            this.ProfilePanel.TabIndex = 17;
+            this.ProfilePanel.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(103)))), ((int)(((byte)(174)))));
             // 
             // StudentLedgerWindow
             // 
