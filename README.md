@@ -9,9 +9,8 @@
 - [x] Multi-User Support
 - [x] Import CSV to Database
 - [x] Admin Dashboard
-- [x] Collections
-- [x] Student Ledger
-- [x] Transactions
+- [x] Collections (Student Ledgers)
+- [x] Bulk Operations
 - [x] Generate Reports (Daily/Monthly)
 - [x] Balance Sheet
 - [x] Cash Flow Statement
@@ -28,6 +27,7 @@
 - C# (.NET Framework 4.7.2)
 - ClosedXML
 - SQLite
+- Squirrel
 
 ---
 
