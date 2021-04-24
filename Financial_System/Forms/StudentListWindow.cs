@@ -22,6 +22,7 @@ namespace Financial_System.Forms
         public StudentListWindow()
         {
             InitializeComponent();
+            ui.RoundWindow(this);
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -81,28 +82,32 @@ namespace Financial_System.Forms
         private void button3_Click(object sender, EventArgs e)
         {
 
-
-            //insert the LRNs to make up the list
-            int i=0;
-            List<string> list = new List<string>();
-            foreach (DataGridViewRow row in dataGridView2.Rows)
+            try
             {
-                list.Add(row.Cells[0].Value.ToString());
-                i++;
+                //insert the LRNs to make up the list
+                int i = 0;
+                List<string> list = new List<string>();
+                foreach (DataGridViewRow row in dataGridView2.Rows)
+                {
+                    list.Add(row.Cells[0].Value.ToString());
+                    i++;
+                }
+                var message = string.Join(Environment.NewLine, list);
+
+                var confirmResult = MessageBox.Show("Inserted " + i + "Students to a list named: " + name.Text + "?",
+                                         "Confirm",
+                                         MessageBoxButtons.YesNo);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    sql.InsertNewList(sql.CreateConnection(), name.Text, desc.Text, tobelistid);//insert a list to the list table 
+                    sql.InsertLRNTOList(sql.CreateConnection(), list, tobelistid);
+                }
             }
-            var message = string.Join(Environment.NewLine, list);
-
-            var confirmResult = MessageBox.Show("Inserted " + i + "Students to a list named: " + name.Text + "?",
-                                     "Confirm",
-                                     MessageBoxButtons.YesNo);
-
-            if (confirmResult == DialogResult.Yes)
+            catch(Exception ex)
             {
-                sql.InsertNewList(sql.CreateConnection(), name.Text, desc.Text, tobelistid);//insert a list to the list table 
-                sql.InsertLRNTOList(sql.CreateConnection(), list, tobelistid);
+                MessageBox.Show($"An error occured. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-                //sql.InsertListMembers(sql.CreateConnection(), list);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -118,7 +123,6 @@ namespace Financial_System.Forms
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
             sql.FilterStudents(sql.CreateConnection(), dataGridView1, "", "", "", familynamebx.Text, "", ""); ;
-
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

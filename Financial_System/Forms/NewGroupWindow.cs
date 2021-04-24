@@ -22,6 +22,7 @@ namespace Financial_System.Forms
         public NewGroupWindow()
         {
             InitializeComponent();
+            ui.RoundWindow(this);
         }
 
         private void createbtn_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace Financial_System.Forms
                 try
                 {
                     sql.NewGroup(sql.CreateConnection(), name.Text, desc.Text);
-                    this.Close();
+                    Close();
                 }
                 catch (Exception)
                 {

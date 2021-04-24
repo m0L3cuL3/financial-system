@@ -20,6 +20,9 @@ namespace Financial_System.Forms
         public TermEditWindow(string termid)
         {
             InitializeComponent();
+
+            ui.RoundWindow(this);
+
             this.termid = termid;
             list = sql.GetTerm(sql.CreateConnection(), this.termid).ToArray();
             term.Text = list[0];
@@ -30,10 +33,16 @@ namespace Financial_System.Forms
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            //Convert.ToInt32(checkBox1.Checked)
-            await sql.UpdateTerm(sql.CreateConnection(), term.Text, desc.Text, checkBox1.Checked);
+            try
+            {
+                await sql.UpdateTerm(sql.CreateConnection(), term.Text, desc.Text, checkBox1.Checked);
+                Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"An error occured. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

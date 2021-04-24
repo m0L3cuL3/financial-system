@@ -17,12 +17,11 @@ namespace Financial_System.Forms
 
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
-        GetTotalResult gtr = new GetTotalResult();
-        Globals gb = new Globals();
 
         public NewPaymentWindow()
         {
             InitializeComponent();
+            ui.RoundWindow(this);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,7 +36,7 @@ namespace Financial_System.Forms
                 try
                 {
                     sql.NewPaymentTemplate(sql.CreateConnection(), name.Text, desc.Text, int.Parse(payment.Text));
-                    this.Close();
+                    Close();
                 }
                 catch (Exception)
                 {
