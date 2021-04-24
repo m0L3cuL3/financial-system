@@ -460,7 +460,7 @@ namespace Financial_System.Utils
 
                 while (read.Read())
                 {
-                    result += (int)read.GetValue(read.GetOrdinal("amount"));
+                    result += (int)read.GetValue(read.GetOrdinal("payment"));
                 }
                 return result;
             }

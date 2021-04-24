@@ -45,7 +45,6 @@ namespace Financial_System.UserControls
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.GeneralPanel = new System.Windows.Forms.Panel();
-            this.AddStudButton = new System.Windows.Forms.Button();
             this.Import_Btn = new System.Windows.Forms.Button();
             this.FinancialPanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -229,35 +228,18 @@ namespace Financial_System.UserControls
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.label2.Location = new System.Drawing.Point(291, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 20);
+            this.label2.Size = new System.Drawing.Size(95, 20);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Academic Tools";
+            this.label2.Text = "Import Tools";
             // 
             // GeneralPanel
             // 
             this.GeneralPanel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.GeneralPanel.Controls.Add(this.Import_Btn);
-            this.GeneralPanel.Controls.Add(this.AddStudButton);
             this.GeneralPanel.Location = new System.Drawing.Point(295, 106);
             this.GeneralPanel.Name = "GeneralPanel";
-            this.GeneralPanel.Size = new System.Drawing.Size(159, 103);
+            this.GeneralPanel.Size = new System.Drawing.Size(159, 57);
             this.GeneralPanel.TabIndex = 10;
-            // 
-            // AddStudButton
-            // 
-            this.AddStudButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
-            this.AddStudButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddStudButton.FlatAppearance.BorderSize = 0;
-            this.AddStudButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddStudButton.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddStudButton.ForeColor = System.Drawing.Color.White;
-            this.AddStudButton.Location = new System.Drawing.Point(15, 16);
-            this.AddStudButton.Name = "AddStudButton";
-            this.AddStudButton.Size = new System.Drawing.Size(129, 28);
-            this.AddStudButton.TabIndex = 12;
-            this.AddStudButton.Text = "Add New Student";
-            this.AddStudButton.UseVisualStyleBackColor = false;
-            this.AddStudButton.Click += new System.EventHandler(this.AddStudButton_Click);
             // 
             // Import_Btn
             // 
@@ -267,7 +249,7 @@ namespace Financial_System.UserControls
             this.Import_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Import_Btn.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Import_Btn.ForeColor = System.Drawing.Color.White;
-            this.Import_Btn.Location = new System.Drawing.Point(15, 56);
+            this.Import_Btn.Location = new System.Drawing.Point(16, 16);
             this.Import_Btn.Name = "Import_Btn";
             this.Import_Btn.Size = new System.Drawing.Size(129, 28);
             this.Import_Btn.TabIndex = 13;
@@ -309,7 +291,6 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.Button CFButton;
         private System.Windows.Forms.Button IncomeStmtButton;
         private System.Windows.Forms.Button BalSheetButton;
-        private System.Windows.Forms.Button AddStudButton;
         private System.Windows.Forms.GroupBox MonthYearGbox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox YearTextBox;

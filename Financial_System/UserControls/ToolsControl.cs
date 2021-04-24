@@ -23,13 +23,6 @@ namespace Financial_System.UserControls
             await gtr.GetList(MonthComboBox, gb.MonthList);
         }
 
-        // Add Student
-        private void AddStudButton_Click(object sender, System.EventArgs e)
-        {
-            AddStudentWindow asw = new AddStudentWindow();
-            asw.Show();
-        }
-
         // Create Balance Sheet
         private void BalSheetButton_Click(object sender, System.EventArgs e)
         {
