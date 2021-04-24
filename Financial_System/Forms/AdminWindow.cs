@@ -141,7 +141,7 @@ namespace Financial_System.Forms
 
             using (TermEditWindow tew = new TermEditWindow(termid))
             {
-                tew.ShowDialog(TopLevelControl);
+                tew.ShowDialog(this.TopLevelControl);
             }
             await sql.GetTerm(sql.CreateConnection(), TermDGV);
 
