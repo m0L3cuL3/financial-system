@@ -35,6 +35,7 @@ namespace Financial_System.Forms
             this.CloseButton = new System.Windows.Forms.Label();
             this.SideMenuPanel = new System.Windows.Forms.Panel();
             this.ButtonPanel = new System.Windows.Forms.Panel();
+            this.BulkButton = new System.Windows.Forms.Button();
             this.ToolsButton = new System.Windows.Forms.Button();
             this.ReportButton = new System.Windows.Forms.Button();
             this.CollectionsButton = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace Financial_System.Forms
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
-            this.BulkButton = new System.Windows.Forms.Button();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -118,6 +118,23 @@ namespace Financial_System.Forms
             this.ButtonPanel.Name = "ButtonPanel";
             this.ButtonPanel.Size = new System.Drawing.Size(171, 333);
             this.ButtonPanel.TabIndex = 8;
+            // 
+            // BulkButton
+            // 
+            this.BulkButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BulkButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BulkButton.FlatAppearance.BorderSize = 0;
+            this.BulkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BulkButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BulkButton.ForeColor = System.Drawing.Color.White;
+            this.BulkButton.Location = new System.Drawing.Point(0, 135);
+            this.BulkButton.Name = "BulkButton";
+            this.BulkButton.Size = new System.Drawing.Size(171, 27);
+            this.BulkButton.TabIndex = 15;
+            this.BulkButton.Text = "Bulk Operations";
+            this.BulkButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BulkButton.UseVisualStyleBackColor = true;
+            this.BulkButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // ToolsButton
             // 
@@ -281,23 +298,6 @@ namespace Financial_System.Forms
             this.DisplayControlPanel.Size = new System.Drawing.Size(848, 478);
             this.DisplayControlPanel.TabIndex = 3;
             // 
-            // BulkButton
-            // 
-            this.BulkButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BulkButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BulkButton.FlatAppearance.BorderSize = 0;
-            this.BulkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BulkButton.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BulkButton.ForeColor = System.Drawing.Color.White;
-            this.BulkButton.Location = new System.Drawing.Point(0, 135);
-            this.BulkButton.Name = "BulkButton";
-            this.BulkButton.Size = new System.Drawing.Size(171, 27);
-            this.BulkButton.TabIndex = 15;
-            this.BulkButton.Text = "Bulk Operations";
-            this.BulkButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BulkButton.UseVisualStyleBackColor = true;
-            this.BulkButton.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,6 +311,7 @@ namespace Financial_System.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PCHS Financial System";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();

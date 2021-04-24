@@ -46,6 +46,7 @@ namespace Financial_System.UserControls
             this.label2 = new System.Windows.Forms.Label();
             this.GeneralPanel = new System.Windows.Forms.Panel();
             this.AddStudButton = new System.Windows.Forms.Button();
+            this.Import_Btn = new System.Windows.Forms.Button();
             this.FinancialPanel.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -235,10 +236,11 @@ namespace Financial_System.UserControls
             // GeneralPanel
             // 
             this.GeneralPanel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.GeneralPanel.Controls.Add(this.Import_Btn);
             this.GeneralPanel.Controls.Add(this.AddStudButton);
             this.GeneralPanel.Location = new System.Drawing.Point(295, 106);
             this.GeneralPanel.Name = "GeneralPanel";
-            this.GeneralPanel.Size = new System.Drawing.Size(159, 57);
+            this.GeneralPanel.Size = new System.Drawing.Size(159, 103);
             this.GeneralPanel.TabIndex = 10;
             // 
             // AddStudButton
@@ -256,6 +258,22 @@ namespace Financial_System.UserControls
             this.AddStudButton.Text = "Add New Student";
             this.AddStudButton.UseVisualStyleBackColor = false;
             this.AddStudButton.Click += new System.EventHandler(this.AddStudButton_Click);
+            // 
+            // Import_Btn
+            // 
+            this.Import_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
+            this.Import_Btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Import_Btn.FlatAppearance.BorderSize = 0;
+            this.Import_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Import_Btn.Font = new System.Drawing.Font("Ebrima", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Import_Btn.ForeColor = System.Drawing.Color.White;
+            this.Import_Btn.Location = new System.Drawing.Point(15, 56);
+            this.Import_Btn.Name = "Import_Btn";
+            this.Import_Btn.Size = new System.Drawing.Size(129, 28);
+            this.Import_Btn.TabIndex = 13;
+            this.Import_Btn.Text = "Import Student Data";
+            this.Import_Btn.UseVisualStyleBackColor = false;
+            this.Import_Btn.Click += new System.EventHandler(this.Import_Btn_Click);
             // 
             // ToolsControl
             // 
@@ -300,5 +318,6 @@ namespace Financial_System.UserControls
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button Import_Btn;
     }
 }

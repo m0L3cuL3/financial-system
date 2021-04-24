@@ -120,6 +120,26 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@surname", surname);
             sqlite_cmd.Parameters.AddWithValue("@section", section);
             sqlite_cmd.Parameters.AddWithValue("@level", level);
+            
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+
+        public void InsertImportData(SQLiteConnection conn, long LRN, string fname, string midname, string surname, string section, int level, string aycode)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "INSERT INTO Enrolment_tbl(lrn, first_name, middle_name, surname, section, level, aycode) VALUES (@lrn, @fname, @midname, @surname, @section, @level, @aycode);";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            sqlite_cmd.Parameters.AddWithValue("@lrn", LRN);
+            sqlite_cmd.Parameters.AddWithValue("@fname", fname);
+            sqlite_cmd.Parameters.AddWithValue("@midname", midname);
+            sqlite_cmd.Parameters.AddWithValue("@surname", surname);
+            sqlite_cmd.Parameters.AddWithValue("@section", section);
+            sqlite_cmd.Parameters.AddWithValue("@level", level);
+            sqlite_cmd.Parameters.AddWithValue("@aycode", aycode);
 
             sqlite_cmd.ExecuteNonQuery();
         }

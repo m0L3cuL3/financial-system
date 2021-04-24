@@ -414,7 +414,7 @@ namespace Financial_System.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "StudentLedgerWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StudentLedgerWindow";
+            this.Text = "Student Ledger";
             this.Load += new System.EventHandler(this.StudentLedgerWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
