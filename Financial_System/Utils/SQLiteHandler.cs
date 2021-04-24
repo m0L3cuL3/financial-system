@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Financial_System.Utils
 {
-
+    
     interface ISQLite
     {
         SQLiteConnection CreateConnection();
@@ -17,6 +17,7 @@ namespace Financial_System.Utils
     /// 
     class SQLiteHandler : ISQLite
     {
+        Globals gs = new Globals();
 
         public SQLiteConnection CreateConnection()
         {
@@ -205,10 +206,9 @@ namespace Financial_System.Utils
         }
 
         // Insert Term
-        public async Task InsertTerm(SQLiteConnection conn, string termId, string termDesc, bool current)
+        public async Task InsertTerm(SQLiteConnection conn, string termId, string termDesc, bool current) 
         {
-            if (current)
-            {
+            if (current) {
                 SQLiteCommand sqlite_cmd;
                 string SetalltoFalse = "UPDATE Term_tbl SET current = 0";
                 sqlite_cmd = conn.CreateCommand();
@@ -329,7 +329,7 @@ namespace Financial_System.Utils
             return list;
         }
 
-        public void TermMakeCurrent(SQLiteConnection conn, string termid)
+        public void TermMakeCurrent(SQLiteConnection conn, string termid) 
         {
             SQLiteCommand sqlite_cmd;
             sqlite_cmd = new SQLiteCommand("UPDATE Term_tbl SET current = 0", conn); //AND TERM = current term
@@ -487,7 +487,7 @@ namespace Financial_System.Utils
                     }
                     return result.ToString();
                 }
-            });
+            });   
         }
 
         public async Task<string> GetTransactionCount(SQLiteConnection conn)
@@ -528,7 +528,7 @@ namespace Financial_System.Utils
                         });
                     }
                 }
-            });
+            }); 
         }
 
         // Add user
@@ -718,7 +718,7 @@ namespace Financial_System.Utils
         // this function takes a list of LRNs and executes the fee group against them
         public void ExecuteFeeGroup(SQLiteConnection conn, int feegroupID, List<string> lrns)
         {
-            List<int> feegroupfees = new List<int>();
+            List <int> feegroupfees = new List<int>();
             feegroupfees.AddRange(GetFeeGroupFees(conn, feegroupID)); // a list of all the fees in a group
             var feegroupname = GetFeeGroupname(conn, feegroupID);
 
@@ -726,7 +726,7 @@ namespace Financial_System.Utils
             {
                 foreach (int fee in feegroupfees) // for every fee in a feegroup 
                 {
-                    List<string> feedetails = GetFeesPayments(conn, fee);
+                    List<string> feedetails = GetFeesPayments(conn,fee);
                     string fid = feedetails[0]; //feepayment_id
                     string name = feedetails[1]; //name
                     string desc = feedetails[4]; //desc
@@ -735,7 +735,7 @@ namespace Financial_System.Utils
 
                     MessageBox.Show($" FID: {fid}\n  NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}");
 
-                    InsertTransaction(conn, amount.Equals("") ? 0 : Convert.ToInt32(amount), payment.Equals("") ? 0 : Convert.ToInt32(payment), name, student.ToString(), feegroupname);
+                    InsertTransaction(conn, amount.Equals("") ? 0 : Convert.ToInt32(amount), payment.Equals("") ? 0: Convert.ToInt32(payment), name, student.ToString(), feegroupname);
                 }
             }
             MessageBox.Show("yawa");
@@ -886,8 +886,8 @@ namespace Financial_System.Utils
                 });
                 }
             }
-        }
-
+        } 
+        
         //NewGroup
         public void NewGroup(SQLiteConnection conn, string name, string desc)
         {
@@ -935,9 +935,9 @@ namespace Financial_System.Utils
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
-                while (read.Read())
+                while(read.Read())
                 {
-                    tt = (int)read.GetInt32(0);
+                    tt =  (int)read.GetInt32(0);
                 }
             }
             //MessageBox.Show(tt.ToString()); // shows the current term id
@@ -953,7 +953,7 @@ namespace Financial_System.Utils
         /// <param name="desc"></param>
         /// <param name="amount"></param>
         /// <param name="payment"></param>
-        public void UpdateFP(SQLiteConnection conn, string feeid, string name, string desc, int? amount, int? payment)
+        public void UpdateFP(SQLiteConnection conn, string feeid , string name, string desc, int? amount, int? payment )
         {
             if (amount == null) // payment
             {
@@ -987,16 +987,16 @@ namespace Financial_System.Utils
 
         public void DeleteFP(SQLiteConnection conn, string feeid)
         {
-            SQLiteCommand sqlite_cmd;
+                SQLiteCommand sqlite_cmd;
 
-            string insertData = "DELETE FROM FPTemplate_tbl WHERE fp_id = @fpid;";
-            sqlite_cmd = conn.CreateCommand();
-            sqlite_cmd.CommandText = insertData;
+                string insertData = "DELETE FROM FPTemplate_tbl WHERE fp_id = @fpid;";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = insertData;
 
-            sqlite_cmd.Parameters.AddWithValue("@fpid", feeid);
-            //sqlite_cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
+                sqlite_cmd.Parameters.AddWithValue("@fpid", feeid);
+                //sqlite_cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
 
-            sqlite_cmd.ExecuteNonQuery();
+                sqlite_cmd.ExecuteNonQuery();
         }
 
         public void GetStudents(SQLiteConnection conn, DataGridView dgv, bool enrolledonly)
@@ -1021,7 +1021,7 @@ namespace Financial_System.Utils
 
         public void FilterStudents(SQLiteConnection conn, DataGridView dgv, string lrn, string firstname, string middlename, string familyname, string level, string section)
         {
-            string family = "%" + familyname + "%";
+            string family = "%" + familyname  + "%";
             string lvl = "%" + level + "%";
             string sec = "%" + section + "%";
 
@@ -1038,10 +1038,10 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),
-                        read.GetValue(read.GetOrdinal("surname")),
-                        read.GetValue(read.GetOrdinal("first_name")),
-                        read.GetValue(read.GetOrdinal("middle_name")),
+                        read.GetValue(0),  
+                        read.GetValue(read.GetOrdinal("surname")), 
+                        read.GetValue(read.GetOrdinal("first_name")), 
+                        read.GetValue(read.GetOrdinal("middle_name")), 
                     });
                 }
             }
@@ -1081,17 +1081,17 @@ namespace Financial_System.Utils
 
         public int GetListCount(SQLiteConnection conn)
         {
-            object result;
+                object result;
 
-            SQLiteCommand sqlite_cmd;
+                SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT Count(*) FROM CustomStudentList_tbl", conn);
+                sqlite_cmd = new SQLiteCommand("SELECT Count(*) FROM CustomStudentList_tbl", conn);
 
-            result = sqlite_cmd.ExecuteScalar();
+                result = sqlite_cmd.ExecuteScalar();
 
-            int numRows = Convert.ToInt32(result);
+                int numRows = Convert.ToInt32(result);
 
-            return numRows;
+                return numRows;
         }
 
         public void GetLists(SQLiteConnection conn, DataGridView dgv)
@@ -1133,6 +1133,5 @@ namespace Financial_System.Utils
             }
             return list;
         }
-
     }
 }
