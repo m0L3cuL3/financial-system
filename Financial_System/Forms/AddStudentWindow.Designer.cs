@@ -29,7 +29,6 @@ namespace Financial_System.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudentWindow));
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
             this.userLabel = new System.Windows.Forms.Label();
@@ -91,9 +90,9 @@ namespace Financial_System.Forms
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(23, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 17);
+            this.label1.Size = new System.Drawing.Size(100, 17);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Middle Name";
+            this.label1.Text = "Second Name";
             // 
             // label2
             // 
@@ -264,10 +263,9 @@ namespace Financial_System.Forms
             this.Controls.Add(this.FnameTextBox);
             this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddStudentWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Student";
+            this.Text = "AddStudentWindow";
             this.Load += new System.EventHandler(this.AddStudentWindow_Load);
             this.TopBarPanel.ResumeLayout(false);
             this.TopBarPanel.PerformLayout();
