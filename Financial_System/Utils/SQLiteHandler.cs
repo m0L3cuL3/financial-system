@@ -75,13 +75,13 @@ namespace Financial_System.Utils
 
                 ///////////////////// DB by alexislyndon tables added: Enrolment_tbl, Fees_tbl, FeeGroup_tbl, Orphans_tbl
 
-                string EnrolmentTable = "CREATE TABLE IF NOT EXISTS Enrolment_tbl(enrolment_id INTEGER PRIMARY KEY AUTOINCREMENT, lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL, aycode VARCHAR);";
+                string EnrolmentTable = "CREATE TABLE IF NOT EXISTS Enrolment_tbl(enrolment_id INTEGER PRIMARY KEY AUTOINCREMENT, lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL, aycode INT NOT NULL, FOREIGN KEY(aycode) REFERENCES Term_tbl(term_id) ON UPDATE CASCADE, FOREIGN KEY(lrn) REFERENCES Student_tbl(lrn) ON UPDATE CASCADE );";
                 sqlite_cmd = conn.CreateCommand();
                 sqlite_cmd.CommandText = EnrolmentTable;
                 sqlite_cmd.ExecuteNonQuery();
 
                 // Schedule of Fees Table AKA Particulars// increases/decrease balance
-                string ScheduleFeesPayments = "CREATE TABLE IF NOT EXISTS FPTemplate_tbl(fp_id INTEGER PRIMARY KEY AUTOINCREMENT, fp_name  VARCHAR NOT NULL UNIQUE, amount INT, payment INT, fp_desc  VARCHAR NOT NULL);";
+                string ScheduleFeesPayments = "CREATE TABLE IF NOT EXISTS FPTemplate_tbl(fp_id INTEGER PRIMARY KEY AUTOINCREMENT, fp_name VARCHAR NOT NULL UNIQUE, amount INT, payment INT, fp_desc VARCHAR NOT NULL);";
                 sqlite_cmd = conn.CreateCommand();                        //Fee or Payment Template table
                 sqlite_cmd.CommandText = ScheduleFeesPayments;
                 sqlite_cmd.ExecuteNonQuery();
@@ -116,6 +116,63 @@ namespace Financial_System.Utils
                 sqlite_cmd.CommandText = OrphanTransactions;
                 sqlite_cmd.ExecuteNonQuery();*/
             });
+        }
+
+        public async Task CreateParticulars(SQLiteConnection conn)
+        {
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
+                SQLiteCommand sqlite_cmd2;
+                string discounts = "INSERT INTO FPTemplate_tbl(fp_name, fp_desc, payment) VALUES ('JUNIOR Full Scholarship', 'Grade 7 - Grade 10 Full Amount', '12000')," +
+                "('SHS Full Scholarship', 'Grade 11 - Grade 12 Full Amount', '17000')," +
+                "('JUNIOR Tuition only Discount', 'Grade 7 - Grade 10 Tuition Only', '6790')," +
+                "('SHS Tuition only Discount', 'Grade 11 - Grade 12 Tuition Only', '11790');";
+                sqlite_cmd2 = conn.CreateCommand();
+                sqlite_cmd2.CommandText = discounts;
+
+
+                string Fees = "INSERT INTO FPTemplate_tbl(fp_name, fp_desc, amount) VALUES ('Junior Tuition Fee', 'Grade 7 - Grade 10 Tuition Fee', '6790' )," +
+                "('SHS Tuition Fee', 'Grade 11 - Grade 10 Tuition Fee', '11790' )," +
+                "('Testing', 'Testing Fee - all Levels', '300' )," +
+                "('Library', 'Library Fee - all levels', '200' )," +
+                "('Computer', 'Computer Fee - all levels', '400' )," +
+                "('Science Lab', 'Science Lab Fee - all levels', '100' )," +
+                "('TLE/Horti Lab', 'TLE/Horti Lab - all levels', '300' )," +
+                "('Athletics', 'Athletics Fee - all levels', '280' )," +
+                "('Cultural Fee', 'Cultural Fee - all levels', '100' )," +
+                "('Medical/Dental', 'Medical/Dental Services Fee', '500' )," +
+                "('Security Fee', 'Security Guard', '250' )," +
+                "('Band Support', 'Band Support Fee', '100' )," +
+                "('SSC', 'SSC', '100' )," +
+                "('Guidance Fee', 'Guidance Fee - all levels', '100' )," +
+                "('Campus Ministry', 'Campus Ministry - all levels', '100' )," +
+                "('Ceap Due', 'Ceap Due', '50' )," +
+                "('Student Handbook', 'Student Handbook - all levels', '80' )," +
+                "('ID Fee', 'Identification Card Fee - all levels', '150' )," +
+                "('Student Publication', 'Student Publication - all levels', '100' )," +
+                "('Test Permit Card', 'Test Permit Card Fee - all levels', '50' )," +
+                "('Energy Fee', 'Energy Fee - all levels', '200' )," +
+                "('Activity Fee', 'Activity Fee - all levels', '100' )," +
+                "('Facilities Development Fee', 'Facilities Development Fee - all levels', '1000' )," +
+                "('Faculty Development', 'Faculty Development - all levels', '250' )," +
+                "('Buacs & Ceap M', 'Buacs & Ceap M', '100' )," +
+                "('SWF Insurance', 'SWF Insurance', '100' )," +
+                "('PTA', 'PTA', '200' );";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = Fees;
+
+                try
+                {
+                    sqlite_cmd.ExecuteNonQuery();
+                    sqlite_cmd2.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Particulars Already in Database!");
+                }
+            });
+            
         }
 
         // Insert Student Data

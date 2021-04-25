@@ -75,7 +75,7 @@ namespace Financial_System.Forms
                     var fulllevel = (string)STUD_DGV.Rows[i].Cells["GRADE_LEVEL"].Value;
                     string[] level = fulllevel.Split(null);
                     var aycode = (string)STUD_DGV.Rows[i].Cells["AY_CODE"].Value;
-                    sql.InsertImportData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2], section, Convert.ToInt32(level[1]), aycode);
+                    sql.InsertImportData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2], section, Convert.ToInt32(level[1]), Globals._term.ToString());
                     sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2]);
                 }
                 MessageBox.Show($"CSV Loaded", "Import Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);

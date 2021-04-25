@@ -66,7 +66,5 @@ namespace Financial_System.UserControls
 
             slw.ShowDialog();
         }
-
-
     }
 }

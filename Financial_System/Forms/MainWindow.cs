@@ -39,7 +39,7 @@ namespace Financial_System.Forms
             //ui.DropDown(CollectionPanel, 27, 86);
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
-            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
+            uc.StudLedgerControl.LoadStudentLedgerFromEnrolmentTable(sql.CreateConnection());
         }
 
         // CLOSE

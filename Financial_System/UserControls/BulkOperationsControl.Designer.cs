@@ -88,12 +88,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 20);
+            this.label1.Size = new System.Drawing.Size(83, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Fee Templates";
+            this.label1.Text = "Particulars";
             // 
             // dataGridView1
             // 
@@ -170,12 +170,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(6, 235);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 17);
+            this.label2.Size = new System.Drawing.Size(128, 15);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Payment Templates";
+            this.label2.Text = "Adjustments/Discounts";
             // 
             // dataGridView2
             // 
@@ -355,7 +355,7 @@
             // 
             this.FGFlabel.AutoSize = true;
             this.FGFlabel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FGFlabel.Location = new System.Drawing.Point(239, 6);
+            this.FGFlabel.Location = new System.Drawing.Point(251, 11);
             this.FGFlabel.Name = "FGFlabel";
             this.FGFlabel.Size = new System.Drawing.Size(292, 16);
             this.FGFlabel.TabIndex = 11;
@@ -448,7 +448,7 @@
             this.newGroupbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newGroupbtn.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newGroupbtn.ForeColor = System.Drawing.Color.White;
-            this.newGroupbtn.Location = new System.Drawing.Point(192, 19);
+            this.newGroupbtn.Location = new System.Drawing.Point(18, 20);
             this.newGroupbtn.Name = "newGroupbtn";
             this.newGroupbtn.Size = new System.Drawing.Size(84, 23);
             this.newGroupbtn.TabIndex = 16;
@@ -460,7 +460,7 @@
             // 
             this.totallbl.AutoSize = true;
             this.totallbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totallbl.Location = new System.Drawing.Point(400, 438);
+            this.totallbl.Location = new System.Drawing.Point(390, 438);
             this.totallbl.Name = "totallbl";
             this.totallbl.Size = new System.Drawing.Size(44, 16);
             this.totallbl.TabIndex = 18;
@@ -478,7 +478,7 @@
             // amountlbl
             // 
             this.amountlbl.AutoSize = true;
-            this.amountlbl.Location = new System.Drawing.Point(471, 29);
+            this.amountlbl.Location = new System.Drawing.Point(486, 30);
             this.amountlbl.Name = "amountlbl";
             this.amountlbl.Size = new System.Drawing.Size(43, 13);
             this.amountlbl.TabIndex = 20;
@@ -519,20 +519,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label4.Location = new System.Drawing.Point(14, 239);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(181, 239);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 20);
+            this.label4.Size = new System.Drawing.Size(93, 18);
             this.label4.TabIndex = 25;
             this.label4.Text = "Student Lists";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label3.Location = new System.Drawing.Point(14, 22);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(181, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 20);
+            this.label3.Size = new System.Drawing.Size(86, 18);
             this.label3.TabIndex = 24;
             this.label3.Text = "Fee Group";
             // 
@@ -543,7 +543,7 @@
             this.newList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newList.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newList.ForeColor = System.Drawing.Color.White;
-            this.newList.Location = new System.Drawing.Point(192, 233);
+            this.newList.Location = new System.Drawing.Point(18, 236);
             this.newList.Name = "newList";
             this.newList.Size = new System.Drawing.Size(84, 23);
             this.newList.TabIndex = 23;
@@ -599,10 +599,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(253, 27);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(163, 17);
+            this.label5.Size = new System.Drawing.Size(165, 16);
             this.label5.TabIndex = 26;
             this.label5.Text = "Fees/Payments in Group";
             // 
