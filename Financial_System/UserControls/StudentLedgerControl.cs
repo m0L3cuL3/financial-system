@@ -75,8 +75,8 @@ namespace Financial_System.UserControls
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
-                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
-                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
+                sc.StudentSection = read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -107,8 +107,8 @@ namespace Financial_System.UserControls
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
-                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
-                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
+                sc.StudentSection = read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -139,8 +139,8 @@ namespace Financial_System.UserControls
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
-                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
-                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
+                sc.StudentSection = read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -171,8 +171,8 @@ namespace Financial_System.UserControls
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
-                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
-                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
+                sc.StudentSection = read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -203,8 +203,8 @@ namespace Financial_System.UserControls
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
-                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
-                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
+                sc.StudentSection = read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
