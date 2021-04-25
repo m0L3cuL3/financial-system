@@ -59,8 +59,6 @@ namespace Financial_System.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.PostPaymentButton = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TermComboBox = new System.Windows.Forms.ComboBox();
             this.balORcredit = new System.Windows.Forms.Label();
             this.balancelbl = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
@@ -136,8 +134,6 @@ namespace Financial_System.Forms
             this.SideInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(58)))), ((int)(((byte)(108)))));
             this.SideInfoPanel.Controls.Add(this.StudentLRNLabel);
             this.SideInfoPanel.Controls.Add(this.label6);
-            this.SideInfoPanel.Controls.Add(this.TermComboBox);
-            this.SideInfoPanel.Controls.Add(this.label4);
             this.SideInfoPanel.Controls.Add(this.label5);
             this.SideInfoPanel.Controls.Add(this.ProfilePanel);
             this.SideInfoPanel.Controls.Add(this.StudentNameLabel);
@@ -384,27 +380,6 @@ namespace Financial_System.Forms
             this.exportBtn.UseVisualStyleBackColor = false;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(354, 55);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 16);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Change Term";
-            // 
-            // TermComboBox
-            // 
-            this.TermComboBox.FormattingEnabled = true;
-            this.TermComboBox.Location = new System.Drawing.Point(443, 53);
-            this.TermComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TermComboBox.Name = "TermComboBox";
-            this.TermComboBox.Size = new System.Drawing.Size(193, 21);
-            this.TermComboBox.TabIndex = 30;
-            // 
             // balORcredit
             // 
             this.balORcredit.AutoSize = true;
@@ -478,11 +453,9 @@ namespace Financial_System.Forms
         private System.Windows.Forms.Button PostPaymentButton;
         private System.Windows.Forms.Button exportBtn;
         private CustomUI.GradientPanel ProfilePanel;
-        private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label StudentLRNLabel;
-        private System.Windows.Forms.ComboBox TermComboBox;
         private System.Windows.Forms.Label balORcredit;
         private System.Windows.Forms.Label balancelbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentIdColumn;

@@ -54,7 +54,7 @@ namespace Financial_System.Forms
             StudentLRNLabel.Text = lrn;
             sql.GetStudentTransactions(sql.CreateConnection(), dataGridView1, lrn);
 
-            await sql.GetTerm(sql.CreateConnection(), TermComboBox);
+            //await sql.GetTerm(sql.CreateConnection(), TermComboBox);
             await gtr.GetList(TypeCmBox, gb.PaymentList);
             totalcalc();
         }
@@ -81,7 +81,7 @@ namespace Financial_System.Forms
                         TypeCmBox.Text = "";
                         amountBox.Text = "";
                         ReceiptBox.Text = "";
-                        TermComboBox.Text = "";
+                        //TermComboBox.Text = "";
                     }
                     else
                     {
