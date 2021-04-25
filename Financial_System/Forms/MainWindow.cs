@@ -11,13 +11,13 @@ namespace Financial_System.Forms
         readonly UIHandler ui = new UIHandler();
         readonly UCHandler uc = new UCHandler();
         readonly SQLiteHandler sql = new SQLiteHandler();
+        Globals gb = new Globals();
 
         public MainWindow(string currUser)
         {
             InitializeComponent();
 
             UsernameLabel.Text = currUser;
-            termlbl.Text = Globals._term.ToString();
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.
@@ -26,6 +26,8 @@ namespace Financial_System.Forms
         private void MainWindow_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
+            gb._term = sql.GetCurrentTerm(sql.CreateConnection());
+            termlbl.Text = $"Current Term: {gb._term}";
         }
 
         // MOVING BORDERLESS WINDOW

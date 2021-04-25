@@ -24,6 +24,7 @@ namespace Financial_System.Forms
         public EditFeeWindow(string feeid, bool isFee)
         {
             InitializeComponent();
+            ui.RoundWindow(this);
             this.feeid = feeid;
             list = sql.GetFeesPayments(sql.CreateConnection(), Convert.ToInt32(feeid));
             name.Text = list[1];

@@ -76,7 +76,7 @@ namespace Financial_System.Forms
 
                     if (confirmResult == DialogResult.Yes)
                     {
-                        sql.InsertTransaction(sql.CreateConnection(), null, Convert.ToInt32(amountBox.Text), TypeCmBox.Text, lrn, ReceiptBox.Text ); //TermComboBox.SelectedIndex
+                        sql.InsertTransaction(sql.CreateConnection(), null, Convert.ToInt32(amountBox.Text), TypeCmBox.Text, lrn, ReceiptBox.Text); //TermComboBox.SelectedIndex
                         MessageBox.Show("Transaction Added");
                         TypeCmBox.Text = "";
                         amountBox.Text = "";

@@ -18,7 +18,7 @@ namespace Financial_System.Utils
     class SQLiteHandler : ISQLite
     {
         Globals gs = new Globals();
-
+        
         public SQLiteConnection CreateConnection()
         {
             SQLiteConnection sqlite_conn;
@@ -271,7 +271,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@type", type);
             sqlite_cmd.Parameters.AddWithValue("@lrn", lrn);
             sqlite_cmd.Parameters.AddWithValue("@ref", reference);
-            sqlite_cmd.Parameters.AddWithValue("@term", Globals._term.ToString());
+            sqlite_cmd.Parameters.AddWithValue("@term", GetCurrentTerm(CreateConnection()));
             sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
             //MessageBox.Show(Globals._term.ToString());
 
@@ -1150,8 +1150,9 @@ namespace Financial_System.Utils
         public void GetStudents(SQLiteConnection conn, DataGridView dgv, bool enrolledonly)
         {
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("Select * From Enrolment_tbl WHERE aycode = @term", conn); //AND TERM = current term
-            sqlite_cmd.Parameters.AddWithValue("@term", Globals._term.ToString());
+            sqlite_cmd = new SQLiteCommand("Select * From Enrolment_tbl", conn);
+            //sqlite_cmd = new SQLiteCommand("Select * From Enrolment_tbl WHERE aycode = @term", conn); //AND TERM = current term
+            //sqlite_cmd.Parameters.AddWithValue("@term", gs._term.ToString());
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
@@ -1159,7 +1160,7 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),  // tid
+                        read.GetValue(1),  // tid
                         read.GetValue(read.GetOrdinal("surname")), // amount
                         read.GetValue(read.GetOrdinal("first_name")), // payment
                         read.GetValue(read.GetOrdinal("middle_name")), // type
@@ -1176,7 +1177,7 @@ namespace Financial_System.Utils
             string family = "%" + familyname  + "%";
 
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE surname LIKE IIF(IFNULL(@surname, '') = '', surname, @surname)", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE surname LIKE IIF(IFNULL(@surname, '') = '', surname, @surname)", conn);
             //sqlite_cmd.Parameters.AddWithValue("@lrn", lrn); // 
             //sqlite_cmd.Parameters.AddWithValue("@desc", middlename); // 
             //sqlite_cmd.Parameters.AddWithValue("@name", familyname); // 
@@ -1188,10 +1189,12 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),  
+                        read.GetValue(1),  
                         read.GetValue(read.GetOrdinal("surname")), 
                         read.GetValue(read.GetOrdinal("first_name")), 
-                        read.GetValue(read.GetOrdinal("middle_name")), 
+                        read.GetValue(read.GetOrdinal("middle_name")),
+                        read.GetValue(read.GetOrdinal("level")),
+                        read.GetValue(read.GetOrdinal("section"))
                     });
                 }
             }
@@ -1202,7 +1205,7 @@ namespace Financial_System.Utils
             string id = "%" + lrn + "%";
 
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE lrn LIKE IIF(IFNULL(@lrn, '') = '', lrn, @lrn)", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE lrn LIKE IIF(IFNULL(@lrn, '') = '', lrn, @lrn)", conn);
             //sqlite_cmd.Parameters.AddWithValue("@lrn", lrn); // 
             //sqlite_cmd.Parameters.AddWithValue("@desc", middlename); // 
             //sqlite_cmd.Parameters.AddWithValue("@name", familyname); // 
@@ -1214,10 +1217,12 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),
+                        read.GetValue(1),
                         read.GetValue(read.GetOrdinal("surname")),
                         read.GetValue(read.GetOrdinal("first_name")),
                         read.GetValue(read.GetOrdinal("middle_name")),
+                        read.GetValue(read.GetOrdinal("level")), 
+                        read.GetValue(read.GetOrdinal("section"))
                     });
                 }
             }

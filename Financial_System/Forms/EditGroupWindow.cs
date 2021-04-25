@@ -22,6 +22,7 @@ namespace Financial_System.Forms
         public EditGroupWindow(string groupid)
         {
             InitializeComponent();
+            ui.RoundWindow(this);
             this.groupid = groupid;
             list = sql.GetFGroup(sql.CreateConnection(), Convert.ToInt32(groupid));
             name.Text = list[1];
@@ -52,6 +53,16 @@ namespace Financial_System.Forms
                 sql.DeleteFPGroup(sql.CreateConnection(), groupid);
             }
             this.Close();
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void TopBarPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            ui.DragWindow(Handle, e);
         }
     }
 }

@@ -49,6 +49,7 @@
             this.TopBarPanel.Name = "TopBarPanel";
             this.TopBarPanel.Size = new System.Drawing.Size(332, 30);
             this.TopBarPanel.TabIndex = 25;
+            this.TopBarPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBarPanel_MouseMove);
             // 
             // CloseButton
             // 
@@ -62,6 +63,7 @@
             this.CloseButton.Size = new System.Drawing.Size(18, 18);
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "X";
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // deletebtn
             // 
@@ -149,6 +151,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.namelbl);
             this.Controls.Add(this.titlelbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditGroupWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Fee Group";

@@ -16,12 +16,11 @@ namespace Financial_System.Forms
     {
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
-        GetTotalResult gtr = new GetTotalResult();
-        Globals gb = new Globals();
 
         public NewFeeWindow()
         {
             InitializeComponent();
+            ui.RoundWindow(this);
         }
 
         private void button1_Click(object sender, EventArgs e)

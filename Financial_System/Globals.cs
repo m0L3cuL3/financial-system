@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,7 @@ namespace Financial_System
 {
     public class Globals
     {
-
-        public static int _term = -1;
+        public int _term { set; get; }
 
         // SUPERUSERS //
         public string USER_NAME = "admin";
