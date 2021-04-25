@@ -50,10 +50,15 @@ namespace Financial_System.Forms
                         }
                         else
                         {
-                            MessageBox.Show("Invalid Input | Try Again.");
+                            MessageBox.Show("Invalid Input | Try Again.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     case false:
+                        if (sql.CountCurrentTerm(sql.CreateConnection()) == 0)
+                        {
+                            MessageBox.Show("Please create a Term in the Admin Panel and Make sure its set as the 'Current' Term", "No Term", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         if (await sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
                         {
                             Hide();
@@ -62,7 +67,7 @@ namespace Financial_System.Forms
                         }
                         else
                         {
-                            MessageBox.Show("Invalid Input | Try Again.");
+                            MessageBox.Show("Invalid Input | Try Again.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                 }
@@ -102,17 +107,13 @@ namespace Financial_System.Forms
             }
             else
             {
-                var CreateFile = MessageBox.Show($"Do you want to create {dbFilename}?", "Database Not Found!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (CreateFile == DialogResult.Yes)
-                {
-                    await sql.CreateTable(sql.CreateConnection());
-                }
-                else
-                {
-                    MessageBox.Show("Database not created, Please contact your administrator.", "Activity Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                await sql.CreateTable(sql.CreateConnection());
             }
+        }
+
+        private void passTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) loginButton_Click(sender, e);  //Allow Enter  
         }
     }
 }

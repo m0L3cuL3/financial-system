@@ -11,6 +11,7 @@ namespace Financial_System.Forms
         readonly UIHandler ui = new UIHandler();
         readonly UCHandler uc = new UCHandler();
         readonly SQLiteHandler sql = new SQLiteHandler();
+        Globals gb = new Globals();
 
         public MainWindow(string currUser)
         {
@@ -25,6 +26,8 @@ namespace Financial_System.Forms
         private void MainWindow_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
+            gb._term = sql.GetCurrentTerm(sql.CreateConnection());
+            termlbl.Text = $"Current Term: {gb._term}";
         }
 
         // MOVING BORDERLESS WINDOW
@@ -39,7 +42,7 @@ namespace Financial_System.Forms
             //ui.DropDown(CollectionPanel, 27, 86);
             uc.UnloadControls(DisplayControlPanel);
             uc.LoadControl(DisplayControlPanel, uc.StudLedgerControl);
-            uc.StudLedgerControl.LoadStudentLedger(sql.CreateConnection());
+            uc.StudLedgerControl.LoadStudentLedgerFromEnrolmentTable(sql.CreateConnection());
         }
 
         // CLOSE

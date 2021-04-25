@@ -48,6 +48,7 @@ namespace Financial_System.Forms
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.ProfilePanel = new Financial_System.CustomUI.GradientPanel();
             this.DisplayControlPanel = new System.Windows.Forms.Panel();
+            this.termlbl = new System.Windows.Forms.Label();
             this.TopBarPanel.SuspendLayout();
             this.SideMenuPanel.SuspendLayout();
             this.ButtonPanel.SuspendLayout();
@@ -247,6 +248,7 @@ namespace Financial_System.Forms
             // HeadPanel
             // 
             this.HeadPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.HeadPanel.Controls.Add(this.termlbl);
             this.HeadPanel.Controls.Add(this.editProfButton);
             this.HeadPanel.Controls.Add(this.UsernameLabel);
             this.HeadPanel.Controls.Add(this.ProfilePanel);
@@ -298,6 +300,16 @@ namespace Financial_System.Forms
             this.DisplayControlPanel.Size = new System.Drawing.Size(848, 478);
             this.DisplayControlPanel.TabIndex = 3;
             // 
+            // termlbl
+            // 
+            this.termlbl.AutoSize = true;
+            this.termlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termlbl.Location = new System.Drawing.Point(695, 27);
+            this.termlbl.Name = "termlbl";
+            this.termlbl.Size = new System.Drawing.Size(88, 13);
+            this.termlbl.TabIndex = 17;
+            this.termlbl.Text = "Current Term: ";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,5 +357,6 @@ namespace Financial_System.Forms
         private CustomUI.GradientPanel gradientPanel1;
         public System.Windows.Forms.Label editProfButton;
         private System.Windows.Forms.Button BulkButton;
+        private System.Windows.Forms.Label termlbl;
     }
 }

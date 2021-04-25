@@ -42,10 +42,6 @@
             this.middlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.listlrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listsurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listfname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.listmiddlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
@@ -58,6 +54,14 @@
             this.listidlbl = new System.Windows.Forms.Label();
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Label();
+            this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listlrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listsurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listfname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listmiddlename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listsection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.TopBarPanel.SuspendLayout();
@@ -122,7 +126,9 @@
             this.lrn,
             this.surname,
             this.firstname,
-            this.middlename});
+            this.middlename,
+            this.level,
+            this.section});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(12, 165);
             this.dataGridView1.Name = "dataGridView1";
@@ -186,37 +192,15 @@
             this.listlrn,
             this.listsurname,
             this.listfname,
-            this.listmiddlename});
+            this.listmiddlename,
+            this.listlevel,
+            this.listsection});
             this.dataGridView2.Location = new System.Drawing.Point(576, 165);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(396, 355);
             this.dataGridView2.TabIndex = 9;
-            // 
-            // listlrn
-            // 
-            this.listlrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.listlrn.HeaderText = "LRN";
-            this.listlrn.Name = "listlrn";
-            // 
-            // listsurname
-            // 
-            this.listsurname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.listsurname.HeaderText = "Surname";
-            this.listsurname.Name = "listsurname";
-            // 
-            // listfname
-            // 
-            this.listfname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.listfname.HeaderText = "Firstname";
-            this.listfname.Name = "listfname";
-            // 
-            // listmiddlename
-            // 
-            this.listmiddlename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.listmiddlename.HeaderText = "Middlename";
-            this.listmiddlename.Name = "listmiddlename";
             // 
             // label5
             // 
@@ -341,6 +325,52 @@
             this.CloseButton.Text = "X";
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // level
+            // 
+            this.level.HeaderText = "Level";
+            this.level.Name = "level";
+            // 
+            // section
+            // 
+            this.section.HeaderText = "Section";
+            this.section.Name = "section";
+            // 
+            // listlrn
+            // 
+            this.listlrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.listlrn.HeaderText = "LRN";
+            this.listlrn.Name = "listlrn";
+            // 
+            // listsurname
+            // 
+            this.listsurname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.listsurname.HeaderText = "Surname";
+            this.listsurname.Name = "listsurname";
+            // 
+            // listfname
+            // 
+            this.listfname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.listfname.HeaderText = "Firstname";
+            this.listfname.Name = "listfname";
+            // 
+            // listmiddlename
+            // 
+            this.listmiddlename.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.listmiddlename.HeaderText = "Middlename";
+            this.listmiddlename.Name = "listmiddlename";
+            // 
+            // listlevel
+            // 
+            this.listlevel.HeaderText = "Level";
+            this.listlevel.Name = "listlevel";
+            this.listlevel.Width = 50;
+            // 
+            // listsection
+            // 
+            this.listsection.HeaderText = "Section";
+            this.listsection.Name = "listsection";
+            this.listsection.Width = 70;
+            // 
             // StudentListWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,9 +433,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstname;
         private System.Windows.Forms.DataGridViewTextBoxColumn middlename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn level;
+        private System.Windows.Forms.DataGridViewTextBoxColumn section;
         private System.Windows.Forms.DataGridViewTextBoxColumn listlrn;
         private System.Windows.Forms.DataGridViewTextBoxColumn listsurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn listfname;
         private System.Windows.Forms.DataGridViewTextBoxColumn listmiddlename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn listlevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn listsection;
     }
 }

@@ -63,6 +63,7 @@ namespace Financial_System.Forms
             this.TermDesc_txtBox = new Financial_System.CustomUI.Textbox.RoundTextBox();
             this.AddTerm_Btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.InitializeDb_Btn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.makeCurrentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,6 +134,7 @@ namespace Financial_System.Forms
             this.PassTextBox.TabIndex = 1;
             this.PassTextBox.textboxRadius = 15;
             this.PassTextBox.UseSystemPasswordChar = false;
+            this.PassTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTextBox_KeyPress);
             // 
             // userLabel
             // 
@@ -451,13 +453,29 @@ namespace Financial_System.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.InitializeDb_Btn);
             this.groupBox1.Location = new System.Drawing.Point(25, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 79);
+            this.groupBox1.Size = new System.Drawing.Size(385, 79);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Setup Database";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(44)))), ((int)(((byte)(116)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(202, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(165, 31);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Insert Particulars";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // InitializeDb_Btn
             // 
@@ -548,5 +566,6 @@ namespace Financial_System.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn current;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem makeCurrentToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }

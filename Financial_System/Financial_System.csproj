@@ -269,6 +269,12 @@
     <Compile Include="Forms\EditFeeWindow.designer.cs">
       <DependentUpon>EditFeeWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EditGroupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditGroupWindow.Designer.cs">
+      <DependentUpon>EditGroupWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ImportStudentCsvWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditFeeWindow.resx">
       <DependentUpon>EditFeeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditGroupWindow.resx">
+      <DependentUpon>EditGroupWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ImportStudentCsvWindow.resx">
       <DependentUpon>ImportStudentCsvWindow.cs</DependentUpon>

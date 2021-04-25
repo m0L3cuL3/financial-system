@@ -34,7 +34,7 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl", conn); //
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
             StudentFlowPanel.SuspendLayout();
@@ -43,18 +43,40 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                //sc.StudentId = read.GetInt32(0).ToString(); // id  
                 sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
                 sc.StudentName = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
-                //sc.StudentSection = read.GetString(5); // section  
-                //sc.StudentLevel = read.GetInt32(6).ToString(); // level
-
-                //sc.StudentIDLabel.Text = "Student ID: " + read.GetInt32(0).ToString(); // id
-                //sc.StudentIDLabel.Text = "Student LRN: " + read.GetInt64(1).ToString(); // LRN
                 sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
                 sc.StudentNameLabel.Text = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
-                //sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
-                //sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+                sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
+                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+
+                StudentFlowPanel.Controls.Add(sc);
+            }
+
+            StudentFlowPanel.ResumeLayout();
+        }
+
+        public void LoadStudentLedgerFromEnrolmentTable(SQLiteConnection conn)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl", conn);
+            SQLiteDataReader read = sqlite_cmd.ExecuteReader();
+
+            StudentFlowPanel.SuspendLayout();
+            StudentFlowPanel.Controls.Clear();
+
+            while (read.Read())
+            {
+                sc = new StudentItemControl();
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
+                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
+                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -67,7 +89,7 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE lrn = @lrn", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE lrn = @lrn", conn);
 
             sqlite_cmd.Parameters.AddWithValue("@lrn", FilterTextBox.Text);
 
@@ -79,18 +101,14 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                //sc.StudentId = read.GetInt32(0).ToString(); // id  
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
-                sc.StudentName = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
-                //sc.StudentSection = read.GetString(5); // section  
-                //sc.StudentLevel = read.GetInt32(6).ToString(); // level
-
-                //sc.StudentIDLabel.Text = "Student ID: " + read.GetInt32(0).ToString(); // id
-                //sc.StudentIDLabel.Text = "Student LRN: " + read.GetInt64(1).ToString(); // LRN
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
-                sc.StudentNameLabel.Text = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
-                //sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
-                //sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
+                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
+                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -103,9 +121,9 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE surname = @surname COLLATE NOCASE", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE surname LIKE @surname COLLATE NOCASE", conn);
 
-            sqlite_cmd.Parameters.AddWithValue("@surname", FilterTextBox.Text);
+            sqlite_cmd.Parameters.AddWithValue("@surname", "%" + FilterTextBox.Text + "%");
 
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
@@ -115,18 +133,14 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                //sc.StudentId = read.GetInt32(0).ToString(); // id  
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
-                sc.StudentName = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
-                //sc.StudentSection = read.GetString(5); // section  
-                //sc.StudentLevel = read.GetInt32(6).ToString(); // level
-
-                //sc.StudentIDLabel.Text = "Student ID: " + read.GetInt32(0).ToString(); // id
-                //sc.StudentIDLabel.Text = "Student LRN: " + read.GetInt64(1).ToString(); // LRN
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
-                sc.StudentNameLabel.Text = read.GetString(1) + " " + read.GetString(2) + " " + read.GetString(3); // fullname
-                //sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
-                //sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
+                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
+                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -139,9 +153,9 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE section = @section", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE section LIKE @section", conn);
 
-            sqlite_cmd.Parameters.AddWithValue("@section", FilterTextBox.Text);
+            sqlite_cmd.Parameters.AddWithValue("@section","%"+ FilterTextBox.Text+ "%");
 
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
@@ -151,18 +165,14 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentId = read.GetInt32(0).ToString(); // id  
-                sc.StudentLrn = read.GetInt32(1).ToString(); // LRN
-                sc.StudentName = read.GetString(2) + " " + read.GetString(3) + " " + read.GetString(4); // fullname
-                sc.StudentSection = read.GetString(5); // section  
-                sc.StudentLevel = read.GetInt32(6).ToString(); // level
-
-                //sc.StudentIDLabel.Text = "Student ID: " + read.GetInt32(0).ToString(); // id
-                //sc.StudentIDLabel.Text = "Student LRN: " + read.GetInt64(1).ToString(); // LRN
-                sc.StudentIDLabel.Text = read.GetInt64(1).ToString(); // LRN
-                sc.StudentNameLabel.Text = read.GetString(2) + " " + read.GetString(3) + " " + read.GetString(4); // fullname
-                sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
-                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
+                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
+                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -175,9 +185,9 @@ namespace Financial_System.UserControls
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE level = @level", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE level LIKE @level", conn);
 
-            sqlite_cmd.Parameters.AddWithValue("@level", FilterTextBox.Text);
+            sqlite_cmd.Parameters.AddWithValue("@level","%" +  FilterTextBox.Text + "%");
 
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
@@ -187,18 +197,14 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentId = read.GetInt32(0).ToString(); // id  
-                sc.StudentLrn = read.GetInt32(1).ToString(); // LRN
-                sc.StudentName = read.GetString(2) + " " + read.GetString(3) + " " + read.GetString(4); // fullname
-                sc.StudentSection = read.GetString(5); // section  
-                sc.StudentLevel = read.GetInt32(6).ToString(); // level
-
-                //sc.StudentIDLabel.Text = "Student ID: " + read.GetInt32(0).ToString(); // id
-                //sc.StudentIDLabel.Text = "Student LRN: " + read.GetInt64(1).ToString(); // LRN
-                sc.StudentIDLabel.Text = read.GetInt64(1).ToString(); // LRN
-                sc.StudentNameLabel.Text = read.GetString(2) + " " + read.GetString(3) + " " + read.GetString(4); // fullname
-                sc.StudentSectionLabel.Text = "Section: " + read.GetString(5); // section  
-                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(6).ToString(); // level
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
+                sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
+                sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
+                sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
+                sc.StudentSection = "Section: " + read.GetString(read.GetOrdinal("section")); // section  gettersetter
+                sc.StudentLevel = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level gettersetter
 
                 StudentFlowPanel.Controls.Add(sc);
             }
@@ -214,7 +220,7 @@ namespace Financial_System.UserControls
                 switch (filter)
                 {
                     case Filter.All:
-                        LoadStudentLedger(sql.CreateConnection());
+                        LoadStudentLedgerFromEnrolmentTable(sql.CreateConnection());
                         break;
                     case Filter.LRN:
                         LoadStudentLedgerByLRN(sql.CreateConnection());
@@ -229,7 +235,7 @@ namespace Financial_System.UserControls
                         LoadStudentLedgerByLevel(sql.CreateConnection());
                         break;
                     default:
-                        LoadStudentLedger(sql.CreateConnection()); // filter all by default
+                        LoadStudentLedgerFromEnrolmentTable(sql.CreateConnection()); // filter all by default
                         break;
                 }
             }

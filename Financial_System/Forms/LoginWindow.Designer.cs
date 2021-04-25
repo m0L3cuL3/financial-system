@@ -166,6 +166,7 @@ namespace Financial_System.Forms
             this.passTextBox.TabIndex = 1;
             this.passTextBox.textboxRadius = 15;
             this.passTextBox.UseSystemPasswordChar = true;
+            this.passTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passTextBox_KeyPress);
             // 
             // userTextBox
             // 

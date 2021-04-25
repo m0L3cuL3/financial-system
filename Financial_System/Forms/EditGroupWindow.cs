@@ -11,34 +11,22 @@ using System.Windows.Forms;
 
 namespace Financial_System.Forms
 {
-    public partial class EditFeeWindow : Form
+    public partial class EditGroupWindow : Form
     {
-
         SQLiteHandler sql = new SQLiteHandler();
         UIHandler ui = new UIHandler();
         Globals gb = new Globals();
         List<string> list = new List<string>();
 
-        string feeid;
-        bool isFee;
-        public EditFeeWindow(string feeid, bool isFee)
+        string groupid;
+        public EditGroupWindow(string groupid)
         {
             InitializeComponent();
             ui.RoundWindow(this);
-            this.feeid = feeid;
-            list = sql.GetFeesPayments(sql.CreateConnection(), Convert.ToInt32(feeid));
+            this.groupid = groupid;
+            list = sql.GetFGroup(sql.CreateConnection(), Convert.ToInt32(groupid));
             name.Text = list[1];
-            desc.Text = list[4];
-            amount.Text = list[2];
-            this.isFee = isFee;
-
-            if(!isFee)
-            {
-                namelbl.Text = "Payment (Discount) Name";
-                amountlbl.Text = "Payment/Discount";
-                this.Text = "Edit Payment";
-                amount.Text = list[3];
-            }
+            desc.Text = list[2];
         }
 
         private void updatebtn_Click(object sender, EventArgs e)
@@ -49,14 +37,7 @@ namespace Financial_System.Forms
 
             if (confirmResult == DialogResult.Yes)
             {
-                if(isFee)
-                { 
-                    sql.UpdateFP(sql.CreateConnection(), feeid, name.Text, desc.Text, Convert.ToInt32(amount.Text), null);
-                } else
-                {
-                    sql.UpdateFP(sql.CreateConnection(), feeid, name.Text, desc.Text, null, Convert.ToInt32(amount.Text));
-                }
-
+                sql.UpdateFPGroup(sql.CreateConnection(),groupid ,name.Text, desc.Text);
             }
             this.Close();
         }
@@ -69,15 +50,7 @@ namespace Financial_System.Forms
 
             if (confirmResult == DialogResult.Yes)
             {
-                if(isFee)
-                {
-                    sql.DeleteFP(sql.CreateConnection(), feeid);
-
-                }else
-                {
-                    sql.DeleteFP(sql.CreateConnection(), feeid);
-
-                }
+                sql.DeleteFPGroup(sql.CreateConnection(), groupid);
             }
             this.Close();
         }

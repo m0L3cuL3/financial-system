@@ -128,7 +128,7 @@ namespace Financial_System.Forms
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(checkBox1.Checked.ToString());
+
         }
 
         private async void TermDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -155,6 +155,27 @@ namespace Financial_System.Forms
             //string cellValue = Convert.ToString(selectedRow.Cells["enter column name"].Value);
 
             termid = TermDGV.Rows[selectedrowindex].Cells[0].Value.ToString();
+
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await sql.CreateParticulars(sql.CreateConnection());
+                MessageBox.Show("Template Particulars/Discounts Created!");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error! Particulars already in database!");
+                throw;
+            }
+        }
+
+        private void PassTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) addUserButton_Click(sender, e);  //Allow Enter  
 
         }
     }

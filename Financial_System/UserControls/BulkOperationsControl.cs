@@ -237,6 +237,7 @@ namespace Financial_System.UserControls
             {
                 List<string> intlist = sql.GetListsMembers(sql.CreateConnection(), dgv5selection);
                 sql.ExecuteFeeGroup(sql.CreateConnection(), Convert.ToInt32(groupid), intlist);
+                MessageBox.Show("Successfully applied Transactions in bulk! \n\n They will show up in the Student Ledgers.");
             }
             catch(Exception ex)
             {
@@ -277,6 +278,15 @@ namespace Financial_System.UserControls
             int selectedrowindex = dataGridView5.CurrentCell.RowIndex;
             DataGridViewRow selectedRow = dataGridView5.Rows[selectedrowindex];
             dgv5selection = dataGridView5.Rows[selectedrowindex].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            using (EditGroupWindow egw = new EditGroupWindow(groupid))
+            {
+                egw.ShowDialog(this.TopLevelControl);
+            }
+            refreshtables();
         }
     }
 }

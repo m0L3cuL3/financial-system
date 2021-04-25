@@ -18,7 +18,7 @@ namespace Financial_System.Utils
     class SQLiteHandler : ISQLite
     {
         Globals gs = new Globals();
-
+        
         public SQLiteConnection CreateConnection()
         {
             SQLiteConnection sqlite_conn;
@@ -75,13 +75,13 @@ namespace Financial_System.Utils
 
                 ///////////////////// DB by alexislyndon tables added: Enrolment_tbl, Fees_tbl, FeeGroup_tbl, Orphans_tbl
 
-                string EnrolmentTable = "CREATE TABLE IF NOT EXISTS Enrolment_tbl(enrolment_id INTEGER PRIMARY KEY AUTOINCREMENT, lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL, aycode VARCHAR);";
+                string EnrolmentTable = "CREATE TABLE IF NOT EXISTS Enrolment_tbl(enrolment_id INTEGER PRIMARY KEY AUTOINCREMENT, lrn INT NOT NULL UNIQUE, first_name VARCHAR NOT NULL, middle_name VARCHAR, surname VARCHAR NOT NULL, section VARCHAR NOT NULL, level INT NOT NULL, aycode INT NOT NULL, FOREIGN KEY(aycode) REFERENCES Term_tbl(term_id) ON UPDATE CASCADE, FOREIGN KEY(lrn) REFERENCES Student_tbl(lrn) ON UPDATE CASCADE );";
                 sqlite_cmd = conn.CreateCommand();
                 sqlite_cmd.CommandText = EnrolmentTable;
                 sqlite_cmd.ExecuteNonQuery();
 
                 // Schedule of Fees Table AKA Particulars// increases/decrease balance
-                string ScheduleFeesPayments = "CREATE TABLE IF NOT EXISTS FPTemplate_tbl(fp_id INTEGER PRIMARY KEY AUTOINCREMENT, fp_name  VARCHAR NOT NULL UNIQUE, amount INT, payment INT, fp_desc  VARCHAR NOT NULL);";
+                string ScheduleFeesPayments = "CREATE TABLE IF NOT EXISTS FPTemplate_tbl(fp_id INTEGER PRIMARY KEY AUTOINCREMENT, fp_name VARCHAR NOT NULL UNIQUE, amount INT, payment INT, fp_desc VARCHAR NOT NULL);";
                 sqlite_cmd = conn.CreateCommand();                        //Fee or Payment Template table
                 sqlite_cmd.CommandText = ScheduleFeesPayments;
                 sqlite_cmd.ExecuteNonQuery();
@@ -116,6 +116,63 @@ namespace Financial_System.Utils
                 sqlite_cmd.CommandText = OrphanTransactions;
                 sqlite_cmd.ExecuteNonQuery();*/
             });
+        }
+
+        public async Task CreateParticulars(SQLiteConnection conn)
+        {
+            await Task.Run(() =>
+            {
+                SQLiteCommand sqlite_cmd;
+                SQLiteCommand sqlite_cmd2;
+                string discounts = "INSERT INTO FPTemplate_tbl(fp_name, fp_desc, payment) VALUES ('JUNIOR Full Scholarship', 'Grade 7 - Grade 10 Full Amount', '12000')," +
+                "('SHS Full Scholarship', 'Grade 11 - Grade 12 Full Amount', '17000')," +
+                "('JUNIOR Tuition only Discount', 'Grade 7 - Grade 10 Tuition Only', '6790')," +
+                "('SHS Tuition only Discount', 'Grade 11 - Grade 12 Tuition Only', '11790');";
+                sqlite_cmd2 = conn.CreateCommand();
+                sqlite_cmd2.CommandText = discounts;
+
+
+                string Fees = "INSERT INTO FPTemplate_tbl(fp_name, fp_desc, amount) VALUES ('Junior Tuition Fee', 'Grade 7 - Grade 10 Tuition Fee', '6790' )," +
+                "('SHS Tuition Fee', 'Grade 11 - Grade 10 Tuition Fee', '11790' )," +
+                "('Testing', 'Testing Fee - all Levels', '300' )," +
+                "('Library', 'Library Fee - all levels', '200' )," +
+                "('Computer', 'Computer Fee - all levels', '400' )," +
+                "('Science Lab', 'Science Lab Fee - all levels', '100' )," +
+                "('TLE/Horti Lab', 'TLE/Horti Lab - all levels', '300' )," +
+                "('Athletics', 'Athletics Fee - all levels', '280' )," +
+                "('Cultural Fee', 'Cultural Fee - all levels', '100' )," +
+                "('Medical/Dental', 'Medical/Dental Services Fee', '500' )," +
+                "('Security Fee', 'Security Guard', '250' )," +
+                "('Band Support', 'Band Support Fee', '100' )," +
+                "('SSC', 'SSC', '100' )," +
+                "('Guidance Fee', 'Guidance Fee - all levels', '100' )," +
+                "('Campus Ministry', 'Campus Ministry - all levels', '100' )," +
+                "('Ceap Due', 'Ceap Due', '50' )," +
+                "('Student Handbook', 'Student Handbook - all levels', '80' )," +
+                "('ID Fee', 'Identification Card Fee - all levels', '150' )," +
+                "('Student Publication', 'Student Publication - all levels', '100' )," +
+                "('Test Permit Card', 'Test Permit Card Fee - all levels', '50' )," +
+                "('Energy Fee', 'Energy Fee - all levels', '200' )," +
+                "('Activity Fee', 'Activity Fee - all levels', '100' )," +
+                "('Facilities Development Fee', 'Facilities Development Fee - all levels', '1000' )," +
+                "('Faculty Development', 'Faculty Development - all levels', '250' )," +
+                "('Buacs & Ceap M', 'Buacs & Ceap M', '100' )," +
+                "('SWF Insurance', 'SWF Insurance', '100' )," +
+                "('PTA', 'PTA', '200' );";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = Fees;
+
+                try
+                {
+                    sqlite_cmd.ExecuteNonQuery();
+                    sqlite_cmd2.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Particulars Already in Database!");
+                }
+            });
+            
         }
 
         // Insert Student Data
@@ -174,7 +231,23 @@ namespace Financial_System.Utils
 
                 return numRows.ToString();
             });
-        }
+        } //CountCurrentTerm
+
+        // // ///
+        public int CountCurrentTerm(SQLiteConnection conn)
+        {
+                object result;
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = new SQLiteCommand("SELECT Count(*) FROM Term_tbl WHERE current = 1", conn);
+                result = sqlite_cmd.ExecuteScalar();
+                int numRows = Convert.ToInt32(result);
+
+                return numRows;
+        } //CountCurrentTerm
+        // // ///
+
+
+
 
         /// <summary>
         /// Post a transaction tied to a student by its lrn
@@ -198,7 +271,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@type", type);
             sqlite_cmd.Parameters.AddWithValue("@lrn", lrn);
             sqlite_cmd.Parameters.AddWithValue("@ref", reference);
-            sqlite_cmd.Parameters.AddWithValue("@term", Globals._term);
+            sqlite_cmd.Parameters.AddWithValue("@term", GetCurrentTerm(CreateConnection()));
             sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
             //MessageBox.Show(Globals._term.ToString());
 
@@ -370,7 +443,7 @@ namespace Financial_System.Utils
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE payment IS NOT NULL", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn); // WHERE payment > 0
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
             while (read.Read())
@@ -545,7 +618,14 @@ namespace Financial_System.Utils
                 sqlite_cmd.Parameters.AddWithValue("@uname", username);
                 sqlite_cmd.Parameters.AddWithValue("@upass", password);
 
-                sqlite_cmd.ExecuteNonQuery();
+                try
+                {
+                    sqlite_cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Duplicate Username! \n \n Please use a different username from the ones already in the list.");
+                }
             });
         }
 
@@ -735,7 +815,7 @@ namespace Financial_System.Utils
                         string amount = feedetails[2]; //amount
                         string payment = feedetails[3]; //payment
 
-                        MessageBox.Show($"FEE ID: {fid}\n NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}", "Fee Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show($"FEE ID: {fid}\n NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}", "Fee Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         InsertTransaction(conn, amount.Equals("") ? 0 : Convert.ToInt32(amount), payment.Equals("") ? 0 : Convert.ToInt32(payment), name, student.ToString(), feegroupname);
                     }
@@ -809,6 +889,29 @@ namespace Financial_System.Utils
             }
         }
 
+        // // // 
+        public List<string> GetFGroup(SQLiteConnection conn, int fg_id)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("Select * From FeeGroup_tbl WHERE fg_id = @fgid", conn);
+            sqlite_cmd.Parameters.AddWithValue("@fgid", fg_id);
+            List<string> fg = new List<string>();
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    fg.Add(read.GetValue(0).ToString()); //Group_id
+                    fg.Add(read.GetValue(1).ToString()); //name
+                    fg.Add(read.GetValue(2).ToString()); //desc
+                }
+
+                return fg; // returns details of a payment/fee in a form of List
+            }
+        }
+        // // //
+
+
         public void GetFeesPaymentstoDGV(SQLiteConnection conn, string fp_id, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
@@ -874,6 +977,26 @@ namespace Financial_System.Utils
             }
         }
 
+        // ///////// // // ////
+        public int GetCurrentTerm(SQLiteConnection conn)
+        {
+            int tt = -1;
+
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl WHERE current = 1", conn);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    tt = (int)read.GetInt32(0);
+                }
+            }
+            //MessageBox.Show(tt.ToString()); // shows the current term id
+            return tt;
+        }
+        // ////////
+
         public void GetPayments(SQLiteConnection conn, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
@@ -933,24 +1056,6 @@ namespace Financial_System.Utils
             }
         }
 
-        public int GetCurrentTerm(SQLiteConnection conn)
-        {
-            int tt = -1;
-
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl WHERE current = 1", conn);
-
-            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
-            {
-                while(read.Read())
-                {
-                    tt =  (int)read.GetInt32(0);
-                }
-            }
-            //MessageBox.Show(tt.ToString()); // shows the current term id
-            return tt;
-        }
-
         /// <summary>
         /// Update Fee or Payment. Set amound or payment params to null if not applicable
         /// </summary>
@@ -1006,10 +1111,48 @@ namespace Financial_System.Utils
                 sqlite_cmd.ExecuteNonQuery();
         }
 
+
+
+
+
+        // // // // // 
+        public void UpdateFPGroup(SQLiteConnection conn, string feegroupid, string name, string desc)
+        {
+                SQLiteCommand sqlite_cmd;
+                string UpdatePayment = "UPDATE FeeGroup_tbl SET fg_name = @name, fg_desc = @desc WHERE fg_id = @id";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = UpdatePayment;
+
+                sqlite_cmd.Parameters.AddWithValue("@id", feegroupid); // 
+                sqlite_cmd.Parameters.AddWithValue("@desc", desc); // 
+                sqlite_cmd.Parameters.AddWithValue("@name", name); // 
+
+                sqlite_cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteFPGroup(SQLiteConnection conn, string feegroupid)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "DELETE FROM FeeGroup_tbl WHERE fg_id = @fpid;";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            sqlite_cmd.Parameters.AddWithValue("@fpid", feegroupid);
+            //sqlite_cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+        // // // // // 
+
+
+
         public void GetStudents(SQLiteConnection conn, DataGridView dgv, bool enrolledonly)
         {
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("Select * From Student_tbl", conn); //AND TERM = current term
+            sqlite_cmd = new SQLiteCommand("Select * From Enrolment_tbl", conn);
+            //sqlite_cmd = new SQLiteCommand("Select * From Enrolment_tbl WHERE aycode = @term", conn); //AND TERM = current term
+            //sqlite_cmd.Parameters.AddWithValue("@term", gs._term.ToString());
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
@@ -1017,10 +1160,13 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),  // tid
+                        read.GetValue(1),  // tid
                         read.GetValue(read.GetOrdinal("surname")), // amount
                         read.GetValue(read.GetOrdinal("first_name")), // payment
                         read.GetValue(read.GetOrdinal("middle_name")), // type
+                        read.GetValue(read.GetOrdinal("level")), // type
+                        read.GetValue(read.GetOrdinal("section")), // type
+
                     });
                 }
             }
@@ -1031,7 +1177,7 @@ namespace Financial_System.Utils
             string family = "%" + familyname  + "%";
 
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE surname LIKE IIF(IFNULL(@surname, '') = '', surname, @surname)", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE surname LIKE IIF(IFNULL(@surname, '') = '', surname, @surname)", conn);
             //sqlite_cmd.Parameters.AddWithValue("@lrn", lrn); // 
             //sqlite_cmd.Parameters.AddWithValue("@desc", middlename); // 
             //sqlite_cmd.Parameters.AddWithValue("@name", familyname); // 
@@ -1043,10 +1189,12 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),  
+                        read.GetValue(1),  
                         read.GetValue(read.GetOrdinal("surname")), 
                         read.GetValue(read.GetOrdinal("first_name")), 
-                        read.GetValue(read.GetOrdinal("middle_name")), 
+                        read.GetValue(read.GetOrdinal("middle_name")),
+                        read.GetValue(read.GetOrdinal("level")),
+                        read.GetValue(read.GetOrdinal("section"))
                     });
                 }
             }
@@ -1057,7 +1205,7 @@ namespace Financial_System.Utils
             string id = "%" + lrn + "%";
 
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Student_tbl WHERE lrn LIKE IIF(IFNULL(@lrn, '') = '', lrn, @lrn)", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Enrolment_tbl WHERE lrn LIKE IIF(IFNULL(@lrn, '') = '', lrn, @lrn)", conn);
             //sqlite_cmd.Parameters.AddWithValue("@lrn", lrn); // 
             //sqlite_cmd.Parameters.AddWithValue("@desc", middlename); // 
             //sqlite_cmd.Parameters.AddWithValue("@name", familyname); // 
@@ -1069,10 +1217,12 @@ namespace Financial_System.Utils
                 while (read.Read())
                 {
                     dgv.Rows.Add(new object[] {
-                        read.GetValue(0),
+                        read.GetValue(1),
                         read.GetValue(read.GetOrdinal("surname")),
                         read.GetValue(read.GetOrdinal("first_name")),
                         read.GetValue(read.GetOrdinal("middle_name")),
+                        read.GetValue(read.GetOrdinal("level")), 
+                        read.GetValue(read.GetOrdinal("section"))
                     });
                 }
             }
