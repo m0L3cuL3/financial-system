@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Financial_System.Forms
@@ -72,12 +73,13 @@ namespace Financial_System.Forms
                     var lrn = STUD_DGV.Rows[i].Cells["LRN"].Value;
                     var fullname = (string)STUD_DGV.Rows[i].Cells["STUDENT_NAME"].Value;
                     string[] name = fullname.Split(null);
+                    string surname = fullname.Split(null).Last();
                     var section = STUD_DGV.Rows[i].Cells["SECTION"].Value.ToString();
                     var fulllevel = (string)STUD_DGV.Rows[i].Cells["GRADE_LEVEL"].Value;
                     string[] level = fulllevel.Split(null);
-                    var aycode = (string)STUD_DGV.Rows[i].Cells["AY_CODE"].Value;
-                    sql.InsertImportData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2], section, Convert.ToInt32(level[1]), gb._term.ToString());
-                    sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], name[2]);
+                    //var aycode = (string)STUD_DGV.Rows[i].Cells["AY_CODE"].Value;
+                    sql.InsertImportData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], surname, section, Convert.ToInt32(level[1]), gb._term.ToString());
+                    sql.InsertStudentData(sql.CreateConnection(), Convert.ToInt64(lrn), name[0], name[1], surname);
                 }
                 MessageBox.Show($"CSV Loaded", "Import Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
