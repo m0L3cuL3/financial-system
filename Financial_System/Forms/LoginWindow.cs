@@ -50,13 +50,13 @@ namespace Financial_System.Forms
                         }
                         else
                         {
-                            MessageBox.Show("Invalid Input | Try Again.");
+                            MessageBox.Show("Invalid Input | Try Again.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                     case false:
                         if (sql.CountCurrentTerm(sql.CreateConnection()) == 0)
                         {
-                            MessageBox.Show("Please create a Term in the Admin Panel and Make sure its set as the 'Current' Term");
+                            MessageBox.Show("Please create a Term in the Admin Panel and Make sure its set as the 'Current' Term", "No Term", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
                         if (await sql.GetUserCreds(sql.CreateConnection(), userTextBox.Text, passTextBox.Text))
@@ -67,7 +67,7 @@ namespace Financial_System.Forms
                         }
                         else
                         {
-                            MessageBox.Show("Invalid Input | Try Again.");
+                            MessageBox.Show("Invalid Input | Try Again.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
                 }
