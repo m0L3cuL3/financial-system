@@ -17,6 +17,7 @@ namespace Financial_System.Forms
             InitializeComponent();
 
             UsernameLabel.Text = currUser;
+            termlbl.Text = Globals._term.ToString();
 
             // UIHandler
             ui.RoundWindow(this); // makes the window round.

@@ -9,7 +9,7 @@ namespace Financial_System
     public class Globals
     {
 
-        public static int _term;
+        public static int _term = -1;
 
         // SUPERUSERS //
         public string USER_NAME = "admin";

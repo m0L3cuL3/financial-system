@@ -163,12 +163,20 @@ namespace Financial_System.Forms
             try
             {
                 await sql.CreateParticulars(sql.CreateConnection());
+                MessageBox.Show("Template Particulars/Discounts Created!");
+
             }
             catch (Exception)
             {
                 MessageBox.Show("Error! Particulars already in database!");
                 throw;
             }
+        }
+
+        private void PassTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) addUserButton_Click(sender, e);  //Allow Enter  
+
         }
     }
 }

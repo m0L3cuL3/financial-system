@@ -415,6 +415,7 @@
             this.dataGridView4.Size = new System.Drawing.Size(258, 166);
             this.dataGridView4.TabIndex = 15;
             this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
+            this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
             this.dataGridView4.SelectionChanged += new System.EventHandler(this.dataGridView4_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn4

@@ -231,7 +231,23 @@ namespace Financial_System.Utils
 
                 return numRows.ToString();
             });
-        }
+        } //CountCurrentTerm
+
+        // // ///
+        public int CountCurrentTerm(SQLiteConnection conn)
+        {
+                object result;
+                SQLiteCommand sqlite_cmd;
+                sqlite_cmd = new SQLiteCommand("SELECT Count(*) FROM Term_tbl WHERE current = 1", conn);
+                result = sqlite_cmd.ExecuteScalar();
+                int numRows = Convert.ToInt32(result);
+
+                return numRows;
+        } //CountCurrentTerm
+        // // ///
+
+
+
 
         /// <summary>
         /// Post a transaction tied to a student by its lrn
@@ -255,7 +271,7 @@ namespace Financial_System.Utils
             sqlite_cmd.Parameters.AddWithValue("@type", type);
             sqlite_cmd.Parameters.AddWithValue("@lrn", lrn);
             sqlite_cmd.Parameters.AddWithValue("@ref", reference);
-            sqlite_cmd.Parameters.AddWithValue("@term", Globals._term);
+            sqlite_cmd.Parameters.AddWithValue("@term", Globals._term.ToString());
             sqlite_cmd.Parameters.AddWithValue("@date_recorded", DateTime.Now);
             //MessageBox.Show(Globals._term.ToString());
 
@@ -427,7 +443,7 @@ namespace Financial_System.Utils
         {
             SQLiteCommand sqlite_cmd;
 
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl WHERE payment IS NOT NULL", conn);
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Transaction_tbl", conn); // WHERE payment > 0
             SQLiteDataReader read = sqlite_cmd.ExecuteReader();
 
             while (read.Read())
@@ -602,7 +618,14 @@ namespace Financial_System.Utils
                 sqlite_cmd.Parameters.AddWithValue("@uname", username);
                 sqlite_cmd.Parameters.AddWithValue("@upass", password);
 
-                sqlite_cmd.ExecuteNonQuery();
+                try
+                {
+                    sqlite_cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Duplicate Username! \n \n Please use a different username from the ones already in the list.");
+                }
             });
         }
 
@@ -792,7 +815,7 @@ namespace Financial_System.Utils
                         string amount = feedetails[2]; //amount
                         string payment = feedetails[3]; //payment
 
-                        MessageBox.Show($"FEE ID: {fid}\n NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}", "Fee Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show($"FEE ID: {fid}\n NAME: {name}\n DESC: {desc}\n AMOUNT: {amount}\n PAYMENT: {payment}", "Fee Group", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         InsertTransaction(conn, amount.Equals("") ? 0 : Convert.ToInt32(amount), payment.Equals("") ? 0 : Convert.ToInt32(payment), name, student.ToString(), feegroupname);
                     }
@@ -866,6 +889,29 @@ namespace Financial_System.Utils
             }
         }
 
+        // // // 
+        public List<string> GetFGroup(SQLiteConnection conn, int fg_id)
+        {
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("Select * From FeeGroup_tbl WHERE fg_id = @fgid", conn);
+            sqlite_cmd.Parameters.AddWithValue("@fgid", fg_id);
+            List<string> fg = new List<string>();
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    fg.Add(read.GetValue(0).ToString()); //Group_id
+                    fg.Add(read.GetValue(1).ToString()); //name
+                    fg.Add(read.GetValue(2).ToString()); //desc
+                }
+
+                return fg; // returns details of a payment/fee in a form of List
+            }
+        }
+        // // //
+
+
         public void GetFeesPaymentstoDGV(SQLiteConnection conn, string fp_id, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
@@ -931,6 +977,26 @@ namespace Financial_System.Utils
             }
         }
 
+        // ///////// // // ////
+        public int GetCurrentTerm(SQLiteConnection conn)
+        {
+            int tt = -1;
+
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl WHERE current = 1", conn);
+
+            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
+            {
+                while (read.Read())
+                {
+                    tt = (int)read.GetInt32(0);
+                }
+            }
+            //MessageBox.Show(tt.ToString()); // shows the current term id
+            return tt;
+        }
+        // ////////
+
         public void GetPayments(SQLiteConnection conn, DataGridView dgv)
         {
             SQLiteCommand sqlite_cmd;
@@ -990,24 +1056,6 @@ namespace Financial_System.Utils
             }
         }
 
-        public int GetCurrentTerm(SQLiteConnection conn)
-        {
-            int tt = -1;
-
-            SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("SELECT * FROM Term_tbl WHERE current = 1", conn);
-
-            using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
-            {
-                while(read.Read())
-                {
-                    tt =  (int)read.GetInt32(0);
-                }
-            }
-            //MessageBox.Show(tt.ToString()); // shows the current term id
-            return tt;
-        }
-
         /// <summary>
         /// Update Fee or Payment. Set amound or payment params to null if not applicable
         /// </summary>
@@ -1063,10 +1111,47 @@ namespace Financial_System.Utils
                 sqlite_cmd.ExecuteNonQuery();
         }
 
+
+
+
+
+        // // // // // 
+        public void UpdateFPGroup(SQLiteConnection conn, string feegroupid, string name, string desc)
+        {
+                SQLiteCommand sqlite_cmd;
+                string UpdatePayment = "UPDATE FeeGroup_tbl SET fg_name = @name, fg_desc = @desc WHERE fg_id = @id";
+                sqlite_cmd = conn.CreateCommand();
+                sqlite_cmd.CommandText = UpdatePayment;
+
+                sqlite_cmd.Parameters.AddWithValue("@id", feegroupid); // 
+                sqlite_cmd.Parameters.AddWithValue("@desc", desc); // 
+                sqlite_cmd.Parameters.AddWithValue("@name", name); // 
+
+                sqlite_cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteFPGroup(SQLiteConnection conn, string feegroupid)
+        {
+            SQLiteCommand sqlite_cmd;
+
+            string insertData = "DELETE FROM FeeGroup_tbl WHERE fg_id = @fpid;";
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = insertData;
+
+            sqlite_cmd.Parameters.AddWithValue("@fpid", feegroupid);
+            //sqlite_cmd.Parameters.AddWithValue("@date_created", DateTime.Now);
+
+            sqlite_cmd.ExecuteNonQuery();
+        }
+        // // // // // 
+
+
+
         public void GetStudents(SQLiteConnection conn, DataGridView dgv, bool enrolledonly)
         {
             SQLiteCommand sqlite_cmd;
-            sqlite_cmd = new SQLiteCommand("Select * From Student_tbl", conn); //AND TERM = current term
+            sqlite_cmd = new SQLiteCommand("Select * From Enrolment_tbl WHERE aycode = @term", conn); //AND TERM = current term
+            sqlite_cmd.Parameters.AddWithValue("@term", Globals._term.ToString());
 
             using (SQLiteDataReader read = sqlite_cmd.ExecuteReader())
             {
@@ -1078,6 +1163,9 @@ namespace Financial_System.Utils
                         read.GetValue(read.GetOrdinal("surname")), // amount
                         read.GetValue(read.GetOrdinal("first_name")), // payment
                         read.GetValue(read.GetOrdinal("middle_name")), // type
+                        read.GetValue(read.GetOrdinal("level")), // type
+                        read.GetValue(read.GetOrdinal("section")), // type
+
                     });
                 }
             }

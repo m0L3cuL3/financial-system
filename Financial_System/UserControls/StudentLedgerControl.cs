@@ -69,9 +69,9 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
@@ -101,9 +101,9 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
@@ -133,9 +133,9 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
@@ -165,9 +165,9 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
@@ -197,9 +197,9 @@ namespace Financial_System.UserControls
             while (read.Read())
             {
                 sc = new StudentItemControl();
-                sc.StudentLrn = read.GetInt64(0).ToString(); // LRN
+                sc.StudentLrn = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentName = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
-                sc.StudentIDLabel.Text = read.GetInt64(0).ToString(); // LRN
+                sc.StudentIDLabel.Text = read.GetInt64(read.GetOrdinal("lrn")).ToString(); // LRN
                 sc.StudentNameLabel.Text = read.GetString(read.GetOrdinal("first_name")) + " " + read.GetString(read.GetOrdinal("middle_name")) + " " + read.GetString(read.GetOrdinal("surname")); // fullname
                 sc.StudentSectionLabel.Text = "Section: " + read.GetString(read.GetOrdinal("section")); // section  
                 sc.StudentLevelLabel.Text = "Level: " + read.GetInt32(read.GetOrdinal("level")).ToString(); // level
@@ -220,7 +220,7 @@ namespace Financial_System.UserControls
                 switch (filter)
                 {
                     case Filter.All:
-                        LoadStudentLedger(sql.CreateConnection());
+                        LoadStudentLedgerFromEnrolmentTable(sql.CreateConnection());
                         break;
                     case Filter.LRN:
                         LoadStudentLedgerByLRN(sql.CreateConnection());
@@ -235,7 +235,7 @@ namespace Financial_System.UserControls
                         LoadStudentLedgerByLevel(sql.CreateConnection());
                         break;
                     default:
-                        LoadStudentLedger(sql.CreateConnection()); // filter all by default
+                        LoadStudentLedgerFromEnrolmentTable(sql.CreateConnection()); // filter all by default
                         break;
                 }
             }
